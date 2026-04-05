@@ -1,0 +1,5 @@
+export { About } from './About'
+export { Experience } from './Experience'
+export { Tech } from './Tech'
+export { Projects } from './Projects'
+export { Contact } from './Contact'
