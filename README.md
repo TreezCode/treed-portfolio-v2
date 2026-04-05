@@ -140,7 +140,7 @@ MIT License - feel free to use this as inspiration for your own portfolio.
 
 ## 🔗 Links
 
-- **Live Site:** [joeykulbalak.com](https://joeykulbalak.com)
+- **Live Site:** Coming Soon
 - **GitHub:** [@TreezCode](https://github.com/TreezCode)
 - **LinkedIn:** [Joey Kubalak](https://www.linkedin.com/in/joey-kubalak-425032180/)
 
