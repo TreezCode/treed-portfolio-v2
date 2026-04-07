@@ -93,7 +93,7 @@ export function Contact() {
 
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000)
-    } catch (error) {
+    } catch {
       setSubmitStatus('error')
       setTimeout(() => setSubmitStatus('idle'), 5000)
     } finally {
@@ -105,7 +105,7 @@ export function Contact() {
     'w-full max-w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-[#0a0a14] border border-white/10 rounded-xl text-white placeholder-gray-500 transition-all duration-300 box-border text-sm sm:text-base focus:outline-none focus:border-transparent'
 
   return (
-    <section id="contact" className="relative py-12 sm:py-24 overflow-x-clip" style={{ background: '#0a0a0f' }}>
+    <section id="contact" aria-label="Contact" className="relative py-12 sm:py-24 overflow-x-clip" style={{ background: '#0a0a0f' }}>
       {/* Sacred Geometry Background - Seed of Life */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <SeedOfLife size={2.5} opacity={0.04} position="center" color="#915eff" />

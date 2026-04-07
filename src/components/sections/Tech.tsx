@@ -47,7 +47,7 @@ export function Tech() {
   }
 
   return (
-    <section id="tech" className="relative py-12 sm:py-24 bg-background-primary overflow-hidden">
+    <section id="tech" aria-label="Technologies" className="relative py-12 sm:py-24 bg-background-primary overflow-hidden">
       <div className="relative z-10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

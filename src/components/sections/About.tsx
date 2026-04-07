@@ -122,7 +122,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
 
 export function About() {
   return (
-    <section id="about" className="relative py-12 sm:py-24 bg-background-secondary overflow-hidden">
+    <section id="about" aria-label="About Me" className="relative py-12 sm:py-24 bg-background-secondary overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-8 sm:mb-16">

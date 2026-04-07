@@ -17,11 +17,11 @@ export default function Home() {
   const { headTextRef, subTextRef } = useTyped(heroContent)
 
   return (
-    <main className="relative">
+    <div className="relative">
       {/* Hero Section */}
-      <section id="hero" className="relative w-full h-screen overflow-hidden">
+      <section id="hero" aria-label="Hero" className="relative w-full h-screen overflow-hidden">
         {/* Sacred Geometry Background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background-primary via-background-secondary to-background-primary">
+        <div className="absolute inset-0 bg-linear-to-b from-background-primary via-background-secondary to-background-primary">
           <SacredGeometry />
         </div>
 
@@ -55,7 +55,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#915eff]/20 to-[#00d4ff]/20 border border-[#915eff]/30 backdrop-blur-sm w-fit"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-[#915eff]/20 to-[#00d4ff]/20 border border-[#915eff]/30 backdrop-blur-sm w-fit"
             >
               <div className="relative">
                 <div className="w-2 h-2 bg-[#00d4ff] rounded-full animate-pulse" />
@@ -89,10 +89,10 @@ export default function Home() {
                   e.preventDefault()
                   document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#915eff] to-[#ff6b9d] rounded-xl font-semibold text-white shadow-lg hover:shadow-[#915eff]/50 transition-all duration-300 hover:scale-105 overflow-hidden"
+                className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-linear-to-r from-[#915eff] to-[#ff6b9d] rounded-xl font-semibold text-white shadow-lg hover:shadow-[#915eff]/50 transition-all duration-300 hover:scale-105 overflow-hidden"
               >
                 <span className="relative z-10">View My Work</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#ff6b9d] to-[#915eff] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-linear-to-r from-[#ff6b9d] to-[#915eff] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </a>
               
               {/* Secondary CTA */}
@@ -184,6 +184,6 @@ export default function Home() {
 
       {/* Contact Section */}
       <Contact />
-    </main>
+    </div>
   )
 }

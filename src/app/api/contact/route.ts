@@ -2,7 +2,11 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { contactSchema } from '@/lib/validations/contact'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+function getResend() {
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey) throw new Error('RESEND_API_KEY is not configured')
+  return new Resend(apiKey)
+}
 
 export async function POST(request: Request) {
   try {
@@ -10,6 +14,7 @@ export async function POST(request: Request) {
     const validatedData = contactSchema.parse(body)
 
     // Send email using Resend
+    const resend = getResend()
     const { data, error } = await resend.emails.send({
       from: process.env.CONTACT_EMAIL_FROM || 'onboarding@resend.dev',
       to: process.env.CONTACT_EMAIL_TO || 'your.email@example.com',

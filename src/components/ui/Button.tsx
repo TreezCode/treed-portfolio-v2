@@ -32,11 +32,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     if (asChild && children) {
       // Clone the child element and add our classes
-      const child = children as React.ReactElement
+      const child = children as React.ReactElement<Record<string, unknown>>
       return (
         <child.type
           {...child.props}
-          className={cn(classes, child.props.className)}
+          className={cn(classes, child.props.className as string)}
           ref={ref}
         />
       )

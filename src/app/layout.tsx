@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://joeykulbalak.com',
+    url: 'https://joeykubalak.com',
     title: 'Joey Kubalak | Senior Frontend Developer',
     description:
       'Senior Frontend Developer specializing in React, Next.js, and Three.js. Creating immersive 3D web experiences.',
@@ -76,8 +76,31 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-screen flex flex-col bg-background-primary text-text-primary">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Joey Kubalak',
+              url: 'https://joeykubalak.com',
+              jobTitle: 'Senior Frontend Developer',
+              knowsAbout: ['React', 'Next.js', 'Three.js', 'TypeScript', 'WebGL', '3D Web Development'],
+              sameAs: [
+                'https://github.com/TreezCode',
+                'https://www.linkedin.com/in/joey-kubalak-425032180/',
+              ],
+            }),
+          }}
+        />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:bg-[#915eff] focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold"
+        >
+          Skip to main content
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>

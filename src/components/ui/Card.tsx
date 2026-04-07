@@ -11,7 +11,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
       default: 'bg-background-secondary border border-background-tertiary',
       glass: 'bg-white/5 backdrop-blur-xl border border-white/10',
       gradient:
-        'bg-gradient-to-br from-accent-primary/10 to-accent-secondary/10 border border-accent-primary/20',
+        'bg-linear-to-br from-accent-primary/10 to-accent-secondary/10 border border-accent-primary/20',
     }
 
     return (

@@ -303,7 +303,7 @@ export function Projects() {
     filter === 'all' ? projects : projects.filter((p) => p.tags.includes(filter))
 
   return (
-    <section id="work" className="relative py-12 sm:py-24 bg-background-primary overflow-hidden">
+    <section id="work" aria-label="Featured Projects" className="relative py-12 sm:py-24 bg-background-primary overflow-hidden">
       {/* Sacred Geometry Background - Metatron's Cube */}
       <div className="absolute inset-0 pointer-events-none">
         <MetatronsCube opacity={0.05} color="#915eff" secondaryColor="#00d4ff" />
