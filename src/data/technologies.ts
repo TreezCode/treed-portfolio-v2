@@ -1,6 +1,7 @@
 export interface Technology {
   name: string
   category: 'frontend' | 'backend' | 'database' | 'tools'
+  icon?: string // Optional icon path for future decal implementation
 }
 
 export const technologies: Technology[] = [

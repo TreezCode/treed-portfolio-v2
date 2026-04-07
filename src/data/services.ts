@@ -8,21 +8,21 @@ export const services: Service[] = [
   {
     title: 'Web Developer',
     description: 'Building responsive, performant web applications with modern technologies',
-    icon: '🌐',
+    icon: 'Globe',
   },
   {
     title: 'MERN Stack Developer',
     description: 'Full-stack development using MongoDB, Express, React, and Node.js',
-    icon: '⚡',
+    icon: 'Zap',
   },
   {
     title: 'Frontend Developer',
     description: 'Creating intuitive user interfaces with React, Next.js, and TypeScript',
-    icon: '💻',
+    icon: 'Code',
   },
   {
     title: 'UI/UX Developer',
     description: 'Designing and implementing user-centered digital experiences',
-    icon: '🎨',
+    icon: 'Palette',
   },
 ]
