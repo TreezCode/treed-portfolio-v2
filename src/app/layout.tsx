@@ -20,20 +20,28 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Joey Kubalak | Senior Frontend Developer',
+    default: 'Joey Kubalak | Junior Software Engineer',
     template: '%s | Joey Kubalak',
   },
   description:
-    'Senior Frontend Developer specializing in React, Next.js, and Three.js. Creating immersive 3D web experiences and modern user interfaces.',
+    'Junior Software Engineer with a focus on cybersecurity and secure web architecture. Building dynamic, SEO-optimized solutions with React, Next.js, and Three.js. CompTIA Security+ certified with hands-on knowledge of security tools.',
   keywords: [
+    'Junior Software Engineer',
     'Frontend Developer',
+    'Cybersecurity',
+    'CompTIA Security+',
     'React Developer',
     'Next.js',
     'Three.js',
-    'WebGL',
-    '3D Web Development',
+    'Full Stack Developer',
+    'Secure Web Development',
     'TypeScript',
     'JavaScript',
+    'Information Security',
+    'AI Development',
+    'Machine Learning',
+    'Stable Diffusion',
+    'Emerging Technologies',
     'Web Developer',
     'Portfolio',
   ],
@@ -43,16 +51,16 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://joeykubalak.com',
-    title: 'Joey Kubalak | Senior Frontend Developer',
+    title: 'Joey Kubalak | Junior Software Engineer',
     description:
-      'Senior Frontend Developer specializing in React, Next.js, and Three.js. Creating immersive 3D web experiences.',
+      'Junior Software Engineer with cybersecurity focus. CompTIA Security+ certified. Building secure, dynamic web applications with React, Next.js, and Three.js.',
     siteName: 'Joey Kubalak Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Joey Kubalak | Senior Frontend Developer',
+    title: 'Joey Kubalak | Junior Software Engineer',
     description:
-      'Senior Frontend Developer specializing in React, Next.js, and Three.js',
+      'Junior Software Engineer | CompTIA Security+ | React, Next.js, Three.js | Cybersecurity Focus',
   },
   robots: {
     index: true,

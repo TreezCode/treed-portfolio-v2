@@ -5,6 +5,8 @@ import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { services } from '@/data'
 import { Globe, Zap, Code, Palette } from 'lucide-react'
 import { useRef, useState } from 'react'
+import { FruitOfLife } from '@/components/backgrounds/FruitOfLife'
+import { useIsMobile } from '@/hooks/useMobileReduced'
 
 // Icon mapping
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -17,6 +19,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
   const tiltRef = useRef<HTMLDivElement>(null)
   const [isHovering, setIsHovering] = useState(false)
+  const isMobile = useIsMobile()
 
   const brandColors = [
     { from: '#915eff', to: '#ff6b9d' }, // Purple to Pink
@@ -27,7 +30,8 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
   const colors = brandColors[index % brandColors.length]
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!tiltRef.current) return
+    // Disable tilt on mobile/touch devices
+    if (!tiltRef.current || isMobile) return
     
     const card = e.currentTarget
     const rect = card.getBoundingClientRect()
@@ -54,11 +58,11 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
-      className="w-full"
+      className="group w-full"
     >
       <div
         ref={tiltRef}
@@ -83,15 +87,22 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
       >
         {/* Card Content */}
         <div className="bg-background-primary rounded-2xl p-6 sm:p-8 min-h-[280px] flex flex-col justify-center items-center text-center relative overflow-hidden">
-          {/* Glow Effect */}
-          {isHovering && (
-            <div
-              className="absolute inset-0 opacity-10"
-              style={{
-                background: `radial-gradient(circle at 50% 50%, ${colors.from}, transparent 70%)`,
-              }}
+          {/* Radial Glow Effect */}
+          <div
+            className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none"
+            style={{
+              background: `radial-gradient(circle at 50% 0%, ${colors.from}15, transparent 60%)`,
+            }}
+          />
+
+          {/* Fruit of Life sacred geometry background */}
+          <div className="absolute -bottom-8 -right-8 opacity-[0.07] group-hover:opacity-[0.14] transition-opacity duration-500 pointer-events-none">
+            <FruitOfLife
+              color={colors.from}
+              secondaryColor={colors.to}
+              className="w-48 h-48 sm:w-56 sm:h-56"
             />
-          )}
+          </div>
 
           {/* Icon */}
           <div 
@@ -131,9 +142,10 @@ export function About() {
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">About Me</h2>
             <p className="text-base sm:text-xl text-text-secondary max-w-3xl mx-auto px-4">
-              I&apos;m a passionate full-stack developer with expertise in building modern web
-              applications. I specialize in React, Next.js, and Three.js, creating immersive 3D
-              experiences and intuitive user interfaces.
+              I&apos;m a junior software engineer with a growing focus on cybersecurity and secure web architecture.
+              Skilled in building dynamic, SEO-optimized solutions with React, Next.js, and modern frameworks.
+              CompTIA Security+ certified with a passion for AI and emerging technologies, I combine frontend expertise
+              with hands-on security knowledge to deliver scalable, user-focused applications.
             </p>
           </div>
         </ScrollReveal>

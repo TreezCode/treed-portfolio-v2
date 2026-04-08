@@ -1,11 +1,12 @@
 export const heroContent = {
   headText: ["Hi I'm <span style='color:#915eff'>Joey</span>."],
   subText: [
-    "I develop immersive 3D visuals, intuitive user interfaces and dynamic web applications.",
-    "Whether I'm creating complex user interfaces or implementing complex logic, React allows me to write scalable code.",
-    "With a passion for visual design and a keen eye for detail, I create immersive 3D animations that bring web experiences to life.",
-    "From HTML and CSS to JavaScript and Node.js, I have expertise in both frontend and backend technologies.",
-    "I work with a wide range of tools and frameworks to build custom web applications that meet business needs.",
-    "I focus on creating intuitive, user-friendly interfaces that drive engagement and conversions.",
+    "I'm a junior software engineer with a growing focus on cybersecurity and secure web architecture.",
+    "Skilled in building dynamic, SEO-optimized solutions using React, Next.js, WordPress, and Shopify.",
+    "Experienced in frontend design and backend logic, with hands-on knowledge of security tools like Metasploit and Burp Suite.",
+    "CompTIA Security+ certified with expertise in both modern web technologies and network security principles.",
+    "Passionate about AI and emerging technologies — from generative art with Stable Diffusion to agentic workflows with cutting-edge development tools.",
+    "I deliver scalable, user-focused solutions while continuously expanding my skills in ethical hacking and secure development.",
+    "From responsive interfaces to immersive 3D experiences, I create web applications that are both beautiful and secure.",
   ],
 }

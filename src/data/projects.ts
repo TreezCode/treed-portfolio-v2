@@ -11,6 +11,33 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: '3d-portfolio',
+    name: '3D Portfolio',
+    description:
+      "Designed and developed a front-end web developer portfolio showcasing clean design with interactive 3D elements using Three.js. Animated with Framer-motion and styled with Tailwind CSS for a minimalist touch. Implements sacred geometry patterns and immersive WebGL experiences.",
+    tags: ['React', 'Next.js', 'Three.js', 'TypeScript', 'Tailwind CSS'],
+    sourceCode: 'https://github.com/TreezCode/treed-portfolio-v2',
+    liveDemo: 'https://joeykubalak.com/',
+    featured: true,
+  },
+  {
+    id: 'ascension-roofing',
+    name: 'Ascension Roofing Colorado',
+    description:
+      'Designed in Figma and built with Bricks Builder in WordPress, leveraging plugins like ACSS, Frames, ACF, and RankMath SEO. Implemented scalable architecture using custom post types and dynamic service area pages to enhance SEO. Led all phases of the project including development, hosting, SEO optimization, and ongoing maintenance.',
+    tags: ['WordPress', 'Figma', 'Bricks Builder', 'SEO', 'ACF'],
+    liveDemo: 'https://ascensionroofingcolorado.com/',
+    featured: true,
+  },
+  {
+    id: 'florida-fungi',
+    name: 'Florida Fungi Farm',
+    description:
+      'Developed a fully responsive e-commerce site for gourmet and medicinal mushrooms using Shopify with custom Liquid code and WS Form. Managed end-to-end delivery: hosting, design, development, SEO strategy, and ongoing maintenance. Launched a professional online storefront that enabled the client to start a successful mushroom business in Florida.',
+    tags: ['Shopify', 'Liquid', 'E-Commerce', 'SEO', 'Custom Forms'],
+    featured: true,
+  },
+  {
     id: 'treecommerce',
     name: 'Treecommerce',
     description:
@@ -18,7 +45,7 @@ export const projects: Project[] = [
     tags: ['Next.js', 'Sanity', 'Stripe', 'Auth0', 'TypeScript'],
     sourceCode: 'https://github.com/TreezCode/treecommerce',
     liveDemo: 'https://treecommerce.vercel.app/',
-    featured: true,
+    featured: false,
   },
   {
     id: 'vanilla-portfolio',
@@ -28,16 +55,6 @@ export const projects: Project[] = [
     tags: ['JavaScript', 'HTML', 'CSS'],
     sourceCode: 'https://github.com/TreezCode/TreezCode.github.io',
     liveDemo: 'https://iamtreez.com/',
-    featured: false,
-  },
-  {
-    id: 'react-click-game',
-    name: 'React Click Game',
-    description:
-      'A web-based memory challenge built using React and deployed on GitHub Pages. Users must click on randomly generated images to test their memory skills. Images are repositioned randomly and users must click a different image to continue playing.',
-    tags: ['React', 'Node.js', 'CSS'],
-    sourceCode: 'https://github.com/TreezCode/React-Click-Game',
-    liveDemo: 'https://iamtreez.com/React-Click-Game/',
     featured: false,
   },
 ]

@@ -590,15 +590,14 @@ The Hero section establishes a **unique design language** that should be applied
 - [ ] Forms tested
 - [ ] 3D scenes verified
 
-#### 8.2 Vercel Deployment
-- [ ] Deploy to Vercel
+#### 8.2 Netlify Deployment **THIS HAS BEEN CHANGED FROM VERCEL**
+- [ ] Deploy to Netlify
 - [ ] Custom domain setup
 - [ ] HTTPS configuration
 - [ ] Redirects configured
 
 #### 8.3 Monitoring & Analytics
-- [ ] Vercel Analytics
-- [ ] Vercel Speed Insights
+- [ ] Netlify Analytics
 - [ ] Sentry error tracking
 - [ ] Google Search Console
 - [ ] Google Analytics (optional)
@@ -652,7 +651,7 @@ The Hero section establishes a **unique design language** that should be applied
 5. Loading screen with sacred geometry (optional)
 
 ### Priority 2: Deployment
-1. Vercel deployment
+1. Netlify deployment
 2. Custom domain setup
 3. Analytics integration
 4. Error tracking (Sentry)

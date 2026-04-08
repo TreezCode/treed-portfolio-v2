@@ -47,3 +47,5 @@ perf/playwright/report/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/docs

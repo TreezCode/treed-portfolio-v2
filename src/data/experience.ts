@@ -7,14 +7,16 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    title: 'Computer Science Major',
+    title: 'Information Security, AAS',
     company: 'Northampton Community College',
-    date: 'September 2022 - May 2024',
+    date: 'September 2022 - May 2025',
     points: [
-      'Pursued a degree in computer science to expand knowledge and skills in the field',
-      'Completed courses in data structures, algorithms, computer networks, and database management',
-      'Participated in coding challenges and hackathons to improve problem-solving and teamwork skills',
-      'Graduated May 2024',
+      'Pursuing Associate of Applied Science degree in Information Security with focus on network security and ethical hacking',
+      'Achieved Dean\'s List recognition every semester while working full-time, demonstrating strong academic performance and time management',
+      'Earned CompTIA Security+ certification demonstrating expertise in threat analysis, cryptography, and security operations',
+      'Completed job shadowing programs at Forward Thinking Technologies (cybersecurity firm) and Software Consulting Services (software development firm)',
+      'Hands-on experience with security tools including Metasploit, Burp Suite, Wireshark, Nessus, Nmap, and Kali Linux',
+      'CCNA: Introduction to Networks coursework (Cisco) covering routing, switching, and network protocols',
     ],
   },
   {
@@ -29,25 +31,14 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    title: 'Rideshare Driver',
-    company: 'Lyft / Uber',
-    date: 'November 2017 - 2021',
+    title: 'Delivery Associate',
+    company: 'Walmart',
+    date: 'April 2024 - Present',
     points: [
-      'Navigated busy city streets to safely and promptly deliver patrons to their destination',
-      'Maintained high ratings and received positive feedback from riders',
-      'Demonstrated excellent customer service skills by engaging with riders and creating a comfortable experience',
-      'Adhered to company policies and regulations while providing efficient transportation services',
-    ],
-  },
-  {
-    title: 'Lead Sales Associate',
-    company: 'The Shelter: Strainwise',
-    date: 'March 2016 - November 2017',
-    points: [
-      'Implemented new marketing initiatives to drive sales and improve overall performance',
-      'Studied product markets to adjust sales pitches and adapt strategies for optimized sales',
-      'Developed sales training programs to enhance team performance and increase sales',
-      'Collaborated with the management team to develop promotional strategies and enhance customer experience',
+      'Manage daily pickup and delivery routes ensuring timely completion and high customer satisfaction',
+      'Maintained excellent on-time delivery performance while adapting to changing priorities and schedules',
+      'Resolved customer issues proactively to maintain service standards and strengthen client trust',
+      'Demonstrated strong time management and organizational skills in fast-paced logistics environment',
     ],
   },
 ]

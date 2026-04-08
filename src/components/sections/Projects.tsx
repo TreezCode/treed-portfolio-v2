@@ -4,6 +4,7 @@ import { useState, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { projects } from '@/data'
 import { MetatronsCube } from '@/components/backgrounds/MetatronsCube'
+import { useIsMobile } from '@/hooks/useMobileReduced'
 
 const GithubIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -88,12 +89,13 @@ function ProjectCard({
 }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const gradient = cardGradients[index % cardGradients.length]
+  const isMobile = useIsMobile()
 
-  // 3D tilt effect (DOM-based for 60fps)
+  // 3D tilt effect (DOM-based for 60fps) - disabled on mobile/touch devices
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       const card = cardRef.current
-      if (!card) return
+      if (!card || isMobile) return
       const rect = card.getBoundingClientRect()
       const x = e.clientX - rect.left
       const y = e.clientY - rect.top
@@ -104,7 +106,7 @@ function ProjectCard({
 
       card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`
     },
-    []
+    [isMobile],
   )
 
   const handleMouseLeave = useCallback(() => {
@@ -178,8 +180,8 @@ function ProjectCard({
               </div>
             )}
 
-            {/* Links overlay on hover */}
-            <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
+            {/* Links overlay - always visible on mobile, hover on desktop */}
+            <div className={`absolute inset-0 flex items-center justify-center gap-4 transition-all duration-300 z-10 ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
               {project.sourceCode && (
                 <a
                   href={project.sourceCode}

@@ -198,9 +198,11 @@ export function Header() {
       <motion.header
         className={cn(
           'fixed top-0 left-0 right-0 z-60 transition-all duration-500',
-          scrolled || mobileMenuOpen
-            ? `bg-[#0a0a0f]/95${minimalUI ? '' : ' backdrop-blur-xl'}`
-            : 'bg-transparent'
+          mobileMenuOpen
+            ? 'bg-[#0a0a0f]'
+            : scrolled
+              ? `bg-[#0a0a0f]/95${minimalUI ? '' : ' backdrop-blur-xl'}`
+              : 'bg-transparent'
         )}
         initial={{ y: -100 }}
         animate={{ y: 0 }}

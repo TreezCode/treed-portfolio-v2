@@ -124,7 +124,7 @@ export function Experience() {
 
         <div className="max-w-6xl mx-auto mt-12 sm:mt-20 relative">
           {/* Vertical Timeline Line - Desktop only, starts from first icon */}
-          <div className="hidden lg:block absolute left-1/2 top-48 bottom-12 w-0.5 bg-linear-to-b from-[#915eff] via-[#00d4ff] to-transparent -translate-x-1/2" />
+          <div className="hidden lg:block absolute left-1/2 top-67 bottom-12 w-0.5 bg-linear-to-b from-[#915eff] via-[#00d4ff] to-transparent -translate-x-1/2" />
           {experiences.map((experience, index) => (
             <ExperienceCard key={experience.title} experience={experience} index={index} />
           ))}

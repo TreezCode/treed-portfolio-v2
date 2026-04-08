@@ -5,7 +5,6 @@ import { Canvas, useThree } from '@react-three/fiber'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import { Merkaba } from './Merkaba'
 import { QuantumField } from './QuantumField'
-import { Loader } from './Loader'
 import { FPSTracker } from '@/components/perf/FPSTracker'
 import { useMobileDpr } from '@/hooks/useMobileDpr'
 import { useIsMobile } from '@/hooks/useMobileReduced'
@@ -50,7 +49,7 @@ export function SacredGeometryScene({ className, perfFlags }: SacredGeometryScen
           powerPreference: 'high-performance',
         }}
       >
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={null}>
           {/* Lighting */}
           <ambientLight intensity={0.2} />
           <pointLight position={[10, 10, 10]} intensity={0.5} color="#915eff" />

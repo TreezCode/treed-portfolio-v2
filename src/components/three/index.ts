@@ -1,8 +1,3 @@
-export { Scene } from './Scene'
-export { Earth } from './Earth'
-export { EarthCanvas } from './EarthCanvas'
-export { Loader } from './Loader'
 export { SacredGeometryScene } from './SacredGeometryScene'
 export { Merkaba } from './Merkaba'
 export { QuantumField } from './QuantumField'
-export { EnergyRings } from './EnergyRings'
