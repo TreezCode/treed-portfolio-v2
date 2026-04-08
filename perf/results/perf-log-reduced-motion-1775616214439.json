@@ -1,0 +1,425 @@
+{
+  "exportedAt": "2026-04-08T02:43:34.438Z",
+  "mode": "reduced-motion",
+  "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36",
+  "viewport": {
+    "w": 411,
+    "h": 759
+  },
+  "entries": [
+    {
+      "ts": 1219.7000000000698,
+      "type": "init",
+      "label": "hero",
+      "mode": "reduced-motion",
+      "data": {
+        "dpr": 2,
+        "drawBuffer": "822×1630",
+        "viewport": "411×759",
+        "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36"
+      }
+    },
+    {
+      "ts": 1459.6000000000931,
+      "type": "init",
+      "label": "orb",
+      "mode": "reduced-motion",
+      "data": {
+        "dpr": 2,
+        "drawBuffer": "854×656",
+        "viewport": "411×759",
+        "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36"
+      }
+    },
+    {
+      "ts": 6160.20000000007,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 57,
+        "avgFrameMs": 17.68,
+        "worstFrameMs": 134.1,
+        "bestFrameMs": 9.8,
+        "spikeCount": 5,
+        "sampleCount": 283,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 6412.5,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 57,
+        "avgFrameMs": 17.47,
+        "worstFrameMs": 133.7,
+        "bestFrameMs": 6.4,
+        "spikeCount": 5,
+        "sampleCount": 287,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 11165.800000000047,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 58,
+        "avgFrameMs": 17.14,
+        "worstFrameMs": 701.4,
+        "bestFrameMs": 5.3,
+        "spikeCount": 7,
+        "sampleCount": 292,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 11416.100000000093,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 59,
+        "avgFrameMs": 16.96,
+        "worstFrameMs": 701.7,
+        "bestFrameMs": 5.2,
+        "spikeCount": 6,
+        "sampleCount": 295,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 16177.900000000023,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 66,
+        "avgFrameMs": 15.23,
+        "worstFrameMs": 532.9,
+        "bestFrameMs": 5.7,
+        "spikeCount": 4,
+        "sampleCount": 329,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 16430.20000000007,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 66,
+        "avgFrameMs": 15.06,
+        "worstFrameMs": 534.3,
+        "bestFrameMs": 4.3,
+        "spikeCount": 5,
+        "sampleCount": 333,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 21183.20000000007,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 55,
+        "avgFrameMs": 18.27,
+        "worstFrameMs": 474,
+        "bestFrameMs": 4.9,
+        "spikeCount": 5,
+        "sampleCount": 274,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 21437.300000000047,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 55,
+        "avgFrameMs": 18.27,
+        "worstFrameMs": 475.3,
+        "bestFrameMs": 4.5,
+        "spikeCount": 4,
+        "sampleCount": 274,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 26186.100000000093,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 77,
+        "avgFrameMs": 12.96,
+        "worstFrameMs": 395.5,
+        "bestFrameMs": 4.3,
+        "spikeCount": 6,
+        "sampleCount": 386,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 26438.20000000007,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 79,
+        "avgFrameMs": 12.63,
+        "worstFrameMs": 396.6,
+        "bestFrameMs": 4.2,
+        "spikeCount": 6,
+        "sampleCount": 396,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 31224.400000000023,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 63,
+        "avgFrameMs": 15.79,
+        "worstFrameMs": 445,
+        "bestFrameMs": 4.6,
+        "spikeCount": 8,
+        "sampleCount": 319,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 31441.400000000023,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 61,
+        "avgFrameMs": 16.4,
+        "worstFrameMs": 445.1,
+        "bestFrameMs": 3.3,
+        "spikeCount": 8,
+        "sampleCount": 305,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 36234.70000000007,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 55,
+        "avgFrameMs": 18.29,
+        "worstFrameMs": 734.3,
+        "bestFrameMs": 4.3,
+        "spikeCount": 7,
+        "sampleCount": 274,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 36806.60000000009,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 50,
+        "avgFrameMs": 19.94,
+        "worstFrameMs": 735.3,
+        "bestFrameMs": 3.2,
+        "spikeCount": 9,
+        "sampleCount": 269,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 41249.60000000009,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 59,
+        "avgFrameMs": 16.94,
+        "worstFrameMs": 413.6,
+        "bestFrameMs": 5.2,
+        "spikeCount": 6,
+        "sampleCount": 296,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 41821,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 64,
+        "avgFrameMs": 15.57,
+        "worstFrameMs": 426.7,
+        "bestFrameMs": 4,
+        "spikeCount": 4,
+        "sampleCount": 322,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 46264.60000000009,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 47,
+        "avgFrameMs": 21.25,
+        "worstFrameMs": 488.4,
+        "bestFrameMs": 6.4,
+        "spikeCount": 6,
+        "sampleCount": 236,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 46829.20000000007,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 47,
+        "avgFrameMs": 21.4,
+        "worstFrameMs": 490.3,
+        "bestFrameMs": 4.3,
+        "spikeCount": 7,
+        "sampleCount": 234,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 51270.20000000007,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 56,
+        "avgFrameMs": 18.01,
+        "worstFrameMs": 428.1,
+        "bestFrameMs": 6.4,
+        "spikeCount": 4,
+        "sampleCount": 278,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 51832.80000000005,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 55,
+        "avgFrameMs": 18.06,
+        "worstFrameMs": 428.9,
+        "bestFrameMs": 4.6,
+        "spikeCount": 4,
+        "sampleCount": 277,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 56275.40000000002,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 54,
+        "avgFrameMs": 18.4,
+        "worstFrameMs": 447.4,
+        "bestFrameMs": 5.1,
+        "spikeCount": 7,
+        "sampleCount": 272,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 56839.10000000009,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 55,
+        "avgFrameMs": 18.27,
+        "worstFrameMs": 446.7,
+        "bestFrameMs": 4.9,
+        "spikeCount": 7,
+        "sampleCount": 274,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 61289.90000000002,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 52,
+        "avgFrameMs": 19.14,
+        "worstFrameMs": 631.9,
+        "bestFrameMs": 5,
+        "spikeCount": 9,
+        "sampleCount": 262,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 61842.70000000007,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 55,
+        "avgFrameMs": 18.06,
+        "worstFrameMs": 633.4,
+        "bestFrameMs": 3.2,
+        "spikeCount": 9,
+        "sampleCount": 277,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 66529.6000000001,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 68,
+        "avgFrameMs": 14.68,
+        "worstFrameMs": 412.7,
+        "bestFrameMs": 5,
+        "spikeCount": 6,
+        "sampleCount": 357,
+        "dpr": 2
+      }
+    },
+    {
+      "ts": 66852.20000000007,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-motion",
+      "data": {
+        "avgFps": 67,
+        "avgFrameMs": 14.91,
+        "worstFrameMs": 411.2,
+        "bestFrameMs": 4.2,
+        "spikeCount": 7,
+        "sampleCount": 336,
+        "dpr": 2
+      }
+    }
+  ]
+}

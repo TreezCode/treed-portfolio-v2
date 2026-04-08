@@ -1,7 +1,7 @@
 # BuildwithTreez Portfolio V2 - Progress & Roadmap
 
-**Last Updated:** April 7, 2026 - 2:14 PM  
-**Current Phase:** Navigation & Footer Complete - Moving to Polish & Optimization
+**Last Updated:** April 8, 2026 - 1:45 AM  
+**Current Phase:** Mobile Interaction Polish Complete - Ready for Deployment
 
 ---
 
@@ -73,6 +73,10 @@ Build a modern, interactive portfolio that showcases advanced frontend developme
 - ✅ **Typed Text Animation**
   - Smooth typing effect for name and tagline
   - Proper timing and delays
+  - **Fixed layout jump** — reserved height for 4 lines of subText: `min-h-[128px]` mobile, `min-h-[136px]` desktop (line-height math: `text-lg/xl × leading-relaxed × 4 lines + mt-2`)
+
+- ✅ **Availability Badge**
+  - Fixed width growth bug — added `self-start` to prevent `flex-col` from stretching badge to container width
 
 #### Mobile Responsiveness
 - ✅ All elements properly scaled and positioned
@@ -88,6 +92,16 @@ Build a modern, interactive portfolio that showcases advanced frontend developme
 - ✅ Framer Motion animations with stagger
 - ✅ Dynamic imports for 3D components
 - ✅ Performance optimized (InstancedMesh, 60fps)
+
+#### Mobile Interaction Refinements ⭐ (NEW - April 8)
+- ✅ **DPR permanently capped** on mobile via `useMobileDpr` hook (SSR-safe with `useSyncExternalStore`)
+- ✅ **Merkaba native R3F pointer events** — replaced `@use-gesture/react` with `onPointerDown/Move/Up` on invisible hit sphere
+- ✅ **Zero re-renders during drag** — all drag state in refs (`isDragging`, `lastPointer`, `targetQuaternion`)
+- ✅ **Camera-space rotation** — drag axes derived from `camera.quaternion` each frame so controls always match user's visual perspective regardless of accumulated quaternion drift
+- ✅ **Frame-rate-independent slerp** — idle rotation uses `1 - exp(-8 * delta)` formula (consistent feel at 30fps and 60fps)
+- ✅ **Invisible hit sphere** (radius 1.8) as pointer target — prevents group bounding box from hijacking scroll in empty canvas space
+- ✅ **Dynamic `touch-action` switching** — `pan-y` by default so finger scrolls page; flips to `none` only while actively dragging the Merkaba
+- ✅ **`CanvasInitTouchAction` component** sets initial `touch-action: pan-y` on canvas mount on mobile
 
 ### About Section - Complete ⭐ (NEW)
 **Status:** 100% Complete - Professional & Interactive
@@ -226,13 +240,19 @@ Build a modern, interactive portfolio that showcases advanced frontend developme
 - ✅ **Toggle close** by clicking same shape or ✕ button
 - ✅ **Force re-mount** on shape-to-shape switch for consistent animation
 
-#### Click-to-Activate Zoom (Google Maps Pattern)
-- ✅ **Inactive state:** Scroll passes through to page normally
-- ✅ **Active state:** Scroll zooms into scene at cursor position
-- ✅ **Activation:** Click on canvas
-- ✅ **Deactivation:** Click outside canvas or press Escape
-- ✅ **Subtle overlay hint:** "Click to interact with 3D scene"
-- ✅ **zoomToCursor** for local zoom behavior
+#### Double-Tap/Click to Activate (Google Maps Pattern) ⭐ Updated April 8
+- ✅ **Locked state:** OrbitControls fully unmounted (not just disabled) — no event listeners, no scroll hijack
+- ✅ **`touch-action: pan-y`** set directly on R3F canvas DOM element when locked on mobile
+- ✅ **Double-tap to unlock** on mobile — detected via native `touchend` listener on canvas DOM element (R3F swallows events before wrapper div sees them)
+- ✅ **Double-click to toggle** on desktop — toggles lock/unlock symmetrically
+- ✅ **Double-tap/click to lock** — same gesture locks the scene back, restoring scroll
+- ✅ **OrbitControls only mounts when `isActive`** — on both mobile and desktop
+- ✅ **Contextual overlay hint** always visible, updates on state change:
+  - Locked: `"Double-tap/click to unlock scene"`
+  - Unlocked mobile: `"Double-tap to lock • Drag to rotate • Pinch to zoom"`
+  - Unlocked desktop: `"Double-click to lock • Drag to rotate • Scroll to zoom"`
+- ✅ **`zoomToCursor`** for local zoom behavior
+- ✅ **Cursor** reflects state: `cursor-pointer` locked, `cursor-grab` unlocked
 
 #### Seamless Edge Design
 - ✅ **CSS mask-image** gradient fade on top/bottom edges
@@ -503,6 +523,32 @@ The Hero section establishes a **unique design language** that should be applied
   - `rootMargin: '-40% 0px -55% 0px'` for accurate mid-viewport detection
 - ✅ Fixed Tailwind v4 lint: `bg-gradient-to-r` → `bg-linear-to-r`, `z-[N]` → `z-N`
 
+### Phase 6.7: Mobile Interaction Polish ✅ COMPLETE (April 8)
+
+#### Hero / Merkaba
+- ✅ Native R3F pointer events replace use-gesture (no external dependency)
+- ✅ Pointer capture API for continuous drag tracking off-mesh
+- ✅ Camera-space rotation (axes from `camera.quaternion`) — always calibrated to user's perspective
+- ✅ Invisible hit sphere prevents bounding-box scroll hijack
+- ✅ Dynamic `touch-action` management via `CanvasInitTouchAction` component
+- ✅ Frame-rate-independent interpolation
+
+#### Tech Section
+- ✅ OrbitControls unmounted (not disabled) when locked — eliminates scroll hijack root cause
+- ✅ Double-tap detection via native `touchend` on canvas DOM element
+- ✅ Consistent double-click/double-tap toggle model across desktop and mobile
+- ✅ Contextual hints that update on lock/unlock state change
+
+#### Contact Orb
+- ✅ Single-finger rotation restored (removed two-finger override)
+- ✅ `touch-action: none` on wrapper for full OrbitControls control
+
+#### Hero UI
+- ✅ Availability badge `self-start` fix (no longer stretches to text width)
+- ✅ Typed subText container sized for 4 lines + `mt-2` offset — no layout jump
+
+---
+
 ### Phase 7: Polish & Optimization (2-3 weeks)
 
 #### 7.1 Performance Optimization
@@ -621,6 +667,7 @@ The Hero section establishes a **unique design language** that should be applied
 - ✅ `SACRED_GEOMETRY_CONCEPTS.md` - Sacred geometry theory
 - ✅ `SACRED_GEOMETRY_IMPLEMENTATION.md` - 3D implementation details
 - ✅ `PORTFOLIO_PROGRESS.md` - This document
+- ✅ `docs/CMS_INTEGRATION.md` - Step-by-step Sanity CMS integration guide
 
 ### Reference Files
 - Hero Section: `src/app/page.tsx` (lines 1-171)
@@ -731,6 +778,6 @@ When updating each section, ensure:
 
 ---
 
-**Status:** All sections complete (Hero, About, Experience, Tech, Projects, Contact). Navigation & Footer redesigned. Ready for polish & deployment. Estimated 1 week to launch.
+**Status:** All sections complete. Mobile 3D interactions fully polished (Merkaba camera-space controls, Tech section double-tap toggle, scroll hijack eliminated). CMS integration guide created. Ready for final polish & deployment.
 
-*Last reviewed: April 7, 2026*
+*Last reviewed: April 8, 2026*

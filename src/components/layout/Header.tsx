@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-
 import { motion, AnimatePresence } from 'framer-motion'
+import { usePerfFlags } from '@/components/perf/PerfProvider'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -145,6 +145,8 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
+  // PERF TESTING: minimal-ui removes backdrop-blur from fixed header
+  const { minimalUI } = usePerfFlags()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -197,7 +199,7 @@ export function Header() {
         className={cn(
           'fixed top-0 left-0 right-0 z-60 transition-all duration-500',
           scrolled || mobileMenuOpen
-            ? 'bg-[#0a0a0f]/95 backdrop-blur-xl'
+            ? `bg-[#0a0a0f]/95${minimalUI ? '' : ' backdrop-blur-xl'}`
             : 'bg-transparent'
         )}
         initial={{ y: -100 }}

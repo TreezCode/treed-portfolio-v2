@@ -1,8 +1,9 @@
 'use client'
 
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useThree } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-import { Suspense, useState } from 'react'
+import { Suspense, useState, useEffect, useRef } from 'react'
+import { useIsMobile } from '@/hooks/useMobileReduced'
 import { PlatonicSolid } from './PlatonicSolid'
 import { TechInfoCard } from './TechInfoCard'
 
@@ -22,6 +23,7 @@ interface TechSceneProps {
   }>
   onTechClick: (tech: { name: string; category: string }) => void
   isActive?: boolean
+  onToggle?: () => void
 }
 
 interface SelectedTech {
@@ -31,8 +33,44 @@ interface SelectedTech {
   color: string
 }
 
-export function TechScene({ technologies, isActive = false }: TechSceneProps) {
+function CanvasController({
+  isActive, isMobile, onToggle
+}: { isActive: boolean; isMobile: boolean; onToggle?: () => void }) {
+  const { gl } = useThree()
+  const canvasEl = useRef<HTMLCanvasElement>(gl.domElement)
+  const lastTapRef = useRef<number>(0)
+
+  useEffect(() => {
+    // Set touch-action directly on the canvas — R3F overrides the wrapper div's style.
+    canvasEl.current.style.touchAction = isMobile && !isActive ? 'pan-y' : 'none'
+  }, [isActive, isMobile])
+
+  useEffect(() => {
+    if (!isMobile || !onToggle) return
+    const el = canvasEl.current
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      const now = Date.now()
+      const timeSinceLast = now - lastTapRef.current
+      if (timeSinceLast < 300 && timeSinceLast > 0) {
+        // Double-tap detected — toggle lock/unlock
+        e.preventDefault()
+        onToggle()
+      }
+      lastTapRef.current = now
+    }
+
+    // passive:false so we can call preventDefault on the second tap
+    el.addEventListener('touchend', handleTouchEnd, { passive: false })
+    return () => el.removeEventListener('touchend', handleTouchEnd)
+  }, [isMobile, onToggle])
+
+  return null
+}
+
+export function TechScene({ technologies, isActive = false, onToggle }: TechSceneProps) {
   const [selectedTech, setSelectedTech] = useState<SelectedTech | null>(null)
+  const isMobile = useIsMobile()
   // Map categories to Platonic Solids and colors
   const getCategoryConfig = (category: string) => {
     switch (category) {
@@ -67,6 +105,7 @@ export function TechScene({ technologies, isActive = false }: TechSceneProps) {
   }
 
   return (
+    <div className="relative w-full h-full">
     <Canvas
       className="w-full h-full"
       gl={{ antialias: true, alpha: true }}
@@ -124,18 +163,21 @@ export function TechScene({ technologies, isActive = false }: TechSceneProps) {
         />
       )}
 
-      <OrbitControls
-        enableZoom={isActive}
-        zoomSpeed={0.6}
-        minDistance={5}
-        maxDistance={20}
-        enablePan={false}
-        maxPolarAngle={Math.PI / 2}
-        minPolarAngle={Math.PI / 4}
-        enableDamping
-        dampingFactor={0.05}
-        zoomToCursor={true}
-      />
+      <CanvasController isActive={isActive} isMobile={isMobile} onToggle={onToggle} />
+      {isActive && (
+        <OrbitControls
+          zoomSpeed={0.6}
+          minDistance={5}
+          maxDistance={20}
+          enablePan={false}
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 4}
+          enableDamping
+          dampingFactor={0.05}
+          zoomToCursor={true}
+        />
+      )}
     </Canvas>
+    </div>
   )
 }

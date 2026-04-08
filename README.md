@@ -13,7 +13,7 @@ Modern, minimalist portfolio built with Next.js 15, React 19, TypeScript, and Th
 - **Form Handling:** React Hook Form + Zod
 - **Email Service:** Resend
 - **Icons:** Lucide React (custom SVG icons)
-- **Deployment:** Vercel
+- **Deployment:** Netlify
 
 ## 📦 Getting Started
 
@@ -140,7 +140,7 @@ MIT License - feel free to use this as inspiration for your own portfolio.
 
 ## 🔗 Links
 
-- **Live Site:** Coming Soon
+- **Live Site:** [Build with Treez](https://buildwithtreez.netlify.app/)
 - **GitHub:** [@TreezCode](https://github.com/TreezCode)
 - **LinkedIn:** [Joey Kubalak](https://www.linkedin.com/in/joey-kubalak-425032180/)
 

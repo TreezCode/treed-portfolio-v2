@@ -6,6 +6,7 @@ import { useTyped } from '@/hooks/useTyped'
 import { heroContent } from '@/data/hero'
 import { SacredGeometry } from '@/components/backgrounds/SacredGeometry'
 import { About, Experience, Tech, Projects, Contact } from '@/components/sections'
+import { usePerfFlags } from '@/components/perf/PerfProvider'
 
 // Dynamically import 3D scene to avoid SSR issues
 const SacredGeometryScene = dynamic(
@@ -15,24 +16,31 @@ const SacredGeometryScene = dynamic(
 
 export default function Home() {
   const { headTextRef, subTextRef } = useTyped(heroContent)
+  // PERF TESTING: read active perf mode flags from query param
+  const perf = usePerfFlags()
+  // PERF TESTING: minimal-ui strips backdrop-blur and mix-blend-mode over WebGL
+  // PERF TESTING: reduced-motion near-zeros Framer Motion durations
+  const motionDuration = perf.reducedMotion ? 0.01 : undefined
 
   return (
     <div className="relative">
       {/* Hero Section */}
       <section id="hero" aria-label="Hero" className="relative w-full h-screen overflow-hidden">
         {/* Sacred Geometry Background */}
+        {/* PERF TESTING: minimal-ui disables mix-blend-mode canvas (forces compositor layer) */}
         <div className="absolute inset-0 bg-linear-to-b from-background-primary via-background-secondary to-background-primary">
-          <SacredGeometry />
+          {!perf.minimalUI && <SacredGeometry />}
         </div>
 
         {/* 3D Sacred Geometry Scene */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 0.5 }}
+          transition={{ duration: motionDuration ?? 1.5, delay: perf.reducedMotion ? 0 : 0.5 }}
           className="absolute inset-0 z-10"
         >
-          <SacredGeometryScene className="w-full h-full" />
+          {/* PERF TESTING: pass active perf flags to Hero canvas */}
+        <SacredGeometryScene perfFlags={perf} className="w-full h-full" />
         </motion.div>
 
         {/* Hero Content - Left Side */}
@@ -55,7 +63,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-[#915eff]/20 to-[#00d4ff]/20 border border-[#915eff]/30 backdrop-blur-sm w-fit"
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-[#915eff]/20 to-[#00d4ff]/20 border border-[#915eff]/30 w-fit self-start${perf.minimalUI ? '' : ' backdrop-blur-sm'}`}
             >
               <div className="relative">
                 <div className="w-2 h-2 bg-[#00d4ff] rounded-full animate-pulse" />
@@ -69,7 +77,7 @@ export default function Home() {
                 <span ref={headTextRef} />
               </h1>
             </div>
-            <div className="typed-container min-h-[80px] sm:min-h-[100px] z-10">
+            <div className="typed-container min-h-[128px] sm:min-h-[136px] z-10">
               <p className="text-lg sm:text-xl text-text-secondary mt-2 leading-relaxed">
                 <span ref={subTextRef} />
               </p>
@@ -102,7 +110,7 @@ export default function Home() {
                   e.preventDefault()
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-[#00d4ff] rounded-xl font-semibold text-[#00d4ff] hover:bg-[#00d4ff]/10 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#00d4ff]/30 bg-background-primary/80 backdrop-blur-sm"
+                className={`px-6 sm:px-8 py-3 sm:py-4 border-2 border-[#00d4ff] rounded-xl font-semibold text-[#00d4ff] hover:bg-[#00d4ff]/10 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#00d4ff]/30 bg-background-primary/80${perf.minimalUI ? '' : ' backdrop-blur-sm'}`}
               >
                 Let&apos;s Connect
               </a>

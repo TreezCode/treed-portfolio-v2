@@ -39,6 +39,11 @@ yarn-error.log*
 # netlify
 .netlify
 
+# perf test outputs (keep scripts/docs, ignore generated results)
+perf/lighthouse-results/
+perf/playwright/results/
+perf/playwright/report/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

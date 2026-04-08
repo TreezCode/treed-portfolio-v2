@@ -1,8 +1,10 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
-const PARTICLE_COUNT = 200
+// PERF TESTING: full count vs reduced count for reduced-3d mode
+const PARTICLE_COUNT_FULL = 200
+const PARTICLE_COUNT_REDUCED = 80
 const VORTEX_RADIUS = 8 // Horizontal distance from center
 const VORTEX_HEIGHT = 10 // Vertical spread
 const ROTATION_SPEED = 0.3 // Clockwise rotation speed
@@ -17,13 +19,13 @@ interface Particle {
 }
 
 // Pure function to create particles in vortex/tornado pattern
-function createParticles(): Particle[] {
+function createParticles(count: number): Particle[] {
   const temp: Particle[] = []
-  for (let i = 0; i < PARTICLE_COUNT; i++) {
+  for (let i = 0; i < count; i++) {
     temp.push({
       theta: Math.random() * Math.PI * 2,
-      y: (Math.random() - 0.5) * VORTEX_HEIGHT, // Spread vertically
-      radius: 4 + Math.random() * VORTEX_RADIUS, // Vary distance from center
+      y: (Math.random() - 0.5) * VORTEX_HEIGHT,
+      radius: 4 + Math.random() * VORTEX_RADIUS,
       speed: 0.8 + Math.random() * 0.4,
       size: 0.015 + Math.random() * 0.01,
       phaseOffset: Math.random() * Math.PI * 2
@@ -32,17 +34,25 @@ function createParticles(): Particle[] {
   return temp
 }
 
-export function QuantumField() {
+interface QuantumFieldProps {
+  // PERF TESTING: reduced=true halves particle count for reduced-3d mode
+  reduced?: boolean
+}
+
+export function QuantumField({ reduced = false }: QuantumFieldProps) {
   const meshRef = useRef<THREE.InstancedMesh>(null)
-  
-  // Initialize particles once using useState
-  const [particles] = useState(createParticles)
+  const count = reduced ? PARTICLE_COUNT_REDUCED : PARTICLE_COUNT_FULL
+
+  // Initialize particles once using useState; key on count so they reinit if mode changes
+  const [particles] = useState(() => createParticles(count))
+
+  // PERF FIX: allocate dummy outside useFrame to avoid per-frame GC churn
+  const dummy = useMemo(() => new THREE.Object3D(), [])
 
   useFrame((state) => {
     if (!meshRef.current) return
 
     const time = state.clock.elapsedTime
-    const dummy = new THREE.Object3D()
 
     particles.forEach((particle, i) => {
       // Rotate particles clockwise around Y-axis (tornado effect)
@@ -76,7 +86,7 @@ export function QuantumField() {
   })
 
   return (
-    <instancedMesh ref={meshRef} args={[undefined, undefined, PARTICLE_COUNT]}>
+    <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
       <sphereGeometry args={[1, 8, 8]} />
       <meshBasicMaterial
         color="#00d4ff"

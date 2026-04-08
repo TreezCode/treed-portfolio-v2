@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { PerfProvider } from '@/components/perf/PerfProvider'
+import { PerfOverlayRoot } from '@/components/perf/PerfOverlayRoot'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -99,9 +101,12 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <Header />
-        <main id="main-content" className="flex-1">{children}</main>
-        <Footer />
+        <PerfProvider>
+          <Header />
+          <main id="main-content" className="flex-1">{children}</main>
+          <Footer />
+          <PerfOverlayRoot />
+        </PerfProvider>
       </body>
     </html>
   )

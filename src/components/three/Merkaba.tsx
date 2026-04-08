@@ -1,70 +1,73 @@
 import { useRef, useState, useEffect } from 'react'
-import { useFrame } from '@react-three/fiber'
-import { useGesture } from '@use-gesture/react'
+import { useFrame, useThree } from '@react-three/fiber'
+import type { ThreeEvent } from '@react-three/fiber'
 import * as THREE from 'three'
 
 export function Merkaba() {
   const groupRef = useRef<THREE.Group>(null)
   const outerRef = useRef<THREE.Mesh>(null)
   const innerRef = useRef<THREE.Mesh>(null)
-  
-  // Use quaternion for rotation to avoid gimbal lock
+
+  // All drag state in refs — zero re-renders during drag, no stale closure issues
+  const isDragging = useRef(false)
+  const lastPointer = useRef<{ x: number; y: number } | null>(null)
   const targetQuaternion = useRef(new THREE.Quaternion())
-  const currentQuaternion = useRef(new THREE.Quaternion())
-  const [isDragging, setIsDragging] = useState(false)
+
   const [isMobile, setIsMobile] = useState(false)
 
-  // Detect screen size for responsive positioning
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
   }, [])
-  
-  // Responsive scale for mobile
+
   const scale = isMobile ? 0.6 : 1
 
-  // Professional trackball-style rotation
-  const bind = useGesture({
-    onDrag: ({ delta: [dx, dy], dragging = false, first }) => {
-      if (first) {
-        setIsDragging(true)
-        // Store current rotation when drag starts
-        if (groupRef.current) {
-          currentQuaternion.current.copy(groupRef.current.quaternion)
-        }
-      }
-      
-      if (!dragging) {
-        setIsDragging(false)
-        return
-      }
+  const { gl, camera } = useThree()
+  const canvasEl = useRef<HTMLCanvasElement>(gl.domElement)
 
-      // Calculate rotation based on drag delta
-      const rotationSpeed = 0.005
-      const deltaRotationQuaternion = new THREE.Quaternion()
-        .setFromEuler(new THREE.Euler(
-          dy * rotationSpeed,
-          dx * rotationSpeed,
-          0,
-          'XYZ'
-        ))
+  const handlePointerDown = (e: ThreeEvent<PointerEvent>) => {
+    e.stopPropagation()
+    gl.domElement.setPointerCapture(e.pointerId)
+    isDragging.current = true
+    lastPointer.current = { x: e.clientX, y: e.clientY }
+    // Snapshot current group quaternion as the rotation base
+    if (groupRef.current) targetQuaternion.current.copy(groupRef.current.quaternion)
+    canvasEl.current.style.touchAction = 'none'
+  }
 
-      // Apply rotation relative to camera view
-      targetQuaternion.current.multiplyQuaternions(
-        deltaRotationQuaternion,
-        currentQuaternion.current
-      )
-      
-      // Update current for next frame
-      currentQuaternion.current.copy(targetQuaternion.current)
-    }
-  })
+  const handlePointerMove = (e: ThreeEvent<PointerEvent>) => {
+    if (!isDragging.current || !lastPointer.current) return
+    e.stopPropagation()
+    const dx = e.clientX - lastPointer.current.x
+    const dy = e.clientY - lastPointer.current.y
+    lastPointer.current = { x: e.clientX, y: e.clientY }
+
+    const speed = 0.008
+
+    // Rotate around the camera's actual right axis (horizontal drag) and
+    // world up axis (vertical drag) so controls always match what the user sees,
+    // regardless of how the Merkaba's quaternion has accumulated.
+    const cameraRight = new THREE.Vector3(1, 0, 0).applyQuaternion(camera.quaternion)
+    const cameraUp = new THREE.Vector3(0, 1, 0).applyQuaternion(camera.quaternion)
+
+    const rotX = new THREE.Quaternion().setFromAxisAngle(cameraRight, dy * speed)
+    const rotY = new THREE.Quaternion().setFromAxisAngle(cameraUp, dx * speed)
+
+    targetQuaternion.current.premultiply(rotY).premultiply(rotX)
+
+    // Apply immediately during drag — no slerp lag on mobile
+    if (groupRef.current) groupRef.current.quaternion.copy(targetQuaternion.current)
+  }
+
+  const handlePointerUp = (e: ThreeEvent<PointerEvent>) => {
+    e.stopPropagation()
+    gl.domElement.releasePointerCapture(e.pointerId)
+    isDragging.current = false
+    lastPointer.current = null
+    canvasEl.current.style.touchAction = 'pan-y'
+  }
 
   useFrame((state, delta) => {
     const time = state.clock.elapsedTime
@@ -95,19 +98,30 @@ export function Merkaba() {
       // Apply responsive scale
       groupRef.current.scale.setScalar(scale)
       
-      // Apply user rotation using quaternion (smooth, no gimbal lock)
-      if (isDragging) {
-        // Instant response during drag
-        groupRef.current.quaternion.copy(targetQuaternion.current)
-      } else {
-        // Smooth interpolation when not dragging
-        groupRef.current.quaternion.slerp(targetQuaternion.current, 0.1)
+      // During drag: already applied directly in handlePointerMove — nothing to do.
+      // When idle: smoothly slerp toward the last target quaternion.
+      // Use frame-rate-independent formula: 1 - exp(-k*delta) so it feels
+      // the same at 30fps and 60fps on mobile.
+      if (!isDragging.current) {
+        groupRef.current.quaternion.slerp(targetQuaternion.current, 1 - Math.exp(-8 * delta))
       }
     }
   })
 
   return (
-    <group ref={groupRef} {...bind()}>
+    <group ref={groupRef}>
+      {/* Invisible hit sphere — pointer events only fire when touching this area.
+          Sized to just contain the tetrahedra (radius 1.5) with a small touch margin.
+          This prevents the group's larger bounding box from eating scroll in empty space. */}
+      <mesh
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+      >
+        <sphereGeometry args={[1.8, 8, 8]} />
+        <meshBasicMaterial transparent opacity={0} depthWrite={false} />
+      </mesh>
+
       {/* Outer Tetrahedron Wireframe - pointing up with glow */}
       <mesh ref={outerRef}>
         <tetrahedronGeometry args={[1.5, 0]} />

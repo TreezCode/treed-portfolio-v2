@@ -1,9 +1,10 @@
 'use client'
 
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { technologies } from '@/data'
 import dynamic from 'next/dynamic'
+import { useIsMobile } from '@/hooks/useMobileReduced'
 
 // Dynamically import 3D scene to avoid SSR issues
 const TechScene = dynamic(
@@ -14,30 +15,7 @@ const TechScene = dynamic(
 export function Tech() {
   const [isCanvasActive, setIsCanvasActive] = useState(false)
   const canvasWrapperRef = useRef<HTMLDivElement>(null)
-
-  const deactivateCanvas = useCallback(() => {
-    setIsCanvasActive(false)
-  }, [])
-
-  useEffect(() => {
-    if (!isCanvasActive) return
-
-    const handleClickOutside = (e: MouseEvent) => {
-      if (canvasWrapperRef.current && !canvasWrapperRef.current.contains(e.target as Node)) {
-        deactivateCanvas()
-      }
-    }
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') deactivateCanvas()
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    document.addEventListener('keydown', handleEscape)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-      document.removeEventListener('keydown', handleEscape)
-    }
-  }, [isCanvasActive, deactivateCanvas])
+  const isMobile = useIsMobile()
 
   const categories = {
     frontend: { name: 'Frontend', color: '#915eff', shape: 'Tetrahedron' },
@@ -102,27 +80,40 @@ export function Tech() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="relative w-full h-[550px] sm:h-[650px] lg:h-[750px] -my-8 cursor-pointer"
+          className={`relative w-full h-[550px] sm:h-[650px] lg:h-[750px] -my-8 ${isCanvasActive ? 'cursor-grab' : 'cursor-pointer'}`}
           style={{
             maskImage: 'linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)',
           }}
-          onClick={() => { if (!isCanvasActive) setIsCanvasActive(true) }}
+          onDoubleClick={() => { if (!isMobile) setIsCanvasActive(a => !a) }}
         >
-          <TechScene technologies={technologies} onTechClick={() => {}} isActive={isCanvasActive} />
+          <TechScene
+            technologies={technologies}
+            onTechClick={() => {}}
+            isActive={isCanvasActive}
+            onToggle={() => setIsCanvasActive(a => !a)}
+          />
 
-          {/* Click-to-interact overlay */}
-          {!isCanvasActive && (
-            <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="px-5 py-2.5 rounded-full bg-black/50 border border-white/10 text-sm text-white/70"
-              >
-                Click to interact with 3D scene
-              </motion.div>
-            </div>
-          )}
+          {/* State hint overlay — always visible, tells user what to do next */}
+          <div className="absolute inset-0 z-10 flex items-end justify-center pb-4 pointer-events-none">
+            <motion.div
+              key={String(isCanvasActive)}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 6 }}
+              transition={{ duration: 0.2 }}
+              className="px-4 py-2 rounded-full bg-black/60 border border-white/10 text-xs text-white/60 backdrop-blur-sm"
+            >
+              {isMobile
+                ? isCanvasActive
+                  ? 'Double-tap to lock • Drag to rotate • Pinch to zoom'
+                  : 'Double-tap to unlock scene'
+                : isCanvasActive
+                  ? 'Double-click to lock • Drag to rotate • Scroll to zoom'
+                  : 'Double-click to unlock scene'
+              }
+            </motion.div>
+          </div>
         </motion.div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -134,7 +125,7 @@ export function Tech() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="text-center mt-6 text-sm text-text-tertiary"
           >
-            🖱️ Drag to rotate • 🔍 Scroll to zoom (click scene first) • 👆 Click shapes to learn more
+            Tap the shapes to learn more about each technology
           </motion.p>
 
         {/* Technology List */}

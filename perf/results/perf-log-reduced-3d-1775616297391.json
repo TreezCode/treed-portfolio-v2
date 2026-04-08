@@ -1,0 +1,485 @@
+{
+  "exportedAt": "2026-04-08T02:44:57.389Z",
+  "mode": "reduced-3d",
+  "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36",
+  "viewport": {
+    "w": 411,
+    "h": 759
+  },
+  "entries": [
+    {
+      "ts": 846.8999999999069,
+      "type": "init",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "dpr": 1,
+        "drawBuffer": "411×815",
+        "viewport": "411×759",
+        "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36"
+      }
+    },
+    {
+      "ts": 1262.6999999999534,
+      "type": "init",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "dpr": 1,
+        "drawBuffer": "427×328",
+        "viewport": "411×759",
+        "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36"
+      }
+    },
+    {
+      "ts": 5842.5,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 57,
+        "avgFrameMs": 17.39,
+        "worstFrameMs": 61.3,
+        "bestFrameMs": 7.7,
+        "spikeCount": 6,
+        "sampleCount": 288,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 6220.199999999953,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 59,
+        "avgFrameMs": 16.97,
+        "worstFrameMs": 64.2,
+        "bestFrameMs": 5.4,
+        "spikeCount": 6,
+        "sampleCount": 295,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 10846.199999999953,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 74,
+        "avgFrameMs": 13.56,
+        "worstFrameMs": 63.7,
+        "bestFrameMs": 3.4,
+        "spikeCount": 4,
+        "sampleCount": 369,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 11223.79999999993,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 76,
+        "avgFrameMs": 13.1,
+        "worstFrameMs": 64.8,
+        "bestFrameMs": 3.3,
+        "spikeCount": 4,
+        "sampleCount": 382,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 15853.29999999993,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 108,
+        "avgFrameMs": 9.24,
+        "worstFrameMs": 68.2,
+        "bestFrameMs": 3.8,
+        "spikeCount": 9,
+        "sampleCount": 542,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 16229.699999999953,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 109,
+        "avgFrameMs": 9.13,
+        "worstFrameMs": 69.2,
+        "bestFrameMs": 2.8,
+        "spikeCount": 8,
+        "sampleCount": 548,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 20859.699999999953,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 71,
+        "avgFrameMs": 14.06,
+        "worstFrameMs": 65.8,
+        "bestFrameMs": 2.9,
+        "spikeCount": 5,
+        "sampleCount": 356,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 21236.29999999993,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 67,
+        "avgFrameMs": 14.9,
+        "worstFrameMs": 65.9,
+        "bestFrameMs": 5.2,
+        "spikeCount": 5,
+        "sampleCount": 336,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 25872.79999999993,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 64,
+        "avgFrameMs": 15.67,
+        "worstFrameMs": 57.2,
+        "bestFrameMs": 4.4,
+        "spikeCount": 3,
+        "sampleCount": 320,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 26252.699999999953,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 63,
+        "avgFrameMs": 15.93,
+        "worstFrameMs": 57.2,
+        "bestFrameMs": 4.2,
+        "spikeCount": 4,
+        "sampleCount": 315,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 30877.79999999993,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 76,
+        "avgFrameMs": 13.14,
+        "worstFrameMs": 81.9,
+        "bestFrameMs": 3.5,
+        "spikeCount": 2,
+        "sampleCount": 381,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 31255.599999999977,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 77,
+        "avgFrameMs": 12.99,
+        "worstFrameMs": 84,
+        "bestFrameMs": 1.6,
+        "spikeCount": 1,
+        "sampleCount": 385,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 35892.39999999991,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 80,
+        "avgFrameMs": 12.47,
+        "worstFrameMs": 79.7,
+        "bestFrameMs": 5,
+        "spikeCount": 1,
+        "sampleCount": 402,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 36270.5,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 80,
+        "avgFrameMs": 12.47,
+        "worstFrameMs": 81.9,
+        "bestFrameMs": 2.3,
+        "spikeCount": 2,
+        "sampleCount": 402,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 40906.39999999991,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 62,
+        "avgFrameMs": 16.02,
+        "worstFrameMs": 91.5,
+        "bestFrameMs": 5.2,
+        "spikeCount": 1,
+        "sampleCount": 313,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 41274.09999999998,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 63,
+        "avgFrameMs": 15.94,
+        "worstFrameMs": 92.2,
+        "bestFrameMs": 5,
+        "spikeCount": 1,
+        "sampleCount": 314,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 45912,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 86,
+        "avgFrameMs": 11.59,
+        "worstFrameMs": 44.3,
+        "bestFrameMs": 6.5,
+        "spikeCount": 2,
+        "sampleCount": 432,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 46280.09999999998,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 90,
+        "avgFrameMs": 11.1,
+        "worstFrameMs": 44.9,
+        "bestFrameMs": 5.2,
+        "spikeCount": 2,
+        "sampleCount": 451,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 50926.29999999993,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 70,
+        "avgFrameMs": 14.37,
+        "worstFrameMs": 54.3,
+        "bestFrameMs": 3.1,
+        "spikeCount": 2,
+        "sampleCount": 349,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 51296.89999999991,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 65,
+        "avgFrameMs": 15.34,
+        "worstFrameMs": 54.1,
+        "bestFrameMs": 2.9,
+        "spikeCount": 2,
+        "sampleCount": 327,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 55927.09999999998,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 59,
+        "avgFrameMs": 17.07,
+        "worstFrameMs": 85,
+        "bestFrameMs": 5.1,
+        "spikeCount": 7,
+        "sampleCount": 293,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 56313.59999999998,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 59,
+        "avgFrameMs": 17.06,
+        "worstFrameMs": 86.5,
+        "bestFrameMs": 4.7,
+        "spikeCount": 7,
+        "sampleCount": 294,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 60972.39999999991,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 59,
+        "avgFrameMs": 16.99,
+        "worstFrameMs": 82.5,
+        "bestFrameMs": 4.3,
+        "spikeCount": 8,
+        "sampleCount": 297,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 61317.69999999995,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 58,
+        "avgFrameMs": 17.14,
+        "worstFrameMs": 82.8,
+        "bestFrameMs": 3.7,
+        "spikeCount": 9,
+        "sampleCount": 292,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 65985.5,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 60,
+        "avgFrameMs": 16.65,
+        "worstFrameMs": 76.3,
+        "bestFrameMs": 4.4,
+        "spikeCount": 5,
+        "sampleCount": 301,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 66366.5,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 59,
+        "avgFrameMs": 16.83,
+        "worstFrameMs": 86.5,
+        "bestFrameMs": 4.5,
+        "spikeCount": 6,
+        "sampleCount": 300,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 70995.69999999995,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 59,
+        "avgFrameMs": 17.04,
+        "worstFrameMs": 84.7,
+        "bestFrameMs": 5.4,
+        "spikeCount": 6,
+        "sampleCount": 294,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 71376,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 59,
+        "avgFrameMs": 16.87,
+        "worstFrameMs": 63.1,
+        "bestFrameMs": 4.8,
+        "spikeCount": 5,
+        "sampleCount": 297,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 75997.59999999986,
+      "type": "fps-sample",
+      "label": "hero",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 52,
+        "avgFrameMs": 19.16,
+        "worstFrameMs": 93,
+        "bestFrameMs": 8.1,
+        "spikeCount": 16,
+        "sampleCount": 261,
+        "dpr": 1
+      }
+    },
+    {
+      "ts": 76384.09999999986,
+      "type": "fps-sample",
+      "label": "orb",
+      "mode": "reduced-3d",
+      "data": {
+        "avgFps": 53,
+        "avgFrameMs": 18.97,
+        "worstFrameMs": 93.1,
+        "bestFrameMs": 7.2,
+        "spikeCount": 15,
+        "sampleCount": 264,
+        "dpr": 1
+      }
+    }
+  ]
+}

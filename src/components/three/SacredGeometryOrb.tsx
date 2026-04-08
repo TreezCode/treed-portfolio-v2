@@ -23,6 +23,7 @@ function OrbitalRing({
   rotationAxis,
   speed,
   opacity,
+  segments = [64, 128],
 }: {
   radius: number
   tube: number
@@ -30,6 +31,8 @@ function OrbitalRing({
   rotationAxis: [number, number, number]
   speed: number
   opacity: number
+  // PERF TESTING: [tubularSegments, radialSegments] — reduced to [8,16] in reduced-3d
+  segments?: [number, number]
 }) {
   const ref = useRef<THREE.Mesh>(null)
 
@@ -43,7 +46,7 @@ function OrbitalRing({
 
   return (
     <mesh ref={ref}>
-      <torusGeometry args={[radius, tube, 64, 128]} />
+      <torusGeometry args={[radius, tube, segments[0], segments[1]]} />
       <meshBasicMaterial
         color={color}
         transparent
@@ -175,7 +178,12 @@ function EnergyLines({ radius, color }: { radius: number; color: string }) {
   )
 }
 
-export function SacredGeometryOrb() {
+interface SacredGeometryOrbProps {
+  // PERF TESTING: reduced=true lowers geometry complexity and particle count
+  reduced?: boolean
+}
+
+export function SacredGeometryOrb({ reduced = false }: SacredGeometryOrbProps) {
   const groupRef = useRef<THREE.Group>(null)
   const coreRef = useRef<THREE.Mesh>(null)
   const shellRef = useRef<THREE.Mesh>(null)
@@ -218,6 +226,9 @@ export function SacredGeometryOrb() {
       mat.opacity = 0.04 + Math.sin(t * 0.8) * 0.02
     }
   })
+
+  // PERF TESTING: torus ring segments — full (64×128=8192 tris/ring) vs reduced (8×16=128 tris/ring)
+  const torusSeg: [number, number] = reduced ? [8, 16] : [64, 128]
 
   return (
     <group ref={groupRef}>
@@ -288,6 +299,7 @@ export function SacredGeometryOrb() {
         rotationAxis={[0, 0, 0]}
         speed={0.2}
         opacity={0.35}
+        segments={torusSeg}
       />
       <OrbitalRing
         radius={1.7}
@@ -296,6 +308,7 @@ export function SacredGeometryOrb() {
         rotationAxis={[Math.PI / 3, 0, Math.PI / 6]}
         speed={-0.15}
         opacity={0.25}
+        segments={torusSeg}
       />
       <OrbitalRing
         radius={1.8}
@@ -304,12 +317,13 @@ export function SacredGeometryOrb() {
         rotationAxis={[-Math.PI / 4, Math.PI / 5, 0]}
         speed={0.12}
         opacity={0.2}
+        segments={torusSeg}
       />
 
-      {/* Particle field */}
-      <ParticleField count={200} radius={2.0} color="#915eff" seed={42} />
-      <ParticleField count={100} radius={2.2} color="#00d4ff" seed={137} />
-      <ParticleField count={60} radius={2.4} color="#ff6b9d" seed={256} />
+      {/* PERF TESTING: particle counts halved in reduced mode */}
+      <ParticleField count={reduced ? 80 : 200} radius={2.0} color="#915eff" seed={42} />
+      <ParticleField count={reduced ? 40 : 100} radius={2.2} color="#00d4ff" seed={137} />
+      {(!reduced) && <ParticleField count={60} radius={2.4} color="#ff6b9d" seed={256} />}
 
       {/* Ambient point lights for subtle illumination */}
       <pointLight color="#915eff" intensity={0.5} distance={5} position={[2, 0, 0]} />
