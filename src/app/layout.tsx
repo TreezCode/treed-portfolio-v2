@@ -112,6 +112,7 @@ export default function RootLayout({
               sameAs: [
                 'https://github.com/TreezCode',
                 'https://www.linkedin.com/in/joey-kubalak-425032180/',
+                'https://x.com/buildwithtreez',
               ],
             }),
           }}

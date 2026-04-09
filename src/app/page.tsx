@@ -136,7 +136,7 @@ export default function Home() {
             >
               {/* GitHub */}
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/TreezCode"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group p-3 rounded-lg border border-white/10 hover:border-[#915eff] bg-white/5 hover:bg-[#915eff]/10 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#915eff]/30"
@@ -149,7 +149,7 @@ export default function Home() {
 
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/joey-kubalak-425032180/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group p-3 rounded-lg border border-white/10 hover:border-[#00d4ff] bg-white/5 hover:bg-[#00d4ff]/10 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#00d4ff]/30"
@@ -162,11 +162,11 @@ export default function Home() {
 
               {/* Twitter/X */}
               <a
-                href="https://twitter.com/yourusername"
+                href="https://x.com/buildwithtreez"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group p-3 rounded-lg border border-white/10 hover:border-[#ff6b9d] bg-white/5 hover:bg-[#ff6b9d]/10 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#ff6b9d]/30"
-                aria-label="Twitter"
+                aria-label="X (formerly Twitter)"
               >
                 <svg className="w-5 h-5 text-white/70 group-hover:text-[#ff6b9d] transition-colors" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>

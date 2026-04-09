@@ -187,6 +187,7 @@ function ProjectCard({
                   href={project.sourceCode}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`View source code for ${project.name} on GitHub`}
                   className="w-11 h-11 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
                   style={{
                     background: `linear-gradient(135deg, ${gradient.from}80, ${gradient.to}80)`,
@@ -202,6 +203,7 @@ function ProjectCard({
                   href={project.liveDemo}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`View live demo of ${project.name}`}
                   className="w-11 h-11 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
                   style={{
                     background: `linear-gradient(135deg, ${gradient.from}80, ${gradient.to}80)`,
@@ -261,6 +263,7 @@ function ProjectCard({
                   href={project.sourceCode}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`View source code for ${project.name} on GitHub`}
                   className="flex items-center gap-2 text-gray-400 transition-colors duration-300"
                   style={{}}
                   onMouseEnter={(e) => { e.currentTarget.style.color = gradient.from }}
@@ -276,6 +279,7 @@ function ProjectCard({
                   href={project.liveDemo}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`View live demo of ${project.name}`}
                   className="flex items-center gap-2 text-gray-400 transition-colors duration-300"
                   onMouseEnter={(e) => { e.currentTarget.style.color = gradient.to }}
                   onMouseLeave={(e) => { e.currentTarget.style.color = '#9ca3af' }}
