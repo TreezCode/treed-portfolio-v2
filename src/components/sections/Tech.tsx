@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { technologies } from '@/data'
 import dynamic from 'next/dynamic'
 import { useIsMobile } from '@/hooks/useMobileReduced'
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
 // Dynamically import 3D scene to avoid SSR issues
 // Loading placeholder prevents layout shift and improves perceived performance
@@ -25,6 +26,13 @@ export function Tech() {
   const [isCanvasActive, setIsCanvasActive] = useState(false)
   const canvasWrapperRef = useRef<HTMLDivElement>(null)
   const isMobile = useIsMobile()
+  
+  // Lazy load 3D scene when approaching viewport (300px before)
+  const { ref: observerRef, isIntersecting } = useIntersectionObserver({
+    rootMargin: '300px', // Load 300px before entering viewport
+    threshold: 0,
+    triggerOnce: true, // Only load once
+  })
 
   const categories = {
     frontend: { name: 'Frontend', color: '#915eff', shape: 'Tetrahedron' },
@@ -84,7 +92,13 @@ export function Tech() {
 
         {/* 3D Scene - Full Width, Seamless Edges */}
         <motion.div
-          ref={canvasWrapperRef}
+          ref={(node) => {
+            // Attach both refs to the same element
+            canvasWrapperRef.current = node;
+            if (node && observerRef.current !== node) {
+              (observerRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
+            }
+          }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -96,12 +110,15 @@ export function Tech() {
           }}
           onDoubleClick={() => { if (!isMobile) setIsCanvasActive(a => !a) }}
         >
-          <TechScene
-            technologies={technologies}
-            onTechClick={() => {}}
-            isActive={isCanvasActive}
-            onToggle={() => setIsCanvasActive(a => !a)}
-          />
+          {/* Only load 3D scene when approaching viewport */}
+          {isIntersecting && (
+            <TechScene
+              technologies={technologies}
+              onTechClick={() => {}}
+              isActive={isCanvasActive}
+              onToggle={() => setIsCanvasActive(a => !a)}
+            />
+          )}
 
           {/* State hint overlay — always visible, tells user what to do next */}
           <div className="absolute inset-0 z-10 flex items-end justify-center pb-4 pointer-events-none">
@@ -154,7 +171,7 @@ export function Tech() {
                   className="flex items-center gap-2 p-3 rounded-lg bg-background-secondary/20 backdrop-blur-sm border border-white/5 hover:border-white/20 transition-all duration-300"
                 >
                   <div
-                    className="w-2 h-2 rounded-full flex-shrink-0"
+                    className="w-2 h-2 rounded-full shrink-0"
                     style={{ backgroundColor: config.color, boxShadow: `0 0 8px ${config.color}60` }}
                   />
                   <p className="text-sm text-text-secondary">{tech.name}</p>

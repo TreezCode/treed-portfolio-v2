@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { motion, AnimatePresence } from 'framer-motion'
 import { contactSchema, type ContactFormData } from '@/lib/validations/contact'
 import { SeedOfLife } from '@/components/backgrounds/SeedOfLife'
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
 // Dynamically import 3D Sacred Geometry Orb component
 // Loading placeholder prevents layout shift and improves perceived performance
@@ -74,6 +75,13 @@ const AlertIcon = () => (
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  // Lazy load 3D orb when approaching viewport (300px before)
+  const { ref: observerRef, isIntersecting } = useIntersectionObserver({
+    rootMargin: '300px', // Load 300px before entering viewport
+    threshold: 0,
+    triggerOnce: true, // Only load once
+  })
 
   const {
     register,
@@ -381,6 +389,7 @@ export function Contact() {
 
           {/* 3D Sacred Geometry Orb */}
           <motion.div
+            ref={observerRef}
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -389,7 +398,10 @@ export function Contact() {
           >
             <div className="relative h-[280px] sm:h-[380px] lg:h-[550px] lg:-mr-16">
               <div className="absolute -inset-6">
-                <SacredGeometryOrbCanvas className="w-full h-full" />
+                {/* Only load 3D orb when approaching viewport */}
+                {isIntersecting && (
+                  <SacredGeometryOrbCanvas className="w-full h-full" />
+                )}
               </div>
             </div>
           </motion.div>
