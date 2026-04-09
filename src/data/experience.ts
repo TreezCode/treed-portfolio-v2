@@ -11,9 +11,9 @@ export const experiences: Experience[] = [
     company: 'Northampton Community College',
     date: 'September 2022 - May 2025',
     points: [
-      'Pursuing Associate of Applied Science degree in Information Security with focus on network security and ethical hacking',
+      'Earned Associate of Applied Science degree in Information Security with focus on network security and ethical hacking',
       'Achieved Dean\'s List recognition every semester while working full-time, demonstrating strong academic performance and time management',
-      'Earned CompTIA Security+ certification demonstrating expertise in threat analysis, cryptography, and security operations',
+      'Obtained CompTIA Security+ certification demonstrating expertise in threat analysis, cryptography, and security operations',
       'Completed job shadowing programs at Forward Thinking Technologies (cybersecurity firm) and Software Consulting Services (software development firm)',
       'Hands-on experience with security tools including Metasploit, Burp Suite, Wireshark, Nessus, Nmap, and Kali Linux',
       'CCNA: Introduction to Networks coursework (Cisco) covering routing, switching, and network protocols',

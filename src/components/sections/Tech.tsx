@@ -7,9 +7,18 @@ import dynamic from 'next/dynamic'
 import { useIsMobile } from '@/hooks/useMobileReduced'
 
 // Dynamically import 3D scene to avoid SSR issues
+// Loading placeholder prevents layout shift and improves perceived performance
 const TechScene = dynamic(
   () => import('@/components/three/TechScene').then((mod) => mod.TechScene),
-  { ssr: false }
+  { 
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-[550px] sm:h-[650px] lg:h-[750px] bg-transparent flex items-center justify-center" aria-label="Loading 3D technology scene">
+        {/* Subtle cyan loading spinner matching tech section theme */}
+        <div className="w-12 h-12 border-2 border-[#00d4ff]/20 border-t-[#00d4ff] rounded-full animate-spin" />
+      </div>
+    )
+  }
 )
 
 export function Tech() {

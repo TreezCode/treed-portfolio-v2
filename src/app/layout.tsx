@@ -94,8 +94,21 @@ export default function RootLayout({
               '@type': 'Person',
               name: 'Joey Kubalak',
               url: 'https://joeykubalak.com',
-              jobTitle: 'Senior Frontend Developer',
-              knowsAbout: ['React', 'Next.js', 'Three.js', 'TypeScript', 'WebGL', '3D Web Development'],
+              jobTitle: 'Junior Software Engineer',
+              knowsAbout: [
+                'React', 
+                'Next.js', 
+                'Three.js', 
+                'TypeScript', 
+                'WebGL', 
+                '3D Web Development',
+                'Cybersecurity',
+                'CompTIA Security+',
+                'Information Security',
+                'AI Development',
+                'WordPress',
+                'Shopify'
+              ],
               sameAs: [
                 'https://github.com/TreezCode',
                 'https://www.linkedin.com/in/joey-kubalak-425032180/',

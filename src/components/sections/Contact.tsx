@@ -9,9 +9,18 @@ import { contactSchema, type ContactFormData } from '@/lib/validations/contact'
 import { SeedOfLife } from '@/components/backgrounds/SeedOfLife'
 
 // Dynamically import 3D Sacred Geometry Orb component
+// Loading placeholder prevents layout shift and improves perceived performance
 const SacredGeometryOrbCanvas = dynamic(
   () => import('@/components/three/SacredGeometryOrbCanvas').then((mod) => mod.SacredGeometryOrbCanvas),
-  { ssr: false }
+  { 
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-[280px] sm:h-[380px] lg:h-[550px] bg-transparent flex items-center justify-center" aria-label="Loading sacred geometry orb">
+        {/* Pink loading spinner matching contact section theme */}
+        <div className="w-12 h-12 border-2 border-[#ff6b9d]/20 border-t-[#ff6b9d] rounded-full animate-spin" />
+      </div>
+    )
+  }
 )
 
 const SendIcon = () => (

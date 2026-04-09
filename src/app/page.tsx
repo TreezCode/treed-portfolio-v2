@@ -9,9 +9,20 @@ import { About, Experience, Tech, Projects, Contact } from '@/components/section
 import { usePerfFlags } from '@/components/perf/PerfProvider'
 
 // Dynamically import 3D scene to avoid SSR issues
+// Loading placeholder prevents layout shift and improves perceived performance
 const SacredGeometryScene = dynamic(
   () => import('@/components/three/SacredGeometryScene').then((mod) => mod.SacredGeometryScene),
-  { ssr: false }
+  { 
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-full bg-transparent" aria-label="Loading 3D scene">
+        {/* Subtle loading indicator - sacred geometry themed */}
+        <div className="flex items-center justify-center w-full h-full">
+          <div className="w-16 h-16 border-2 border-[#915eff]/20 border-t-[#915eff] rounded-full animate-spin" />
+        </div>
+      </div>
+    )
+  }
 )
 
 export default function Home() {
