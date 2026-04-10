@@ -7,14 +7,6 @@ import { useIsMobile } from '@/hooks/useMobileReduced'
 import { PlatonicSolid } from './PlatonicSolid'
 import { TechInfoCard } from './TechInfoCard'
 
-function Loader() {
-  return (
-    <mesh>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color="#915eff" wireframe />
-    </mesh>
-  )
-}
 
 interface TechSceneProps {
   technologies: Array<{
@@ -66,9 +58,11 @@ function CanvasController({
       const now = Date.now()
       const timeSinceLast = now - lastTapRef.current
       if (timeSinceLast < 300 && timeSinceLast > 0) {
-        // Double-tap detected with single finger — toggle lock/unlock
+        // Double-tap detected with single finger — only unlock (lock via button)
         e.preventDefault()
-        onToggle()
+        if (!isActive) {
+          onToggle()
+        }
       }
       lastTapRef.current = now
       touchCountRef.current = 0
@@ -83,7 +77,7 @@ function CanvasController({
       el.removeEventListener('touchstart', handleTouchStart)
       el.removeEventListener('touchend', handleTouchEnd)
     }
-  }, [isMobile, onToggle])
+  }, [isMobile, onToggle, isActive])
 
   return null
 }
@@ -139,7 +133,7 @@ export function TechScene({ technologies, isActive = false, onToggle }: TechScen
       <pointLight position={[-10, -10, -5]} intensity={0.5} color="#915eff" />
       <pointLight position={[10, -10, -5]} intensity={0.5} color="#00d4ff" />
 
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={null}>
         {technologies.map((tech, index) => {
           const config = getCategoryConfig(tech.category)
           const pos = getPosition(index, technologies.length)
@@ -150,6 +144,7 @@ export function TechScene({ technologies, isActive = false, onToggle }: TechScen
               color={config.color}
               position={pos}
               techName={tech.name}
+              delay={index * 0.08} // Staggered entrance animation
               onClick={() => {
                 // Toggle off if same shape clicked
                 if (selectedTech?.name === tech.name) {

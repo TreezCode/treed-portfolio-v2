@@ -11,12 +11,16 @@ interface PlatonicSolidProps {
   position: [number, number, number]
   techName: string
   onClick: () => void
+  delay?: number // Staggered entrance animation delay
 }
 
-export function PlatonicSolid({ type, color, position, techName, onClick }: PlatonicSolidProps) {
+export function PlatonicSolid({ type, color, position, techName, onClick, delay = 0 }: PlatonicSolidProps) {
   const meshRef = useRef<THREE.Mesh>(null)
+  const groupRef = useRef<THREE.Group>(null)
   const [isHovered, setIsHovered] = useState(false)
   const [isDark, setIsDark] = useState(true)
+  const [isVisible, setIsVisible] = useState(false)
+  const [animationProgress, setAnimationProgress] = useState(0)
   
   // Detect theme changes
   useEffect(() => {
@@ -31,6 +35,14 @@ export function PlatonicSolid({ type, color, position, techName, onClick }: Plat
     
     return () => observer.disconnect()
   }, [])
+
+  // Staggered entrance animation
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true)
+    }, delay * 1000)
+    return () => clearTimeout(timer)
+  }, [delay])
 
   // Geometry based on type
   const getGeometry = () => {
@@ -51,6 +63,22 @@ export function PlatonicSolid({ type, color, position, techName, onClick }: Plat
   }
 
   useFrame((state, delta) => {
+    // Entrance animation
+    if (isVisible && animationProgress < 1) {
+      setAnimationProgress(prev => Math.min(prev + delta * 2.5, 1))
+      
+      if (groupRef.current) {
+        // Smooth easing function (ease-out cubic)
+        const easeOut = (t: number) => 1 - Math.pow(1 - t, 3)
+        const progress = easeOut(animationProgress)
+        
+        // Scale from 0.3 to 1 with smooth easing
+        groupRef.current.scale.setScalar(0.3 + progress * 0.7)
+        
+        // Fade in opacity (handled via material opacity below)
+      }
+    }
+    
     if (meshRef.current) {
       // Gentle auto-rotation (faster on hover)
       const baseSpeed = isHovered ? 0.4 : 0.2
@@ -59,9 +87,12 @@ export function PlatonicSolid({ type, color, position, techName, onClick }: Plat
     }
   })
 
+  // Calculate opacity based on animation progress
+  const currentOpacity = isVisible ? Math.min(animationProgress, 1) : 0
+  
   return (
     <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
-      <group position={position}>
+      <group ref={groupRef} position={position}>
         {/* Wireframe */}
         <mesh
           ref={meshRef}
@@ -77,9 +108,9 @@ export function PlatonicSolid({ type, color, position, techName, onClick }: Plat
             color={color}
             wireframe
             transparent
-            opacity={isHovered ? 0.8 : 0.4}
+            opacity={(isHovered ? 0.8 : 0.4) * currentOpacity}
             emissive={color}
-            emissiveIntensity={isHovered ? 0.5 : 0.2}
+            emissiveIntensity={(isHovered ? 0.5 : 0.2) * currentOpacity}
           />
         </mesh>
 
@@ -88,9 +119,9 @@ export function PlatonicSolid({ type, color, position, techName, onClick }: Plat
           <meshStandardMaterial
             color={color}
             transparent
-            opacity={isHovered ? 0.3 : 0.1}
+            opacity={(isHovered ? 0.3 : 0.1) * currentOpacity}
             emissive={color}
-            emissiveIntensity={isHovered ? 0.3 : 0.1}
+            emissiveIntensity={(isHovered ? 0.3 : 0.1) * currentOpacity}
           />
         </mesh>
 

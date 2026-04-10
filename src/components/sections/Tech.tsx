@@ -108,7 +108,10 @@ export function Tech() {
             maskImage: 'linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)',
           }}
-          onDoubleClick={() => { if (!isMobile) setIsCanvasActive(a => !a) }}
+          onDoubleClick={() => { 
+            // Double-click only unlocks (lock via button)
+            if (!isMobile && !isCanvasActive) setIsCanvasActive(true) 
+          }}
         >
           {/* Only load 3D scene when approaching viewport */}
           {isIntersecting && (
@@ -120,42 +123,65 @@ export function Tech() {
             />
           )}
 
-          {/* State hint overlay — matches Contact section design language */}
-          <div className="absolute inset-0 z-10 flex items-start justify-center pt-12 pointer-events-none">
-            <motion.div
-              key={String(isCanvasActive)}
-              initial={{ opacity: 0, scale: 0.9, y: -10 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-primary/95 backdrop-blur-sm border border-accent-secondary/30 shadow-lg theme-transition"
-            >
-              {/* Icon - changes based on state */}
-              {!isCanvasActive ? (
+          {/* Unlock hint (locked state) - centered at top */}
+          {!isCanvasActive && (
+            <div className="absolute inset-0 z-10 flex items-start justify-center pt-12 pointer-events-none">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, y: -10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: -10 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-primary/95 backdrop-blur-sm border border-accent-secondary/30 shadow-lg theme-transition"
+              >
+                {/* Locked icon */}
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-accent-secondary">
                   <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="2"/>
                   <path d="M8 11V7a4 4 0 0 1 8 0v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
-              ) : (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-accent-secondary">
-                  <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M7 11V7a4 4 0 0 1 8 0v4M12 15v2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              )}
-              
-              {/* Text */}
-              <span className="text-sm font-medium text-text-primary">
-                {isMobile
-                  ? isCanvasActive
-                    ? 'Double-tap to lock'
-                    : 'Double-tap to unlock'
-                  : isCanvasActive
-                    ? 'Double-click to lock'
-                    : 'Double-click to unlock'
-                }
-              </span>
-            </motion.div>
-          </div>
+                
+                {/* Text */}
+                <span className="text-sm font-medium text-text-primary">
+                  {isMobile ? 'Double-tap to unlock' : 'Double-click to unlock'}
+                </span>
+              </motion.div>
+            </div>
+          )}
+
+          {/* Lock button (unlocked state) - slides to top-right corner */}
+          {isCanvasActive && (
+            <motion.button
+              initial={{ 
+                opacity: 0, 
+                scale: 0.9,
+                x: '-50%',  // Start from center
+                y: 0
+              }}
+              animate={{ 
+                opacity: 1, 
+                scale: 1,
+                x: 0,       // End at natural position (top-right)
+                y: 0
+              }}
+              exit={{ 
+                opacity: 0, 
+                scale: 0.8,
+                x: 0,
+                y: 0
+              }}
+              transition={{ 
+                duration: 0.4, 
+                ease: [0.34, 1.56, 0.64, 1] // Smooth spring-like easing
+              }}
+              onClick={() => setIsCanvasActive(false)}
+              className="absolute top-4 right-4 z-20 p-2 rounded-lg bg-surface-primary/95 backdrop-blur-sm border border-border-primary hover:border-accent-secondary transition-colors shadow-lg pointer-events-auto"
+              aria-label="Lock scene"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-text-primary">
+                <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="2"/>
+                <path d="M8 11V7a4 4 0 0 1 8 0v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </motion.button>
+          )}
         </motion.div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

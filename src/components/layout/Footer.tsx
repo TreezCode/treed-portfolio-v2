@@ -125,19 +125,24 @@ export function Footer() {
             </h3>
             <nav className="flex flex-col gap-2">
               {[
-                { name: 'Home', href: '#hero' },
-                { name: 'About', href: '#about' },
-                { name: 'Projects', href: '#projects' },
-                { name: 'Technologies', href: '#tech' },
-                { name: 'Contact', href: '#contact' },
+                { name: 'Home', id: 'hero' },
+                { name: 'About', id: 'about' },
+                { name: 'Projects', id: 'projects' },
+                { name: 'Technologies', id: 'tech' },
+                { name: 'Contact', id: 'contact' },
               ].map((item) => (
-                <Link
+                <a
                   key={item.name}
-                  href={item.href}
-                  className="text-text-secondary hover:text-accent-primary transition-colors text-sm theme-transition"
+                  href={`#${item.id}`}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="group text-text-secondary hover:text-text-primary transition-all duration-300 text-sm font-medium theme-transition cursor-pointer inline-flex items-center gap-2"
                 >
+                  <span className="w-1 h-1 rounded-full bg-text-tertiary group-hover:bg-[#00d4ff] transition-colors duration-300" />
                   {item.name}
-                </Link>
+                </a>
               ))}
             </nav>
           </div>

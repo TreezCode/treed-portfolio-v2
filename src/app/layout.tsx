@@ -32,12 +32,13 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://buildwithtreez.com'),
   title: {
-    default: 'Joey Kubalak | Junior Software Engineer',
+    default: 'Joey Kubalak | Junior Software Engineer & Cybersecurity Expert',
     template: '%s | Joey Kubalak',
   },
   description:
-    'Junior Software Engineer with a focus on cybersecurity and secure web architecture. Building dynamic, SEO-optimized solutions with React, Next.js, and Three.js. CompTIA Security+ certified with hands-on knowledge of security tools.',
+    'Junior Software Engineer with cybersecurity focus. CompTIA Security+ certified. Building secure, dynamic web applications with React, Next.js, and Three.js.',
   keywords: [
     'Junior Software Engineer',
     'Frontend Developer',
@@ -63,17 +64,21 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://joeykubalak.com',
-    title: 'Joey Kubalak | Junior Software Engineer',
+    url: 'https://buildwithtreez.com',
+    title: 'Joey Kubalak | Junior Software Engineer & Cybersecurity Expert',
     description:
       'Junior Software Engineer with cybersecurity focus. CompTIA Security+ certified. Building secure, dynamic web applications with React, Next.js, and Three.js.',
     siteName: 'Joey Kubalak Portfolio',
+    // Images automatically generated from opengraph-image.tsx
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Joey Kubalak | Junior Software Engineer',
+    title: 'Joey Kubalak | Junior Software Engineer & Cybersecurity Expert',
     description:
-      'Junior Software Engineer | CompTIA Security+ | React, Next.js, Three.js | Cybersecurity Focus',
+      'Junior Software Engineer with cybersecurity focus. CompTIA Security+ certified. Building secure, dynamic web applications with React, Next.js, and Three.js.',
+    site: '@buildwithtreez',
+    creator: '@buildwithtreez',
+    // Images automatically generated from opengraph-image.tsx
   },
   robots: {
     index: true,
@@ -106,7 +111,7 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Person',
               name: 'Joey Kubalak',
-              url: 'https://joeykubalak.com',
+              url: 'https://buildwithtreez.com',
               jobTitle: 'Junior Software Engineer',
               knowsAbout: [
                 'React', 
