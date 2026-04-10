@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface MetatronsCubeProps {
   opacity?: number
@@ -14,6 +14,24 @@ export function MetatronsCube({
   secondaryColor = '#00d4ff',
 }: MetatronsCubeProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const [isDark, setIsDark] = useState(true)
+
+  // Detect theme changes
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'))
+    }
+    
+    checkTheme()
+    
+    const observer = new MutationObserver(checkTheme)
+    observer.observe(document.documentElement, { 
+      attributes: true, 
+      attributeFilter: ['class'] 
+    })
+    
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -33,10 +51,13 @@ export function MetatronsCube({
 
       ctx.clearRect(0, 0, width, height)
 
+      // Theme-aware opacity multiplier
+      const opacityMultiplier = isDark ? 1 : 2.5  // Higher opacity for light mode
+
       // --- Fruit of Life (13 circles) ---
-      ctx.lineWidth = 1
+      ctx.lineWidth = isDark ? 1 : 1.5
       ctx.strokeStyle = color
-      ctx.globalAlpha = opacity
+      ctx.globalAlpha = opacity * opacityMultiplier
 
       // Center circle
       const r = scale * 0.15
@@ -79,7 +100,7 @@ export function MetatronsCube({
       ]
 
       // Draw connecting lines with gradient
-      ctx.globalAlpha = opacity * 0.8
+      ctx.globalAlpha = opacity * 0.8 * opacityMultiplier
       for (let i = 0; i < allPoints.length; i++) {
         for (let j = i + 1; j < allPoints.length; j++) {
           const gradient = ctx.createLinearGradient(
@@ -102,21 +123,21 @@ export function MetatronsCube({
 
       // --- Outer bounding circle ---
       ctx.strokeStyle = color
-      ctx.globalAlpha = opacity * 0.5
+      ctx.globalAlpha = opacity * 0.5 * opacityMultiplier
       ctx.lineWidth = 1
       ctx.beginPath()
       ctx.arc(centerX, centerY, r * 4 + r, 0, Math.PI * 2)
       ctx.stroke()
 
       // Second outer circle
-      ctx.globalAlpha = opacity * 0.3
+      ctx.globalAlpha = opacity * 0.3 * opacityMultiplier
       ctx.beginPath()
       ctx.arc(centerX, centerY, r * 4 + r * 2, 0, Math.PI * 2)
       ctx.stroke()
 
       // --- Inner Platonic solid outlines (hexagons) ---
       ctx.strokeStyle = secondaryColor
-      ctx.globalAlpha = opacity * 0.4
+      ctx.globalAlpha = opacity * 0.4 * opacityMultiplier
       ctx.lineWidth = 0.8
 
       // Inner hexagon
@@ -141,7 +162,7 @@ export function MetatronsCube({
 
       // Star of David (two triangles)
       ctx.strokeStyle = color
-      ctx.globalAlpha = opacity * 0.35
+      ctx.globalAlpha = opacity * 0.35 * opacityMultiplier
       ctx.lineWidth = 0.8
 
       // Upward triangle
@@ -170,13 +191,13 @@ export function MetatronsCube({
     handleResize()
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [opacity, color, secondaryColor])
+  }, [opacity, color, secondaryColor, isDark])  // Redraw when theme changes
 
   return (
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ mixBlendMode: 'screen' }}
+      style={{ mixBlendMode: isDark ? 'screen' : 'multiply' }}  // screen for dark, multiply for light
     />
   )
 }

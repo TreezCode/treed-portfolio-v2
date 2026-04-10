@@ -6,6 +6,7 @@ import { usePerfFlags } from '@/components/perf/PerfProvider'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
+import { Logo } from '@/components/ui/Logo'
 
 // Desktop nav — all sections
 const desktopLinks = [
@@ -226,14 +227,15 @@ export function Header() {
             {/* Logo */}
             <a
               href="#"
-              className="relative z-60 text-xl sm:text-2xl font-bold bg-linear-to-r from-[#915eff] to-[#00d4ff] bg-clip-text text-transparent hover:from-[#00d4ff] hover:to-[#ff6b9d] transition-all duration-300"
+              className="relative z-60 group"
               onClick={(e) => {
                 e.preventDefault()
                 closeMobileMenu()
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }}
+              aria-label="Build With Treez - Home"
             >
-              JK
+              <Logo variant="icon" size={32} className="group-hover:scale-105" />
             </a>
 
             {/* Desktop Navigation */}

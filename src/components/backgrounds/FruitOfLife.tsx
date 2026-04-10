@@ -9,6 +9,10 @@
  * Used as a decorative background element on About section cards.
  */
 
+'use client'
+
+import { useEffect, useState } from 'react'
+
 interface FruitOfLifeProps {
   color: string
   secondaryColor: string
@@ -16,12 +20,33 @@ interface FruitOfLifeProps {
 }
 
 export function FruitOfLife({ color, secondaryColor, className }: FruitOfLifeProps) {
+  const [isDark, setIsDark] = useState(true)
+
+  // Detect theme changes
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'))
+    }
+    
+    checkTheme()
+    
+    const observer = new MutationObserver(checkTheme)
+    observer.observe(document.documentElement, { 
+      attributes: true, 
+      attributeFilter: ['class'] 
+    })
+    
+    return () => observer.disconnect()
+  }, [])
   // Circle parameters
   const r = 20 // circle radius
   const cx = 100 // center x
   const cy = 100 // center y
   const innerRingRadius = r * 2 // distance from center to inner ring circles
   const outerRingRadius = r * 4 // distance from center to outer ring circles
+  
+  // Theme-aware stroke width
+  const strokeWidth = isDark ? 0.5 : 1
 
   // Generate circle positions
   const centerCircle = { cx, cy }
@@ -60,7 +85,7 @@ export function FruitOfLife({ color, secondaryColor, className }: FruitOfLifePro
         r={r} 
         fill="none" 
         stroke={`url(#${gradientId})`} 
-        strokeWidth="0.5" 
+        strokeWidth={strokeWidth} 
       />
       {/* Inner ring circles */}
       {innerRing.map((circle, i) => (
@@ -71,7 +96,7 @@ export function FruitOfLife({ color, secondaryColor, className }: FruitOfLifePro
           r={r} 
           fill="none" 
           stroke={`url(#${gradientId})`} 
-          strokeWidth="0.5" 
+          strokeWidth={strokeWidth} 
         />
       ))}
       {/* Outer ring circles */}
@@ -83,7 +108,7 @@ export function FruitOfLife({ color, secondaryColor, className }: FruitOfLifePro
           r={r} 
           fill="none" 
           stroke={`url(#${gradientId})`} 
-          strokeWidth="0.5" 
+          strokeWidth={strokeWidth} 
         />
       ))}
     </svg>

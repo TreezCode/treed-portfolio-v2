@@ -121,7 +121,7 @@ export function Tech() {
           )}
 
           {/* State hint overlay — always visible, tells user what to do next */}
-          <div className="absolute inset-0 z-10 flex items-start justify-center pt-8 pointer-events-none">
+          <div className="absolute inset-0 z-10 flex items-start justify-center pt-16 pointer-events-none">
             <motion.div
               key={String(isCanvasActive)}
               initial={{ opacity: 0, y: 6 }}

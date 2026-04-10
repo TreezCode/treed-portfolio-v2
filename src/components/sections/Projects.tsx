@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useCallback } from 'react'
+import { useState, useRef, useCallback, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { projects } from '@/data'
 import { MetatronsCube } from '@/components/backgrounds/MetatronsCube'
@@ -22,10 +22,34 @@ const ExternalLinkIcon = () => (
 
 // Inline SVG Metatron's Cube for card decoration
 function MetatronsCubeSVG({ color, secondaryColor, className }: { color: string; secondaryColor: string; className?: string }) {
+  const [isDark, setIsDark] = useState(true)
+
+  // Detect theme changes
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'))
+    }
+    
+    checkTheme()
+    
+    const observer = new MutationObserver(checkTheme)
+    observer.observe(document.documentElement, { 
+      attributes: true, 
+      attributeFilter: ['class'] 
+    })
+    
+    return () => observer.disconnect()
+  }, [])
+
   // 13 points: center + 6 inner ring + 6 outer ring
   const r = 12
   const cx = 50
   const cy = 50
+  
+  // Theme-aware stroke widths
+  const strokeWidthLine = isDark ? 0.2 : 0.4
+  const strokeWidthCircle = isDark ? 0.3 : 0.6
+  const strokeWidthPolygon = isDark ? 0.25 : 0.5
   const innerPts = Array.from({ length: 6 }, (_, i) => {
     const a = (Math.PI / 3) * i - Math.PI / 6
     return [cx + r * 2 * Math.cos(a), cy + r * 2 * Math.sin(a)] as [number, number]
@@ -48,26 +72,26 @@ function MetatronsCubeSVG({ color, secondaryColor, className }: { color: string;
     <svg viewBox="0 0 100 100" className={className} fill="none">
       {/* Connecting lines */}
       {lines.map((l, i) => (
-        <line key={i} x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke={i % 2 === 0 ? color : secondaryColor} strokeWidth="0.2" />
+        <line key={i} x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke={i % 2 === 0 ? color : secondaryColor} strokeWidth={strokeWidthLine} />
       ))}
       {/* Circles */}
-      <circle cx={cx} cy={cy} r={r} stroke={color} strokeWidth="0.3" />
+      <circle cx={cx} cy={cy} r={r} stroke={color} strokeWidth={strokeWidthCircle} />
       {innerPts.map((p, i) => (
-        <circle key={`i${i}`} cx={p[0]} cy={p[1]} r={r} stroke={color} strokeWidth="0.3" />
+        <circle key={`i${i}`} cx={p[0]} cy={p[1]} r={r} stroke={color} strokeWidth={strokeWidthCircle} />
       ))}
       {outerPts.map((p, i) => (
-        <circle key={`o${i}`} cx={p[0]} cy={p[1]} r={r} stroke={secondaryColor} strokeWidth="0.25" />
+        <circle key={`o${i}`} cx={p[0]} cy={p[1]} r={r} stroke={secondaryColor} strokeWidth={strokeWidthPolygon} />
       ))}
       {/* Inner hexagon */}
-      <polygon points={innerPts.map(p => p.join(',')).join(' ')} stroke={secondaryColor} strokeWidth="0.3" />
+      <polygon points={innerPts.map(p => p.join(',')).join(' ')} stroke={secondaryColor} strokeWidth={strokeWidthCircle} />
       {/* Outer hexagon */}
-      <polygon points={outerPts.map(p => p.join(',')).join(' ')} stroke={color} strokeWidth="0.25" />
+      <polygon points={outerPts.map(p => p.join(',')).join(' ')} stroke={color} strokeWidth={strokeWidthPolygon} />
       {/* Star of David */}
-      <polygon points={`${outerPts[0].join(',')},${outerPts[2].join(',')},${outerPts[4].join(',')}`} stroke={color} strokeWidth="0.3" />
-      <polygon points={`${outerPts[1].join(',')},${outerPts[3].join(',')},${outerPts[5].join(',')}`} stroke={secondaryColor} strokeWidth="0.3" />
+      <polygon points={`${outerPts[0].join(',')},${outerPts[2].join(',')},${outerPts[4].join(',')}`} stroke={color} strokeWidth={strokeWidthCircle} />
+      <polygon points={`${outerPts[1].join(',')},${outerPts[3].join(',')},${outerPts[5].join(',')}`} stroke={secondaryColor} strokeWidth={strokeWidthCircle} />
       {/* Bounding circles */}
-      <circle cx={cx} cy={cy} r={r * 4 + r} stroke={color} strokeWidth="0.2" />
-      <circle cx={cx} cy={cy} r={r * 4 + r * 2} stroke={secondaryColor} strokeWidth="0.15" />
+      <circle cx={cx} cy={cy} r={r * 4 + r} stroke={color} strokeWidth={strokeWidthLine} />
+      <circle cx={cx} cy={cy} r={r * 4 + r * 2} stroke={secondaryColor} strokeWidth={strokeWidthLine * 0.75} />
     </svg>
   )
 }
@@ -129,7 +153,7 @@ function ProjectCard({
         onMouseLeave={handleMouseLeave}
         className="group relative h-full rounded-2xl p-px cursor-pointer"
         style={{
-          background: `linear-gradient(135deg, ${gradient.from}40, ${gradient.to}40)`,
+          background: `linear-gradient(135deg, ${gradient.from}60, ${gradient.to}60)`,
           transition: 'transform 400ms cubic-bezier(0.03, 0.98, 0.52, 0.99), box-shadow 300ms ease',
         }}
         onMouseEnter={(e) => {
@@ -137,7 +161,7 @@ function ProjectCard({
           e.currentTarget.style.boxShadow = `0 20px 60px ${gradient.from}30, 0 0 40px ${gradient.to}15`
         }}
         onMouseOut={(e) => {
-          e.currentTarget.style.background = `linear-gradient(135deg, ${gradient.from}40, ${gradient.to}40)`
+          e.currentTarget.style.background = `linear-gradient(135deg, ${gradient.from}60, ${gradient.to}60)`
           e.currentTarget.style.boxShadow = 'none'
         }}
       >
@@ -155,11 +179,11 @@ function ProjectCard({
           <div
             className="relative h-44 sm:h-48 mb-5 rounded-xl overflow-hidden"
             style={{
-              background: `linear-gradient(135deg, ${gradient.from}15, ${gradient.to}10)`,
+              background: `linear-gradient(135deg, ${gradient.from}25, ${gradient.to}20)`,
             }}
           >
             {/* Metatron's Cube overlay on image area */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-[0.07] group-hover:opacity-[0.14] transition-opacity duration-500 pointer-events-none">
+            <div className="absolute inset-0 flex items-center justify-center opacity-[0.15] group-hover:opacity-[0.25] transition-opacity duration-500 pointer-events-none dark:opacity-[0.07] dark:group-hover:opacity-[0.14]">
               <MetatronsCubeSVG
                 color={gradient.from}
                 secondaryColor={gradient.to}
@@ -220,7 +244,7 @@ function ProjectCard({
           {/* Project Content */}
           <div className="relative flex-1 flex flex-col">
             {/* Metatron's Cube body background */}
-            <div className="absolute -bottom-6 -right-6 opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none">
+            <div className="absolute -bottom-6 -right-6 opacity-[0.10] group-hover:opacity-[0.18] transition-opacity duration-500 pointer-events-none dark:opacity-[0.04] dark:group-hover:opacity-[0.08]">
               <MetatronsCubeSVG
                 color={gradient.from}
                 secondaryColor={gradient.to}

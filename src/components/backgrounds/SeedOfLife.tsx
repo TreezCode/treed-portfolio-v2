@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface SeedOfLifeProps {
   size?: number // Base radius multiplier (default: 1)
@@ -16,6 +16,24 @@ export function SeedOfLife({
   color = '#915eff'
 }: SeedOfLifeProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const [isDark, setIsDark] = useState(true)
+
+  // Detect theme changes
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'))
+    }
+    
+    checkTheme()
+    
+    const observer = new MutationObserver(checkTheme)
+    observer.observe(document.documentElement, { 
+      attributes: true, 
+      attributeFilter: ['class'] 
+    })
+    
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -55,9 +73,13 @@ export function SeedOfLife({
       const radius = baseRadius * size
 
       ctx.clearRect(0, 0, width, height)
+      
+      // Theme-aware opacity multiplier
+      const opacityMultiplier = isDark ? 1 : 2.5  // Higher opacity for light mode
+      
       ctx.strokeStyle = color
-      ctx.lineWidth = 1.5
-      ctx.globalAlpha = opacity
+      ctx.lineWidth = isDark ? 1.5 : 2
+      ctx.globalAlpha = opacity * opacityMultiplier
 
       // Center circle
       ctx.beginPath()
@@ -79,7 +101,7 @@ export function SeedOfLife({
 
       // Additional decorative circles for more complexity
       const outerRadius = radius * 2
-      ctx.globalAlpha = opacity * 0.6
+      ctx.globalAlpha = opacity * 0.6 * opacityMultiplier
       angles.forEach((angle) => {
         const rad = (angle * Math.PI) / 180
         const x = centerX + outerRadius * Math.cos(rad)
@@ -102,7 +124,7 @@ export function SeedOfLife({
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [size, opacity, position, color])
+  }, [size, opacity, position, color, isDark])  // Redraw when theme changes
 
   return <canvas ref={canvasRef} className="absolute inset-0" />
 }

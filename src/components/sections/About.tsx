@@ -96,7 +96,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
           />
 
           {/* Fruit of Life sacred geometry background */}
-          <div className="absolute -bottom-8 -right-8 opacity-[0.07] group-hover:opacity-[0.14] transition-opacity duration-500 pointer-events-none">
+          <div className="absolute -bottom-8 -right-8 opacity-[0.12] group-hover:opacity-[0.20] transition-opacity duration-500 pointer-events-none dark:opacity-[0.07] dark:group-hover:opacity-[0.14]">
             <FruitOfLife
               color={colors.from}
               secondaryColor={colors.to}

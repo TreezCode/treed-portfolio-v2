@@ -734,31 +734,83 @@ The signature visual element across all Build With Treez applications.
 
 ### Background Patterns
 
-**Flower of Life Pattern** - Subtle background element
+Sacred geometry patterns provide visual depth and brand identity. **Critical:** These patterns must be **theme-aware** to remain visible in both light and dark modes.
 
+#### Implementation Requirements
+
+**❌ DON'T: Static opacity (invisible in light mode)**
 ```tsx
-// Use in hero sections or key landing areas
+// Bad - Only visible in dark mode
 <canvas 
   className="absolute inset-0 opacity-5 pointer-events-none" 
-  aria-hidden="true"
+  style={{ mixBlendMode: 'screen' }}
 />
 ```
 
-**Implementation tip:** Use canvas-based 2D rendering with cosmic purple (#915eff) at 3-7% opacity.
+**✅ DO: Theme-aware with dynamic opacity**
+```tsx
+// Good - Visible in both themes
+const [isDark, setIsDark] = useState(true)
+
+useEffect(() => {
+  const checkTheme = () => {
+    setIsDark(document.documentElement.classList.contains('dark'))
+  }
+  
+  checkTheme()
+  const observer = new MutationObserver(checkTheme)
+  observer.observe(document.documentElement, { 
+    attributes: true, 
+    attributeFilter: ['class'] 
+  })
+  return () => observer.disconnect()
+}, [])
+
+// Apply theme-aware values
+const opacityMultiplier = isDark ? 1 : 2.5
+const lineWidth = isDark ? 1 : 1.5
+ctx.globalAlpha = baseOpacity * opacityMultiplier
+
+// Canvas styling
+<canvas 
+  style={{ 
+    mixBlendMode: isDark ? 'screen' : 'multiply' 
+  }}
+/>
+```
+
+#### Recommended Opacity Values
+
+| **Pattern** | **Dark Mode** | **Light Mode** | **Blend Mode (Dark)** | **Blend Mode (Light)** |
+|-------------|---------------|----------------|----------------------|------------------------|
+| Flower of Life (Hero) | 0.07 | 0.15 | screen | multiply |
+| Metatron's Cube (Projects) | 0.06 | 0.15 | screen | multiply |
+| Seed of Life (Contact) | 0.04 | 0.10 | - | - |
+| Fruit of Life (Cards) | 0.07 | 0.12 | - | - |
+
+#### Canvas Stroke Guidelines
+
+- **Dark Mode:** Standard line width (1-1.5px)
+- **Light Mode:** Thicker lines (1.5-2px) for better visibility
+- **Multiplier:** Apply 2.5x opacity for light mode
+- **Blend Modes:** `screen` for dark, `multiply` for light
 
 ### Decorative Elements
 
-**Geometric Accents**
+**Geometric Accents** - Use theme-aware stroke widths
+
 ```tsx
-/* Corner accents */
-<div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-  <svg viewBox="0 0 100 100">
-    <circle cx="50" cy="50" r="40" 
-      stroke="url(#gradient)" 
-      fill="none" 
-      strokeWidth="1" />
-  </svg>
-</div>
+// SVG with theme detection
+const strokeWidth = isDark ? 0.5 : 1
+
+<svg viewBox="0 0 100 100">
+  <circle 
+    cx="50" cy="50" r="40" 
+    stroke="url(#gradient)" 
+    fill="none" 
+    strokeWidth={strokeWidth} 
+  />
+</svg>
 ```
 
 ### Optional 3D Elements
@@ -767,9 +819,19 @@ For applications that want immersive experiences:
 
 - **Merkaba (Star Tetrahedron)** - Hero sections, landing pages
 - **Quantum Field** - Particle systems for dynamic sections
-- **Torus Field** - Data visualization, loading states
+- **Platonic Solids** - Tech showcases, interactive demos
 
 **Note:** 3D elements are optional. Use them where they add value without impacting performance.
+
+### Sacred Geometry Components
+
+Available in `src/components/backgrounds/`:
+- **SacredGeometry** - Flower of Life pattern (hero backgrounds)
+- **MetatronsCube** - 13-circle sacred pattern (section backgrounds)
+- **SeedOfLife** - 7-circle pattern (decorative)
+- **FruitOfLife** - 13-circle SVG (card decorations)
+
+All components include built-in theme detection and adaptive rendering.
 
 ---
 
@@ -1221,8 +1283,9 @@ When building any new Build With Treez application, ensure:
 - [ ] Brand colors used consistently (#915eff, #00d4ff, #ff6b9d)
 - [ ] Glass morphism applied to cards and overlays
 - [ ] Gradients use brand color combinations
-- [ ] Sacred geometry element integrated (subtle background or accent)
-- [ ] Dark theme as default (light theme optional)
+- [ ] Sacred geometry element integrated with **theme-aware opacity** (2.5x for light mode)
+- [ ] Theme system implemented (Sacred Toggle or equivalent)
+- [ ] Light and dark modes both tested and visually verified
 
 ### Components
 - [ ] Buttons follow three-tier system (Primary, Secondary, Tertiary)

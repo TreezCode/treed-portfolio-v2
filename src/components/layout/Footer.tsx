@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { Logo } from '@/components/ui/Logo'
 
 const socialLinks = [
   {
@@ -50,14 +51,17 @@ export function Footer() {
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-          {/* Copyright */}
-          <p className="text-text-secondary text-sm order-2 sm:order-1 theme-transition">
-            © {currentYear} Build With Treez. All rights reserved.
-          </p>
+        <div className="flex flex-col items-center gap-6">
+          {/* Logo and Brand */}
+          <div className="flex flex-col items-center gap-3">
+            <Logo variant="full" size={200} />
+            <p className="text-text-tertiary text-xs tracking-wide theme-transition">
+              Where Sacred Geometry Meets Modern Technology
+            </p>
+          </div>
 
           {/* Social Links — Hero style */}
-          <div className="flex items-center gap-3 order-1 sm:order-2">
+          <div className="flex items-center gap-3">
             {socialLinks.map((link) => (
               <Link
                 key={link.name}
@@ -96,6 +100,11 @@ export function Footer() {
               </Link>
             ))}
           </div>
+
+          {/* Copyright */}
+          <p className="text-text-tertiary text-xs theme-transition">
+            © {currentYear} Build With Treez. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
