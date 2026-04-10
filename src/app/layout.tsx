@@ -3,8 +3,21 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { PerfProvider } from '@/components/perf/PerfProvider'
-import { PerfOverlayRoot } from '@/components/perf/PerfOverlayRoot'
+import { ThemeProvider } from '@/contexts/ThemeContext'
+import dynamic from 'next/dynamic'
+
+// Performance tools - only loaded when explicitly enabled
+// When env var is unset/false, these imports are completely excluded from bundle
+const isPerfEnabled = process.env.NEXT_PUBLIC_ENABLE_PERF_TOOLS === 'true'
+
+// Dynamic imports - webpack will exclude these from production bundle when condition is false
+const PerfProvider = isPerfEnabled 
+  ? dynamic(() => import('@/components/perf/PerfProvider').then(mod => ({ default: mod.PerfProvider })), { ssr: true })
+  : ({ children }: { children: React.ReactNode }) => <>{children}</>
+
+const PerfOverlayRoot = isPerfEnabled
+  ? dynamic(() => import('@/components/perf/PerfOverlayRoot').then(mod => ({ default: mod.PerfOverlayRoot })))
+  : () => null
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -123,12 +136,14 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <PerfProvider>
-          <Header />
-          <main id="main-content" className="flex-1">{children}</main>
-          <Footer />
-          <PerfOverlayRoot />
-        </PerfProvider>
+        <ThemeProvider>
+          <PerfProvider>
+            <Header />
+            <main id="main-content" className="flex-1">{children}</main>
+            <Footer />
+            {isPerfEnabled && <PerfOverlayRoot />}
+          </PerfProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

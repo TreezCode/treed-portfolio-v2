@@ -1,10 +1,14 @@
 # BuildwithTreez Brand Guide
 
+**Version:** 2.0 - Sacred Toggle Edition  
+**Last Updated:** April 10, 2026
+
 ## 🎨 Brand Identity
 
 **Brand Name:** BuildwithTreez  
 **Tagline:** Immersive 3D visuals, intuitive user interfaces, and dynamic web applications  
-**Personality:** Innovative, Professional, Creative, Technical Excellence
+**Personality:** Innovative, Professional, Creative, Technical Excellence  
+**Theme System:** Sacred Toggle™ - Premium light/dark mode with sacred geometry
 
 ---
 
@@ -17,12 +21,30 @@
 --treez-pink: #ff6b9d;      /* Accent - energy & passion */
 ```
 
-### Supporting Colors
+### Theme System Colors (v2.0)
+
+**IMPORTANT:** Use theme-aware CSS variables for all UI elements.
+
 ```css
---deep-space: #0a0a0f;      /* Primary background */
---cosmic-gray: #1a1a2e;     /* Secondary background / cards */
---soft-white: #f8f8f8;      /* Primary text */
---muted-gray: #b0b0b0;      /* Secondary text */
+/* Light Theme */
+:root {
+  --background-primary: #f5f5f7;
+  --background-secondary: #e8e8ed;
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a5e;
+  --border-primary: rgba(145, 94, 255, 0.15);
+  --surface-primary: rgba(145, 94, 255, 0.08);
+}
+
+/* Dark Theme */
+.dark {
+  --background-primary: #0a0a0f;
+  --background-secondary: #151520;
+  --text-primary: #f8f8f8;
+  --text-secondary: #b8b8c8;
+  --border-primary: rgba(145, 94, 255, 0.2);
+  --surface-primary: rgba(145, 94, 255, 0.1);
+}
 ```
 
 ### Gradient Combinations

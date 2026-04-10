@@ -2,7 +2,7 @@
 
 // PERF TESTING: FPS tracker. Rendered inside an R3F Canvas.
 // Pushes structured entries to perfLogStore (downloadable from the overlay).
-// Also echoes to console when available. Safe in production — guard is inside useFrame.
+// Completely disabled in production via environment variable check.
 
 import { useRef, useEffect } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
@@ -14,7 +14,9 @@ interface FPSTrackerProps {
   mode?: PerfMode
 }
 
-export function FPSTracker({ label = 'canvas', mode = 'none' }: FPSTrackerProps) {
+const isPerfEnabled = process.env.NEXT_PUBLIC_ENABLE_PERF_TOOLS === 'true'
+
+function FPSTrackerInner({ label = 'canvas', mode = 'none' }: FPSTrackerProps) {
   const frameTimes = useRef<number[]>([])
   const lastSample = useRef(performance.now())
   const lastFrame = useRef(performance.now())
@@ -81,4 +83,10 @@ export function FPSTracker({ label = 'canvas', mode = 'none' }: FPSTrackerProps)
   })
 
   return null
+}
+
+// Wrapper component - only renders FPSTrackerInner if perf tools are enabled
+export function FPSTracker(props: FPSTrackerProps) {
+  if (!isPerfEnabled) return null
+  return <FPSTrackerInner {...props} />
 }

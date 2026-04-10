@@ -66,7 +66,7 @@ const ExperienceCard = ({ experience, index }: { experience: typeof experiences[
             <div className="relative z-10">
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
+                  <h3 className="text-xl sm:text-2xl font-bold text-text-primary mb-1 theme-transition">
                     {experience.title}
                   </h3>
                   <p className="text-[#00d4ff] font-semibold">{experience.company}</p>
@@ -95,7 +95,7 @@ const ExperienceCard = ({ experience, index }: { experience: typeof experiences[
           boxShadow: '0 0 20px #915eff80',
         }}
       >
-        <Briefcase className="w-8 h-8 text-white" />
+        <Briefcase className="w-8 h-8 text-text-primary theme-transition" />
       </div>
 
       {/* Spacer for opposite side on desktop */}
@@ -118,7 +118,7 @@ export function Experience() {
             <p className="text-[#915eff] text-sm font-semibold uppercase tracking-wider mb-2">
               What I&apos;ve Done So Far
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Work Experience</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-text-primary theme-transition">Work Experience</h2>
           </div>
         </motion.div>
 

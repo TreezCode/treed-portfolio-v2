@@ -1,7 +1,8 @@
 # BuildwithTreez Portfolio - Design Guidelines
 
-> **Last Updated:** April 6, 2026  
-> **Reference Section:** Hero Section (Fully Polished)
+> **Last Updated:** April 10, 2026  
+> **Reference Section:** Hero Section (Fully Polished)  
+> **New:** Sacred Toggle Theme System (v2.0)
 
 This document outlines the design system, branding consistency, and implementation patterns for the BuildwithTreez portfolio. Use the Hero section as the gold standard when updating other sections.
 
@@ -11,24 +12,66 @@ This document outlines the design system, branding consistency, and implementati
 
 ### Core Brand Colors
 ```css
-/* Primary Colors */
+/* Primary Brand Colors (Theme Independent) */
 --treez-purple: #915eff;    /* Innovation, creativity */
 --treez-cyan: #00d4ff;      /* Technology, precision */
 --treez-pink: #ff6b9d;      /* Energy, passion */
+```
 
-/* Background Colors */
---deep-space: #0a0a0f;      /* Primary background */
---cosmic-gray: #1a1a2e;     /* Secondary background */
+### Theme System Colors (NEW)
 
-/* Text Colors */
---soft-white: #f8f8f8;      /* Primary text */
---muted-gray: #b0b0b0;      /* Secondary text */
+**IMPORTANT:** Always use theme-aware CSS variables, never hardcode colors.
+
+```css
+/* Light Theme */
+:root {
+  --background-primary: #f5f5f7;
+  --background-secondary: #e8e8ed;
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a5e;
+  --border-primary: rgba(145, 94, 255, 0.15);
+  --surface-primary: rgba(145, 94, 255, 0.08);
+}
+
+/* Dark Theme */
+.dark {
+  --background-primary: #0a0a0f;
+  --background-secondary: #151520;
+  --text-primary: #f8f8f8;
+  --text-secondary: #b8b8c8;
+  --border-primary: rgba(145, 94, 255, 0.2);
+  --surface-primary: rgba(145, 94, 255, 0.1);
+}
 ```
 
 ### Brand Philosophy
 *"Where Sacred Geometry Meets Modern Technology"*
 
 The portfolio blends ancient sacred geometry patterns with cutting-edge web technology, creating a unique visual identity that represents both spiritual depth and technical expertise.
+
+### Sacred Toggle™ (v2.0)
+
+Our premium light/dark mode implementation featuring:
+- **Flower of Life Icon** - Light mode (expansion, sun rays)
+- **Merkaba Icon** - Dark mode (cosmic energy, stars)
+- **180° rotation** animation on toggle
+- **LocalStorage** persistence
+- **System preference** detection
+- **Mobile-optimized** (no sticky focus)
+- **Full accessibility** support
+
+**Usage:**
+```tsx
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
+
+// In header/navigation
+<ThemeToggle />
+
+// Use theme-aware classes
+<div className="bg-background-primary text-text-primary theme-transition">
+  Content adapts to theme
+</div>
+```
 
 ---
 

@@ -55,7 +55,7 @@ export function Tech() {
               <p className="text-[#915eff] text-sm font-semibold uppercase tracking-wider mb-2">
                 What Tools I Build With
               </p>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Technologies</h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-text-primary theme-transition">Technologies</h2>
               <p className="text-lg sm:text-xl text-text-secondary max-w-3xl mx-auto">
                 Interactive 3D showcase using Platonic Solids - the sacred geometry of technology
               </p>
@@ -74,14 +74,14 @@ export function Tech() {
             {Object.entries(categories).map(([key, cat]) => (
               <div
                 key={key}
-                className="flex items-center gap-3 p-3 rounded-lg bg-background-secondary/30 backdrop-blur-sm border border-white/5"
+                className="flex items-center gap-3 p-3 rounded-lg bg-background-secondary/30 backdrop-blur-sm border border-border-secondary theme-transition"
               >
                 <div
                   className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: cat.color, boxShadow: `0 0 10px ${cat.color}80` }}
                 />
                 <div>
-                  <p className="text-sm font-semibold text-white">{cat.name}</p>
+                  <p className="text-sm font-semibold text-text-primary theme-transition">{cat.name}</p>
                   <p className="text-xs text-text-tertiary">{cat.shape}</p>
                 </div>
               </div>
@@ -121,14 +121,14 @@ export function Tech() {
           )}
 
           {/* State hint overlay — always visible, tells user what to do next */}
-          <div className="absolute inset-0 z-10 flex items-end justify-center pb-4 pointer-events-none">
+          <div className="absolute inset-0 z-10 flex items-start justify-center pt-8 pointer-events-none">
             <motion.div
               key={String(isCanvasActive)}
               initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 6 }}
               transition={{ duration: 0.2 }}
-              className="px-4 py-2 rounded-full bg-black/60 border border-white/10 text-xs text-white/60 backdrop-blur-sm"
+              className="px-4 py-2 rounded-full bg-surface-secondary border border-border-primary text-xs text-text-tertiary backdrop-blur-sm theme-transition"
             >
               {isMobile
                 ? isCanvasActive

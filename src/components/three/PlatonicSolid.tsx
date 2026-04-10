@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Float, Text, Billboard } from '@react-three/drei'
 import * as THREE from 'three'
@@ -16,6 +16,21 @@ interface PlatonicSolidProps {
 export function PlatonicSolid({ type, color, position, techName, onClick }: PlatonicSolidProps) {
   const meshRef = useRef<THREE.Mesh>(null)
   const [isHovered, setIsHovered] = useState(false)
+  const [isDark, setIsDark] = useState(true)
+  
+  // Detect theme changes
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'))
+    }
+    checkTheme()
+    
+    // Watch for theme changes
+    const observer = new MutationObserver(checkTheme)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+    
+    return () => observer.disconnect()
+  }, [])
 
   // Geometry based on type
   const getGeometry = () => {
@@ -89,11 +104,11 @@ export function PlatonicSolid({ type, color, position, techName, onClick }: Plat
           <Text
             position={[0, -1.5, 0]}
             fontSize={0.35}
-            color={isHovered ? color : '#ffffff'}
+            color={isHovered ? color : (isDark ? '#f8f8f8' : '#1a1a2e')}
             anchorX="center"
             anchorY="middle"
             outlineWidth={0.03}
-            outlineColor="#000000"
+            outlineColor={isDark ? '#000000' : '#ffffff'}
           >
             {techName}
           </Text>

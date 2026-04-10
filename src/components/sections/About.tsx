@@ -116,7 +116,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
           </div>
 
           {/* Title */}
-          <h3 className="text-lg sm:text-xl font-bold text-white mb-2 relative z-10">
+          <h3 className="text-lg sm:text-xl font-bold text-text-primary mb-2 relative z-10 theme-transition">
             {service.title}
           </h3>
 
@@ -140,7 +140,7 @@ export function About() {
             <p className="text-[#915eff] text-sm font-semibold uppercase tracking-wider mb-2">
               Introduction
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">About Me</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-text-primary theme-transition">About Me</h2>
             <p className="text-base sm:text-xl text-text-secondary max-w-3xl mx-auto px-4">
               I&apos;m a junior software engineer with a growing focus on cybersecurity and secure web architecture.
               Skilled in building dynamic, SEO-optimized solutions with React, Next.js, and modern frameworks.

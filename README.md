@@ -1,21 +1,21 @@
-# Joey Kubalak - Portfolio V2
+# Build With Treez - Portfolio
 
-Modern, minimalist portfolio built with Next.js 15, React 19, TypeScript, and Three.js.
+A modern, performant portfolio showcasing full-stack development expertise through interactive 3D experiences and thoughtful UX design.
 
-## 🚀 Tech Stack
+**Live Site:** [buildwithtreez.com](https://buildwithtreez.com/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://buildwithtreez.netlify.app/)
+
+## Tech Stack
 
 - **Framework:** Next.js 15 (App Router)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS v4
 - **Animations:** Framer Motion
-- **3D Graphics:** Three.js, React Three Fiber, Drei
-- **State Management:** Zustand
-- **Form Handling:** React Hook Form + Zod
-- **Email Service:** Resend
-- **Icons:** Lucide React (custom SVG icons)
+- **3D Graphics:** Three.js, React Three Fiber
 - **Deployment:** Netlify
 
-## 📦 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -54,96 +54,66 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 
-## 🎨 Features
+## Features
 
-- ✅ Responsive navigation with mobile menu
-- ✅ Animated hero section with gradient orbs
-- ✅ About section with service cards
-- ✅ Experience timeline
-- ✅ Technologies showcase (categorized)
-- ✅ Projects gallery with filtering
-- ✅ Contact form with validation
-- ✅ Email integration via Resend
-- ✅ Scroll-triggered animations
-- ✅ Glass-morphism UI design
-- ✅ SEO optimized
-- ✅ Accessibility compliant
+- Light/dark mode with smooth transitions
+- Interactive 3D scenes and animations
+- Fully responsive design
+- WCAG AA accessibility compliant
+- Optimized performance (60fps animations)
+- Integrated contact form
+- SEO optimized
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
 ├── app/                    # Next.js App Router
 │   ├── api/               # API routes
-│   │   └── contact/       # Contact form endpoint
-│   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Home page
+│   │   └── contact/       # Contact form endpoint (Resend)
+│   ├── layout.tsx         # Root layout with theme providers
+│   ├── page.tsx           # Home page
+│   └── globals.css        # Theme CSS variables & transitions
 ├── components/
-│   ├── animations/        # Reusable animation components
-│   ├── layout/            # Header, Footer
-│   ├── sections/          # Page sections (About, Experience, etc.)
-│   ├── three/             # Three.js components
-│   └── ui/                # Reusable UI components
-├── data/                  # Static data (projects, experience, etc.)
-├── lib/
-│   ├── hooks/             # Custom React hooks
-│   ├── utils.ts           # Utility functions
-│   └── validations/       # Zod schemas
-└── styles/
-    └── globals.css        # Global styles & design tokens
+│   ├── backgrounds/       # Sacred geometry patterns
+│   ├── icons/             # Custom SVG icons (Flower of Life, Merkaba)
+│   ├── layout/            # Header, Footer, Navigation
+│   ├── perf/              # Performance monitoring (dev-only)
+│   ├── sections/          # Page sections (Hero, About, Experience, etc.)
+│   ├── three/             # Three.js/R3F components & scenes
+│   └── ui/                # Reusable UI components (ThemeToggle, etc.)
+├── contexts/              # React Context providers
+│   └── ThemeContext.tsx   # Sacred Toggle theme management
+├── data/                  # Static content (projects, experience, tech stack)
+├── hooks/                 # Custom React hooks
+└── lib/
+    ├── themes.ts          # Theme configuration & color palettes
+    ├── utils.ts           # Utility functions (cn, etc.)
+    └── validations/       # Zod schemas for forms
 ```
 
-## 🎯 Development Roadmap
+## Deployment
 
-### Completed (Phases 1-5)
-- ✅ Foundation & Setup
-- ✅ Layout & Navigation
-- ✅ Content Migration
-- ✅ Projects Gallery
-- ✅ Contact Form & Email Integration
-
-### Upcoming (Phase 6+)
-- 🔲 Advanced 3D scenes with custom shaders
-- 🔲 Post-processing effects
-- 🔲 Interactive 3D tech constellation
-- 🔲 Performance optimization
-- 🔲 Analytics integration
-
-## 🚢 Deployment
-
-Deploy to Vercel with one click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/TreezCode/treed-portfolio-v2)
-
-Or manually:
+Hosted on Netlify with continuous deployment from the main branch.
 
 ```bash
-npm run build
-vercel --prod
+npm run build  # Build for production
 ```
 
-## 📝 Environment Variables
+## Contributing
 
-Required environment variables:
+This is a personal portfolio. Feel free to fork and use as inspiration for your own projects.
 
-- `RESEND_API_KEY` - Resend API key for email functionality
-- `CONTACT_EMAIL_FROM` - Sender email address
-- `CONTACT_EMAIL_TO` - Recipient email address
+## License
 
-## 🤝 Contributing
+MIT License
 
-This is a personal portfolio project, but suggestions and feedback are welcome!
+## Connect
 
-## 📄 License
-
-MIT License - feel free to use this as inspiration for your own portfolio.
-
-## 🔗 Links
-
-- **Live Site:** [Build with Treez](https://buildwithtreez.netlify.app/)
+- **Portfolio:** [buildwithtreez.com](https://buildwithtreez.com/)
 - **GitHub:** [@TreezCode](https://github.com/TreezCode)
 - **LinkedIn:** [Joey Kubalak](https://www.linkedin.com/in/joey-kubalak-425032180/)
 
 ---
 
-Built with ❤️ by Joey Kubalak
+**Built by Treez** | Full-Stack Developer

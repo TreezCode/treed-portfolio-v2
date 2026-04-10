@@ -122,11 +122,10 @@ export function TechInfoCard({ position, techName, category, color, onClose }: T
           >
             {/* Card - solid glass background (works inside CSS mask) */}
             <div
-              className="relative p-8 rounded-xl"
+              className="relative p-8 rounded-xl bg-background-secondary theme-transition"
               style={{
-                background: `linear-gradient(135deg, rgba(20, 10, 40, 0.92), rgba(10, 5, 25, 0.95))`,
                 border: `2px solid ${color}70`,
-                boxShadow: `0 0 50px ${color}40, inset 0 1px 0 rgba(255,255,255,0.08), inset 0 0 80px ${color}10`,
+                boxShadow: `0 0 50px ${color}40, inset 0 1px 0 rgba(145,94,255,0.08), inset 0 0 80px ${color}10`,
               }}
             >
               {/* Close button */}
@@ -135,7 +134,7 @@ export function TechInfoCard({ position, techName, category, color, onClose }: T
                   e.stopPropagation()
                   onClose()
                 }}
-                className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center text-white text-sm font-bold"
+                className="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-primary hover:bg-surface-hover transition-colors flex items-center justify-center text-text-primary text-sm font-bold theme-transition"
               >
                 ✕
               </button>
@@ -157,24 +156,24 @@ export function TechInfoCard({ position, techName, category, color, onClose }: T
                     }}
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-center text-white mb-2">
+                <h3 className="text-2xl font-bold text-center text-text-primary mb-2 theme-transition">
                   {techName}
                 </h3>
-                <p className="text-sm text-center uppercase tracking-wider opacity-80">
+                <p className="text-sm text-center uppercase tracking-wider text-text-secondary theme-transition">
                   {category}
                 </p>
               </div>
 
               {/* Info Grid */}
               <div className="grid grid-cols-2 gap-3 mb-5">
-                <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-                  <p className="text-xs uppercase tracking-wider opacity-70 mb-1">Sacred Form</p>
+                <div className="p-3 rounded-lg bg-surface-primary border border-border-primary theme-transition">
+                  <p className="text-xs uppercase tracking-wider text-text-tertiary mb-1 theme-transition">Sacred Form</p>
                   <p className="text-base font-semibold" style={{ color }}>
                     {info.shape}
                   </p>
                 </div>
-                <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-                  <p className="text-xs uppercase tracking-wider opacity-70 mb-1">Element</p>
+                <div className="p-3 rounded-lg bg-surface-primary border border-border-primary theme-transition">
+                  <p className="text-xs uppercase tracking-wider text-text-tertiary mb-1 theme-transition">Element</p>
                   <p className="text-base font-semibold" style={{ color }}>
                     {info.element}
                   </p>
@@ -182,7 +181,7 @@ export function TechInfoCard({ position, techName, category, color, onClose }: T
               </div>
 
               {/* Description */}
-              <p className="text-base text-gray-300 leading-relaxed">
+              <p className="text-base text-text-secondary leading-relaxed theme-transition">
                 {info.desc}
               </p>
 

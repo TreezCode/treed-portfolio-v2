@@ -39,7 +39,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="relative" style={{ background: '#0a0a0f' }}>
+    <footer className="relative bg-background-primary theme-transition">
       {/* Top gradient border */}
       <div
         className="absolute top-0 left-0 right-0 h-px"
@@ -52,8 +52,8 @@ export function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           {/* Copyright */}
-          <p className="text-gray-500 text-sm order-2 sm:order-1">
-            © {currentYear} Joey Kubalak. All rights reserved.
+          <p className="text-text-secondary text-sm order-2 sm:order-1 theme-transition">
+            © {currentYear} Build With Treez. All rights reserved.
           </p>
 
           {/* Social Links — Hero style */}
@@ -64,7 +64,7 @@ export function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-2.5 rounded-lg border border-white/10 bg-white/5 transition-all duration-300 hover:scale-110"
+                className="group p-2.5 rounded-lg border border-border-primary bg-surface-primary transition-all duration-300 hover:scale-110 theme-transition"
                 style={{
                   ['--hover-color' as string]: link.hoverColor,
                 }}
@@ -83,7 +83,7 @@ export function Footer() {
                 }}
               >
                 <span
-                  className="block text-white/60 transition-colors duration-300"
+                  className="block text-text-secondary transition-colors duration-300 theme-transition"
                   onMouseEnter={(e) => {
                     e.currentTarget.style.color = link.hoverColor
                   }}

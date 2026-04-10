@@ -142,7 +142,7 @@ function ProjectCard({
         }}
       >
         {/* Inner card */}
-        <div className="relative h-full rounded-2xl bg-[#0d0d1a] p-5 sm:p-6 flex flex-col overflow-hidden">
+        <div className="relative h-full rounded-2xl bg-background-secondary p-5 sm:p-6 flex flex-col overflow-hidden theme-transition">
           {/* Radial glow on hover */}
           <div
             className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
@@ -170,7 +170,7 @@ function ProjectCard({
             {/* Featured badge */}
             {project.featured && (
               <div
-                className="absolute top-3 right-3 text-white text-xs font-bold px-3 py-1 rounded-full z-10"
+                className="absolute top-3 right-3 text-white text-xs font-bold px-3 py-1 rounded-full z-10 theme-transition"
                 style={{
                   background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})`,
                   boxShadow: `0 4px 15px ${gradient.from}50`,
@@ -188,7 +188,7 @@ function ProjectCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`View source code for ${project.name} on GitHub`}
-                  className="w-11 h-11 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
+                  className="w-11 h-11 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 theme-transition"
                   style={{
                     background: `linear-gradient(135deg, ${gradient.from}80, ${gradient.to}80)`,
                     boxShadow: `0 4px 20px ${gradient.from}40`,
@@ -204,7 +204,7 @@ function ProjectCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`View live demo of ${project.name}`}
-                  className="w-11 h-11 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
+                  className="w-11 h-11 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 theme-transition"
                   style={{
                     background: `linear-gradient(135deg, ${gradient.from}80, ${gradient.to}80)`,
                     boxShadow: `0 4px 20px ${gradient.from}40`,
@@ -228,10 +228,9 @@ function ProjectCard({
               />
             </div>
             <h3
-              className="text-xl sm:text-2xl font-bold mb-2 text-white group-hover:transition-colors duration-300"
-              style={{ color: 'white' }}
+              className="text-xl sm:text-2xl font-bold mb-2 text-text-primary group-hover:transition-colors duration-300 theme-transition"
               onMouseEnter={(e) => { e.currentTarget.style.color = gradient.from }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = 'white' }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = '' }}
             >
               {project.name}
             </h3>
@@ -327,7 +326,7 @@ export function Projects() {
           <p className="text-[#915eff] text-sm font-semibold uppercase tracking-wider mb-2">
             My Work
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-text-primary theme-transition">
             Featured Projects
           </h2>
           <p className="text-lg sm:text-xl text-text-secondary max-w-3xl mx-auto">

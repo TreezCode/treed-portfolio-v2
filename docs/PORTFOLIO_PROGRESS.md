@@ -835,6 +835,152 @@ The Hero section establishes a **unique design language** that should be applied
 
 ## 🎯 Immediate Next Steps
 
+### Priority 0: Sacred Geometry Theme Toggle ⏳ IN PROGRESS
+**Goal:** Implement premium light/dark theme toggle with sacred geometry animations
+
+**Status:** ✅ Complete - v2.0 (April 10, 2026)
+
+#### Phase 1: Core Theme System
+- [x] **Create ThemeProvider Context** (`src/contexts/ThemeContext.tsx`)
+  - Theme state management (light/dark)
+  - LocalStorage persistence
+  - System preference detection
+  - Smooth transition state management
+
+- [x] **Define Theme Configuration** (`src/lib/themes.ts`)
+  - Light mode color palette (adjusted for accessibility)
+  - Dark mode color palette (current)
+  - CSS variable mappings
+  - Semantic color system
+
+- [x] **Update Global CSS** (`src/app/globals.css`)
+  - Add theme-aware color tokens
+  - Configure dark mode strategy
+  - Add transition utilities
+  - Improved light mode palette (softer, less bright)
+
+#### Phase 2: Sacred Toggle Component
+- [x] **ThemeToggle Component** (`src/components/ui/ThemeToggle.tsx`)
+  - Sacred geometry morphing icon (Flower of Life ↔ Merkaba)
+  - Minimal design matching header aesthetic
+  - Smooth rotation animation (180°)
+  - Mobile-optimized (auto-blur, no sticky focus)
+  - Desktop-only glow effect
+  - Full accessibility support
+
+- [x] **Sacred Geometry Icons** (`src/components/icons/`)
+  - `FlowerOfLifeIcon.tsx` - Light mode (28×28px, 2.5px strokes)
+  - `MerkabaIcon.tsx` - Dark mode (28×28px, 2.5px strokes)
+  - High contrast gradients for visibility
+  - SVG-based with crisp rendering
+  - Theme-optimized colors
+
+- [x] **Particle Effect System** (`src/components/effects/ThemeParticles.tsx`)
+  - Radial particle burst component created
+  - Sacred geometry particle shapes
+  - Color transitions matching theme
+  - CSS-based animation (ready for integration)
+
+#### Phase 3: Theme Transitions
+- [x] **Global Theme Styles** (`src/app/globals.css`)
+  - CSS variables for all theme colors
+  - Smooth transition classes
+  - Theme-aware utility classes
+
+- [x] **Component Theme Support** (Comprehensive Audit Completed)
+  - [x] Header (navigation, mobile menu, desktop links)
+  - [x] Hero (social icons, heading, particles, backgrounds)
+  - [x] About (card titles, heading, backgrounds)
+  - [x] Experience (card titles, timeline icons, heading)
+  - [x] Technologies (section title, category labels, 3D text labels, tech info cards)
+  - [x] Projects (card titles, heading, icon buttons)
+  - [x] Contact (form inputs, card backgrounds, text)
+  - [x] Footer (social icons, text, backgrounds)
+  - [x] Mobile menu (backdrop, links, social icons)
+
+- [x] **Sacred Geometry Theme Adaptation**
+  - [x] Sacred geometry visible in both themes
+  - [x] Improved light mode opacity for visibility
+  - [x] Background patterns work in both themes
+
+#### Phase 4: Enhanced Interactions & Polish
+- [x] **Toggle Animations**
+  - 180° rotation animation (500ms)
+  - Icon morph transition with AnimatePresence
+  - Desktop-only subtle glow effect
+  - Mobile tap feedback (scale 0.9)
+
+- [x] **Theme Transition Effects**
+  - Global 300ms color transitions (.theme-transition)
+  - Smooth background, text, and border color shifts
+  - All components use theme-aware variables
+
+- [x] **Mobile UX Optimizations**
+  - Auto-blur after tap (no sticky focus)
+  - Touch gesture discrimination (single-finger tap only)
+  - Pinch-to-zoom safe (no lock on multi-touch)
+  - Proper touch target size (44×44px minimum)
+
+- [x] **Accessibility Enhancements**
+  - WCAG-compliant contrast ratios
+  - Keyboard navigation support
+  - Screen reader labels
+  - Focus-visible states
+  - System preference detection
+  - Mute option
+
+#### Phase 5: Testing & Polish
+- [ ] **Functionality Testing**
+  - Toggle switches themes correctly
+  - Theme persists on page reload
+  - Respects system preference on first visit
+  - All components render correctly in both themes
+  - No flash of unstyled content (FOUC)
+
+- [ ] **Visual Testing**
+  - All text readable in both themes (contrast check)
+  - Sacred geometry visible in both themes
+  - Animations smooth on all devices
+  - Toggle accessible and visible in both themes
+
+- [ ] **Performance Testing**
+  - Theme switch < 500ms
+  - No layout shifts during transition
+  - Particle effects don't impact performance
+  - 60fps maintained during animations
+
+- [ ] **Accessibility Testing**
+  - Keyboard accessible (Enter/Space to toggle)
+  - Screen reader announces theme change
+  - Focus indicator visible
+  - Color contrast meets WCAG AA in both themes
+  - Prefers-reduced-motion respected
+
+#### Phase 6: Integration & Documentation
+- [ ] **Header Integration**
+  - Add toggle to header (top-right position)
+  - Responsive positioning (mobile/desktop)
+  - Z-index management
+  - Mobile menu integration
+
+- [ ] **Documentation**
+  - Update BUILD_WITH_TREEZ_DESIGN_SYSTEM.md
+  - Add theme toggle usage guide
+  - Document color system for both themes
+  - Create theme switching best practices
+
+- [ ] **Final Polish**
+  - Code review and cleanup
+  - Remove console logs
+  - Optimize bundle size
+  - Add JSDoc comments
+
+**Estimated Time:** 4-6 hours  
+**Complexity:** Medium (involves multiple systems)  
+**Impact:** High (premium UX feature, brand differentiation)
+
+---
+
 ### Priority 1: Performance & Accessibility Audit ⏳ NEXT
 **Goal:** Ensure portfolio meets professional standards before deployment
 

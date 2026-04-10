@@ -119,10 +119,10 @@ export function Contact() {
   }
 
   const inputBaseClass =
-    'w-full max-w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-[#0a0a14] border border-white/10 rounded-xl text-white placeholder-gray-500 transition-all duration-300 box-border text-sm sm:text-base focus:outline-none focus:border-transparent'
+    'w-full max-w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-surface-primary border border-border-primary rounded-xl text-text-primary placeholder-text-tertiary transition-all duration-300 box-border text-sm sm:text-base focus:outline-none focus:border-transparent theme-transition'
 
   return (
-    <section id="contact" aria-label="Contact" className="relative py-12 sm:py-24 overflow-x-clip" style={{ background: '#0a0a0f' }}>
+    <section id="contact" aria-label="Contact" className="relative py-12 sm:py-24 overflow-x-clip bg-background-primary theme-transition">
       {/* Sacred Geometry Background - Seed of Life */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <SeedOfLife size={2.5} opacity={0.04} position="center" color="#915eff" />
@@ -170,7 +170,7 @@ export function Contact() {
                 background: 'linear-gradient(135deg, rgba(145, 94, 255, 0.4), rgba(0, 212, 255, 0.4))',
               }}
             >
-              <div className="relative rounded-2xl bg-[#0d0d1a] p-6 sm:p-8 overflow-hidden">
+              <div className="relative rounded-2xl bg-background-secondary p-6 sm:p-8 overflow-hidden theme-transition">
                 {/* Subtle radial glow inside card */}
                 <div
                   className="absolute inset-0 rounded-2xl pointer-events-none"
@@ -181,7 +181,7 @@ export function Contact() {
 
                 {/* Form header */}
                 <div className="relative mb-6">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-text-primary theme-transition">
                     Let&apos;s chat<span style={{ color: '#915eff' }}>.</span>
                   </h3>
                   <p className="text-sm text-gray-400 mt-1">Send a message</p>
@@ -303,7 +303,7 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3 sm:py-3.5 px-6 rounded-xl font-semibold text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base group"
+                    className="w-full py-3 sm:py-3.5 px-6 rounded-xl font-semibold text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base group theme-transition"
                     style={{
                       background: 'linear-gradient(135deg, #915eff, #ff6b9d)',
                       boxShadow: '0 4px 20px rgba(145, 94, 255, 0.3)',

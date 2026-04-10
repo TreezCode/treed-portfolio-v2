@@ -39,6 +39,7 @@ function CanvasController({
   const { gl } = useThree()
   const canvasEl = useRef<HTMLCanvasElement>(gl.domElement)
   const lastTapRef = useRef<number>(0)
+  const touchCountRef = useRef<number>(0)
 
   useEffect(() => {
     // Set touch-action directly on the canvas — R3F overrides the wrapper div's style.
@@ -49,20 +50,39 @@ function CanvasController({
     if (!isMobile || !onToggle) return
     const el = canvasEl.current
 
+    // Track touch count to distinguish single-tap from multi-touch gestures
+    const handleTouchStart = (e: TouchEvent) => {
+      touchCountRef.current = e.touches.length
+    }
+
     const handleTouchEnd = (e: TouchEvent) => {
+      // Only process as double-tap if it was a single-finger touch
+      // This prevents pinch-to-zoom (2 fingers) from triggering the toggle
+      if (touchCountRef.current !== 1) {
+        touchCountRef.current = 0
+        return
+      }
+
       const now = Date.now()
       const timeSinceLast = now - lastTapRef.current
       if (timeSinceLast < 300 && timeSinceLast > 0) {
-        // Double-tap detected — toggle lock/unlock
+        // Double-tap detected with single finger — toggle lock/unlock
         e.preventDefault()
         onToggle()
       }
       lastTapRef.current = now
+      touchCountRef.current = 0
     }
 
+    // Track touch start to know finger count
+    el.addEventListener('touchstart', handleTouchStart, { passive: true })
     // passive:false so we can call preventDefault on the second tap
     el.addEventListener('touchend', handleTouchEnd, { passive: false })
-    return () => el.removeEventListener('touchend', handleTouchEnd)
+    
+    return () => {
+      el.removeEventListener('touchstart', handleTouchStart)
+      el.removeEventListener('touchend', handleTouchEnd)
+    }
   }, [isMobile, onToggle])
 
   return null

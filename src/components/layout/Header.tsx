@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { usePerfFlags } from '@/components/perf/PerfProvider'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
 // Desktop nav — all sections
 const desktopLinks = [
@@ -197,11 +198,11 @@ export function Header() {
     <>
       <motion.header
         className={cn(
-          'fixed top-0 left-0 right-0 z-60 transition-all duration-500',
+          'fixed top-0 left-0 right-0 z-60 transition-all duration-500 theme-transition',
           mobileMenuOpen
-            ? 'bg-[#0a0a0f]'
+            ? 'bg-background-primary'
             : scrolled
-              ? `bg-[#0a0a0f]/95${minimalUI ? '' : ' backdrop-blur-xl'}`
+              ? `bg-background-primary/95${minimalUI ? '' : ' backdrop-blur-xl'}`
               : 'bg-transparent'
         )}
         initial={{ y: -100 }}
@@ -248,10 +249,10 @@ export function Header() {
                         document.getElementById(link.id)?.scrollIntoView({ behavior: 'smooth' })
                       }}
                       className={cn(
-                        'group relative flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300',
+                        'group relative flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 theme-transition',
                         isActive
-                          ? 'text-white'
-                          : 'text-gray-400 hover:text-white'
+                          ? 'text-text-primary'
+                          : 'text-text-secondary hover:text-text-primary'
                       )}
                     >
                       {/* Number */}
@@ -281,10 +282,14 @@ export function Header() {
               })}
             </ul>
 
-            {/* Mobile Menu Button */}
-            <button
+            {/* Theme Toggle */}
+            <div className="flex items-center gap-4">
+              <ThemeToggle />
+              
+              {/* Mobile Menu Button */}
+              <button
               onClick={toggleMobileMenu}
-              className="md:hidden relative z-60 p-2 rounded-lg border border-white/10 hover:border-[#915eff]/50 bg-white/5 hover:bg-[#915eff]/10 transition-all duration-300"
+              className="md:hidden relative z-60 p-2 rounded-lg border border-border-primary hover:border-[#915eff]/50 bg-surface-primary hover:bg-[#915eff]/10 transition-all duration-300 theme-transition"
               aria-label="Toggle menu"
             >
               <AnimatePresence mode="wait" initial={false}>
@@ -296,7 +301,7 @@ export function Header() {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <X size={22} className="text-[#ff6b9d]" />
+                    <X size={22} className="text-text-primary theme-transition" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -306,11 +311,12 @@ export function Header() {
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Menu size={22} className="text-white" />
+                    <Menu size={22} className="text-text-primary theme-transition" />
                   </motion.div>
                 )}
               </AnimatePresence>
             </button>
+            </div>
           </div>
         </nav>
       </motion.header>
@@ -326,7 +332,7 @@ export function Header() {
             transition={{ duration: 0.3 }}
           >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-[#0a0a0f]" />
+            <div className="absolute inset-0 bg-background-primary theme-transition" />
 
             {/* Sacred Geometry Background — Flower of Life */}
             <FlowerOfLifeBg />
@@ -378,7 +384,7 @@ export function Header() {
                           'text-2xl sm:text-3xl font-semibold transition-all duration-300',
                           isActive
                             ? 'bg-linear-to-r from-[#915eff] to-[#00d4ff] bg-clip-text text-transparent'
-                            : 'text-gray-300 group-hover:text-white'
+                            : 'text-text-secondary group-hover:text-text-primary theme-transition'
                         )}
                       >
                         {link.title}
@@ -430,7 +436,7 @@ export function Header() {
                       }}
                     >
                       <span
-                        className="block text-white/60 transition-colors duration-300"
+                        className="block text-text-secondary transition-colors duration-300 theme-transition"
                         onMouseEnter={(e) => {
                           e.currentTarget.style.color = link.color
                         }}
