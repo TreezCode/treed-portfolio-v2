@@ -50,8 +50,9 @@ export function Footer() {
         }}
       />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-        <div className="flex flex-col items-center gap-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
+        {/* Mobile Layout - Centered Stack */}
+        <div className="flex flex-col items-center gap-6 lg:hidden">
           {/* Logo and Brand */}
           <div className="flex flex-col items-center gap-3">
             <Logo variant="full" size={200} />
@@ -60,7 +61,7 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Social Links — Hero style */}
+          {/* Social Links */}
           <div className="flex items-center gap-3">
             {socialLinks.map((link) => (
               <Link
@@ -105,6 +106,98 @@ export function Footer() {
           <p className="text-text-tertiary text-xs theme-transition">
             © {currentYear} Build With Treez. All rights reserved.
           </p>
+        </div>
+
+        {/* Desktop Layout - 3 Column Grid */}
+        <div className="hidden lg:grid lg:grid-cols-3 lg:gap-12 lg:items-start">
+          {/* Left Column - Logo and Brand */}
+          <div className="flex flex-col gap-4">
+            <Logo variant="full" size={180} />
+            <p className="text-text-tertiary text-sm leading-relaxed theme-transition">
+              Where Sacred Geometry Meets Modern Technology
+            </p>
+          </div>
+
+          {/* Center Column - Quick Links */}
+          <div className="flex flex-col gap-4">
+            <h3 className="text-text-primary font-semibold text-sm uppercase tracking-wider theme-transition">
+              Navigate
+            </h3>
+            <nav className="flex flex-col gap-2">
+              {[
+                { name: 'Home', href: '#hero' },
+                { name: 'About', href: '#about' },
+                { name: 'Projects', href: '#projects' },
+                { name: 'Technologies', href: '#tech' },
+                { name: 'Contact', href: '#contact' },
+              ].map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-text-secondary hover:text-accent-primary transition-colors text-sm theme-transition"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Right Column - Social and Copyright */}
+          <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
+              <h3 className="text-text-primary font-semibold text-sm uppercase tracking-wider theme-transition">
+                Connect
+              </h3>
+              <div className="flex items-center gap-3">
+                {socialLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group p-2.5 rounded-lg border border-border-primary bg-surface-primary transition-all duration-300 hover:scale-110 theme-transition"
+                    style={{
+                      ['--hover-color' as string]: link.hoverColor,
+                    }}
+                    aria-label={link.name}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget
+                      el.style.borderColor = `${link.hoverColor}80`
+                      el.style.backgroundColor = `${link.hoverColor}1a`
+                      el.style.boxShadow = `0 0 20px ${link.hoverColor}30`
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget
+                      el.style.borderColor = ''
+                      el.style.backgroundColor = ''
+                      el.style.boxShadow = ''
+                    }}
+                  >
+                    <span
+                      className="block text-text-secondary transition-colors duration-300 theme-transition"
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = link.hoverColor
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = ''
+                      }}
+                    >
+                      {link.icon}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Copyright - Bottom of right column */}
+            <div className="mt-auto pt-4 border-t border-border-secondary">
+              <p className="text-text-tertiary text-xs theme-transition">
+                © {currentYear} Build With Treez.
+                <br />
+                All rights reserved.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

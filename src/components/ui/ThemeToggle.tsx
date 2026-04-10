@@ -36,13 +36,14 @@ export function ThemeToggle() {
         focus-visible:ring-[#915eff]
         focus-visible:ring-offset-2
         focus-visible:ring-offset-background-primary
+        cursor-pointer
         theme-transition"
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
       whileTap={{ scale: 0.9 }}
     >
       {/* Icon container with rotation */}
       <motion.div
-        className="w-7 h-7 relative"
+        className="w-[22px] h-[22px] relative"
         animate={{
           rotate: isTransitioning ? 180 : 0,
         }}

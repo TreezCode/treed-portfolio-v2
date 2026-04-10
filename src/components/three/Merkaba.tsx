@@ -25,21 +25,22 @@ export function Merkaba() {
   const scale = isMobile ? 0.6 : 1
 
   const { gl, camera } = useThree()
-  const canvasEl = useRef<HTMLCanvasElement>(gl.domElement)
 
   const handlePointerDown = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation()
+    e.nativeEvent.preventDefault()
     gl.domElement.setPointerCapture(e.pointerId)
     isDragging.current = true
     lastPointer.current = { x: e.clientX, y: e.clientY }
     // Snapshot current group quaternion as the rotation base
     if (groupRef.current) targetQuaternion.current.copy(groupRef.current.quaternion)
-    canvasEl.current.style.touchAction = 'none'
   }
 
   const handlePointerMove = (e: ThreeEvent<PointerEvent>) => {
     if (!isDragging.current || !lastPointer.current) return
     e.stopPropagation()
+    e.nativeEvent.preventDefault()
+    
     const dx = e.clientX - lastPointer.current.x
     const dy = e.clientY - lastPointer.current.y
     lastPointer.current = { x: e.clientX, y: e.clientY }
@@ -66,7 +67,6 @@ export function Merkaba() {
     gl.domElement.releasePointerCapture(e.pointerId)
     isDragging.current = false
     lastPointer.current = null
-    canvasEl.current.style.touchAction = 'pan-y'
   }
 
   useFrame((state, delta) => {
@@ -110,17 +110,19 @@ export function Merkaba() {
 
   return (
     <group ref={groupRef}>
-      {/* Invisible hit sphere — pointer events only fire when touching this area.
-          Sized to just contain the tetrahedra (radius 1.5) with a small touch margin.
-          This prevents the group's larger bounding box from eating scroll in empty space. */}
-      <mesh
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-      >
-        <sphereGeometry args={[1.8, 8, 8]} />
-        <meshBasicMaterial transparent opacity={0} depthWrite={false} />
-      </mesh>
+      {/* Interactive hit sphere - DESKTOP ONLY
+          On mobile: disabled to prevent scroll conflicts and pull-to-refresh issues.
+          Mobile users get smooth auto-rotation without interaction conflicts. */}
+      {!isMobile && (
+        <mesh
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+        >
+          <sphereGeometry args={[1.8, 8, 8]} />
+          <meshBasicMaterial transparent opacity={0} depthWrite={false} />
+        </mesh>
+      )}
 
       {/* Outer Tetrahedron Wireframe - pointing up with glow */}
       <mesh ref={outerRef}>

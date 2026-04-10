@@ -175,6 +175,11 @@ html {
   color: var(--text-primary);
 }
 
+/* Interactive canvas cursor affordances */
+canvas:active {
+  cursor: grabbing !important;
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   *,

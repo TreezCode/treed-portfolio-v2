@@ -235,7 +235,7 @@ export function Header() {
               }}
               aria-label="Build With Treez - Home"
             >
-              <Logo variant="icon" size={32} className="group-hover:scale-105" />
+              <Logo variant="icon" size={24} className="group-hover:scale-105" />
             </a>
 
             {/* Desktop Navigation */}

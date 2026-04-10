@@ -14,9 +14,8 @@ function CanvasInitTouchAction({ isMobile }: { isMobile: boolean }) {
   const { gl } = useThree()
   const canvasEl = useRef<HTMLCanvasElement>(gl.domElement)
   useEffect(() => {
-    // Set initial touch-action: pan-y on mobile so empty-canvas touches scroll.
-    // Merkaba's onPointerDown/Up handlers dynamically flip to 'none'/'pan-y'
-    // only while the user is actively dragging the mesh.
+    // Mobile: allow vertical scrolling (Merkaba is not interactive on mobile)
+    // Desktop: prevent default to allow Merkaba drag interaction
     canvasEl.current.style.touchAction = isMobile ? 'pan-y' : 'none'
   }, [isMobile])
   return null
@@ -39,7 +38,7 @@ export function SacredGeometryScene({ className, perfFlags }: SacredGeometryScen
   const bloomEnabled = !reduced
 
   return (
-    <div className={className}>
+    <div className={className} style={{ cursor: isMobile ? 'default' : 'grab' }}>
       <Canvas
         camera={{ position: [0, 0, 8], fov: 50 }}
         dpr={dpr}
@@ -48,6 +47,7 @@ export function SacredGeometryScene({ className, perfFlags }: SacredGeometryScen
           alpha: true,
           powerPreference: 'high-performance',
         }}
+        style={{ cursor: 'inherit' }}
       >
         <Suspense fallback={null}>
           {/* Lighting */}

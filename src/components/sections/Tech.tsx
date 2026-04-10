@@ -120,24 +120,40 @@ export function Tech() {
             />
           )}
 
-          {/* State hint overlay — always visible, tells user what to do next */}
-          <div className="absolute inset-0 z-10 flex items-start justify-center pt-16 pointer-events-none">
+          {/* State hint overlay — matches Contact section design language */}
+          <div className="absolute inset-0 z-10 flex items-start justify-center pt-12 pointer-events-none">
             <motion.div
               key={String(isCanvasActive)}
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 6 }}
-              transition={{ duration: 0.2 }}
-              className="px-4 py-2 rounded-full bg-surface-secondary border border-border-primary text-xs text-text-tertiary backdrop-blur-sm theme-transition"
+              initial={{ opacity: 0, scale: 0.9, y: -10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-primary/95 backdrop-blur-sm border border-accent-secondary/30 shadow-lg theme-transition"
             >
-              {isMobile
-                ? isCanvasActive
-                  ? 'Double-tap to lock • Drag to rotate • Pinch to zoom'
-                  : 'Double-tap to unlock scene'
-                : isCanvasActive
-                  ? 'Double-click to lock • Drag to rotate • Scroll to zoom'
-                  : 'Double-click to unlock scene'
-              }
+              {/* Icon - changes based on state */}
+              {!isCanvasActive ? (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-accent-secondary">
+                  <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M8 11V7a4 4 0 0 1 8 0v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              ) : (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-accent-secondary">
+                  <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M7 11V7a4 4 0 0 1 8 0v4M12 15v2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              )}
+              
+              {/* Text */}
+              <span className="text-sm font-medium text-text-primary">
+                {isMobile
+                  ? isCanvasActive
+                    ? 'Double-tap to lock'
+                    : 'Double-tap to unlock'
+                  : isCanvasActive
+                    ? 'Double-click to lock'
+                    : 'Double-click to unlock'
+                }
+              </span>
             </motion.div>
           </div>
         </motion.div>

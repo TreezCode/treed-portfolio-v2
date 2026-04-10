@@ -1,7 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { useTyped } from '@/hooks/useTyped'
 import { heroContent } from '@/data/hero'
 import { SacredGeometry } from '@/components/backgrounds/SacredGeometry'
@@ -33,15 +33,22 @@ export default function Home() {
   // PERF TESTING: reduced-motion near-zeros Framer Motion durations
   const motionDuration = perf.reducedMotion ? 0.01 : undefined
 
+  // Subtle parallax effect for hero background
+  const { scrollY } = useScroll()
+  const backgroundY = useTransform(scrollY, [0, 500], [0, 150])
+
   return (
     <div className="relative">
       {/* Hero Section */}
       <section id="hero" aria-label="Hero" className="relative w-full h-screen overflow-hidden">
-        {/* Sacred Geometry Background */}
+        {/* Sacred Geometry Background with subtle parallax */}
         {/* PERF TESTING: minimal-ui disables mix-blend-mode canvas (forces compositor layer) */}
-        <div className="absolute inset-0 bg-linear-to-b from-background-primary via-background-secondary to-background-primary">
+        <motion.div 
+          className="absolute inset-0 bg-linear-to-b from-background-primary via-background-secondary to-background-primary"
+          style={{ y: perf.reducedMotion ? 0 : backgroundY }}
+        >
           {!perf.minimalUI && <SacredGeometry />}
-        </div>
+        </motion.div>
 
         {/* 3D Sacred Geometry Scene */}
         <motion.div

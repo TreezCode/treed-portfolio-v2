@@ -32,7 +32,12 @@ export function SacredGeometry() {
 
     // Draw sacred geometry pattern
     const drawPattern = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      // Get display dimensions (CSS pixels)
+      const rect = canvas.getBoundingClientRect()
+      const displayWidth = rect.width
+      const displayHeight = rect.height
+      
+      ctx.clearRect(0, 0, displayWidth, displayHeight)
       
       const spacing = 120
       const radius = 40
@@ -41,7 +46,7 @@ export function SacredGeometry() {
       const opacity = isDark ? 0.07 : 0.15  // Higher opacity for light mode
       
       // Create gradient
-      const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
+      const gradient = ctx.createLinearGradient(0, 0, displayWidth, displayHeight)
       gradient.addColorStop(0, `rgba(145, 94, 255, ${opacity})`)
       gradient.addColorStop(0.5, `rgba(0, 212, 255, ${opacity})`)
       gradient.addColorStop(1, `rgba(255, 107, 157, ${opacity})`)
@@ -50,8 +55,8 @@ export function SacredGeometry() {
       ctx.lineWidth = isDark ? 1 : 1.5  // Slightly thicker lines in light mode
 
       // Draw overlapping circles (Flower of Life pattern)
-      for (let x = -spacing; x < canvas.width + spacing; x += spacing) {
-        for (let y = -spacing; y < canvas.height + spacing; y += spacing) {
+      for (let x = -spacing; x < displayWidth + spacing; x += spacing) {
+        for (let y = -spacing; y < displayHeight + spacing; y += spacing) {
           // Main circle
           ctx.beginPath()
           ctx.arc(x, y, radius, 0, Math.PI * 2)
@@ -73,8 +78,8 @@ export function SacredGeometry() {
       // Add connecting lines for Metatron's Cube effect
       const lineOpacity = isDark ? 0.075 : 0.1
       ctx.strokeStyle = `rgba(145, 94, 255, ${lineOpacity})`
-      for (let x = 0; x < canvas.width; x += spacing) {
-        for (let y = 0; y < canvas.height; y += spacing) {
+      for (let x = 0; x < displayWidth; x += spacing) {
+        for (let y = 0; y < displayHeight; y += spacing) {
           // Draw lines to adjacent points
           ctx.beginPath()
           ctx.moveTo(x, y)
@@ -96,19 +101,33 @@ export function SacredGeometry() {
 
     // Set canvas size and redraw pattern
     const handleResize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      // Get the actual displayed size of the canvas
+      const rect = canvas.getBoundingClientRect()
+      const dpr = window.devicePixelRatio || 1
+      
+      // Set the canvas bitmap size to match display size with device pixel ratio
+      canvas.width = rect.width * dpr
+      canvas.height = rect.height * dpr
+      
+      // Reset transform and scale context to account for device pixel ratio
+      // This ensures we're always working in CSS pixels
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+      
       drawPattern()
     }
 
+    // Use ResizeObserver for more accurate sizing
+    const resizeObserver = new ResizeObserver(() => {
+      handleResize()
+    })
+    
+    resizeObserver.observe(canvas)
+
     // Initial setup
     handleResize()
-    
-    // Listen for resize events
-    window.addEventListener('resize', handleResize)
 
     return () => {
-      window.removeEventListener('resize', handleResize)
+      resizeObserver.disconnect()
     }
   }, [isDark])  // Redraw pattern when theme changes
 

@@ -47,3 +47,6 @@ perf/playwright/report/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# documentation (personal notes, keep local only)
+/docs/
