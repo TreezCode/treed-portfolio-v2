@@ -17,7 +17,16 @@ export const projects: Project[] = [
       "Designed and developed a front-end web developer portfolio showcasing clean design with interactive 3D elements using Three.js. Animated with Framer-motion and styled with Tailwind CSS for a minimalist touch. Implements sacred geometry patterns and immersive WebGL experiences.",
     tags: ['React', 'Next.js', 'Three.js', 'TypeScript', 'Tailwind CSS'],
     sourceCode: 'https://github.com/TreezCode/treed-portfolio-v2',
-    liveDemo: 'https://joeykubalak.com/',
+    liveDemo: 'https://buildwithtreez.com/',
+    featured: true,
+  },
+  {
+    id: 'renamerly',
+    name: 'Renamerly',
+    description:
+      'A browser-based SaaS tool for e-commerce professionals to batch rename and organize product images in seconds. Features a drag-and-drop Format Builder with live preview, AI-generated alt text, CSV manifest export, and RAW file support - all processed client-side with no data leaving your device. Launched as a subscription product with Stripe billing and Supabase backend.',
+    tags: ['Next.js', 'TypeScript', 'Supabase', 'Stripe', 'Zustand', 'Tailwind CSS'],
+    liveDemo: 'https://renamerly.com',
     featured: true,
   },
   {

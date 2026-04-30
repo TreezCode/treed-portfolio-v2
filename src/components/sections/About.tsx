@@ -32,7 +32,8 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     // Disable tilt on mobile/touch devices
     if (!tiltRef.current || isMobile) return
-    
+
+    tiltRef.current.style.transition = 'transform 100ms ease-out'
     const card = e.currentTarget
     const rect = card.getBoundingClientRect()
     const x = e.clientX - rect.left
@@ -48,8 +49,8 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
 
   const handleMouseLeave = () => {
     if (!tiltRef.current) return
-    
-    // Smooth return to neutral position
+
+    tiltRef.current.style.transition = 'transform 600ms ease-out'
     tiltRef.current.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg)'
     setIsHovering(false)
   }
@@ -71,7 +72,6 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
         onMouseLeave={handleMouseLeave}
         style={{
           transformStyle: 'preserve-3d',
-          transition: 'transform 0.4s cubic-bezier(0.03, 0.98, 0.52, 0.99)',
         }}
         className="w-full"
       >

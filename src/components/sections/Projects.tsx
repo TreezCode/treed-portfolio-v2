@@ -120,6 +120,7 @@ function ProjectCard({
     (e: React.MouseEvent<HTMLDivElement>) => {
       const card = cardRef.current
       if (!card || isMobile) return
+      card.style.transition = 'transform 100ms ease-out, box-shadow 300ms ease'
       const rect = card.getBoundingClientRect()
       const x = e.clientX - rect.left
       const y = e.clientY - rect.top
@@ -133,11 +134,16 @@ function ProjectCard({
     [isMobile],
   )
 
-  const handleMouseLeave = useCallback(() => {
-    const card = cardRef.current
-    if (!card) return
-    card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)'
-  }, [])
+  const handleMouseLeave = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const card = e.currentTarget as HTMLDivElement
+      card.style.transition = 'transform 600ms ease-out, box-shadow 300ms ease'
+      card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)'
+      card.style.background = `linear-gradient(135deg, ${gradient.from}60, ${gradient.to}60)`
+      card.style.boxShadow = 'none'
+    },
+    [gradient],
+  )
 
   return (
     <motion.div
@@ -154,15 +160,10 @@ function ProjectCard({
         className="group relative h-full rounded-2xl p-px cursor-pointer"
         style={{
           background: `linear-gradient(135deg, ${gradient.from}60, ${gradient.to}60)`,
-          transition: 'transform 400ms cubic-bezier(0.03, 0.98, 0.52, 0.99), box-shadow 300ms ease',
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.background = `linear-gradient(135deg, ${gradient.from}, ${gradient.to})`
           e.currentTarget.style.boxShadow = `0 20px 60px ${gradient.from}30, 0 0 40px ${gradient.to}15`
-        }}
-        onMouseOut={(e) => {
-          e.currentTarget.style.background = `linear-gradient(135deg, ${gradient.from}60, ${gradient.to}60)`
-          e.currentTarget.style.boxShadow = 'none'
         }}
       >
         {/* Inner card */}
