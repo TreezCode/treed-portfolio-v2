@@ -21,6 +21,15 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: 'presentsphere',
+    name: 'PresentSphere',
+    description:
+      "A private gift-planning app for families and close friends. Members keep wishlists, birthdays, sizes, and gentle hints in one trusted place and coordinate gifts without ruining surprises. Surprise Mode hides buyer coordination from recipients, and every table runs under Postgres Row Level Security. Built end-to-end with a custom Warm Celebration design system.",
+    tags: ['Next.js 16', 'React 19', 'TypeScript', 'Supabase', 'Stripe', 'Tailwind v4', 'shadcn/ui'],
+    liveDemo: 'https://presentsphere.com',
+    featured: true,
+  },
+  {
     id: 'renamerly',
     name: 'Renamerly',
     description:
@@ -45,16 +54,6 @@ export const projects: Project[] = [
       'Developed a fully responsive e-commerce site for gourmet and medicinal mushrooms using Shopify with custom Liquid code and WS Form. Managed end-to-end delivery: hosting, design, development, SEO strategy, and ongoing maintenance. Launched a professional online storefront that enabled the client to start a successful mushroom business in Florida.',
     tags: ['Shopify', 'Liquid', 'E-Commerce', 'SEO', 'Custom Forms'],
     featured: true,
-  },
-  {
-    id: 'treecommerce',
-    name: 'Treecommerce',
-    description:
-      "A simple, yet powerful ecommerce website built with the Next.js framework. Uses Sanity for content management, Auth0 for authentication, Stripe for payments, and Vercel for deployment. Provides a fast, secure, and scalable ecommerce solution.",
-    tags: ['Next.js', 'Sanity', 'Stripe', 'Auth0', 'TypeScript'],
-    sourceCode: 'https://github.com/TreezCode/treecommerce',
-    liveDemo: 'https://treecommerce.vercel.app/',
-    featured: false,
   },
   {
     id: 'vanilla-portfolio',
