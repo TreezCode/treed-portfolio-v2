@@ -36,13 +36,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://buildwithtreez.com'),
   title: {
-    default: 'Joey Kubalak | Junior Software Engineer & Cybersecurity Expert',
+    default: 'Joey Kubalak | Software Engineer & Cybersecurity Expert',
     template: '%s | Joey Kubalak',
   },
   description:
-    'Junior Software Engineer with cybersecurity focus. CompTIA Security+ certified. Building secure, dynamic web applications with React, Next.js, and Three.js.',
+    'Software Engineer with cybersecurity focus. CompTIA Security+ certified. Building secure, dynamic web applications with React, Next.js, and Three.js.',
   keywords: [
-    'Junior Software Engineer',
+    'Software Engineer',
     'Frontend Developer',
     'Cybersecurity',
     'CompTIA Security+',
@@ -67,17 +67,17 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://buildwithtreez.com',
-    title: 'Joey Kubalak | Junior Software Engineer & Cybersecurity Expert',
+    title: 'Joey Kubalak | Software Engineer & Cybersecurity Expert',
     description:
-      'Junior Software Engineer with cybersecurity focus. CompTIA Security+ certified. Building secure, dynamic web applications with React, Next.js, and Three.js.',
+      'Software Engineer with cybersecurity focus. CompTIA Security+ certified. Building secure, dynamic web applications with React, Next.js, and Three.js.',
     siteName: 'Joey Kubalak Portfolio',
     // Images automatically generated from opengraph-image.tsx
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Joey Kubalak | Junior Software Engineer & Cybersecurity Expert',
+    title: 'Joey Kubalak | Software Engineer & Cybersecurity Expert',
     description:
-      'Junior Software Engineer with cybersecurity focus. CompTIA Security+ certified. Building secure, dynamic web applications with React, Next.js, and Three.js.',
+      'Software Engineer with cybersecurity focus. CompTIA Security+ certified. Building secure, dynamic web applications with React, Next.js, and Three.js.',
     site: '@buildwithtreez',
     creator: '@buildwithtreez',
     // Images automatically generated from opengraph-image.tsx
@@ -114,7 +114,7 @@ export default function RootLayout({
               '@type': 'Person',
               name: 'Joey Kubalak',
               url: 'https://buildwithtreez.com',
-              jobTitle: 'Junior Software Engineer',
+              jobTitle: 'Software Engineer',
               knowsAbout: [
                 'React', 
                 'Next.js', 

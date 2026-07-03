@@ -8,7 +8,7 @@ brand
 
 Two audiences, one behavior: they skim first and judge fast.
 
-- **Hiring managers and recruiters** evaluating a junior software engineer with a cybersecurity focus. They arrive from a resume link or LinkedIn, spend under 60 seconds forming an impression, and are looking for evidence of judgment, not a feature checklist. Many will open the site on a phone between meetings.
+- **Hiring managers and recruiters** evaluating a software engineer with a cybersecurity focus. They arrive from a resume link or LinkedIn, spend under 60 seconds forming an impression, and are looking for evidence of judgment, not a feature checklist. Many will open the site on a phone between meetings.
 - **Prospective freelance clients** (small businesses, e-commerce owners) who need to feel the work is professional and trustworthy. They care about outcomes: the finished sites, the polish, the reliability.
 
 The job to be done: convince a skeptical, time-poor evaluator that Joey Kubalak can be trusted to build production-quality front-end work. The site itself is the primary exhibit.

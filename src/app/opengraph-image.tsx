@@ -68,7 +68,7 @@ export default async function Image() {
               letterSpacing: '0.05em',
             }}
           >
-            Junior Software Engineer
+            Software Engineer
           </div>
           
           {/* Accent line */}
