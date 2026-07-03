@@ -1,108 +1,23 @@
 'use client'
 
-import { useState, useRef, useCallback, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { projects } from '@/data'
+import { projects, projectCategories } from '@/data'
 import { MetatronsCube } from '@/components/backgrounds/MetatronsCube'
-import { useIsMobile } from '@/hooks/useMobileReduced'
 
 const GithubIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
   </svg>
 )
 
 const ExternalLinkIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
     <polyline points="15 3 21 3 21 9"></polyline>
     <line x1="10" y1="14" x2="21" y2="3"></line>
   </svg>
 )
-
-// Inline SVG Metatron's Cube for card decoration
-function MetatronsCubeSVG({ color, secondaryColor, className }: { color: string; secondaryColor: string; className?: string }) {
-  const [isDark, setIsDark] = useState(true)
-
-  // Detect theme changes
-  useEffect(() => {
-    const checkTheme = () => {
-      setIsDark(document.documentElement.classList.contains('dark'))
-    }
-    
-    checkTheme()
-    
-    const observer = new MutationObserver(checkTheme)
-    observer.observe(document.documentElement, { 
-      attributes: true, 
-      attributeFilter: ['class'] 
-    })
-    
-    return () => observer.disconnect()
-  }, [])
-
-  // 13 points: center + 6 inner ring + 6 outer ring
-  const r = 12
-  const cx = 50
-  const cy = 50
-  
-  // Theme-aware stroke widths
-  const strokeWidthLine = isDark ? 0.2 : 0.4
-  const strokeWidthCircle = isDark ? 0.3 : 0.6
-  const strokeWidthPolygon = isDark ? 0.25 : 0.5
-  const innerPts = Array.from({ length: 6 }, (_, i) => {
-    const a = (Math.PI / 3) * i - Math.PI / 6
-    return [cx + r * 2 * Math.cos(a), cy + r * 2 * Math.sin(a)] as [number, number]
-  })
-  const outerPts = Array.from({ length: 6 }, (_, i) => {
-    const a = (Math.PI / 3) * i - Math.PI / 6
-    return [cx + r * 4 * Math.cos(a), cy + r * 4 * Math.sin(a)] as [number, number]
-  })
-  const allPts: [number, number][] = [[cx, cy], ...innerPts, ...outerPts]
-
-  // Generate all unique line pairs
-  const lines: [number, number, number, number][] = []
-  for (let i = 0; i < allPts.length; i++) {
-    for (let j = i + 1; j < allPts.length; j++) {
-      lines.push([allPts[i][0], allPts[i][1], allPts[j][0], allPts[j][1]])
-    }
-  }
-
-  return (
-    <svg viewBox="0 0 100 100" className={className} fill="none">
-      {/* Connecting lines */}
-      {lines.map((l, i) => (
-        <line key={i} x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke={i % 2 === 0 ? color : secondaryColor} strokeWidth={strokeWidthLine} />
-      ))}
-      {/* Circles */}
-      <circle cx={cx} cy={cy} r={r} stroke={color} strokeWidth={strokeWidthCircle} />
-      {innerPts.map((p, i) => (
-        <circle key={`i${i}`} cx={p[0]} cy={p[1]} r={r} stroke={color} strokeWidth={strokeWidthCircle} />
-      ))}
-      {outerPts.map((p, i) => (
-        <circle key={`o${i}`} cx={p[0]} cy={p[1]} r={r} stroke={secondaryColor} strokeWidth={strokeWidthPolygon} />
-      ))}
-      {/* Inner hexagon */}
-      <polygon points={innerPts.map(p => p.join(',')).join(' ')} stroke={secondaryColor} strokeWidth={strokeWidthCircle} />
-      {/* Outer hexagon */}
-      <polygon points={outerPts.map(p => p.join(',')).join(' ')} stroke={color} strokeWidth={strokeWidthPolygon} />
-      {/* Star of David */}
-      <polygon points={`${outerPts[0].join(',')},${outerPts[2].join(',')},${outerPts[4].join(',')}`} stroke={color} strokeWidth={strokeWidthCircle} />
-      <polygon points={`${outerPts[1].join(',')},${outerPts[3].join(',')},${outerPts[5].join(',')}`} stroke={secondaryColor} strokeWidth={strokeWidthCircle} />
-      {/* Bounding circles */}
-      <circle cx={cx} cy={cy} r={r * 4 + r} stroke={color} strokeWidth={strokeWidthLine} />
-      <circle cx={cx} cy={cy} r={r * 4 + r * 2} stroke={secondaryColor} strokeWidth={strokeWidthLine * 0.75} />
-    </svg>
-  )
-}
-
-// Gradient color pairs per card index
-const cardGradients = [
-  { from: '#915eff', to: '#ff6b9d' }, // Purple → Pink
-  { from: '#00d4ff', to: '#915eff' }, // Cyan → Purple
-  { from: '#ff6b9d', to: '#00d4ff' }, // Pink → Cyan
-  { from: '#915eff', to: '#00d4ff' }, // Purple → Cyan
-]
 
 function ProjectCard({
   project,
@@ -111,39 +26,7 @@ function ProjectCard({
   project: (typeof projects)[0]
   index: number
 }) {
-  const cardRef = useRef<HTMLDivElement>(null)
-  const gradient = cardGradients[index % cardGradients.length]
-  const isMobile = useIsMobile()
-
-  // 3D tilt effect (DOM-based for 60fps) - disabled on mobile/touch devices
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      const card = cardRef.current
-      if (!card || isMobile) return
-      card.style.transition = 'transform 100ms ease-out, box-shadow 300ms ease'
-      const rect = card.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-      const centerX = rect.width / 2
-      const centerY = rect.height / 2
-      const rotateX = ((y - centerY) / centerY) * -8
-      const rotateY = ((x - centerX) / centerX) * 8
-
-      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`
-    },
-    [isMobile],
-  )
-
-  const handleMouseLeave = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      const card = e.currentTarget as HTMLDivElement
-      card.style.transition = 'transform 600ms ease-out, box-shadow 300ms ease'
-      card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)'
-      card.style.background = `linear-gradient(135deg, ${gradient.from}60, ${gradient.to}60)`
-      card.style.boxShadow = 'none'
-    },
-    [gradient],
-  )
+  const categoryLabel = projectCategories.find((c) => c.id === project.category)?.label
 
   return (
     <motion.div
@@ -151,172 +34,70 @@ function ProjectCard({
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20, scale: 0.95 }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
+      className="h-full"
     >
-      <div
-        ref={cardRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        className="group relative h-full rounded-2xl p-px cursor-pointer"
-        style={{
-          background: `linear-gradient(135deg, ${gradient.from}60, ${gradient.to}60)`,
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.background = `linear-gradient(135deg, ${gradient.from}, ${gradient.to})`
-          e.currentTarget.style.boxShadow = `0 20px 60px ${gradient.from}30, 0 0 40px ${gradient.to}15`
-        }}
-      >
-        {/* Inner card */}
-        <div className="relative h-full rounded-2xl bg-background-secondary p-5 sm:p-6 flex flex-col overflow-hidden theme-transition">
-          {/* Radial glow on hover */}
-          <div
-            className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-            style={{
-              background: `radial-gradient(circle at 50% 0%, ${gradient.from}15, transparent 60%)`,
-            }}
-          />
-
-          {/* Project Header */}
-          <div
-            className="relative h-44 sm:h-48 mb-5 rounded-xl overflow-hidden"
-            style={{
-              background: `linear-gradient(135deg, ${gradient.from}25, ${gradient.to}20)`,
-            }}
-          >
-            {/* Metatron's Cube overlay on image area */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-[0.15] group-hover:opacity-[0.25] transition-opacity duration-500 pointer-events-none dark:opacity-[0.07] dark:group-hover:opacity-[0.14]">
-              <MetatronsCubeSVG
-                color={gradient.from}
-                secondaryColor={gradient.to}
-                className="w-48 h-48 sm:w-56 sm:h-56"
-              />
-            </div>
-
-            {/* Featured badge */}
-            {project.featured && (
-              <div
-                className="absolute top-3 right-3 text-white text-xs font-bold px-3 py-1 rounded-full z-10 theme-transition"
-                style={{
-                  background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})`,
-                  boxShadow: `0 4px 15px ${gradient.from}50`,
-                }}
+      <article className="group relative h-full flex flex-col rounded-2xl bg-surface-primary border border-border-primary hover:border-border-strong transition-colors duration-200 p-6 theme-transition">
+        {/* Header: category label + external links */}
+        <div className="flex items-start justify-between mb-4">
+          <span className="text-label text-text-tertiary">{categoryLabel}</span>
+          <div className="flex gap-1">
+            {project.sourceCode && (
+              <a
+                href={project.sourceCode}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View source code for ${project.name} on GitHub`}
+                className="p-2.5 -m-1 rounded-lg text-text-tertiary hover:text-accent-primary hover:bg-surface-hover transition-colors duration-200"
               >
-                Featured
-              </div>
+                <GithubIcon />
+              </a>
             )}
-
-            {/* Links overlay - always visible on mobile, hover on desktop */}
-            <div className={`absolute inset-0 flex items-center justify-center gap-4 transition-all duration-300 z-10 ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
-              {project.sourceCode && (
-                <a
-                  href={project.sourceCode}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`View source code for ${project.name} on GitHub`}
-                  className="w-11 h-11 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 theme-transition"
-                  style={{
-                    background: `linear-gradient(135deg, ${gradient.from}80, ${gradient.to}80)`,
-                    boxShadow: `0 4px 20px ${gradient.from}40`,
-                  }}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <GithubIcon />
-                </a>
-              )}
-              {project.liveDemo && (
-                <a
-                  href={project.liveDemo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`View live demo of ${project.name}`}
-                  className="w-11 h-11 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 theme-transition"
-                  style={{
-                    background: `linear-gradient(135deg, ${gradient.from}80, ${gradient.to}80)`,
-                    boxShadow: `0 4px 20px ${gradient.from}40`,
-                  }}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <ExternalLinkIcon />
-                </a>
-              )}
-            </div>
-          </div>
-
-          {/* Project Content */}
-          <div className="relative flex-1 flex flex-col">
-            {/* Metatron's Cube body background */}
-            <div className="absolute -bottom-6 -right-6 opacity-[0.10] group-hover:opacity-[0.18] transition-opacity duration-500 pointer-events-none dark:opacity-[0.04] dark:group-hover:opacity-[0.08]">
-              <MetatronsCubeSVG
-                color={gradient.from}
-                secondaryColor={gradient.to}
-                className="w-44 h-44 sm:w-52 sm:h-52"
-              />
-            </div>
-            <h3
-              className="text-xl sm:text-2xl font-bold mb-2 text-text-primary group-hover:transition-colors duration-300 theme-transition"
-              onMouseEnter={(e) => { e.currentTarget.style.color = gradient.from }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = '' }}
-            >
-              {project.name}
-            </h3>
-            <p className="text-sm sm:text-base text-gray-400 mb-4 flex-1 leading-relaxed">
-              {project.description}
-            </p>
-
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs px-3 py-1 rounded-full border transition-colors duration-300"
-                  style={{
-                    borderColor: `${gradient.from}30`,
-                    color: gradient.to,
-                    background: `${gradient.from}10`,
-                  }}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            {/* Bottom links */}
-            <div className="flex gap-4 pt-2 border-t border-white/5">
-              {project.sourceCode && (
-                <a
-                  href={project.sourceCode}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`View source code for ${project.name} on GitHub`}
-                  className="flex items-center gap-2 text-gray-400 transition-colors duration-300"
-                  style={{}}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = gradient.from }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = '#9ca3af' }}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <GithubIcon />
-                  <span className="text-sm font-medium">Code</span>
-                </a>
-              )}
-              {project.liveDemo && (
-                <a
-                  href={project.liveDemo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`View live demo of ${project.name}`}
-                  className="flex items-center gap-2 text-gray-400 transition-colors duration-300"
-                  onMouseEnter={(e) => { e.currentTarget.style.color = gradient.to }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = '#9ca3af' }}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <ExternalLinkIcon />
-                  <span className="text-sm font-medium">Live Demo</span>
-                </a>
-              )}
-            </div>
+            {project.liveDemo && (
+              <a
+                href={project.liveDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View live demo of ${project.name}`}
+                className="p-2.5 -m-1 rounded-lg text-text-tertiary hover:text-accent-primary hover:bg-surface-hover transition-colors duration-200"
+              >
+                <ExternalLinkIcon />
+              </a>
+            )}
           </div>
         </div>
-      </div>
+
+        {/* Title + description */}
+        <h3 className="text-title text-text-primary mb-2 theme-transition">
+          {project.liveDemo ? (
+            <a
+              href={project.liveDemo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent-primary transition-colors duration-200 after:absolute after:inset-0"
+            >
+              {project.name}
+            </a>
+          ) : (
+            project.name
+          )}
+        </h3>
+        <p className="text-sm text-text-secondary leading-relaxed flex-1">
+          {project.description}
+        </p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mt-5 pt-4 border-t border-border-secondary">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="text-xs px-2.5 py-1 rounded-full bg-surface-hover text-text-secondary theme-transition"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </article>
     </motion.div>
   )
 }
@@ -324,19 +105,14 @@ function ProjectCard({
 export function Projects() {
   const [filter, setFilter] = useState<string>('all')
 
-  // Get unique tags from all projects
-  const allTags = Array.from(new Set(projects.flatMap((p) => p.tags)))
-  const filters = ['all', ...allTags]
-
-  // Filter projects based on selected tag
   const filteredProjects =
-    filter === 'all' ? projects : projects.filter((p) => p.tags.includes(filter))
+    filter === 'all' ? projects : projects.filter((p) => p.category === filter)
 
   return (
-    <section id="work" aria-label="Featured Projects" className="relative py-12 sm:py-24 bg-background-primary overflow-hidden">
-      {/* Sacred Geometry Background - Metatron's Cube */}
+    <section id="work" aria-label="Featured Projects" className="relative py-16 sm:py-28 bg-background-primary overflow-hidden">
+      {/* Sacred Geometry Background - the section-level signature placement */}
       <div className="absolute inset-0 pointer-events-none">
-        <MetatronsCube opacity={0.05} color="#915eff" secondaryColor="#00d4ff" />
+        <MetatronsCube opacity={0.05} color="#915eff" secondaryColor="#915eff" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
@@ -346,56 +122,51 @@ export function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-8 sm:mb-12"
+          className="max-w-3xl mb-8 sm:mb-10"
         >
-          <p className="text-[#915eff] text-sm font-semibold uppercase tracking-wider mb-2">
-            My Work
-          </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-text-primary theme-transition">
+          <span className="text-label text-text-tertiary block mb-3">04</span>
+          <h2 className="text-headline text-text-primary theme-transition mb-4">
             Featured Projects
           </h2>
-          <p className="text-lg sm:text-xl text-text-secondary max-w-3xl mx-auto">
-            A showcase of my best work, from full-stack applications to creative experiments.
+          <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
+            Production work spanning full-stack products, client builds, and front-end craft.
           </p>
         </motion.div>
 
-        {/* Filter Buttons */}
+        {/* Curated category filters */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14"
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="flex flex-wrap gap-2 mb-10 sm:mb-12"
+          role="group"
+          aria-label="Filter projects by category"
         >
-          {filters.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => setFilter(tag)}
-              className="relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
-              style={{
-                background:
-                  filter === tag
-                    ? 'linear-gradient(135deg, #915eff, #00d4ff)'
-                    : 'rgba(255, 255, 255, 0.05)',
-                color: filter === tag ? '#ffffff' : '#b0b0b0',
-                border: `1px solid ${filter === tag ? 'transparent' : 'rgba(255,255,255,0.1)'}`,
-                boxShadow:
-                  filter === tag
-                    ? '0 4px 20px rgba(145, 94, 255, 0.3), 0 0 15px rgba(0, 212, 255, 0.15)'
-                    : 'none',
-                transform: filter === tag ? 'scale(1.05)' : 'scale(1)',
-              }}
-            >
-              {tag === 'all' ? 'All Projects' : tag}
-            </button>
-          ))}
+          {projectCategories.map((category) => {
+            const isSelected = filter === category.id
+            return (
+              <button
+                key={category.id}
+                onClick={() => setFilter(category.id)}
+                aria-pressed={isSelected}
+                className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors duration-200 ${
+                  isSelected
+                    ? 'bg-accent-fill text-white border-transparent'
+                    : 'bg-surface-primary text-text-secondary border-border-primary hover:border-border-strong hover:text-text-primary'
+                }`}
+              >
+                {category.label}
+              </button>
+            )
+          })}
         </motion.div>
 
         {/* Projects Grid */}
         <AnimatePresence mode="popLayout">
           <motion.div
             layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {filteredProjects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
@@ -412,7 +183,7 @@ export function Projects() {
               exit={{ opacity: 0 }}
               className="text-center py-16"
             >
-              <p className="text-text-secondary text-lg">No projects found with this filter.</p>
+              <p className="text-text-secondary text-lg">No projects found in this category.</p>
             </motion.div>
           )}
         </AnimatePresence>

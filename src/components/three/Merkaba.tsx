@@ -28,7 +28,6 @@ export function Merkaba() {
 
   const handlePointerDown = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation()
-    e.nativeEvent.preventDefault()
     gl.domElement.setPointerCapture(e.pointerId)
     isDragging.current = true
     lastPointer.current = { x: e.clientX, y: e.clientY }
@@ -39,8 +38,7 @@ export function Merkaba() {
   const handlePointerMove = (e: ThreeEvent<PointerEvent>) => {
     if (!isDragging.current || !lastPointer.current) return
     e.stopPropagation()
-    e.nativeEvent.preventDefault()
-    
+
     const dx = e.clientX - lastPointer.current.x
     const dy = e.clientY - lastPointer.current.y
     lastPointer.current = { x: e.clientX, y: e.clientY }

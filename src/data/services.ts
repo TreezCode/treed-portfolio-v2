@@ -6,23 +6,23 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    title: 'Full-Stack Developer',
-    description: 'Building secure, scalable web applications with React, Next.js, Node.js, and modern databases',
+    title: 'Full-Stack Development',
+    description: 'Secure, scalable apps with React, Next.js, and Node.js',
     icon: 'Globe',
   },
   {
-    title: 'Security-Focused Development',
-    description: 'CompTIA Security+ certified with hands-on experience in Metasploit, Burp Suite, and secure coding practices',
+    title: 'Security-First Engineering',
+    description: 'CompTIA Security+ certified; secure coding and pen-test tooling',
     icon: 'Zap',
   },
   {
-    title: 'Frontend Specialist',
-    description: 'Creating responsive, SEO-optimized interfaces with React, TypeScript, and immersive 3D experiences using Three.js',
+    title: 'Front-End & 3D',
+    description: 'Responsive interfaces and immersive WebGL with Three.js',
     icon: 'Code',
   },
   {
     title: 'CMS & E-Commerce',
-    description: 'Expert in WordPress, Shopify, and headless CMS solutions for dynamic content management',
+    description: 'WordPress and Shopify builds that clients run themselves',
     icon: 'Palette',
   },
 ]

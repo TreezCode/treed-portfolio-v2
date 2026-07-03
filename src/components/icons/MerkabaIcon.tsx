@@ -14,8 +14,8 @@ export function MerkabaIcon({ className = "w-7 h-7" }: { className?: string }) {
     >
       <defs>
         <linearGradient id="merkabaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#a78bfa" />
-          <stop offset="100%" stopColor="#00d4ff" />
+          <stop offset="0%" stopColor="var(--accent-primary)" />
+          <stop offset="100%" stopColor="var(--accent-primary)" />
         </linearGradient>
       </defs>
       

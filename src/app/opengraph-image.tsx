@@ -93,9 +93,9 @@ export default async function Image() {
           >
             <span style={{ color: '#915eff' }}>React</span>
             <span>•</span>
-            <span style={{ color: '#00d4ff' }}>Next.js</span>
+            <span style={{ color: '#915eff' }}>Next.js</span>
             <span>•</span>
-            <span style={{ color: '#ff6b9d' }}>Three.js</span>
+            <span style={{ color: '#915eff' }}>Three.js</span>
           </div>
           
           {/* Certification */}
@@ -113,7 +113,7 @@ export default async function Image() {
           <div
             style={{
               fontSize: 28,
-              color: '#00d4ff',
+              color: '#915eff',
               marginTop: 24,
             }}
           >

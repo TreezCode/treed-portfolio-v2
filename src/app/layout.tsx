@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Archivo, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
@@ -19,10 +19,12 @@ const PerfOverlayRoot = isPerfEnabled
   ? dynamic(() => import('@/components/perf/PerfOverlayRoot').then(mod => ({ default: mod.PerfOverlayRoot })))
   : () => null
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+// Variable font with the width axis: display type uses 'wdth' 118-125 (see globals.css)
+const archivo = Archivo({
+  variable: '--font-archivo',
   subsets: ['latin'],
   display: 'swap',
+  axes: ['wdth'],
 })
 
 const geistMono = Geist_Mono({
@@ -101,7 +103,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${archivo.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-screen flex flex-col bg-background-primary text-text-primary">
         <script
@@ -137,7 +139,7 @@ export default function RootLayout({
         />
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:bg-[#915eff] focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:bg-accent-fill focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold"
         >
           Skip to main content
         </a>

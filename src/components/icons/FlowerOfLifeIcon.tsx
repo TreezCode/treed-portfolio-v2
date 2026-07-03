@@ -14,9 +14,8 @@ export function FlowerOfLifeIcon({ className = "w-7 h-7" }: { className?: string
     >
       <defs>
         <linearGradient id="flowerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#915eff" />
-          <stop offset="50%" stopColor="#7b3fd1" />
-          <stop offset="100%" stopColor="#915eff" />
+          <stop offset="0%" stopColor="var(--accent-primary)" />
+          <stop offset="100%" stopColor="var(--accent-primary)" />
         </linearGradient>
       </defs>
       

@@ -120,12 +120,11 @@ export function TechInfoCard({ position, techName, category, color, onClose }: T
             transition={{ type: 'spring', damping: 22, stiffness: 350 }}
             style={{ width: '420px' }}
           >
-            {/* Card - solid glass background (works inside CSS mask) */}
+            {/* Card - solid background (works inside CSS mask) */}
             <div
               className="relative p-8 rounded-xl bg-background-secondary theme-transition"
               style={{
-                border: `2px solid ${color}70`,
-                boxShadow: `0 0 50px ${color}40, inset 0 1px 0 rgba(145,94,255,0.08), inset 0 0 80px ${color}10`,
+                border: `1px solid ${color}60`,
               }}
             >
               {/* Close button */}
@@ -143,17 +142,11 @@ export function TechInfoCard({ position, techName, category, color, onClose }: T
               <div className="mb-5">
                 <div
                   className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center"
-                  style={{
-                    background: `radial-gradient(circle, ${color}70, ${color}25)`,
-                    boxShadow: `0 0 30px ${color}70`,
-                  }}
+                  style={{ background: `${color}25` }}
                 >
                   <div
                     className="w-8 h-8 rounded-full"
-                    style={{
-                      background: color,
-                      boxShadow: `0 0 20px ${color}`,
-                    }}
+                    style={{ background: color }}
                   />
                 </div>
                 <h3 className="text-2xl font-bold text-center text-text-primary mb-2 theme-transition">
@@ -185,20 +178,6 @@ export function TechInfoCard({ position, techName, category, color, onClose }: T
                 {info.desc}
               </p>
 
-              {/* Decorative dots */}
-              <div className="flex justify-center gap-1.5 mt-5">
-                {[...Array(3)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-2 h-2 rounded-full"
-                    style={{
-                      background: color,
-                      boxShadow: `0 0 10px ${color}`,
-                      opacity: 0.7,
-                    }}
-                  />
-                ))}
-              </div>
             </div>
 
             {/* Pointer/Arrow pointing to shape */}
@@ -208,8 +187,7 @@ export function TechInfoCard({ position, techName, category, color, onClose }: T
                 transform: 'translateX(-50%)',
                 borderLeft: '16px solid transparent',
                 borderRight: '16px solid transparent',
-                borderTop: `16px solid ${color}70`,
-                filter: `drop-shadow(0 0 12px ${color}50)`,
+                borderTop: `16px solid ${color}60`,
               }}
             />
           </motion.div>

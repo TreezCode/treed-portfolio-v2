@@ -44,14 +44,9 @@ export function SacredGeometry() {
       
       // Theme-aware colors and opacity
       const opacity = isDark ? 0.07 : 0.15  // Higher opacity for light mode
-      
-      // Create gradient
-      const gradient = ctx.createLinearGradient(0, 0, displayWidth, displayHeight)
-      gradient.addColorStop(0, `rgba(145, 94, 255, ${opacity})`)
-      gradient.addColorStop(0.5, `rgba(0, 212, 255, ${opacity})`)
-      gradient.addColorStop(1, `rgba(255, 107, 157, ${opacity})`)
 
-      ctx.strokeStyle = gradient
+      // Single-accent violet linework (see DESIGN.md, The One Accent Rule)
+      ctx.strokeStyle = `rgba(145, 94, 255, ${opacity})`
       ctx.lineWidth = isDark ? 1 : 1.5  // Slightly thicker lines in light mode
 
       // Draw overlapping circles (Flower of Life pattern)

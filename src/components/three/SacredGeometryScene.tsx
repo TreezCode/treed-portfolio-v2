@@ -1,25 +1,15 @@
 'use client'
 
-import { Suspense, useEffect, useRef } from 'react'
-import { Canvas, useThree } from '@react-three/fiber'
+import { Suspense } from 'react'
+import { Canvas } from '@react-three/fiber'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import { Merkaba } from './Merkaba'
 import { QuantumField } from './QuantumField'
 import { FPSTracker } from '@/components/perf/FPSTracker'
 import { useMobileDpr } from '@/hooks/useMobileDpr'
 import { useIsMobile } from '@/hooks/useMobileReduced'
+import { ScrollThrough } from './CanvasStage'
 import type { PerfFlags } from '@/hooks/usePerfMode'
-
-function CanvasInitTouchAction({ isMobile }: { isMobile: boolean }) {
-  const { gl } = useThree()
-  const canvasEl = useRef<HTMLCanvasElement>(gl.domElement)
-  useEffect(() => {
-    // Mobile: allow vertical scrolling (Merkaba is not interactive on mobile)
-    // Desktop: prevent default to allow Merkaba drag interaction
-    canvasEl.current.style.touchAction = isMobile ? 'pan-y' : 'none'
-  }, [isMobile])
-  return null
-}
 
 interface SacredGeometrySceneProps {
   className?: string
@@ -73,7 +63,8 @@ export function SacredGeometryScene({ className, perfFlags }: SacredGeometryScen
           )}
         </Suspense>
 
-        <CanvasInitTouchAction isMobile={isMobile} />
+        {/* Shared interaction contract: scroll always passes through */}
+        <ScrollThrough />
         {/* PERF TESTING: FPS instrumentation, dev-only no-op in production */}
         <FPSTracker label="hero" mode={perfFlags?.mode} />
       </Canvas>

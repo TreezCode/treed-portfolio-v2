@@ -1,12 +1,9 @@
 export const heroContent = {
-  headText: ["Hi I'm <span style='color:#915eff'>Joey</span>."],
+  headText: ["Hi I'm <span style='color:var(--accent-primary)'>Joey</span>."],
   subText: [
-    "I'm a junior software engineer with a growing focus on cybersecurity and secure web architecture.",
-    "Skilled in building dynamic, SEO-optimized solutions using React, Next.js, WordPress, and Shopify.",
-    "Experienced in frontend design and backend logic, with hands-on knowledge of security tools like Metasploit and Burp Suite.",
-    "CompTIA Security+ certified with expertise in both modern web technologies and network security principles.",
-    "Passionate about AI and emerging technologies - from generative art to agentic workflows.",
-    "I deliver scalable, user-focused solutions while continuously expanding my skills in ethical hacking and secure development.",
-    "From responsive interfaces to immersive 3D experiences, I create web applications that are both beautiful and secure.",
+    "I'm a software engineer building secure, dimensional web experiences with React, Next.js, and Three.js.",
+    "CompTIA Security+ certified, with hands-on experience in Metasploit, Burp Suite, and secure architecture.",
+    "I ship production work for real clients: full-stack apps, WordPress and Shopify builds, and 3D interfaces.",
+    "From responsive interfaces to immersive WebGL, I make web applications that are both beautiful and secure.",
   ],
 }

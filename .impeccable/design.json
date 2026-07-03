@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-02T18:45:00Z",
+  "title": "Design System: BuildWithTreez",
+  "extensions": {
+    "colorMeta": {
+      "accent-purple": { "role": "primary", "displayName": "Treez Violet", "canonical": "oklch(0.65 0.19 292)", "tonalRamp": ["oklch(0.20 0.10 292)", "oklch(0.30 0.14 292)", "oklch(0.40 0.17 292)", "oklch(0.50 0.21 292)", "oklch(0.60 0.20 292)", "oklch(0.65 0.19 292)", "oklch(0.78 0.12 292)", "oklch(0.92 0.04 292)"] },
+      "canvas-dark": { "role": "neutral", "displayName": "Study Dark", "canonical": "oklch(0.15 0.012 290)", "tonalRamp": ["oklch(0.15 0.012 290)", "oklch(0.18 0.014 290)", "oklch(0.21 0.016 290)", "oklch(0.24 0.018 290)", "oklch(0.36 0.025 290)", "oklch(0.64 0.015 290)", "oklch(0.78 0.012 290)", "oklch(0.96 0.005 290)"] },
+      "canvas-light": { "role": "neutral", "displayName": "Study Light", "canonical": "oklch(0.97 0.005 290)", "tonalRamp": ["oklch(0.22 0.02 290)", "oklch(0.40 0.02 290)", "oklch(0.50 0.02 290)", "oklch(0.80 0.014 290)", "oklch(0.87 0.01 290)", "oklch(0.895 0.011 290)", "oklch(0.945 0.007 290)", "oklch(0.97 0.005 290)"] },
+      "scene-cyan": { "role": "tertiary", "displayName": "Scene Cyan", "canonical": "#00d4ff" },
+      "scene-pink": { "role": "tertiary", "displayName": "Scene Pink", "canonical": "#ff6b9d" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only. Archivo 700, width 125, -0.02em." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings. Archivo 650, width 118." },
+      "body": { "displayName": "Body", "purpose": "Paragraphs, 65-75ch measure." },
+      "label": { "displayName": "Label", "purpose": "Geist Mono numeric indices and metadata only." }
+    },
+    "shadows": [
+      { "name": "hover-lift", "value": "0 8px 24px oklch(0 0 0 / 0.25)", "purpose": "Optional neutral hover cue on interactive cards, dark theme only. Never tinted." }
+    ],
+    "motion": [
+      { "name": "ease-out-quart", "value": "cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "Default easing for entrances and state transitions. No bounce, no elastic." },
+      { "name": "duration-state", "value": "200ms", "purpose": "Hover/focus state changes." },
+      { "name": "duration-reveal", "value": "500ms", "purpose": "Scroll reveals and section entrances." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one violet CTA. Solid fill, no gradient, no glow.",
+      "html": "<button class=\"ds-btn-primary\">View My Work</button>",
+      "css": ".ds-btn-primary { background: oklch(0.65 0.19 292); color: #ffffff; padding: 14px 28px; border: none; border-radius: 12px; font-family: Archivo, system-ui, sans-serif; font-weight: 600; font-size: 15px; cursor: pointer; transition: background 200ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-btn-primary:hover { background: oklch(0.72 0.16 292); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(0.65 0.19 292); outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Hairline-bordered quiet action.",
+      "html": "<button class=\"ds-btn-secondary\">Let's Connect</button>",
+      "css": ".ds-btn-secondary { background: transparent; color: oklch(0.96 0.005 290); padding: 14px 28px; border: 1px solid oklch(0.36 0.025 290); border-radius: 12px; font-family: Archivo, system-ui, sans-serif; font-weight: 600; font-size: 15px; cursor: pointer; transition: background 200ms cubic-bezier(0.25, 1, 0.5, 1), border-color 200ms; } .ds-btn-secondary:hover { background: oklch(0.18 0.014 290); border-color: oklch(0.44 0.03 290); } .ds-btn-secondary:focus-visible { outline: 2px solid oklch(0.65 0.19 292); outline-offset: 2px; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Tonal surface with hairline border. Flat at rest.",
+      "html": "<div class=\"ds-card\"><h3>Project Title</h3><p>One or two lines of trimmed description that earns its place.</p></div>",
+      "css": ".ds-card { background: oklch(0.18 0.014 290); border: 1px solid oklch(0.28 0.02 290); border-radius: 16px; padding: 24px; transition: border-color 200ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-card:hover { border-color: oklch(0.36 0.025 290); } .ds-card h3 { font-family: Archivo, system-ui, sans-serif; font-weight: 600; font-size: 20px; color: oklch(0.96 0.005 290); margin: 0 0 8px; } .ds-card p { font-family: Archivo, system-ui, sans-serif; font-size: 15px; line-height: 1.6; color: oklch(0.78 0.012 290); margin: 0; }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Curated category filter. Selected state is the only violet fill.",
+      "html": "<span class=\"ds-chip\">3D &amp; Interactive</span> <span class=\"ds-chip ds-chip-selected\">Full-Stack</span>",
+      "css": ".ds-chip { display: inline-block; background: oklch(0.21 0.016 290); color: oklch(0.78 0.012 290); border: 1px solid oklch(0.28 0.02 290); border-radius: 9999px; padding: 6px 14px; font-family: Archivo, system-ui, sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: border-color 200ms; } .ds-chip:hover { border-color: oklch(0.36 0.025 290); } .ds-chip-selected { background: oklch(0.65 0.19 292); color: #ffffff; border-color: transparent; }"
+    },
+    {
+      "name": "Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Quiet field; focus is a violet ring, not a glow.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Your name\" />",
+      "css": ".ds-input { background: oklch(0.18 0.014 290); color: oklch(0.96 0.005 290); border: 1px solid oklch(0.28 0.02 290); border-radius: 12px; padding: 12px 16px; font-family: Archivo, system-ui, sans-serif; font-size: 15px; width: 100%; box-sizing: border-box; transition: border-color 200ms; } .ds-input::placeholder { color: oklch(0.64 0.015 290); } .ds-input:focus { outline: 2px solid oklch(0.65 0.19 292); outline-offset: 0; border-color: oklch(0.65 0.19 292); }"
+    },
+    {
+      "name": "Nav Item",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Mono index + label; active gets solid violet underline.",
+      "html": "<a class=\"ds-nav-item ds-nav-active\" href=\"#work\"><span class=\"ds-nav-num\">04</span>Projects</a>",
+      "css": ".ds-nav-item { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; color: oklch(0.78 0.012 290); font-family: Archivo, system-ui, sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; position: relative; transition: color 200ms; } .ds-nav-item:hover { color: oklch(0.96 0.005 290); } .ds-nav-num { font-family: ui-monospace, monospace; font-size: 10px; color: oklch(0.64 0.015 290); letter-spacing: 0.04em; } .ds-nav-active { color: oklch(0.96 0.005 290); } .ds-nav-active::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: 0; height: 2px; border-radius: 2px; background: oklch(0.65 0.19 292); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Geometer's Study",
+    "overview": "A quiet, purple-tinted room where precise instruments sit on dark surfaces and the only spectacle is the geometry itself. The dimensional identity lives in real-time WebGL scenes; everything around them is deliberately flat, tonal, and exact. Confidence comes from restraint: hairline borders, a single committed accent, expanded-width display type, generous spacing.",
+    "keyCharacteristics": [
+      "Purple-tinted neutrals everywhere; no pure black or pure white anywhere.",
+      "One accent (purple) in UI chrome; cyan and pink exist only inside WebGL scenes.",
+      "Hairline borders and tonal surface steps instead of shadows and glows.",
+      "Single type family (Archivo) with committed weight and width contrast.",
+      "3D scenes never trap scroll and never require lock/unlock instructions."
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Treez Violet is the only chromatic color permitted in 2D UI. If a second color appears outside a WebGL canvas or a semantic state, it is a bug.", "section": "colors" },
+      { "name": "The Scene Exception", "body": "Cyan and pink are stage lighting, not brand chrome. They exist only inside <Canvas>.", "section": "colors" },
+      { "name": "The No-Gradient-Chrome Rule", "body": "Gradients are prohibited on buttons, borders, text, badges, chips, and underlines. Only alpha fade masks and the hero background wash are permitted.", "section": "colors" },
+      { "name": "The Width-Is-Voice Rule", "body": "Hierarchy is expressed through Archivo's weight and width axes, never through color, gradients, or added families.", "section": "typography" },
+      { "name": "The One Kicker Rule", "body": "The repeated uppercase eyebrow label above every section heading is prohibited. Sections open with the headline itself.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. A state change may lighten the surface one tonal step or strengthen the hairline; it never adds a colored glow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Treez Violet as the single accent, on a small fraction of the screen.",
+      "Do express depth with tonal surface steps and hairline borders; save real depth for the WebGL scenes.",
+      "Do set display type in Archivo at weight 700 / width 125 with -0.02em tracking.",
+      "Do keep every canvas scrollable: touch-action pan-y, zoom disabled, no lock UI.",
+      "Do trim copy so cards in a row are naturally equal height.",
+      "Do verify 4.5:1 contrast in both themes and honor prefers-reduced-motion."
+    ],
+    "donts": [
+      "Don't use gradients on buttons, card borders, text, badges, underlines, or separators.",
+      "Don't use cyan or pink anywhere outside a WebGL canvas.",
+      "Don't repeat an uppercase tracked eyebrow label above section headings.",
+      "Don't render badge walls: no auto-generated filter unions, no 28-chip technology grids.",
+      "Don't use backdrop-blur decoratively; the scrolled header is the one permitted use.",
+      "Don't use #000, #fff, or untinted grays.",
+      "Don't add lock/unlock overlays, hints, or buttons to 3D scenes.",
+      "Don't use side-stripe borders, gradient text, or pulsing status badges."
+    ]
+  }
+}

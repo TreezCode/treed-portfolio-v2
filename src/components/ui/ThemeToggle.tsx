@@ -4,11 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '@/contexts/ThemeContext'
 import { FlowerOfLifeIcon } from '@/components/icons/FlowerOfLifeIcon'
 import { MerkabaIcon } from '@/components/icons/MerkabaIcon'
-import { useState } from 'react'
 
 export function ThemeToggle() {
   const { theme, toggleTheme, isTransitioning } = useTheme()
-  const [isHovered, setIsHovered] = useState(false)
 
   const handleClick = () => {
     toggleTheme()
@@ -21,19 +19,16 @@ export function ThemeToggle() {
   return (
     <motion.button
       onClick={handleClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onTouchStart={() => setIsHovered(false)} // Prevent hover on touch
       className="relative group p-2 rounded-lg
         bg-transparent
         border border-border-primary
-        hover:border-[#915eff]
+        hover:border-border-strong
         hover:bg-surface-primary
         transition-all duration-300
         active:scale-95
         focus:outline-none
         focus-visible:ring-2
-        focus-visible:ring-[#915eff]
+        focus-visible:ring-accent-primary
         focus-visible:ring-offset-2
         focus-visible:ring-offset-background-primary
         cursor-pointer
@@ -79,19 +74,6 @@ export function ThemeToggle() {
         </AnimatePresence>
       </motion.div>
 
-      {/* Subtle glow on hover - desktop only */}
-      {isHovered && (
-        <motion.div
-          className="absolute inset-0 rounded-lg -z-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          style={{
-            background: 'radial-gradient(circle, rgba(145, 94, 255, 0.15) 0%, transparent 70%)',
-            filter: 'blur(8px)',
-          }}
-        />
-      )}
     </motion.button>
   )
 }
