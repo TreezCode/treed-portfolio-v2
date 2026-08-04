@@ -1,51 +1,124 @@
 # Product
 
+## Authority
+
+- Status: **LOCKED for the next Build With Treez rebuild**
+- Version: **1.0**
+- Owner: Treez / Build With Treez
+- Approved: August 3, 2026
+- Detailed execution and governance: `INDUSTRY_CONCEPTS_PLAN.md`
+- Conflict rule: this file is the canonical business authority. The detailed plan may explain implementation and experiments but may not override a locked decision here.
+- Current implementation: the deployed single-page portfolio remains operational until the rebuild is approved and launched. Its current visual contract is documented in `DESIGN.md` as legacy implementation context, not as the approved future direction.
+
 ## Register
 
 brand
 
-## Users
+## Product purpose
 
-Two audiences, one behavior: they skim first and judge fast.
+Build With Treez is becoming a focused marketing website for premium web services. Its purpose is to turn qualified owner-led service businesses into fit calls and paid custom website engagements by demonstrating strategy, design judgment, implementation quality, and measurable launch discipline.
 
-- **Hiring managers and recruiters** evaluating a software engineer with a cybersecurity focus. They arrive from a resume link or LinkedIn, spend under 60 seconds forming an impression, and are looking for evidence of judgment, not a feature checklist. Many will open the site on a phone between meetings.
-- **Prospective freelance clients** (small businesses, e-commerce owners) who need to feel the work is professional and trustworthy. They care about outcomes: the finished sites, the polish, the reliability.
+The site itself remains proof of craft, but it is no longer primarily a job-seeking portfolio. Employment-oriented material may survive only as secondary biography or a resume link when it does not dilute the service offer.
 
-The job to be done: convince a skeptical, time-poor evaluator that Joey Kubalak can be trusted to build production-quality front-end work. The site itself is the primary exhibit.
+## Primary customer
 
-## Product Purpose
+Owner-led local-service companies with credible operations, meaningful project value, and weak digital presentation. The strongest fit has real work and customer evidence, an active referral, search, paid, or outbound channel, and enough commercial value to justify an $8,000 or greater website investment.
 
-BuildWithTreez is Joey Kubalak's single-page developer portfolio. Its purpose is to land a job opportunity (and secondarily, client work) by demonstrating front-end craft, design judgment, and 3D/WebGL capability firsthand. Success is a recruiter reaching the contact form, or replying to an application, because the site itself proved the skills the resume claims.
+They need to answer four questions quickly:
 
-## Brand Personality
+1. Does Treez understand how this business wins and loses trust?
+2. Can the work look specific rather than templated or AI-generated?
+3. Will the website support qualified action, measurement, and future marketing?
+4. Is Treez accountable through strategy, launch, and the agreed post-launch period?
 
-**Precise, dimensional, quietly confident.**
+## Primary offer
 
-- **Precise**: every value deliberate; hairline borders, exact spacing, disciplined color. The site reads like the work of someone who sweats details.
-- **Dimensional**: real-time 3D sacred geometry is the signature. Depth comes from WebGL scenes and tonal layering, not from decorative gradients and glows.
-- **Quietly confident**: no shouting, no badge walls, no "Available for Hire" pulse animations. The work states its case; the interface stays out of its way.
+The flagship offer is a productized custom website engagement with client-specific positioning, copy direction, art direction, implementation, proof architecture, CMS or integrations only where needed, accessibility, technical search foundations, measurement, QA, and launch controls.
 
-The sacred geometry motif (Merkaba, Metatron's Cube, platonic solids) is the brand's identity and stays, but as a deliberate signature in a few chosen places, not wallpaper behind every section.
+Founding price hypothesis: $8,000 to $12,000 for a tightly scoped engagement. Test $12,000 to $20,000 or more after two or three verified commercial case studies. These ranges are internal experiments, not public promises.
 
-## Anti-references
+Optional care and growth services remain separately scoped. A website is the conversion and measurement foundation; it does not guarantee traffic, rankings, or leads.
 
-- **Gradient-everything AI slop**: purple-to-pink buttons, gradient card borders, gradient text, tri-color glows on hover. The 2024-era AI-generated portfolio look. Retired entirely from UI chrome.
-- **The template SaaS hero**: pulsing availability badge, side-stripe decoration, icon-title-subtitle card grids, uppercase tracked eyebrow labels repeated above every section.
-- **Badge walls**: 28 technology chips, 25 filter pills for 6 projects. Enumerating everything communicates nothing.
-- **Glassmorphism as default**: backdrop-blur sprinkled on hints, badges, and overlays without purpose.
-- **Lock/unlock canvas UI**: overlays, hints, and toggle buttons bolted onto 3D scenes to work around scroll traps. The interaction model must simply never trap the user.
+## Primary conversion
 
-## Design Principles
+A qualified fit-call request from a business that matches the customer, budget, timing, evidence, and decision-owner requirements.
 
-1. **The site is the resume.** Every pixel is evidence of judgment. A misaligned card or trapped scroll costs more than a missing feature.
-2. **3D is the signature, not the wallpaper.** WebGL scenes carry the dimensional identity in a few high-impact moments; 2D surfaces stay disciplined and tonal.
-3. **Curation over completeness.** Six strong projects beat twenty filters. Twelve core technologies beat twenty-eight chips. Cut until what remains is load-bearing.
-4. **One accent, committed.** Purple carries the brand alone in UI chrome. Rarity is what makes it read as intentional.
-5. **Never trap the user.** Scroll always works. No interaction requires instructions to escape.
+## Success metrics
 
-## Accessibility & Inclusion
+Business outcomes:
 
-- WCAG 2.1 AA: 4.5:1 minimum text contrast in both themes, visible focus states, full keyboard navigation, 44px minimum touch targets.
-- `prefers-reduced-motion` honored across Framer Motion and canvas animations.
-- Dark and light themes are both first-class; no hardcoded colors that break either.
-- 3D canvases are progressive enhancement: all content and navigation must work without them.
+- qualified calls;
+- proposals issued;
+- engagements closed;
+- attributable project value;
+- delivery hours and direct cost;
+- gross margin;
+- care or growth attachment rate.
+
+Traffic, impressions, social reach, awards, and general engagement are diagnostic measures, not success by themselves.
+
+## Industry Concepts
+
+Industry Concepts is an agency proof and sales system, not a template marketplace.
+
+- Indexed concept articles explain original niche research, buyer journeys, proof needs, and design decisions.
+- Full fictional demonstrations are clearly labeled, `noindex`, excluded from sitemaps, and free of fabricated reviews, companies, results, locations, and structured evidence.
+- Clients buy a custom engagement, not the displayed design or downloadable source.
+- Build With Treez reuses invisible infrastructure and workflow, never client-specific art direction, copy, proof, or branded composition.
+- Ascension's Weather Shield, Roof Record expression, visual language, copy, evidence, and branded execution are protected from resale or silent reuse.
+
+Plumbing is the only approved first concept. No second experimental vertical may begin until the plumbing validation gate in `INDUSTRY_CONCEPTS_PLAN.md` passes.
+
+## Delivery principles
+
+1. Diagnose the business before choosing an aesthetic.
+2. Produce exactly two materially different directions and stop for Treez's selection.
+3. Build one vertical slice before expanding a site or concept.
+4. Repeat the process and technical primitives, not the client-facing design.
+5. Keep proof adjacent to claims and never invent outcomes, reviews, credentials, locations, or availability.
+6. Treat mobile composition, accessibility, reduced motion, performance, failure behavior, and measurement as design quality.
+7. Use award-caliber as an internal standard. Never claim award-winning work until an award exists.
+8. Keep sales and distribution outside the premium-client-site skill and outside the AIEOS kernel.
+9. Add AIEOS governance only when integration, data, security, cost, or coordination risk justifies it.
+10. Do not create a new framework, CMS, animation dependency, model provider, or system without a project need.
+
+## IP and originality
+
+Build With Treez retains pre-existing tools, workflows, generic components, schemas, and generalized know-how. Client agreements define ownership or exclusive license for paid client-specific deliverables after payment, subject to third-party licenses.
+
+Client logos, copy, photographs, project data, testimonials, custom illustrations, proof-system expression, and signature visual treatment are not reusable inventory. Portfolio display requires permission. Any vertical, geographic, or time-limited exclusivity requires a separately priced written agreement.
+
+## Non-goals
+
+- A generic downloadable template store
+- Cheap theme sales or source-code licensing as the core business
+- Mass-cloned local-service or city pages
+- Fabricated case studies, reviews, rankings, awards, or traffic promises
+- A concept factory producing multiple niches before demand validation
+- A CRM, outreach engine, or social-content scheduler inside the website-production workflow
+- Rebuilding AIEOS around a process already handled by the premium-client-site skill
+- Carrying the current portfolio's visual system into the rebuild without two new directions and human approval
+
+## Accessibility and inclusion
+
+Target WCAG 2.2 AA. Require keyboard navigation, visible focus, strong contrast, meaningful landmarks and names, 44 CSS-pixel touch targets, reduced-motion parity, responsive art direction, and essential content that remains useful when WebGL, animation, JavaScript, or optional media fails.
+
+## Stop conditions
+
+Stop and request Treez's decision when:
+
+- the buyer, flagship offer, primary conversion, or price position is unresolved;
+- a concept could be confused with a real company or client result;
+- a client-specific expression would be reused;
+- another niche is proposed before the plumbing gate;
+- a marketing outcome cannot be measured or controlled;
+- a material direction lacks human approval;
+- legal, licensing, accessibility, privacy, security, or advertising concerns remain unresolved;
+- the detailed plan conflicts with this file.
+
+## Change control
+
+- Editorial clarification that does not alter strategy may be recorded after the edit.
+- Pricing, messaging, or channel experiments require Treez approval and a minor-version update.
+- A template marketplace, indexed fictional demos, another niche, weaker client-protection rule, lower validation floor, or different primary audience requires explicit evidence, impact analysis, Treez approval, and a major-version update.
+- Every strategic change must be added to the Decision Log in `INDUSTRY_CONCEPTS_PLAN.md`.
