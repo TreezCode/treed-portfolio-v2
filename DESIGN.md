@@ -1,6 +1,7 @@
 ---
 name: BuildWithTreez
 description: "Precise, dimensional developer portfolio: sacred geometry in WebGL over disciplined tonal surfaces, one committed purple accent, hairline borders, expanded-width Archivo display type."
+status: "legacy-current-site"
 colors:
   accent-purple: "oklch(0.65 0.19 292)"
   accent-purple-hover: "oklch(0.72 0.16 292)"
@@ -106,6 +107,8 @@ components:
 ---
 
 # Design System: BuildWithTreez
+
+> Scope: this is the visual contract for the currently deployed developer portfolio. It is not the approved direction for the future premium web-services rebuild. The rebuild must produce exactly two new directions and receive Treez's explicit selection before this file is replaced.
 
 ## 1. Overview
 

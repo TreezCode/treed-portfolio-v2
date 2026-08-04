@@ -4,6 +4,12 @@ A modern, performant portfolio showcasing full-stack development expertise throu
 
 **Live Site:** [buildwithtreez.com](https://buildwithtreez.com/)
 
+## Approved future direction
+
+The next Build With Treez rebuild will become a founder-led web-services marketing site with a lean, roofing-first work portfolio. [PRODUCT.md](PRODUCT.md) is the canonical business authority. The evidence rules, first roofing concept, acquisition test, expansion gates, IP protections, and drift controls are recorded in the subordinate [Industry Concepts Plan](INDUSTRY_CONCEPTS_PLAN.md).
+
+`DESIGN.md` continues to describe the deployed portfolio's visual system until two new rebuild directions are created and one receives human approval.
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://buildwithtreez.netlify.app/)
 
 ## Tech Stack
