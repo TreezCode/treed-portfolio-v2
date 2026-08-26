@@ -40,19 +40,12 @@ function CheckIcon() {
 
 function ArtifactRegister({ project }: { project: Project }) {
   return (
-    <MotionSequence
-      className="case-artifact"
-      aria-label={`${project.name} ${project.artifact.label}`}
-      distance={10}
-      duration={0.52}
-      staggerDelay={0.055}
-      viewportAmount={0.25}
-    >
-      <div className="case-artifact__header" data-motion-item>
+    <div className="case-artifact" aria-label={`${project.name} ${project.artifact.label}`}>
+      <div className="case-artifact__header">
         <span>{project.artifact.label}</span>
         <span aria-hidden="true">{project.index} / 05</span>
       </div>
-      <dl className="case-artifact__grid" data-motion-item>
+      <dl className="case-artifact__grid">
         {project.artifact.values.map((item) => (
           <div key={item.label}>
             <dt>{item.label}</dt>
@@ -60,7 +53,7 @@ function ArtifactRegister({ project }: { project: Project }) {
           </div>
         ))}
       </dl>
-    </MotionSequence>
+    </div>
   )
 }
 
@@ -89,7 +82,7 @@ function ProjectCase({ project, position }: { project: Project; position: number
         </div>
       </MotionSequence>
 
-      <MotionSequence className="case-study__body" staggerDelay={0.1} viewportAmount={0.08}>
+      <MotionSequence className="case-study__body" staggerDelay={0.1} viewportAmount="some">
         <div className={`case-study__visual ${isReversed ? 'lg:order-2' : ''}`} data-motion-item>
           <div className="case-study__image-frame">
             <Image
@@ -123,21 +116,14 @@ function ProjectCase({ project, position }: { project: Project; position: number
 
           <div className="case-study__block case-study__evidence">
             <h4>Verified evidence</h4>
-            <MotionSequence
-              as="ul"
-              direction="right"
-              distance={10}
-              duration={0.48}
-              staggerDelay={0.055}
-              viewportAmount={0.3}
-            >
+            <ul>
               {project.evidence.map((item) => (
-                <li key={item} data-motion-item>
+                <li key={item}>
                   <CheckIcon />
                   <span>{item}</span>
                 </li>
               ))}
-            </MotionSequence>
+            </ul>
           </div>
 
           <p className="case-study__boundary">

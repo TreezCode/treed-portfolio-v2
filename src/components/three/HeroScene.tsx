@@ -210,6 +210,11 @@ export function HeroScene() {
     const element = rootRef.current
     if (!element) return
 
+    if (typeof window.IntersectionObserver === 'undefined') {
+      const fallbackFrame = window.requestAnimationFrame(() => setIsInView(true))
+      return () => window.cancelAnimationFrame(fallbackFrame)
+    }
+
     const observer = new IntersectionObserver(([entry]) => setIsInView(entry.isIntersecting), {
       rootMargin: '160px 0px',
     })

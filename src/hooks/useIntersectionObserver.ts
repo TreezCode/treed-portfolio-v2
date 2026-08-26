@@ -1,11 +1,11 @@
-'use client';
+'use client'
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react'
 
 interface UseIntersectionObserverProps {
-  threshold?: number;
-  rootMargin?: string;
-  triggerOnce?: boolean;
+  threshold?: number
+  rootMargin?: string
+  triggerOnce?: boolean
 }
 
 export function useIntersectionObserver({
@@ -13,47 +13,55 @@ export function useIntersectionObserver({
   rootMargin = '300px', // Load 300px before entering viewport
   triggerOnce = true,
 }: UseIntersectionObserverProps = {}) {
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const [hasTriggered, setHasTriggered] = useState(false);
-  const targetRef = useRef<HTMLDivElement>(null);
+  const [isIntersecting, setIsIntersecting] = useState(false)
+  const [hasTriggered, setHasTriggered] = useState(false)
+  const targetRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const target = targetRef.current;
-    if (!target) return;
+    const target = targetRef.current
+    if (!target) return
 
     // If already triggered and triggerOnce is true, don't observe
-    if (triggerOnce && hasTriggered) return;
+    if (triggerOnce && hasTriggered) return
+
+    if (typeof window.IntersectionObserver === 'undefined') {
+      const fallbackFrame = window.requestAnimationFrame(() => {
+        setIsIntersecting(true)
+        setHasTriggered(true)
+      })
+      return () => window.cancelAnimationFrame(fallbackFrame)
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsIntersecting(true);
-            setHasTriggered(true);
-            
+            setIsIntersecting(true)
+            setHasTriggered(true)
+
             // Unobserve after first trigger if triggerOnce is true
             if (triggerOnce) {
-              observer.unobserve(entry.target);
+              observer.unobserve(entry.target)
             }
           } else if (!triggerOnce) {
-            setIsIntersecting(false);
+            setIsIntersecting(false)
           }
-        });
+        })
       },
       {
         threshold,
         rootMargin,
       }
-    );
+    )
 
-    observer.observe(target);
+    observer.observe(target)
 
     return () => {
       if (target) {
-        observer.unobserve(target);
+        observer.unobserve(target)
       }
-    };
-  }, [threshold, rootMargin, triggerOnce, hasTriggered]);
+    }
+  }, [threshold, rootMargin, triggerOnce, hasTriggered])
 
-  return { ref: targetRef, isIntersecting };
+  return { ref: targetRef, isIntersecting }
 }

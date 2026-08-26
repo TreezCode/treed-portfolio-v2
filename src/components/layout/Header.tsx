@@ -107,6 +107,10 @@ export function Header() {
   }, [])
 
   useEffect(() => {
+    if (typeof window.IntersectionObserver === 'undefined') {
+      return
+    }
+
     const observers: IntersectionObserver[] = []
 
     for (const section of [{ id: 'hero' }, ...navigation]) {

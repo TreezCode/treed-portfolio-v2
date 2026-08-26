@@ -9,11 +9,15 @@
 
 :global(
   html[data-motion-ready]
-    [data-motion-sequence][data-motion-trigger='load']:not([data-motion-state='visible'])
+    [data-motion-sequence]:not([data-motion-state='visible'])
     > [data-motion-item]
-) {
+),
+:global([data-motion-sequence][data-motion-state='armed'] > [data-motion-item]) {
   opacity: 0;
   transform: var(--motion-enter-transform);
+}
+
+:global([data-motion-sequence][data-motion-state='animating'] > [data-motion-item]) {
   will-change: opacity, transform;
 }
 
@@ -90,5 +94,47 @@
 @media (prefers-reduced-motion: reduce) {
   .scrollProgress {
     display: none;
+  }
+
+  :global(
+    html[data-motion-ready]
+      [data-motion-sequence]:not([data-motion-state='visible'])
+      > [data-motion-item]
+  ),
+  :global([data-motion-sequence][data-motion-state='armed'] > [data-motion-item]) {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+
+  :global(.button-primary),
+  :global(.button-secondary),
+  :global(.contact-form-shell button[type='submit']),
+  :global(.hero__profiles a svg),
+  :global(.contact-links a svg),
+  :global(.case-study__links a svg),
+  :global(.work-afterword a svg),
+  :global(.client-route a svg),
+  :global(.button-primary svg),
+  :global(.button-secondary svg),
+  :global(.contact-form-shell button[type='submit'] svg) {
+    transition-duration: 0.01ms;
+  }
+
+  :global(.button-primary:hover),
+  :global(.button-secondary:hover),
+  :global(.button-primary:active),
+  :global(.button-secondary:active),
+  :global(.contact-form-shell button[type='submit']:hover:not(:disabled)),
+  :global(.contact-form-shell button[type='submit']:active:not(:disabled)),
+  :global(.hero__profiles a:hover svg),
+  :global(.contact-links a:hover svg),
+  :global(.case-study__links a:hover svg),
+  :global(.work-afterword a:hover svg),
+  :global(.client-route a:hover svg),
+  :global(.button-primary:hover svg),
+  :global(.button-secondary:hover svg),
+  :global(.contact-form-shell button[type='submit']:hover:not(:disabled) svg) {
+    transform: none;
   }
 }

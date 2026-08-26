@@ -1,13 +1,6 @@
 'use client'
 
-import {
-  motion,
-  useInView,
-  useIsomorphicLayoutEffect,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-} from 'framer-motion'
+import { motion, useIsomorphicLayoutEffect, useScroll, useSpring } from 'framer-motion'
 import type { CSSProperties, ElementType, HTMLAttributes, ReactNode } from 'react'
 import { useCallback, useRef } from 'react'
 import type { UseInViewOptions } from 'framer-motion'
@@ -81,6 +74,26 @@ function offsetFor(direction: MotionDirection, distance: number) {
   }
 }
 
+function thresholdFor(amount: MotionSequenceProps['viewportAmount']) {
+  if (amount === 'all') return 1
+  if (amount === 'some') return 0
+
+  return Math.min(1, Math.max(0, amount ?? 0))
+}
+
+function overlapsViewport(element: HTMLElement) {
+  const bounds = element.getBoundingClientRect()
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight
+  const viewportWidth = window.innerWidth || document.documentElement.clientWidth
+
+  return (
+    bounds.bottom > 0 &&
+    bounds.right > 0 &&
+    bounds.top < viewportHeight &&
+    bounds.left < viewportWidth
+  )
+}
+
 /**
  * Progressive-enhancement entrance choreography.
  *
@@ -103,120 +116,217 @@ export function MotionSequence({
   ...elementProps
 }: MotionSequenceProps) {
   const scope = useRef<HTMLElement>(null)
-  const hasAnimated = useRef(false)
-  const shouldReduceMotion = useReducedMotion()
-  const isInView = useInView(scope, {
-    once: true,
-    amount: viewportAmount,
-    margin: viewportMargin,
-  })
+  const hasPlayed = useRef(false)
 
   useIsomorphicLayoutEffect(() => {
     const root = document.documentElement
+    const sequence = scope.current
+
+    if (!sequence) {
+      return
+    }
+
+    const targets = Array.from(sequence.querySelectorAll<HTMLElement>(itemSelector))
+    const initialTransform = offsetFor(direction, distance)
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const controls: Animation[] = []
+    let disposed = false
+    let hasStarted = false
+    let observer: IntersectionObserver | undefined
+    let watchdog: number | undefined
+    let animationFrame: number | undefined
+    let removeGuards = () => {}
+
+    const reveal = (markPlayed: boolean) => {
+      if (markPlayed) {
+        hasPlayed.current = true
+      }
+
+      sequence.setAttribute('data-motion-state', 'visible')
+      controls.forEach((control) => {
+        try {
+          control.cancel()
+        } catch {
+          // A failed animation must never be allowed to keep readable content hidden.
+        }
+      })
+    }
+
+    const finish = (markPlayed: boolean) => {
+      if (disposed) return
+
+      disposed = true
+      observer?.disconnect()
+      removeGuards()
+      if (animationFrame !== undefined) {
+        window.cancelAnimationFrame(animationFrame)
+      }
+      if (watchdog !== undefined) {
+        window.clearTimeout(watchdog)
+      }
+      reveal(markPlayed)
+    }
 
     const showImmediately = () => {
-      hasAnimated.current = true
-      scope.current?.setAttribute('data-motion-state', 'visible')
+      finish(true)
     }
 
-    if (hasAnimated.current || !scope.current) {
+    if (hasPlayed.current) {
+      reveal(true)
       return
     }
 
-    if (shouldReduceMotion || (trigger === 'load' && !root.hasAttribute('data-motion-ready'))) {
+    if (
+      reducedMotionQuery.matches ||
+      targets.length === 0 ||
+      (trigger === 'load' && !root.hasAttribute('data-motion-ready'))
+    ) {
       showImmediately()
       return
     }
 
-    if (trigger === 'view' && !isInView) {
-      return
+    const startAnimation = () => {
+      if (disposed || hasStarted) return
+
+      hasStarted = true
+      hasPlayed.current = true
+      observer?.disconnect()
+      sequence.setAttribute('data-motion-state', 'animating')
+
+      try {
+        targets.forEach((target, index) => {
+          controls.push(
+            target.animate(
+              [
+                { opacity: 0, transform: initialTransform },
+                { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+              ],
+              {
+                delay: Math.max(0, delay + index * staggerDelay) * 1000,
+                duration: Math.max(0, duration) * 1000,
+                easing: EASE_OUT_EXPO_CSS,
+                fill: 'both',
+              }
+            )
+          )
+        })
+
+        const plannedEndMs =
+          (Math.max(0, delay) +
+            Math.max(0, targets.length - 1) * Math.max(0, staggerDelay) +
+            Math.max(0, duration)) *
+          1000
+        const watchdogMs = Math.max(350, plannedEndMs + 200)
+        watchdog = window.setTimeout(() => finish(true), watchdogMs)
+
+        void Promise.all(controls.map((control) => control.finished)).then(
+          () => finish(true),
+          () => finish(true)
+        )
+      } catch {
+        finish(true)
+      }
     }
 
-    const selectedItems = Array.from(scope.current.querySelectorAll<HTMLElement>(itemSelector))
-    if (selectedItems.length === 0) {
-      showImmediately()
-      return
-    }
+    const scheduleAnimation = () => {
+      if (disposed || hasStarted || animationFrame !== undefined) return
 
-    hasAnimated.current = true
-
-    const targets = selectedItems
-    const initialTransform = offsetFor(direction, distance)
-    let disposed = false
-    const controls: Animation[] = []
-
-    scope.current.setAttribute('data-motion-state', 'animating')
-
-    const cleanTargets = () => {
-      targets.forEach((target) => {
-        target.style.removeProperty('opacity')
-        target.style.removeProperty('transform')
+      observer?.disconnect()
+      animationFrame = window.requestAnimationFrame(() => {
+        animationFrame = undefined
+        startAnimation()
       })
     }
 
-    const revealAndCancel = () => {
-      scope.current?.setAttribute('data-motion-state', 'visible')
-      controls.forEach((control) => control.cancel())
-      cleanTargets()
+    const handleReducedMotion = (event: MediaQueryListEvent) => {
+      if (event.matches) {
+        finish(true)
+      }
     }
+    const handleFocusIn = () => finish(true)
+    const handlePageHide = () => finish(true)
+    let removeReducedMotionListener = () => {}
 
     try {
-      targets.forEach((target, index) => {
-        controls.push(
-          target.animate(
-            [
-              { opacity: 0, transform: initialTransform },
-              { opacity: 1, transform: 'translate3d(0, 0, 0)' },
-            ],
-            {
-              delay: (delay + index * staggerDelay) * 1000,
-              duration: duration * 1000,
-              easing: EASE_OUT_EXPO_CSS,
-              fill: 'both',
-            }
-          )
-        )
-      })
-
-      const plannedEndMs =
-        (delay + Math.max(0, targets.length - 1) * staggerDelay + duration) * 1000
-      const watchdogMs = Math.min(1400, Math.max(350, plannedEndMs + 150))
-      const watchdog = window.setTimeout(() => {
-        if (disposed) return
-
-        disposed = true
-        revealAndCancel()
-      }, watchdogMs)
-
-      void Promise.all(controls.map((control) => control.finished.catch(() => undefined))).then(
-        () => {
-          if (disposed) return
-
-          disposed = true
-          window.clearTimeout(watchdog)
-          revealAndCancel()
-        }
-      )
-
-      return () => {
-        disposed = true
-        hasAnimated.current = false
-        window.clearTimeout(watchdog)
-        revealAndCancel()
+      if (typeof reducedMotionQuery.addEventListener === 'function') {
+        reducedMotionQuery.addEventListener('change', handleReducedMotion)
+        removeReducedMotionListener = () =>
+          reducedMotionQuery.removeEventListener('change', handleReducedMotion)
+      } else {
+        reducedMotionQuery.addListener(handleReducedMotion)
+        removeReducedMotionListener = () => reducedMotionQuery.removeListener(handleReducedMotion)
       }
     } catch {
-      revealAndCancel()
+      showImmediately()
+      return
+    }
+
+    sequence.addEventListener('focusin', handleFocusIn)
+    window.addEventListener('pagehide', handlePageHide)
+    removeGuards = () => {
+      removeReducedMotionListener()
+      sequence.removeEventListener('focusin', handleFocusIn)
+      window.removeEventListener('pagehide', handlePageHide)
+    }
+
+    if (trigger === 'view') {
+      // Server output is deliberately readable. If a sequence is already visible when hydration
+      // begins (for example after anchor navigation or history restoration), do not rewind it.
+      if (overlapsViewport(sequence) || typeof window.IntersectionObserver === 'undefined') {
+        showImmediately()
+        return
+      }
+
+      // Arm offscreen targets before they can enter the viewport. The observer starts the same
+      // values through WAAPI, preventing the visible -> hidden -> visible flash on intersection.
+      sequence.setAttribute('data-motion-state', 'armed')
+
+      try {
+        observer = new IntersectionObserver(
+          (entries) => {
+            if (entries.some((entry) => entry.isIntersecting)) {
+              scheduleAnimation()
+            }
+          },
+          {
+            rootMargin: viewportMargin,
+            threshold: thresholdFor(viewportAmount),
+          }
+        )
+        observer.observe(sequence)
+      } catch {
+        finish(true)
+      }
+    } else {
+      sequence.setAttribute('data-motion-state', 'armed')
+      scheduleAnimation()
+    }
+
+    return () => {
+      observer?.disconnect()
+      removeGuards()
+      if (animationFrame !== undefined) {
+        window.cancelAnimationFrame(animationFrame)
+      }
+      if (watchdog !== undefined) {
+        window.clearTimeout(watchdog)
+      }
+
+      if (!disposed) {
+        disposed = true
+        reveal(false)
+      }
     }
   }, [
     delay,
     direction,
     distance,
     duration,
-    isInView,
     itemSelector,
-    shouldReduceMotion,
     staggerDelay,
     trigger,
+    viewportAmount,
+    viewportMargin,
   ])
 
   const Component: ElementType = as
