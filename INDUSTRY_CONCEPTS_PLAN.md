@@ -1,14 +1,16 @@
 # Build With Treez Industry Concepts Plan
 
+> **Superseded August 26, 2026.** Joey approved Build With Treez as an employer-first engineering portfolio and designated Codorus Web as the business-services marketing site. This document is retained as planning history only. Do not implement its proposed Build With Treez service-site direction unless Joey explicitly revives it.
+
 ## Authority
 
-- Status: **PROPOSED FOR TREEZ REVIEW**
+- Status: **SUPERSEDED - DO NOT IMPLEMENT**
 - Version: **2.0**
 - Decision owner: Treez
 - Recorded: August 3, 2026
 - Applies to: the future `buildwithtreez.com` marketing site, its work portfolio, and any fictional trade concepts used in sales
-- Authority relationship: `PRODUCT.md` is the canonical business authority. This file contains the execution sequence, evidence rules, hypotheses, and gates.
-- Current-site relationship: the deployed portfolio remains operational until the rebuild launches. `DESIGN.md` describes the legacy implementation only. A new client-site brief and approved design contract will govern the rebuild.
+- Authority relationship: `PRODUCT.md` is canonical and supersedes this plan.
+- Current-site relationship: the deployed employer-first portfolio is the approved Build With Treez product. Codorus Web owns business-services marketing.
 
 This plan deliberately distinguishes durable decisions from testable hypotheses. It should prevent drift without turning untested prices, page counts, timelines, or outreach quotas into false certainty.
 
