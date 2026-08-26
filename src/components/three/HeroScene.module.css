@@ -1,3 +1,7 @@
+.root {
+  contain: layout paint style;
+}
+
 .fallbackLayer,
 .sceneLayer {
   position: absolute;
@@ -10,6 +14,47 @@
   transform-origin: center;
 }
 
+.fallbackLayer svg {
+  overflow: visible;
+}
+
+.calibrationRing,
+.outerTetrahedron,
+.innerTetrahedron,
+.measurementAxes,
+.geometryCore {
+  transform-box: view-box;
+  transform-origin: center;
+}
+
+.vectorMotion .calibrationRing {
+  animation: calibration-turn 42s linear infinite;
+}
+
+.vectorMotion .outerTetrahedron {
+  animation: tetrahedron-turn 24s linear infinite;
+}
+
+.vectorMotion .innerTetrahedron {
+  animation: tetrahedron-counterturn 19s linear infinite;
+}
+
+.vectorMotion .measurementAxes {
+  animation: axes-drift 13s cubic-bezier(0.22, 1, 0.36, 1) infinite alternate;
+}
+
+.vectorMotion .geometryCore {
+  animation: core-breathe 4.8s cubic-bezier(0.22, 1, 0.36, 1) infinite alternate;
+}
+
+.vectorPaused .vectorMotion .calibrationRing,
+.vectorPaused .vectorMotion .outerTetrahedron,
+.vectorPaused .vectorMotion .innerTetrahedron,
+.vectorPaused .vectorMotion .measurementAxes,
+.vectorPaused .vectorMotion .geometryCore {
+  animation-play-state: paused;
+}
+
 .sceneLayer {
   opacity: 0;
   pointer-events: none;
@@ -19,19 +64,20 @@
 
 .webglMounted .fallbackLayer {
   transition:
-    opacity 560ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 280ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .webglMounted .sceneLayer {
   transition:
-    opacity 680ms cubic-bezier(0.22, 1, 0.36, 1) 80ms,
+    opacity 640ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 760ms cubic-bezier(0.22, 1, 0.36, 1) 40ms;
 }
 
 .ready .fallbackLayer {
   opacity: 0;
   transform: scale(1.018);
+  transition-delay: 160ms, 0ms;
 }
 
 .ready .sceneLayer {
@@ -40,9 +86,69 @@
   transform: scale(1);
 }
 
+/* Mobile is art-directed as an asymmetric lower-right crop instead of a
+   desktop scene pushed below the fold. Copy remains above it in the hero
+   stacking order, while the geometry becomes visible in the first viewport. */
+@media (max-width: 63.999rem) {
+  .root.root {
+    inset: auto -32% 25% auto;
+    opacity: 0.58;
+  }
+}
+
+@keyframes calibration-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tetrahedron-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tetrahedron-counterturn {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes axes-drift {
+  from {
+    opacity: 0.16;
+    transform: scale(0.985) rotate(-1.5deg);
+  }
+
+  to {
+    opacity: 0.28;
+    transform: scale(1.015) rotate(1.5deg);
+  }
+}
+
+@keyframes core-breathe {
+  from {
+    opacity: 0.45;
+    transform: scale(0.72);
+  }
+
+  to {
+    opacity: 0.78;
+    transform: scale(1.18);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .webglMounted .fallbackLayer,
   .webglMounted .sceneLayer {
     transition: none;
+  }
+
+  .vectorMotion .calibrationRing,
+  .vectorMotion .outerTetrahedron,
+  .vectorMotion .innerTetrahedron,
+  .vectorMotion .measurementAxes,
+  .vectorMotion .geometryCore {
+    animation: none;
   }
 }

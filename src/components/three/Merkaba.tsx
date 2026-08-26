@@ -1,9 +1,14 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import type { ThreeEvent } from '@react-three/fiber'
 import * as THREE from 'three'
 
-export function Merkaba() {
+interface MerkabaProps {
+  interactive?: boolean
+  reduced?: boolean
+}
+
+export function Merkaba({ interactive = true, reduced = false }: MerkabaProps) {
   const groupRef = useRef<THREE.Group>(null)
   const outerRef = useRef<THREE.Mesh>(null)
   const innerRef = useRef<THREE.Mesh>(null)
@@ -13,16 +18,7 @@ export function Merkaba() {
   const lastPointer = useRef<{ x: number; y: number } | null>(null)
   const targetQuaternion = useRef(new THREE.Quaternion())
 
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768)
-    check()
-    window.addEventListener('resize', check)
-    return () => window.removeEventListener('resize', check)
-  }, [])
-
-  const scale = isMobile ? 0.76 : 1.05
+  const scale = reduced ? 0.76 : 1.05
 
   const { gl, camera } = useThree()
 
@@ -62,14 +58,16 @@ export function Merkaba() {
 
   const handlePointerUp = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation()
-    gl.domElement.releasePointerCapture(e.pointerId)
+    if (gl.domElement.hasPointerCapture(e.pointerId)) {
+      gl.domElement.releasePointerCapture(e.pointerId)
+    }
     isDragging.current = false
     lastPointer.current = null
   }
 
   useFrame((state, delta) => {
     const time = state.clock.elapsedTime
-    
+
     if (outerRef.current && innerRef.current) {
       // Outer tetrahedron rotates clockwise
       outerRef.current.rotation.y += delta * 0.3
@@ -79,23 +77,23 @@ export function Merkaba() {
       innerRef.current.rotation.y -= delta * 0.3
       innerRef.current.rotation.x -= delta * 0.1
     }
-    
+
     // Orbital motion - Merkaba moves in circular path (depth effect)
     if (groupRef.current) {
-      const orbitRadius = isMobile ? 0.55 : 1.05
+      const orbitRadius = reduced ? 0.55 : 1.05
       const orbitSpeed = 0.3
       // Responsive positioning: centered on mobile, right-positioned on desktop
-      const baseX = isMobile ? 0 : 0.65
-      const baseY = isMobile ? -0.25 : 0
-      
+      const baseX = reduced ? 0 : 0.65
+      const baseY = reduced ? -0.25 : 0
+
       // Apply orbital position
       groupRef.current.position.x = baseX + Math.cos(time * orbitSpeed) * orbitRadius
       groupRef.current.position.y = baseY
       groupRef.current.position.z = Math.sin(time * orbitSpeed) * orbitRadius
-      
+
       // Apply responsive scale
       groupRef.current.scale.setScalar(scale)
-      
+
       // During drag: already applied directly in handlePointerMove — nothing to do.
       // When idle: smoothly slerp toward the last target quaternion.
       // Use frame-rate-independent formula: 1 - exp(-k*delta) so it feels
@@ -111,11 +109,12 @@ export function Merkaba() {
       {/* Interactive hit sphere - DESKTOP ONLY
           On mobile: disabled to prevent scroll conflicts and pull-to-refresh issues.
           Mobile users get smooth auto-rotation without interaction conflicts. */}
-      {!isMobile && (
+      {interactive && (
         <mesh
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
         >
           <sphereGeometry args={[1.8, 8, 8]} />
           <meshBasicMaterial transparent opacity={0} depthWrite={false} />
@@ -125,25 +124,13 @@ export function Merkaba() {
       {/* Outer Tetrahedron Wireframe - pointing up with glow */}
       <mesh ref={outerRef}>
         <tetrahedronGeometry args={[1.5, 0]} />
-        <meshBasicMaterial
-          color="#ff6bff"
-          wireframe
-          transparent
-          opacity={0.9}
-          toneMapped={false}
-        />
+        <meshBasicMaterial color="#ff6bff" wireframe transparent opacity={0.9} toneMapped={false} />
       </mesh>
 
       {/* Inner Tetrahedron Wireframe - pointing down with glow */}
       <mesh ref={innerRef} rotation={[Math.PI, 0, 0]}>
         <tetrahedronGeometry args={[1.5, 0]} />
-        <meshBasicMaterial
-          color="#00ffff"
-          wireframe
-          transparent
-          opacity={0.8}
-          toneMapped={false}
-        />
+        <meshBasicMaterial color="#00ffff" wireframe transparent opacity={0.8} toneMapped={false} />
       </mesh>
     </group>
   )

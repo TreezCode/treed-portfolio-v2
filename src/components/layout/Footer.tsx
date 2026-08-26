@@ -15,7 +15,7 @@ const professionalLinks = [
 
 export function Footer() {
   return (
-    <footer className="site-footer">
+    <footer id="portfolio-footer-shell" className="site-footer">
       <div className="portfolio-container site-footer__grid">
         <div className="site-footer__identity">
           <a href="#hero" aria-label="Back to portfolio introduction">

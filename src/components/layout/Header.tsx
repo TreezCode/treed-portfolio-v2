@@ -1,7 +1,7 @@
 'use client'
 
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { motion, useReducedMotion } from 'framer-motion'
+import { X } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { usePerfFlags } from '@/components/perf/PerfProvider'
 import { Logo } from '@/components/ui/Logo'
@@ -71,6 +71,16 @@ function NavigationGeometry() {
   )
 }
 
+function MenuGlyph() {
+  return (
+    <span className="site-header__menu-glyph" aria-hidden="true">
+      <span className="site-header__menu-glyph-line site-header__menu-glyph-line--upper" />
+      <span className="site-header__menu-glyph-point" />
+      <span className="site-header__menu-glyph-line site-header__menu-glyph-line--lower" />
+    </span>
+  )
+}
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -84,6 +94,7 @@ export function Header() {
 
   const closeMenuAndRestoreFocus = useCallback(() => {
     if (headerRef.current) headerRef.current.inert = false
+    if (menuRef.current) menuRef.current.inert = true
     setMenuOpen(false)
     window.requestAnimationFrame(() => triggerRef.current?.focus())
   }, [])
@@ -108,7 +119,7 @@ export function Header() {
             setActiveSection(section.id === 'hero' ? '' : section.id)
           }
         },
-        { rootMargin: '-34% 0px -58% 0px' },
+        { rootMargin: '-34% 0px -58% 0px' }
       )
       observer.observe(element)
       observers.push(observer)
@@ -119,6 +130,18 @@ export function Header() {
 
   useEffect(() => {
     if (headerRef.current) headerRef.current.inert = menuOpen
+    if (menuRef.current) menuRef.current.inert = !menuOpen
+
+    const backgroundElements = [
+      document.getElementById('skip-to-content'),
+      document.getElementById('main-content'),
+      document.getElementById('portfolio-footer-shell'),
+    ].filter((element): element is HTMLElement => element instanceof HTMLElement)
+
+    backgroundElements.forEach((element) => {
+      element.inert = menuOpen
+    })
+
     if (!menuOpen) return
 
     const previousOverflow = document.body.style.overflow
@@ -127,7 +150,17 @@ export function Header() {
     const focusableSelector =
       'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
-    const focusCloseButton = window.requestAnimationFrame(() => closeButtonRef.current?.focus())
+    closeButtonRef.current?.focus({ preventScroll: true })
+    const focusCloseButton = window.requestAnimationFrame(() => {
+      if (!menuRef.current?.contains(document.activeElement)) {
+        closeButtonRef.current?.focus({ preventScroll: true })
+      }
+    })
+    const focusFallback = window.setTimeout(() => {
+      if (!menuRef.current?.contains(document.activeElement)) {
+        closeButtonRef.current?.focus({ preventScroll: true })
+      }
+    }, 80)
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -138,9 +171,7 @@ export function Header() {
 
       if (event.key !== 'Tab' || !menuRef.current) return
 
-      const focusable = Array.from(
-        menuRef.current.querySelectorAll<HTMLElement>(focusableSelector),
-      )
+      const focusable = Array.from(menuRef.current.querySelectorAll<HTMLElement>(focusableSelector))
       if (focusable.length === 0) return
 
       const first = focusable[0]
@@ -155,12 +186,23 @@ export function Header() {
       }
     }
 
+    const onFocusIn = (event: FocusEvent) => {
+      if (menuRef.current?.contains(event.target as Node)) return
+      closeButtonRef.current?.focus()
+    }
+
     document.addEventListener('keydown', onKeyDown)
+    document.addEventListener('focusin', onFocusIn)
 
     return () => {
       window.cancelAnimationFrame(focusCloseButton)
+      window.clearTimeout(focusFallback)
       document.removeEventListener('keydown', onKeyDown)
+      document.removeEventListener('focusin', onFocusIn)
       document.body.style.overflow = previousOverflow
+      backgroundElements.forEach((element) => {
+        element.inert = false
+      })
     }
   }, [closeMenuAndRestoreFocus, menuOpen])
 
@@ -220,7 +262,7 @@ export function Header() {
 
           <div className="site-header__actions">
             <a className="site-header__resume" href="/joey-kubalak-resume.pdf" download>
-              Résumé
+              Resume
             </a>
             <ThemeToggle />
             <button
@@ -232,125 +274,145 @@ export function Header() {
               aria-expanded={menuOpen}
               aria-controls="mobile-navigation"
             >
-              <Menu aria-hidden="true" />
+              <MenuGlyph />
             </button>
           </div>
         </nav>
       </header>
 
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            ref={menuRef}
-            id="mobile-navigation"
-            className="mobile-navigation"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Navigation menu"
-            initial={prefersReducedMotion ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.32, ease: easeOutExpo }}
+      <div
+        ref={menuRef}
+        id="mobile-navigation"
+        className={`mobile-navigation${menuOpen ? ' mobile-navigation--open' : ''}`}
+        role="dialog"
+        aria-modal={menuOpen ? true : undefined}
+        aria-hidden={!menuOpen}
+        aria-label="Navigation menu"
+      >
+        <div className="mobile-navigation__topbar">
+          <a
+            className="site-header__brand mobile-navigation__brand"
+            href="#hero"
+            onClick={closeMenuAndRestoreFocus}
+            aria-label="Joey Kubalak portfolio home"
           >
-            <div className="mobile-navigation__topbar">
-              <a
-                className="site-header__brand mobile-navigation__brand"
-                href="#hero"
-                onClick={closeMenuAndRestoreFocus}
-                aria-label="Joey Kubalak portfolio home"
-              >
-                <Logo variant="icon" size={26} />
-                <span>Joey Kubalak</span>
-              </a>
+            <Logo variant="icon" size={26} />
+            <span>Joey Kubalak</span>
+          </a>
 
-              <div className="mobile-navigation__topbar-actions">
-                <ThemeToggle />
-                <button
-                  ref={closeButtonRef}
-                  type="button"
-                  className="mobile-navigation__close"
-                  onClick={closeMenuAndRestoreFocus}
-                  aria-label="Close navigation menu"
-                >
-                  <X aria-hidden="true" />
-                </button>
-              </div>
-            </div>
+          <div className="mobile-navigation__topbar-actions">
+            <ThemeToggle />
+            <button
+              ref={closeButtonRef}
+              type="button"
+              className="mobile-navigation__close"
+              onClick={closeMenuAndRestoreFocus}
+              aria-label="Close navigation menu"
+            >
+              <X aria-hidden="true" />
+            </button>
+          </div>
+        </div>
 
-            <NavigationGeometry />
+        <NavigationGeometry />
 
-            <div className="portfolio-container mobile-navigation__body">
-              <nav aria-label="Mobile navigation">
-                <ul>
-                  {navigation.map((link, index) => {
-                    const isActive = activeSection === link.id
+        <div className="portfolio-container mobile-navigation__body">
+          <nav aria-label="Mobile navigation">
+            <ul>
+              {navigation.map((link, index) => {
+                const isActive = activeSection === link.id
 
-                    return (
-                      <motion.li
-                        key={link.id}
-                        initial={prefersReducedMotion ? false : { opacity: 0, x: -24 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, x: 18 }}
-                        transition={{
+                return (
+                  <motion.li
+                    key={link.id}
+                    initial={false}
+                    animate={menuOpen ? 'open' : 'closed'}
+                    variants={{
+                      open: {
+                        opacity: 1,
+                        x: 0,
+                        transition: {
                           duration: prefersReducedMotion ? 0 : 0.52,
-                          delay: prefersReducedMotion ? 0 : 0.1 + index * 0.065,
+                          delay: prefersReducedMotion ? 0 : 0.08 + index * 0.06,
                           ease: easeOutExpo,
-                        }}
-                      >
-                        <a
-                          href={`#${link.id}`}
-                          onClick={closeMenuAndRestoreFocus}
-                          aria-current={isActive ? 'location' : undefined}
-                        >
-                          <span className="mobile-navigation__number" aria-hidden="true">
-                            {link.number}
-                          </span>
-                          <span className="mobile-navigation__marker" aria-hidden="true" />
-                          <span className="mobile-navigation__title">{link.title}</span>
-                        </a>
-                      </motion.li>
-                    )
-                  })}
-                </ul>
-              </nav>
+                        },
+                      },
+                      closed: {
+                        opacity: 0,
+                        x: 14,
+                        transition: {
+                          duration: prefersReducedMotion ? 0 : 0.2,
+                          delay: prefersReducedMotion ? 0 : (navigation.length - index - 1) * 0.025,
+                          ease: easeOutExpo,
+                        },
+                      },
+                    }}
+                  >
+                    <a
+                      href={`#${link.id}`}
+                      onClick={closeMenuAndRestoreFocus}
+                      aria-current={isActive ? 'location' : undefined}
+                    >
+                      <span className="mobile-navigation__number" aria-hidden="true">
+                        {link.number}
+                      </span>
+                      <span className="mobile-navigation__marker" aria-hidden="true" />
+                      <span className="mobile-navigation__title">{link.title}</span>
+                    </a>
+                  </motion.li>
+                )
+              })}
+            </ul>
+          </nav>
 
-              <motion.div
-                className="mobile-navigation__footer"
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 12 }}
-                transition={{
-                  duration: prefersReducedMotion ? 0 : 0.48,
-                  delay: prefersReducedMotion ? 0 : 0.32,
+          <motion.div
+            className="mobile-navigation__footer"
+            initial={false}
+            animate={menuOpen ? 'open' : 'closed'}
+            variants={{
+              open: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: prefersReducedMotion ? 0 : 0.46,
+                  delay: prefersReducedMotion ? 0 : 0.28,
                   ease: easeOutExpo,
-                }}
-              >
+                },
+              },
+              closed: {
+                opacity: 0,
+                y: 10,
+                transition: {
+                  duration: prefersReducedMotion ? 0 : 0.18,
+                  ease: easeOutExpo,
+                },
+              },
+            }}
+          >
+            <a
+              className="mobile-navigation__resume"
+              href="/joey-kubalak-resume.pdf"
+              download
+              onClick={closeMenuAndRestoreFocus}
+            >
+              Download resume
+            </a>
+            <div className="mobile-navigation__professional-links">
+              {professionalLinks.map((link) => (
                 <a
-                  className="mobile-navigation__resume"
-                  href="/joey-kubalak-resume.pdf"
-                  download
+                  key={link.label}
+                  href={link.href}
+                  target={link.href.startsWith('http') ? '_blank' : undefined}
+                  rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
                   onClick={closeMenuAndRestoreFocus}
                 >
-                  Download résumé
+                  {link.label}
                 </a>
-                <div className="mobile-navigation__professional-links">
-                  {professionalLinks.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target={link.href.startsWith('http') ? '_blank' : undefined}
-                      rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
-                      onClick={closeMenuAndRestoreFocus}
-                    >
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              </motion.div>
+              ))}
             </div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </div>
+      </div>
     </>
   )
 }

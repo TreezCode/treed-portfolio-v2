@@ -227,12 +227,22 @@ The system is flat by conviction. Depth belongs to the WebGL scenes; 2D surfaces
 
 ### Navigation
 
-- Fixed header, transparent at top; scrolled state gains canvas fill at 95% opacity and a bottom hairline (solid, not gradient). Nav items are ink-muted, hover ink, active ink with a solid violet underline indicator. Mono numeric indices in ink-subtle. Mobile menu is a full-screen canvas surface with the same grammar.
+- Fixed header, transparent at top; scrolled state gains an opaque tonal surface and a bottom hairline. The header must not sample scene lighting through backdrop blur: cyan or pink color bleed in navigation chrome is a defect. Nav items are ink-muted, hover ink, active ink with a solid violet underline indicator. Mono numeric indices in ink-subtle. Mobile menu is a full-screen canvas surface with the same grammar, one close control, and one persistent theme toggle whose icon animates only when the theme actually changes.
 
 ### WebGL Scenes (signature component)
 
 - Scenes render on transparent canvases blended into the page. Cyan/pink/violet stage lighting is permitted and encouraged inside the scene.
 - **Interaction contract:** `touch-action: pan-y` on every canvas at all times; no scroll-zoom, no OrbitControls zoom, no lock/unlock overlays or buttons. Pointer drag rotates; scroll always scrolls the page. Camera framing is fixed.
+- **Adaptive rendering contract:** device class and pointer type are not exclusions. Capable phones receive the real reduced-complexity scene at DPR 1 with post-processing disabled. Save Data, 2G-class connections, very low memory/concurrency, WebGL failure, and major performance caveats receive the matching animated vector geometry. Reduced-motion visitors receive the same vector composition without animation.
+- **Load-state contract:** the composed vector geometry is the first rendered state and remains visible until WebGL has produced a frame. The two layers crossfade without a mismatched placeholder flash.
+
+### Motion
+
+- **Library:** Motion for React is the portfolio motion runtime. It is already part of the application, integrates directly with component state, and provides the required visual payoff without adding another animation runtime.
+- **Timing vocabulary:** 140ms feedback, 220ms interface transitions, 680ms content reveals, and 760ms hero choreography. Spatial reveals use an ease-out-expo curve (`0.16, 1, 0.3, 1`) and short, consistent staggers.
+- **Hierarchy:** the hero receives one deliberate load sequence. Section introductions, case-study headings, evidence, principles, experience, and contact reveal as grouped ideas rather than as unrelated effects. Buttons, links, fields, navigation, and form status share the same feedback language.
+- **Progressive enhancement:** essential content is present and visible in server HTML. Motion may hide a sequence only after the browser has opted in, and every sequence must restore visibility after completion, interruption, or initialization failure. JavaScript-disabled, constrained-device, and reduced-motion states remain fully readable.
+- **Restraint:** no scroll hijacking, parallax for its own sake, perpetual UI movement, springy CTA bounce, or layout animation. The sacred geometry owns ambient motion; interface motion communicates hierarchy and state.
 
 ## 6. Do's and Don'ts
 
@@ -251,7 +261,7 @@ The system is flat by conviction. Depth belongs to the WebGL scenes; 2D surfaces
 - **Don't** use cyan (#00d4ff) or pink (#ff6b9d) anywhere outside a WebGL canvas.
 - **Don't** repeat an uppercase tracked eyebrow label above section headings ("template SaaS hero" scaffolding).
 - **Don't** render badge walls: no auto-generated filter unions, no 28-chip technology grids.
-- **Don't** use backdrop-blur decoratively; the scrolled header is the one permitted use.
+- **Don't** use backdrop blur in persistent navigation or decorative chrome; it can sample the scene's cyan and pink lighting and violate the one-accent rule.
 - **Don't** use `#000`, `#fff`, or untinted grays; every neutral carries the 290 hue.
 - **Don't** add lock/unlock overlays, hints, or buttons to 3D scenes.
 - **Don't** use border-left/right stripes thicker than 1px as colored accents, gradient text, or pulsing status badges.
@@ -262,4 +272,4 @@ The system is flat by conviction. Depth belongs to the WebGL scenes; 2D surfaces
 
 The employer-first information architecture, clearer project evidence, and stronger professional calls to action are approved. The portfolio must still feel unmistakably personal: sacred geometry remains a signature motif, motion should feel intentional and spatial, and the interface must not collapse into a generic marketing-site template.
 
-For this release, the hero keeps a composed static geometry visible until the WebGL scene has rendered, then crossfades between matching visual states. The mobile navigation is a full-viewport canvas with one close control, the numbered engineering-ledger hierarchy, and the restored rotating Flower of Life. Desktop navigation retains the same clarity while using a continuous shared active indicator. Reduced-motion visitors receive the same composition without nonessential animation.
+For this release, the hero keeps composed vector geometry visible until the WebGL scene has rendered, then crossfades between matching visual states. Capable phones receive a measured DPR-1 WebGL tier rather than being excluded by viewport or pointer heuristics; constrained devices receive animated vector geometry, and reduced-motion visitors receive the same composition statically. The mobile navigation is a full-viewport canvas with one close control, the numbered engineering-ledger hierarchy, and the restored rotating Flower of Life. Desktop navigation retains the same clarity while using a continuous shared active indicator. The page-wide Motion system follows shared timing and easing tokens, while essential content remains visible without JavaScript or after animation failure.

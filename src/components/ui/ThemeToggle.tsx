@@ -1,18 +1,20 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { useTheme } from '@/contexts/ThemeContext'
 import { FlowerOfLifeIcon } from '@/components/icons/FlowerOfLifeIcon'
 import { MerkabaIcon } from '@/components/icons/MerkabaIcon'
 
 export function ThemeToggle() {
-  const { theme, toggleTheme, isTransitioning } = useTheme()
+  const { theme, toggleTheme } = useTheme()
+  const prefersReducedMotion = useReducedMotion()
 
   const handleClick = () => {
     toggleTheme()
     // Remove focus on mobile to prevent persistent hover state
     if ('ontouchstart' in window) {
-      (document.activeElement as HTMLElement)?.blur()
+      const activeElement = document.activeElement as HTMLElement | null
+      activeElement?.blur()
     }
   }
 
@@ -24,37 +26,42 @@ export function ThemeToggle() {
         border border-border-primary
         hover:border-border-strong
         hover:bg-surface-primary
-        transition-all duration-300
-        active:scale-95
         focus:outline-none
         focus-visible:ring-2
         focus-visible:ring-accent-primary
         focus-visible:ring-offset-2
         focus-visible:ring-offset-background-primary
         cursor-pointer
-        theme-transition"
+      theme-transition"
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-      whileTap={{ scale: 0.9 }}
+      transition={{
+        duration: prefersReducedMotion ? 0 : 0.14,
+        ease: [0.25, 1, 0.5, 1],
+      }}
     >
       {/* Icon container with rotation */}
       <motion.div
         className="w-[22px] h-[22px] relative"
+        initial={false}
         animate={{
-          rotate: isTransitioning ? 180 : 0,
+          rotate: theme === 'dark' ? 180 : 0,
         }}
         transition={{
-          duration: 0.5,
-          ease: 'easeInOut',
+          duration: prefersReducedMotion ? 0 : 0.48,
+          ease: [0.16, 1, 0.3, 1],
         }}
       >
-        <AnimatePresence mode="wait">
+        <AnimatePresence initial={false} mode="wait">
           {theme === 'dark' ? (
             <motion.div
               key="merkaba"
-              initial={{ opacity: 0, scale: 0.8, rotate: -180 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              exit={{ opacity: 0, scale: 0.8, rotate: 180 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{
+                duration: prefersReducedMotion ? 0 : 0.24,
+                ease: [0.25, 1, 0.5, 1],
+              }}
               className="absolute inset-0"
             >
               <MerkabaIcon className="w-full h-full" />
@@ -62,10 +69,13 @@ export function ThemeToggle() {
           ) : (
             <motion.div
               key="flower"
-              initial={{ opacity: 0, scale: 0.8, rotate: -180 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              exit={{ opacity: 0, scale: 0.8, rotate: 180 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{
+                duration: prefersReducedMotion ? 0 : 0.24,
+                ease: [0.25, 1, 0.5, 1],
+              }}
               className="absolute inset-0"
             >
               <FlowerOfLifeIcon className="w-full h-full" />
@@ -73,7 +83,6 @@ export function ThemeToggle() {
           )}
         </AnimatePresence>
       </motion.div>
-
     </motion.button>
   )
 }

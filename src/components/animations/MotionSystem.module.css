@@ -1,0 +1,94 @@
+:global(:root) {
+  --motion-instant: 140ms;
+  --motion-interface: 220ms;
+  --motion-reveal: 680ms;
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:global(
+  html[data-motion-ready]
+    [data-motion-sequence][data-motion-trigger='load']:not([data-motion-state='visible'])
+    > [data-motion-item]
+) {
+  opacity: 0;
+  transform: var(--motion-enter-transform);
+  will-change: opacity, transform;
+}
+
+.scrollProgress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 90;
+  height: 2px;
+  background: var(--accent-primary);
+  pointer-events: none;
+  transform-origin: 0 50%;
+}
+
+:global(.button-primary),
+:global(.button-secondary),
+:global(.contact-form-shell button[type='submit']) {
+  transition-duration: var(--motion-interface);
+  transition-property: background-color, border-color, color, opacity, transform;
+  transition-timing-function: var(--ease-out-quart);
+}
+
+:global(.hero__profiles a),
+:global(.contact-links a),
+:global(.case-study__links a),
+:global(.work-afterword a),
+:global(.client-route a) {
+  transition: color var(--motion-interface) var(--ease-out-quart);
+}
+
+:global(.hero__profiles a svg),
+:global(.contact-links a svg),
+:global(.case-study__links a svg),
+:global(.work-afterword a svg),
+:global(.client-route a svg),
+:global(.button-primary svg),
+:global(.button-secondary svg),
+:global(.contact-form-shell button[type='submit'] svg) {
+  transition: transform var(--motion-interface) var(--ease-out-expo);
+}
+
+:global(.form-field input),
+:global(.form-field textarea) {
+  transition-duration: var(--motion-interface);
+  transition-property: background-color, border-color, box-shadow;
+  transition-timing-function: var(--ease-out-quart);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :global(.button-primary:hover),
+  :global(.button-secondary:hover),
+  :global(.contact-form-shell button[type='submit']:hover:not(:disabled)) {
+    transform: translate3d(0, -2px, 0);
+  }
+
+  :global(.hero__profiles a:hover svg),
+  :global(.contact-links a:hover svg),
+  :global(.case-study__links a:hover svg),
+  :global(.work-afterword a:hover svg),
+  :global(.client-route a:hover svg),
+  :global(.button-primary:hover svg),
+  :global(.button-secondary:hover svg),
+  :global(.contact-form-shell button[type='submit']:hover:not(:disabled) svg) {
+    transform: translate3d(2px, -2px, 0);
+  }
+}
+
+:global(.button-primary:active),
+:global(.button-secondary:active),
+:global(.contact-form-shell button[type='submit']:active:not(:disabled)) {
+  transform: translate3d(0, 0, 0) scale(0.985);
+  transition-duration: var(--motion-instant);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollProgress {
+    display: none;
+  }
+}

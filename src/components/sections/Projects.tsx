@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { projects, type Project } from '@/data/projects'
+import { MotionSequence } from '@/components/animations/MotionSystem'
 
 function ArrowIcon() {
   return (
@@ -39,12 +40,19 @@ function CheckIcon() {
 
 function ArtifactRegister({ project }: { project: Project }) {
   return (
-    <div className="case-artifact" aria-label={`${project.name} ${project.artifact.label}`}>
-      <div className="case-artifact__header">
+    <MotionSequence
+      className="case-artifact"
+      aria-label={`${project.name} ${project.artifact.label}`}
+      distance={10}
+      duration={0.52}
+      staggerDelay={0.055}
+      viewportAmount={0.25}
+    >
+      <div className="case-artifact__header" data-motion-item>
         <span>{project.artifact.label}</span>
         <span aria-hidden="true">{project.index} / 05</span>
       </div>
-      <dl className="case-artifact__grid">
+      <dl className="case-artifact__grid" data-motion-item>
         {project.artifact.values.map((item) => (
           <div key={item.label}>
             <dt>{item.label}</dt>
@@ -52,7 +60,7 @@ function ArtifactRegister({ project }: { project: Project }) {
           </div>
         ))}
       </dl>
-    </div>
+    </MotionSequence>
   )
 }
 
@@ -65,19 +73,24 @@ function ProjectCase({ project, position }: { project: Project; position: number
       className="case-study"
       aria-labelledby={`case-title-${project.id}`}
     >
-      <div className="case-study__heading">
-        <span className="case-study__number" aria-hidden="true">
+      <MotionSequence
+        className="case-study__heading"
+        distance={14}
+        duration={0.6}
+        staggerDelay={0.065}
+      >
+        <span className="case-study__number" aria-hidden="true" data-motion-item>
           {project.index}
         </span>
-        <div>
+        <div data-motion-item>
           <p className="case-study__status">{project.status}</p>
           <h3 id={`case-title-${project.id}`}>{project.name}</h3>
           <p className="case-study__role">{project.role}</p>
         </div>
-      </div>
+      </MotionSequence>
 
-      <div className="case-study__body">
-        <div className={`case-study__visual ${isReversed ? 'lg:order-2' : ''}`}>
+      <MotionSequence className="case-study__body" staggerDelay={0.1} viewportAmount={0.08}>
+        <div className={`case-study__visual ${isReversed ? 'lg:order-2' : ''}`} data-motion-item>
           <div className="case-study__image-frame">
             <Image
               src={project.image.src}
@@ -91,7 +104,7 @@ function ProjectCase({ project, position }: { project: Project; position: number
           <ArtifactRegister project={project} />
         </div>
 
-        <div className={`case-study__content ${isReversed ? 'lg:order-1' : ''}`}>
+        <div className={`case-study__content ${isReversed ? 'lg:order-1' : ''}`} data-motion-item>
           <p className="case-study__summary">{project.summary}</p>
 
           <div className="case-study__block">
@@ -110,14 +123,21 @@ function ProjectCase({ project, position }: { project: Project; position: number
 
           <div className="case-study__block case-study__evidence">
             <h4>Verified evidence</h4>
-            <ul>
+            <MotionSequence
+              as="ul"
+              direction="right"
+              distance={10}
+              duration={0.48}
+              staggerDelay={0.055}
+              viewportAmount={0.3}
+            >
               {project.evidence.map((item) => (
-                <li key={item}>
+                <li key={item} data-motion-item>
                   <CheckIcon />
                   <span>{item}</span>
                 </li>
               ))}
-            </ul>
+            </MotionSequence>
           </div>
 
           <p className="case-study__boundary">
@@ -142,7 +162,7 @@ function ProjectCase({ project, position }: { project: Project; position: number
             </div>
           )}
         </div>
-      </div>
+      </MotionSequence>
     </article>
   )
 }
@@ -151,8 +171,8 @@ export function Projects() {
   return (
     <section id="work" className="portfolio-section work-section" aria-labelledby="work-title">
       <div className="portfolio-container">
-        <header className="section-intro section-intro--split">
-          <div>
+        <MotionSequence as="header" className="section-intro section-intro--split">
+          <div data-motion-item>
             <span className="section-index" aria-hidden="true">
               01
             </span>
@@ -160,11 +180,11 @@ export function Projects() {
               Selected work
             </h2>
           </div>
-          <p>
+          <p data-motion-item>
             Production launches, privacy-sensitive products, and developer tooling. Each record
             separates what shipped from what still needs to be proven.
           </p>
-        </header>
+        </MotionSequence>
 
         <div className="case-study-list">
           {projects.map((project, index) => (
@@ -172,16 +192,16 @@ export function Projects() {
           ))}
         </div>
 
-        <div className="work-afterword">
-          <p>
+        <MotionSequence className="work-afterword" distance={12} staggerDelay={0.065}>
+          <p data-motion-item>
             Where source is public, the repositories show the systems, contracts, and engineering
             decisions behind the work.
           </p>
-          <a href="https://github.com/TreezCode" target="_blank" rel="noreferrer">
+          <a href="https://github.com/TreezCode" target="_blank" rel="noreferrer" data-motion-item>
             Browse GitHub
             <ArrowIcon />
           </a>
-        </div>
+        </MotionSequence>
       </div>
     </section>
   )

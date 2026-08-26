@@ -32,6 +32,19 @@ Reposition Build With Treez as an employer-first engineering portfolio while pre
 - [x] Contact validation, honeypot, output encoding, request limits, throttling, failure recovery, and mailto fallback are verified.
 - [x] Canonical metadata, Open Graph image, sitemap, robots, CSP, frame protection, referrer policy, and permissions policy are verified.
 
+### Motion and adaptive-scene regression gate
+
+- [x] Hero load, section reveals, case-study evidence, controls, and form feedback use the shared motion vocabulary.
+- [x] Essential copy remains visible with JavaScript disabled, reduced motion enabled, constrained hardware simulated, and after interrupted animation initialization.
+- [x] Capable mobile devices receive the DPR-1 reduced WebGL tier; low-resource and WebGL-failure paths receive animated vector geometry; reduced-motion receives a static equivalent.
+- [x] The first rendered hero state matches the live geometry closely enough to crossfade without a placeholder flash.
+- [x] Opening the mobile menu does not replay the theme-toggle transition; the menu exposes exactly one close control and returns focus to its trigger.
+- [x] The mobile modal makes the header, main content, footer, and skip link inert; focus is contained and restored in normal and reduced-motion modes.
+- [x] The scrolled header uses an opaque purple-neutral surface with no backdrop-filter or cyan/pink scene bleed.
+- [x] Motion and canvas layers never intercept vertical scrolling, and every tested viewport remains free of horizontal overflow.
+
+August 26, 2026 production-build lab evidence: Lighthouse 89 performance, 100 accessibility, 96 best practices, and 100 SEO at the repository's throttled mobile profile. LCP was the hero heading at 3.7 seconds; total blocking time was 70 milliseconds and cumulative layout shift was zero. Treat these as lab diagnostics, not field performance.
+
 ## Known measurement boundary
 
 No recruiter conversion baseline is currently available. Lab checks are not field performance, and project release verification is not a business outcome.

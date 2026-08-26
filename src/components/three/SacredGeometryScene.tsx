@@ -1,8 +1,7 @@
 'use client'
 
-import { Suspense, useEffect, useRef } from 'react'
+import { lazy, Suspense, useEffect, useRef } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import { Merkaba } from './Merkaba'
 import { QuantumField } from './QuantumField'
 import { FPSTracker } from '@/components/perf/FPSTracker'
@@ -10,6 +9,20 @@ import { useMobileDpr } from '@/hooks/useMobileDpr'
 import { useIsMobile } from '@/hooks/useMobileReduced'
 import { ScrollThrough } from './CanvasStage'
 import type { PerfFlags } from '@/hooks/usePerfMode'
+
+const BloomEffects = lazy(async () => {
+  const { Bloom, EffectComposer } = await import('@react-three/postprocessing')
+
+  function HeroBloomEffects() {
+    return (
+      <EffectComposer>
+        <Bloom intensity={1.2} luminanceThreshold={0.2} luminanceSmoothing={0.9} radius={0.6} />
+      </EffectComposer>
+    )
+  }
+
+  return { default: HeroBloomEffects }
+})
 
 interface SacredGeometrySceneProps {
   className?: string
@@ -78,25 +91,29 @@ export function SacredGeometryScene({
 }: SacredGeometrySceneProps) {
   // PERF FIX: permanently cap DPR on mobile — data shows DPR=2 causes 400–900ms GPU stalls
   const mobileDpr = useMobileDpr()
-  const isMobile = useIsMobile()
-  // reduced-3d perf mode forces DPR=1 on top of the mobile cap
-  const dpr = perfFlags?.reduced3D ? 1 : mobileDpr
-  // Reduce geometry complexity on mobile permanently, same as reduced-3d perf mode
-  const reduced = isMobile || !!perfFlags?.reduced3D
+  const hasCoarsePointer = useIsMobile()
+  // The coarse-pointer tier is measured at DPR=1 with reduced geometry and no
+  // post-processing. It preserves the real spatial scene without mobile stalls.
+  const reduced = hasCoarsePointer || !!perfFlags?.reduced3D
+  const dpr = reduced ? 1 : mobileDpr
   const bloomEnabled = !reduced
 
   return (
-    <div className={className} style={{ cursor: isMobile ? 'default' : 'grab' }}>
+    <div
+      className={className}
+      style={{ cursor: hasCoarsePointer ? 'default' : 'grab', touchAction: 'pan-y' }}
+    >
       <Canvas
         camera={{ position: [0, 0, 8], fov: 50 }}
         frameloop={active ? 'always' : 'demand'}
         dpr={dpr}
-        gl={{ 
+        gl={{
           antialias: !reduced,
           alpha: true,
+          failIfMajorPerformanceCaveat: true,
           powerPreference: 'high-performance',
         }}
-        style={{ cursor: 'inherit' }}
+        style={{ cursor: 'inherit', touchAction: 'pan-y' }}
       >
         <Suspense fallback={null}>
           {/* Lighting */}
@@ -105,27 +122,14 @@ export function SacredGeometryScene({
           <pointLight position={[-10, -10, -10]} intensity={0.3} color="#00d4ff" />
 
           {/* Sacred Geometry Components */}
-          <Merkaba />
+          <Merkaba reduced={reduced} interactive={!hasCoarsePointer} />
           {/* PERF FIX: reduced=true on mobile permanently + in reduced-3d perf mode */}
           <QuantumField reduced={reduced} />
 
-          {/* Post-processing Effects — disabled in reduced-3d */}
-          {bloomEnabled && (
-            <EffectComposer>
-              <Bloom
-                intensity={1.2}
-                luminanceThreshold={0.2}
-                luminanceSmoothing={0.9}
-                radius={0.6}
-              />
-            </EffectComposer>
-          )}
+          {/* Desktop-only and split from the mobile scene bundle path. */}
+          {bloomEnabled && <BloomEffects />}
 
-          <SceneLifecycle
-            active={active}
-            onReady={onReady}
-            onUnavailable={onUnavailable}
-          />
+          <SceneLifecycle active={active} onReady={onReady} onUnavailable={onUnavailable} />
         </Suspense>
 
         {/* Shared interaction contract: scroll always passes through */}

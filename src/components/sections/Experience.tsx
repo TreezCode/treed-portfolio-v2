@@ -1,10 +1,11 @@
 import { experiences } from '@/data/experience'
+import { MotionSequence } from '@/components/animations/MotionSystem'
 
 export function Experience() {
   const engineering = experiences.find((item) => item.kind === 'engineering')
   const additional = experiences.find((item) => item.kind === 'additional')
   const credentials = experiences.filter(
-    (item) => item.kind === 'education' || item.kind === 'credential',
+    (item) => item.kind === 'education' || item.kind === 'credential'
   )
 
   if (!engineering || !additional) return null
@@ -16,8 +17,8 @@ export function Experience() {
       aria-labelledby="experience-title"
     >
       <div className="portfolio-container">
-        <header className="section-intro section-intro--split">
-          <div>
+        <MotionSequence as="header" className="section-intro section-intro--split">
+          <div data-motion-item>
             <span className="section-index" aria-hidden="true">
               03
             </span>
@@ -25,14 +26,14 @@ export function Experience() {
               Experience & credentials
             </h2>
           </div>
-          <p>
+          <p data-motion-item>
             Independent engineering work is presented as professional experience, with the degree
             and certification that shape my secure-by-design approach.
           </p>
-        </header>
+        </MotionSequence>
 
-        <div className="experience-layout">
-          <article className="experience-primary">
+        <MotionSequence className="experience-layout" staggerDelay={0.1} viewportAmount={0.1}>
+          <article className="experience-primary" data-motion-item>
             <div className="experience-meta">
               <p>{engineering.company}</p>
               <p>{engineering.date}</p>
@@ -45,7 +46,7 @@ export function Experience() {
             </ul>
           </article>
 
-          <div className="credential-register">
+          <div className="credential-register" data-motion-item>
             {credentials.map((item) => (
               <article key={item.title}>
                 <div className="credential-register__meta">
@@ -61,17 +62,25 @@ export function Experience() {
               </article>
             ))}
           </div>
-        </div>
+        </MotionSequence>
 
-        <article className="additional-experience">
-          <div>
+        <MotionSequence
+          as="article"
+          className="additional-experience"
+          distance={12}
+          duration={0.54}
+          staggerDelay={0.065}
+        >
+          <div data-motion-item>
             <p className="text-label">Additional experience</p>
             <h3>{additional.title}</h3>
             <p>{additional.company}</p>
           </div>
-          <p>{additional.points[0]}</p>
-          <p className="additional-experience__date">{additional.date}</p>
-        </article>
+          <p data-motion-item>{additional.points[0]}</p>
+          <p className="additional-experience__date" data-motion-item>
+            {additional.date}
+          </p>
+        </MotionSequence>
       </div>
     </section>
   )

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Archivo, Geist_Mono } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
@@ -11,12 +12,17 @@ import dynamic from 'next/dynamic'
 const isPerfEnabled = process.env.NEXT_PUBLIC_ENABLE_PERF_TOOLS === 'true'
 
 // Dynamic imports - webpack will exclude these from production bundle when condition is false
-const PerfProvider = isPerfEnabled 
-  ? dynamic(() => import('@/components/perf/PerfProvider').then(mod => ({ default: mod.PerfProvider })), { ssr: true })
+const PerfProvider = isPerfEnabled
+  ? dynamic(
+      () => import('@/components/perf/PerfProvider').then((mod) => ({ default: mod.PerfProvider })),
+      { ssr: true }
+    )
   : ({ children }: { children: React.ReactNode }) => <>{children}</>
 
 const PerfOverlayRoot = isPerfEnabled
-  ? dynamic(() => import('@/components/perf/PerfOverlayRoot').then(mod => ({ default: mod.PerfOverlayRoot })))
+  ? dynamic(() =>
+      import('@/components/perf/PerfOverlayRoot').then((mod) => ({ default: mod.PerfOverlayRoot }))
+    )
   : () => null
 
 // Variable font with the width axis: display type uses 'wdth' 118-125 (see globals.css)
@@ -46,6 +52,20 @@ const themeInitializationScript = `
     document.documentElement.classList.add('dark');
     document.documentElement.style.colorScheme = 'dark';
   }
+`
+
+const motionInitializationScript = `
+  try {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const root = document.documentElement;
+
+    if (!reduceMotion) {
+      root.dataset.motionReady = 'true';
+      window.setTimeout(() => {
+        root.removeAttribute('data-motion-ready');
+      }, 1400);
+    }
+  } catch {}
 `
 
 export const metadata: Metadata = {
@@ -118,6 +138,11 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitializationScript }} />
+        <Script
+          id="treez-motion-bootstrap"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: motionInitializationScript }}
+        />
       </head>
       <body className="min-h-screen flex flex-col bg-background-primary text-text-primary">
         <script
@@ -141,14 +166,12 @@ export default function RootLayout({
                 'CompTIA Security+',
                 'Information Security',
               ],
-              sameAs: [
-                'https://github.com/TreezCode',
-                'https://www.linkedin.com/in/joey-kubalak/',
-              ],
+              sameAs: ['https://github.com/TreezCode', 'https://www.linkedin.com/in/joey-kubalak/'],
             }),
           }}
         />
         <a
+          id="skip-to-content"
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:bg-accent-fill focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold"
         >
@@ -157,7 +180,9 @@ export default function RootLayout({
         <ThemeProvider>
           <PerfProvider>
             <Header />
-            <main id="main-content" className="flex-1">{children}</main>
+            <main id="main-content" className="flex-1">
+              {children}
+            </main>
             <Footer />
             {isPerfEnabled && <PerfOverlayRoot />}
           </PerfProvider>

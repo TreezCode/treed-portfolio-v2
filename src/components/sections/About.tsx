@@ -1,24 +1,29 @@
+import { MotionSequence } from '@/components/animations/MotionSystem'
+
 const principles = [
   {
     index: '01',
     title: 'Product judgment',
     description:
       'I translate user needs, business constraints, and interface decisions into one shippable product contract.',
-    evidence: 'Discovery, information architecture, interaction design, and implementation stay connected.',
+    evidence:
+      'Discovery, information architecture, interaction design, and implementation stay connected.',
   },
   {
     index: '02',
     title: 'Security in the architecture',
     description:
       'Authorization, privacy, validation, and recovery are designed into the system instead of added after the interface is finished.',
-    evidence: 'Security+ foundation, Postgres RLS, threat modeling, PII boundaries, and secure release practices.',
+    evidence:
+      'Security+ foundation, Postgres RLS, threat modeling, PII boundaries, and secure release practices.',
   },
   {
     index: '03',
     title: 'Proof before claims',
     description:
       'I treat verification and honest outcome boundaries as part of the work, not as cleanup before a launch.',
-    evidence: 'Type checks, browser tests, accessibility review, release gates, rollback plans, and post-launch measurement.',
+    evidence:
+      'Type checks, browser tests, accessibility review, release gates, rollback plans, and post-launch measurement.',
   },
 ] as const
 
@@ -39,10 +44,14 @@ const workingSet = [
 
 export function About() {
   return (
-    <section id="approach" className="portfolio-section approach-section" aria-labelledby="approach-title">
+    <section
+      id="approach"
+      className="portfolio-section approach-section"
+      aria-labelledby="approach-title"
+    >
       <div className="portfolio-container">
-        <header className="section-intro section-intro--split">
-          <div>
+        <MotionSequence as="header" className="section-intro section-intro--split">
+          <div data-motion-item>
             <span className="section-index" aria-hidden="true">
               02
             </span>
@@ -50,15 +59,20 @@ export function About() {
               How I engineer
             </h2>
           </div>
-          <p>
+          <p data-motion-item>
             I&apos;m Joey Kubalak, a product-minded software engineer who cares about how a system
             feels, how it fails, and how confidently it can be released.
           </p>
-        </header>
+        </MotionSequence>
 
-        <ol className="principle-register">
+        <MotionSequence
+          as="ol"
+          className="principle-register"
+          staggerDelay={0.085}
+          viewportAmount={0.15}
+        >
           {principles.map((principle) => (
-            <li key={principle.index}>
+            <li key={principle.index} data-motion-item>
               <span className="principle-register__index" aria-hidden="true">
                 {principle.index}
               </span>
@@ -69,25 +83,31 @@ export function About() {
               </div>
             </li>
           ))}
-        </ol>
+        </MotionSequence>
 
-        <div className="working-set">
-          <div className="working-set__intro">
+        <MotionSequence className="working-set" distance={16}>
+          <div className="working-set__intro" data-motion-item>
             <p className="text-label">Working set</p>
             <p>
               Tools are selected for the product and its constraints. These are the ones carrying
               the current body of work.
             </p>
           </div>
-          <dl>
+          <MotionSequence
+            as="dl"
+            direction="right"
+            distance={10}
+            duration={0.52}
+            staggerDelay={0.06}
+          >
             {workingSet.map((group) => (
-              <div key={group.label}>
+              <div key={group.label} data-motion-item>
                 <dt>{group.label}</dt>
                 <dd>{group.value}</dd>
               </div>
             ))}
-          </dl>
-        </div>
+          </MotionSequence>
+        </MotionSequence>
       </div>
     </section>
   )
