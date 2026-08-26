@@ -22,7 +22,7 @@ export function Merkaba() {
     return () => window.removeEventListener('resize', check)
   }, [])
 
-  const scale = isMobile ? 0.6 : 1
+  const scale = isMobile ? 0.76 : 1.05
 
   const { gl, camera } = useThree()
 
@@ -82,11 +82,11 @@ export function Merkaba() {
     
     // Orbital motion - Merkaba moves in circular path (depth effect)
     if (groupRef.current) {
-      const orbitRadius = 1.5
+      const orbitRadius = isMobile ? 0.55 : 1.05
       const orbitSpeed = 0.3
       // Responsive positioning: centered on mobile, right-positioned on desktop
-      const baseX = isMobile ? 0 : 2
-      const baseY = isMobile ? -2 : -0.5 // Lower position to minimize content overlap
+      const baseX = isMobile ? 0 : 0.65
+      const baseY = isMobile ? -0.25 : 0
       
       // Apply orbital position
       groupRef.current.position.x = baseX + Math.cos(time * orbitSpeed) * orbitRadius

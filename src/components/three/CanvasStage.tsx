@@ -1,7 +1,5 @@
 'use client'
 
-import { useEffect } from 'react'
-import { useThree } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 
 /**
@@ -13,10 +11,6 @@ import { OrbitControls } from '@react-three/drei'
  * the page while horizontal drags still reach the scene.
  */
 export function ScrollThrough() {
-  const { gl } = useThree()
-  useEffect(() => {
-    gl.domElement.style.touchAction = 'pan-y'
-  }, [gl])
   return null
 }
 

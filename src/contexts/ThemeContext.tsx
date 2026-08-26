@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
+import { createContext, useContext, useState, useSyncExternalStore, ReactNode } from 'react'
 
 type Theme = 'light' | 'dark'
 
@@ -12,74 +12,61 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
+const THEME_CHANGE_EVENT = 'treez-theme-change'
+
+function getThemeSnapshot(): Theme {
+  return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+}
+
+function getServerThemeSnapshot(): Theme {
+  return 'dark'
+}
+
+function applyTheme(theme: Theme) {
+  document.documentElement.classList.toggle('dark', theme === 'dark')
+  document.documentElement.style.colorScheme = theme
+}
+
+function subscribeToTheme(onStoreChange: () => void) {
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+  const handleStoredTheme = () => onStoreChange()
+  const handleSystemTheme = (event: MediaQueryListEvent) => {
+    if (localStorage.getItem('treez-theme')) return
+
+    applyTheme(event.matches ? 'dark' : 'light')
+    onStoreChange()
+  }
+
+  window.addEventListener(THEME_CHANGE_EVENT, handleStoredTheme)
+  mediaQuery.addEventListener('change', handleSystemTheme)
+
+  return () => {
+    window.removeEventListener(THEME_CHANGE_EVENT, handleStoredTheme)
+    mediaQuery.removeEventListener('change', handleSystemTheme)
+  }
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark')
+  const theme = useSyncExternalStore(
+    subscribeToTheme,
+    getThemeSnapshot,
+    getServerThemeSnapshot
+  )
   const [isTransitioning, setIsTransitioning] = useState(false)
-  const [mounted, setMounted] = useState(false)
-
-  // Initialize theme from localStorage or system preference
-  useEffect(() => {
-    setMounted(true)
-    
-    const stored = localStorage.getItem('treez-theme') as Theme | null
-    const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-    
-    const initialTheme = stored || systemPreference
-    setTheme(initialTheme)
-    
-    // Apply theme to document
-    if (initialTheme === 'dark') {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-  }, [])
-
-  // Listen for system theme changes
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    
-    const handleChange = (e: MediaQueryListEvent) => {
-      // Only auto-switch if user hasn't manually set a preference
-      if (!localStorage.getItem('treez-theme')) {
-        const newTheme = e.matches ? 'dark' : 'light'
-        setTheme(newTheme)
-        
-        if (newTheme === 'dark') {
-          document.documentElement.classList.add('dark')
-        } else {
-          document.documentElement.classList.remove('dark')
-        }
-      }
-    }
-    
-    mediaQuery.addEventListener('change', handleChange)
-    return () => mediaQuery.removeEventListener('change', handleChange)
-  }, [])
 
   const toggleTheme = () => {
     setIsTransitioning(true)
-    
+
     const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
     localStorage.setItem('treez-theme', newTheme)
-    
-    // Update document class
-    if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-    
-    // Reset transition state after animation completes
+
+    applyTheme(newTheme)
+    window.dispatchEvent(new Event(THEME_CHANGE_EVENT))
+
     setTimeout(() => {
       setIsTransitioning(false)
     }, 500)
-  }
-
-  // Prevent flash of unstyled content
-  if (!mounted) {
-    return null
   }
 
   return (

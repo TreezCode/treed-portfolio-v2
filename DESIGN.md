@@ -1,7 +1,7 @@
 ---
 name: BuildWithTreez
 description: "Precise, dimensional developer portfolio: sacred geometry in WebGL over disciplined tonal surfaces, one committed purple accent, hairline borders, expanded-width Archivo display type."
-status: "legacy-current-site"
+status: "active-employer-portfolio"
 colors:
   accent-purple: "oklch(0.65 0.19 292)"
   accent-purple-hover: "oklch(0.72 0.16 292)"
@@ -108,7 +108,15 @@ components:
 
 # Design System: BuildWithTreez
 
-> Scope: this is the visual contract for the currently deployed developer portfolio. It is not the approved direction for the future premium web-services rebuild. The rebuild must produce exactly two new directions and receive Treez's explicit selection before this file is replaced.
+> Scope: this is the active visual contract for the employer-first Build With Treez portfolio. Codorus Web owns the separate business-services marketing journey. Any future visual replacement requires a new explicit creative gate.
+
+## Approval record
+
+- **Gate:** Employer-first portfolio implementation
+- **Approver:** Joey Kubalak, owner and creative director
+- **Decision date:** August 26, 2026
+- **Decision:** Preserve The Geometer's Study and sacred-geometry signature. Move proof directly after the hero, replace repeated card scaffolding with asymmetric case-study evidence, make core claims static, and treat motion as optional enhancement.
+- **Required corrections:** Immediate recruiter-readable hero, resume path, honest project-status labels, mobile-composed technology evidence, complete reduced-motion parity, and a separate Codorus client path.
 
 ## 1. Overview
 
@@ -247,3 +255,11 @@ The system is flat by conviction. Depth belongs to the WebGL scenes; 2D surfaces
 - **Don't** use `#000`, `#fff`, or untinted grays; every neutral carries the 290 hue.
 - **Don't** add lock/unlock overlays, hints, or buttons to 3D scenes.
 - **Don't** use border-left/right stripes thicker than 1px as colored accents, gradient text, or pulsing status badges.
+
+## 7. Creative gate record
+
+### August 26, 2026
+
+The employer-first information architecture, clearer project evidence, and stronger professional calls to action are approved. The portfolio must still feel unmistakably personal: sacred geometry remains a signature motif, motion should feel intentional and spatial, and the interface must not collapse into a generic marketing-site template.
+
+For this release, the hero keeps a composed static geometry visible until the WebGL scene has rendered, then crossfades between matching visual states. The mobile navigation is a full-viewport canvas with one close control, the numbered engineering-ledger hierarchy, and the restored rotating Flower of Life. Desktop navigation retains the same clarity while using a continuous shared active indicator. Reduced-motion visitors receive the same composition without nonessential animation.

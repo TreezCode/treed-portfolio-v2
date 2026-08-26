@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 interface Particle {
@@ -18,32 +17,18 @@ interface ThemeParticlesProps {
 }
 
 export function ThemeParticles({ trigger, theme }: ThemeParticlesProps) {
-  const [particles, setParticles] = useState<Particle[]>([])
-
-  useEffect(() => {
-    if (!trigger) return
-
-    // Create 12 particles in a radial pattern
-    const newParticles: Particle[] = Array.from({ length: 12 }, (_, i) => ({
-      id: Date.now() + i,
+  const particles: Particle[] = trigger
+    ? Array.from({ length: 12 }, (_, i) => ({
+      id: i,
       x: 0,
       y: 0,
       angle: (360 / 12) * i,
-      distance: 100 + Math.random() * 50,
-      color: theme === 'dark' 
-        ? ['#915eff', '#00d4ff', '#ff6b9d'][Math.floor(Math.random() * 3)]
-        : ['#915eff', '#00d4ff'][Math.floor(Math.random() * 2)],
+      distance: 100 + (i % 4) * 12,
+      color: theme === 'dark'
+        ? ['#915eff', '#00d4ff', '#ff6b9d'][i % 3]
+        : ['#915eff', '#00d4ff'][i % 2],
     }))
-
-    setParticles(newParticles)
-
-    // Clear particles after animation
-    const timeout = setTimeout(() => {
-      setParticles([])
-    }, 1000)
-
-    return () => clearTimeout(timeout)
-  }, [trigger, theme])
+    : []
 
   return (
     <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">

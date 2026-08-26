@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://joeykubalak.com/sitemap.xml',
+    sitemap: 'https://buildwithtreez.com/sitemap.xml',
+    host: 'https://buildwithtreez.com',
   }
 }

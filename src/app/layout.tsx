@@ -23,43 +23,55 @@ const PerfOverlayRoot = isPerfEnabled
 const archivo = Archivo({
   variable: '--font-archivo',
   subsets: ['latin'],
-  display: 'swap',
+  display: 'optional',
   axes: ['wdth'],
 })
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
-  display: 'swap',
+  display: 'optional',
 })
+
+const themeInitializationScript = `
+  try {
+    const storedTheme = localStorage.getItem('treez-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = storedTheme === 'light' || storedTheme === 'dark'
+      ? storedTheme
+      : (prefersDark ? 'dark' : 'light');
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    document.documentElement.style.colorScheme = theme;
+  } catch {
+    document.documentElement.classList.add('dark');
+    document.documentElement.style.colorScheme = 'dark';
+  }
+`
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://buildwithtreez.com'),
   title: {
-    default: 'Joey Kubalak | Software Engineer & Cybersecurity Expert',
+    default: 'Joey Kubalak | Product-Minded Software Engineer',
     template: '%s | Joey Kubalak',
   },
   description:
-    'Software Engineer with cybersecurity focus. CompTIA Security+ certified. Building secure, dynamic web applications with React, Next.js, and Three.js.',
+    'Product-minded software engineer building secure web applications with TypeScript, React, Next.js, PostgreSQL, and thoughtful user experience.',
+  alternates: {
+    canonical: '/',
+  },
   keywords: [
     'Software Engineer',
+    'Product Engineer',
     'Frontend Developer',
-    'Cybersecurity',
+    'Full Stack TypeScript Engineer',
     'CompTIA Security+',
     'React Developer',
     'Next.js',
     'Three.js',
-    'Full Stack Developer',
     'Secure Web Development',
     'TypeScript',
-    'JavaScript',
     'Information Security',
-    'AI Development',
-    'Machine Learning',
-    'Stable Diffusion',
-    'Emerging Technologies',
-    'Web Developer',
-    'Portfolio',
+    'PostgreSQL',
   ],
   authors: [{ name: 'Joey Kubalak' }],
   creator: 'Joey Kubalak',
@@ -67,19 +79,17 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://buildwithtreez.com',
-    title: 'Joey Kubalak | Software Engineer & Cybersecurity Expert',
+    title: 'Joey Kubalak | Product-Minded Software Engineer',
     description:
-      'Software Engineer with cybersecurity focus. CompTIA Security+ certified. Building secure, dynamic web applications with React, Next.js, and Three.js.',
+      'Secure web products, production client launches, and thoughtful user experience built with TypeScript, React, and Next.js.',
     siteName: 'Joey Kubalak Portfolio',
     // Images automatically generated from opengraph-image.tsx
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Joey Kubalak | Software Engineer & Cybersecurity Expert',
+    title: 'Joey Kubalak | Product-Minded Software Engineer',
     description:
-      'Software Engineer with cybersecurity focus. CompTIA Security+ certified. Building secure, dynamic web applications with React, Next.js, and Three.js.',
-    site: '@buildwithtreez',
-    creator: '@buildwithtreez',
+      'Secure web products, production client launches, and thoughtful user experience built with TypeScript, React, and Next.js.',
     // Images automatically generated from opengraph-image.tsx
   },
   robots: {
@@ -104,7 +114,11 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${archivo.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitializationScript }} />
+      </head>
       <body className="min-h-screen flex flex-col bg-background-primary text-text-primary">
         <script
           type="application/ld+json"
@@ -116,23 +130,20 @@ export default function RootLayout({
               url: 'https://buildwithtreez.com',
               jobTitle: 'Software Engineer',
               knowsAbout: [
-                'React', 
-                'Next.js', 
-                'Three.js', 
-                'TypeScript', 
-                'WebGL', 
+                'React',
+                'Next.js',
+                'Three.js',
+                'TypeScript',
+                'PostgreSQL',
+                'WebGL',
                 '3D Web Development',
-                'Cybersecurity',
+                'Secure Web Development',
                 'CompTIA Security+',
                 'Information Security',
-                'AI Development',
-                'WordPress',
-                'Shopify'
               ],
               sameAs: [
                 'https://github.com/TreezCode',
-                'https://www.linkedin.com/in/joey-kubalak-425032180/',
-                'https://x.com/buildwithtreez',
+                'https://www.linkedin.com/in/joey-kubalak/',
               ],
             }),
           }}

@@ -1,7 +1,7 @@
 'use client'
 
-import { Suspense } from 'react'
-import { Canvas } from '@react-three/fiber'
+import { Suspense, useEffect, useRef } from 'react'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import { Merkaba } from './Merkaba'
 import { QuantumField } from './QuantumField'
@@ -13,11 +13,69 @@ import type { PerfFlags } from '@/hooks/usePerfMode'
 
 interface SacredGeometrySceneProps {
   className?: string
+  active?: boolean
+  onReady?: () => void
+  onUnavailable?: () => void
   // PERF TESTING: optional perf flags passed from parent
   perfFlags?: Partial<PerfFlags>
 }
 
-export function SacredGeometryScene({ className, perfFlags }: SacredGeometrySceneProps) {
+interface SceneLifecycleProps {
+  active: boolean
+  onReady?: () => void
+  onUnavailable?: () => void
+}
+
+function SceneLifecycle({ active, onReady, onUnavailable }: SceneLifecycleProps) {
+  const { gl, invalidate } = useThree()
+  const renderedFrames = useRef(0)
+  const readySent = useRef(false)
+
+  useEffect(() => {
+    const canvas = gl.domElement
+
+    const handleContextLost = (event: Event) => {
+      event.preventDefault()
+      renderedFrames.current = 0
+      readySent.current = false
+      onUnavailable?.()
+    }
+
+    const handleContextRestored = () => {
+      renderedFrames.current = 0
+      readySent.current = false
+      invalidate()
+    }
+
+    canvas.addEventListener('webglcontextlost', handleContextLost)
+    canvas.addEventListener('webglcontextrestored', handleContextRestored)
+
+    return () => {
+      canvas.removeEventListener('webglcontextlost', handleContextLost)
+      canvas.removeEventListener('webglcontextrestored', handleContextRestored)
+    }
+  }, [gl, invalidate, onUnavailable])
+
+  useFrame(() => {
+    if (!active || readySent.current) return
+
+    renderedFrames.current += 1
+    if (renderedFrames.current < 2) return
+
+    readySent.current = true
+    onReady?.()
+  })
+
+  return null
+}
+
+export function SacredGeometryScene({
+  className,
+  active = true,
+  onReady,
+  onUnavailable,
+  perfFlags,
+}: SacredGeometrySceneProps) {
   // PERF FIX: permanently cap DPR on mobile — data shows DPR=2 causes 400–900ms GPU stalls
   const mobileDpr = useMobileDpr()
   const isMobile = useIsMobile()
@@ -31,6 +89,7 @@ export function SacredGeometryScene({ className, perfFlags }: SacredGeometryScen
     <div className={className} style={{ cursor: isMobile ? 'default' : 'grab' }}>
       <Canvas
         camera={{ position: [0, 0, 8], fov: 50 }}
+        frameloop={active ? 'always' : 'demand'}
         dpr={dpr}
         gl={{ 
           antialias: !reduced,
@@ -61,6 +120,12 @@ export function SacredGeometryScene({ className, perfFlags }: SacredGeometryScen
               />
             </EffectComposer>
           )}
+
+          <SceneLifecycle
+            active={active}
+            onReady={onReady}
+            onUnavailable={onUnavailable}
+          />
         </Suspense>
 
         {/* Shared interaction contract: scroll always passes through */}

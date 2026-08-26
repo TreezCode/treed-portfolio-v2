@@ -1,435 +1,352 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { usePerfFlags } from '@/components/perf/PerfProvider'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { ThemeToggle } from '@/components/ui/ThemeToggle'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { usePerfFlags } from '@/components/perf/PerfProvider'
 import { Logo } from '@/components/ui/Logo'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
-// Desktop nav — all sections
-const desktopLinks = [
-  { id: 'about', title: 'About', num: '01' },
-  { id: 'experience', title: 'Experience', num: '02' },
-  { id: 'tech', title: 'Tech', num: '03' },
-  { id: 'work', title: 'Projects', num: '04' },
-  { id: 'contact', title: 'Contact', num: '05' },
-]
+const navigation = [
+  { id: 'work', title: 'Work', number: '01' },
+  { id: 'approach', title: 'Approach', number: '02' },
+  { id: 'experience', title: 'Experience', number: '03' },
+  { id: 'contact', title: 'Contact', number: '04' },
+] as const
 
-// Mobile nav — every section
-const mobileLinks = [
-  { id: 'about', title: 'About', num: '01' },
-  { id: 'experience', title: 'Experience', num: '02' },
-  { id: 'tech', title: 'Tech', num: '03' },
-  { id: 'work', title: 'Projects', num: '04' },
-  { id: 'contact', title: 'Contact', num: '05' },
-]
+const professionalLinks = [
+  { label: 'GitHub', href: 'https://github.com/TreezCode' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/joey-kubalak' },
+  { label: 'Email', href: 'mailto:jkubalak.dev@gmail.com' },
+] as const
 
-const socialLinks = [
-  {
-    name: 'GitHub',
-    href: 'https://github.com/TreezCode',
-    icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-      </svg>
-    ),
-  },
-  {
-    name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/joey-kubalak-425032180/',
-    icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-      </svg>
-    ),
-  },
-  {
-    name: 'X',
-    href: 'https://x.com/buildwithtreez',
-    icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-      </svg>
-    ),
-  },
-  {
-    name: 'Email',
-    href: 'mailto:treezcode@gmail.com',
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-  },
-]
+const desktopNavigationQuery = '(min-width: 50rem)'
+const easeOutExpo = [0.16, 1, 0.3, 1] as const
 
-// Flower of Life SVG — sacred geometry background for mobile menu
-function FlowerOfLifeBg() {
-  const r = 40
-  const cx = 200
-  const cy = 200
-  // Center + 6 petals + 6 outer petals = 13 circles (Fruit of Life core)
-  const centers: [number, number][] = [[cx, cy]]
-  for (let i = 0; i < 6; i++) {
-    const angle = (Math.PI / 3) * i - Math.PI / 2
-    centers.push([cx + r * Math.cos(angle), cy + r * Math.sin(angle)])
-  }
-  for (let i = 0; i < 6; i++) {
-    const angle = (Math.PI / 3) * i - Math.PI / 2
-    centers.push([cx + r * 2 * Math.cos(angle), cy + r * 2 * Math.sin(angle)])
-  }
-  // Extra ring for fuller pattern
-  for (let i = 0; i < 6; i++) {
-    const a1 = (Math.PI / 3) * i - Math.PI / 2
-    const a2 = (Math.PI / 3) * (i + 1) - Math.PI / 2
-    centers.push([
-      cx + r * (Math.cos(a1) + Math.cos(a2)),
-      cy + r * (Math.sin(a1) + Math.sin(a2)),
-    ])
-  }
+const flowerCenters: [number, number][] = [[200, 200]]
 
+for (let index = 0; index < 6; index += 1) {
+  const angle = (Math.PI / 3) * index - Math.PI / 2
+  flowerCenters.push([200 + 40 * Math.cos(angle), 200 + 40 * Math.sin(angle)])
+}
+
+for (let index = 0; index < 6; index += 1) {
+  const angle = (Math.PI / 3) * index - Math.PI / 2
+  flowerCenters.push([200 + 80 * Math.cos(angle), 200 + 80 * Math.sin(angle)])
+}
+
+for (let index = 0; index < 6; index += 1) {
+  const firstAngle = (Math.PI / 3) * index - Math.PI / 2
+  const secondAngle = (Math.PI / 3) * (index + 1) - Math.PI / 2
+  flowerCenters.push([
+    200 + 40 * (Math.cos(firstAngle) + Math.cos(secondAngle)),
+    200 + 40 * (Math.sin(firstAngle) + Math.sin(secondAngle)),
+  ])
+}
+
+function NavigationGeometry() {
   return (
-    <motion.div
-      className="absolute inset-0 flex items-center justify-center pointer-events-none"
-      initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
-      animate={{ opacity: 1, scale: 1, rotate: 30 }}
-      exit={{ opacity: 0, scale: 0.8 }}
-      transition={{ duration: 1.2, ease: 'easeOut' }}
-    >
-      <motion.svg
-        viewBox="0 0 400 400"
-        className="w-[340px] h-[340px] sm:w-[420px] sm:h-[420px]"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 120, repeat: Infinity, ease: 'linear' }}
-      >
+    <div className="mobile-navigation__geometry-wrap" aria-hidden="true">
+      <svg className="mobile-navigation__geometry" viewBox="0 0 400 400" role="presentation">
         <defs>
-          <radialGradient id="flowerFade" cx="50%" cy="50%" r="50%">
+          <radialGradient id="mobile-navigation-fade" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="white" stopOpacity="1" />
-            <stop offset="70%" stopColor="white" stopOpacity="0.6" />
+            <stop offset="70%" stopColor="white" stopOpacity="0.62" />
             <stop offset="100%" stopColor="white" stopOpacity="0" />
           </radialGradient>
-          <mask id="fadeMask">
-            <rect width="400" height="400" fill="url(#flowerFade)" />
+          <mask id="mobile-navigation-mask">
+            <rect width="400" height="400" fill="url(#mobile-navigation-fade)" />
           </mask>
         </defs>
-        <g mask="url(#fadeMask)" className="stroke-accent-primary" opacity="0.14">
-          {centers.map(([x, y], i) => (
-            <circle
-              key={i}
-              cx={x}
-              cy={y}
-              r={r}
-              fill="none"
-              strokeWidth="0.5"
-            />
+        <g fill="none" stroke="currentColor" mask="url(#mobile-navigation-mask)">
+          {flowerCenters.map(([x, y], index) => (
+            <circle key={`${x}-${y}-${index}`} cx={x} cy={y} r="40" strokeWidth="0.62" />
           ))}
-          {/* Outer bounding circle */}
-          <circle cx={cx} cy={cy} r={r * 3} fill="none" strokeWidth="0.3" />
+          <circle cx="200" cy="200" r="120" strokeWidth="0.42" />
+          <path d="m200 80 104 180H96L200 80Z" strokeWidth="0.5" />
+          <path d="m200 320 104-180H96l104 180Z" strokeWidth="0.5" />
         </g>
-      </motion.svg>
-    </motion.div>
+      </svg>
+    </div>
   )
 }
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
-  // PERF TESTING: minimal-ui removes backdrop-blur from fixed header
+  const headerRef = useRef<HTMLElement>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const menuRef = useRef<HTMLDivElement>(null)
+  const prefersReducedMotion = useReducedMotion()
   const { minimalUI } = usePerfFlags()
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+  const closeMenuAndRestoreFocus = useCallback(() => {
+    if (headerRef.current) headerRef.current.inert = false
+    setMenuOpen(false)
+    window.requestAnimationFrame(() => triggerRef.current?.focus())
   }, [])
 
-  // Active section detection via IntersectionObserver
   useEffect(() => {
-    const sectionIds = ['hero', 'about', 'experience', 'tech', 'work', 'contact']
+    const onScroll = () => setScrolled(window.scrollY > 32)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
     const observers: IntersectionObserver[] = []
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id)
-      if (!el) return
+    for (const section of [{ id: 'hero' }, ...navigation]) {
+      const element = document.getElementById(section.id)
+      if (!element) continue
+
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
-            setActiveSection(id === 'hero' ? '' : id)
+            setActiveSection(section.id === 'hero' ? '' : section.id)
           }
         },
-        { rootMargin: '-40% 0px -55% 0px' }
+        { rootMargin: '-34% 0px -58% 0px' },
       )
-      observer.observe(el)
+      observer.observe(element)
       observers.push(observer)
-    })
+    }
 
-    return () => observers.forEach((o) => o.disconnect())
+    return () => observers.forEach((observer) => observer.disconnect())
   }, [])
 
-  const toggleMobileMenu = useCallback(() => {
-    setMobileMenuOpen((prev) => {
-      const next = !prev
-      document.body.style.overflow = next ? 'hidden' : 'auto'
-      return next
-    })
-  }, [])
+  useEffect(() => {
+    if (headerRef.current) headerRef.current.inert = menuOpen
+    if (!menuOpen) return
 
-  const closeMobileMenu = useCallback(() => {
-    setMobileMenuOpen(false)
-    document.body.style.overflow = 'auto'
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    const focusableSelector =
+      'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
+    const focusCloseButton = window.requestAnimationFrame(() => closeButtonRef.current?.focus())
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        closeMenuAndRestoreFocus()
+        return
+      }
+
+      if (event.key !== 'Tab' || !menuRef.current) return
+
+      const focusable = Array.from(
+        menuRef.current.querySelectorAll<HTMLElement>(focusableSelector),
+      )
+      if (focusable.length === 0) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      window.cancelAnimationFrame(focusCloseButton)
+      document.removeEventListener('keydown', onKeyDown)
+      document.body.style.overflow = previousOverflow
+    }
+  }, [closeMenuAndRestoreFocus, menuOpen])
+
+  useEffect(() => {
+    const desktopQuery = window.matchMedia(desktopNavigationQuery)
+    const closeAtDesktop = (event: MediaQueryListEvent) => {
+      if (!event.matches) return
+
+      if (headerRef.current) headerRef.current.inert = false
+      setMenuOpen(false)
+    }
+
+    desktopQuery.addEventListener('change', closeAtDesktop)
+    return () => desktopQuery.removeEventListener('change', closeAtDesktop)
   }, [])
 
   return (
     <>
-      <motion.header
-        className={cn(
-          'fixed top-0 left-0 right-0 z-60 transition-all duration-500 theme-transition',
-          mobileMenuOpen
-            ? 'bg-background-primary'
-            : scrolled
-              ? `bg-background-primary/95${minimalUI ? '' : ' backdrop-blur-xl'}`
-              : 'bg-transparent'
-        )}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
+      <header
+        ref={headerRef}
+        aria-hidden={menuOpen ? true : undefined}
+        className={`site-header${scrolled ? ' site-header--solid' : ''}${
+          minimalUI ? ' site-header--minimal' : ''
+        }`}
       >
-        {/* Bottom hairline — visible on scroll */}
-        <div
-          className={cn(
-            'absolute bottom-0 left-0 right-0 h-px bg-border-primary transition-opacity duration-500',
-            scrolled && !mobileMenuOpen ? 'opacity-100' : 'opacity-0'
-          )}
-        />
+        <nav className="portfolio-container site-header__nav" aria-label="Primary navigation">
+          <a className="site-header__brand" href="#hero" aria-label="Joey Kubalak portfolio home">
+            <Logo variant="icon" size={26} priority />
+            <span>Joey Kubalak</span>
+          </a>
 
-        <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
-            {/* Logo */}
-            <a
-              href="#"
-              className="relative z-60 group"
-              onClick={(e) => {
-                e.preventDefault()
-                closeMobileMenu()
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-              }}
-              aria-label="Build With Treez - Home"
-            >
-              <Logo variant="icon" size={24} className="group-hover:scale-105" />
+          <ul className="site-header__links">
+            {navigation.map((link) => {
+              const isActive = activeSection === link.id
+
+              return (
+                <li key={link.id}>
+                  <a href={`#${link.id}`} aria-current={isActive ? 'location' : undefined}>
+                    <span aria-hidden="true">{link.number}</span>
+                    {link.title}
+                    {isActive && (
+                      <motion.i
+                        className="site-header__active-indicator"
+                        layoutId="primary-navigation-active"
+                        transition={
+                          prefersReducedMotion
+                            ? { duration: 0 }
+                            : { duration: 0.34, ease: easeOutExpo }
+                        }
+                      />
+                    )}
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+
+          <div className="site-header__actions">
+            <a className="site-header__resume" href="/joey-kubalak-resume.pdf" download>
+              Résumé
             </a>
-
-            {/* Desktop Navigation */}
-            <ul className="hidden md:flex items-center gap-0.5">
-              {desktopLinks.map((link) => {
-                const isActive = activeSection === link.id
-                return (
-                  <li key={link.id}>
-                    <a
-                      href={`#${link.id}`}
-                      onClick={(e) => {
-                        e.preventDefault()
-                        document.getElementById(link.id)?.scrollIntoView({ behavior: 'smooth' })
-                      }}
-                      className={cn(
-                        'group relative flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 theme-transition',
-                        isActive
-                          ? 'text-text-primary'
-                          : 'text-text-secondary hover:text-text-primary'
-                      )}
-                    >
-                      {/* Number */}
-                      <span
-                        className={cn(
-                          'text-[10px] font-mono transition-colors duration-300',
-                          isActive ? 'text-accent-primary' : 'text-text-tertiary group-hover:text-text-secondary'
-                        )}
-                      >
-                        {link.num}
-                      </span>
-                      {link.title}
-                      {/* Active underline indicator */}
-                      {isActive && (
-                        <motion.div
-                          layoutId="activeNav"
-                          className="absolute -bottom-px left-3 right-3 h-0.5 rounded-full bg-accent-primary"
-                          transition={{ type: 'spring', stiffness: 350, damping: 30 }}
-                        />
-                      )}
-                    </a>
-                  </li>
-                )
-              })}
-            </ul>
-
-            {/* Theme Toggle */}
-            <div className="flex items-center gap-4">
-              <ThemeToggle />
-              
-              {/* Mobile Menu Button */}
-              <button
-              onClick={toggleMobileMenu}
-              className="md:hidden relative z-60 p-2 rounded-lg border border-border-primary hover:border-border-strong bg-surface-primary hover:bg-surface-hover transition-colors duration-200 theme-transition"
-              aria-label="Toggle menu"
+            <ThemeToggle />
+            <button
+              ref={triggerRef}
+              type="button"
+              className="site-header__menu-button"
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open navigation menu"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
             >
-              <AnimatePresence mode="wait" initial={false}>
-                {mobileMenuOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <X size={22} className="text-text-primary theme-transition" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Menu size={22} className="text-text-primary theme-transition" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <Menu aria-hidden="true" />
             </button>
-            </div>
           </div>
         </nav>
-      </motion.header>
+      </header>
 
-      {/* Mobile Menu — rendered outside header to avoid transform stacking context */}
       <AnimatePresence>
-        {mobileMenuOpen && (
+        {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-55 pt-16 md:hidden"
-            initial={{ opacity: 0 }}
+            ref={menuRef}
+            id="mobile-navigation"
+            className="mobile-navigation"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+            initial={prefersReducedMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            exit={prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.32, ease: easeOutExpo }}
           >
-            {/* Backdrop */}
-            <div className="absolute inset-0 bg-background-primary theme-transition" />
+            <div className="mobile-navigation__topbar">
+              <a
+                className="site-header__brand mobile-navigation__brand"
+                href="#hero"
+                onClick={closeMenuAndRestoreFocus}
+                aria-label="Joey Kubalak portfolio home"
+              >
+                <Logo variant="icon" size={26} />
+                <span>Joey Kubalak</span>
+              </a>
 
-            {/* Sacred Geometry Background — Flower of Life */}
-            <FlowerOfLifeBg />
+              <div className="mobile-navigation__topbar-actions">
+                <ThemeToggle />
+                <button
+                  ref={closeButtonRef}
+                  type="button"
+                  className="mobile-navigation__close"
+                  onClick={closeMenuAndRestoreFocus}
+                  aria-label="Close navigation menu"
+                >
+                  <X aria-hidden="true" />
+                </button>
+              </div>
+            </div>
 
-            {/* Content */}
-            <div className="relative flex flex-col items-center justify-between h-full py-8">
-              {/* Section Links */}
-              <nav className="flex flex-col items-center gap-5 mt-4">
-                {mobileLinks.map((link, index) => {
-                  const isActive = activeSection === link.id
-                  return (
-                    <motion.a
-                      key={link.id}
-                      href={`#${link.id}`}
-                      className="group flex items-center gap-4"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        closeMobileMenu()
-                        setTimeout(() => {
-                          document.getElementById(link.id)?.scrollIntoView({ behavior: 'smooth' })
-                        }, 100)
-                      }}
-                      initial={{ opacity: 0, x: -30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 30 }}
-                      transition={{ delay: index * 0.08 + 0.1, duration: 0.4 }}
-                    >
-                      {/* Number */}
-                      <span
-                        className={cn(
-                          'text-xs font-mono w-6 text-right transition-colors duration-300',
-                          isActive ? 'text-accent-primary' : 'text-text-tertiary group-hover:text-text-secondary'
-                        )}
+            <NavigationGeometry />
+
+            <div className="portfolio-container mobile-navigation__body">
+              <nav aria-label="Mobile navigation">
+                <ul>
+                  {navigation.map((link, index) => {
+                    const isActive = activeSection === link.id
+
+                    return (
+                      <motion.li
+                        key={link.id}
+                        initial={prefersReducedMotion ? false : { opacity: 0, x: -24 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, x: 18 }}
+                        transition={{
+                          duration: prefersReducedMotion ? 0 : 0.52,
+                          delay: prefersReducedMotion ? 0 : 0.1 + index * 0.065,
+                          ease: easeOutExpo,
+                        }}
                       >
-                        {link.num}
-                      </span>
-                      {/* Dot separator */}
-                      <span
-                        className={cn(
-                          'w-1.5 h-1.5 rounded-full transition-colors duration-300',
-                          isActive
-                            ? 'bg-accent-primary'
-                            : 'bg-border-strong group-hover:bg-text-tertiary'
-                        )}
-                      />
-                      {/* Title */}
-                      <span
-                        className={cn(
-                          'text-2xl sm:text-3xl font-semibold transition-colors duration-300',
-                          isActive
-                            ? 'text-accent-primary'
-                            : 'text-text-secondary group-hover:text-text-primary theme-transition'
-                        )}
-                      >
-                        {link.title}
-                      </span>
-                    </motion.a>
-                  )
-                })}
+                        <a
+                          href={`#${link.id}`}
+                          onClick={closeMenuAndRestoreFocus}
+                          aria-current={isActive ? 'location' : undefined}
+                        >
+                          <span className="mobile-navigation__number" aria-hidden="true">
+                            {link.number}
+                          </span>
+                          <span className="mobile-navigation__marker" aria-hidden="true" />
+                          <span className="mobile-navigation__title">{link.title}</span>
+                        </a>
+                      </motion.li>
+                    )
+                  })}
+                </ul>
               </nav>
 
-              {/* Bottom area: separator + socials + CTA */}
-              <div className="flex flex-col items-center gap-6">
-                {/* Hairline separator */}
-                <motion.div
-                  className="w-24 h-px bg-border-strong"
-                  initial={{ opacity: 0, scaleX: 0 }}
-                  animate={{ opacity: 1, scaleX: 1 }}
-                  transition={{ delay: 0.6, duration: 0.5 }}
-                />
-
-                {/* Social Links */}
-                <motion.div
-                  className="flex items-center gap-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7, duration: 0.4 }}
+              <motion.div
+                className="mobile-navigation__footer"
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 12 }}
+                transition={{
+                  duration: prefersReducedMotion ? 0 : 0.48,
+                  delay: prefersReducedMotion ? 0 : 0.32,
+                  ease: easeOutExpo,
+                }}
+              >
+                <a
+                  className="mobile-navigation__resume"
+                  href="/joey-kubalak-resume.pdf"
+                  download
+                  onClick={closeMenuAndRestoreFocus}
                 >
-                  {socialLinks.map((link) => (
+                  Download résumé
+                </a>
+                <div className="mobile-navigation__professional-links">
+                  {professionalLinks.map((link) => (
                     <a
-                      key={link.name}
+                      key={link.label}
                       href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group p-2.5 rounded-lg border border-border-primary bg-surface-primary hover:border-border-strong hover:bg-surface-hover transition-colors duration-200 theme-transition"
-                      aria-label={link.name}
+                      target={link.href.startsWith('http') ? '_blank' : undefined}
+                      rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
+                      onClick={closeMenuAndRestoreFocus}
                     >
-                      <span className="block text-text-secondary group-hover:text-accent-primary transition-colors duration-200">
-                        {link.icon}
-                      </span>
+                      {link.label}
                     </a>
                   ))}
-                </motion.div>
-
-                {/* CTA */}
-                <motion.a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    closeMobileMenu()
-                    setTimeout(() => {
-                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-                    }, 100)
-                  }}
-                  className="px-8 py-3 rounded-xl font-semibold text-white text-sm bg-accent-fill hover:bg-accent-fill-hover transition-colors duration-200"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8, duration: 0.4 }}
-                >
-                  Get In Touch
-                </motion.a>
-              </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         )}

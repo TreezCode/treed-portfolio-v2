@@ -1,129 +1,131 @@
 import { ImageResponse } from 'next/og'
- 
-export const runtime = 'edge'
-export const alt = 'Joey Kubalak Portfolio - Interactive 3D Sacred Geometry'
+
+export const alt = 'Joey Kubalak, product-minded software engineer'
 export const size = {
   width: 1200,
   height: 630,
 }
 export const contentType = 'image/png'
- 
-export default async function Image() {
+
+const geometryRings = [360, 270, 180]
+
+export default function Image() {
   return new ImageResponse(
     (
       <div
         style={{
-          height: '100%',
           width: '100%',
+          height: '100%',
           display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#0a0a0f',
-          backgroundImage: 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%)',
+          alignItems: 'stretch',
+          backgroundColor: '#17151d',
+          color: '#f4f1f7',
+          fontFamily: 'Arial, sans-serif',
           position: 'relative',
+          overflow: 'hidden',
         }}
       >
-        {/* Sacred geometry pattern */}
         <div
           style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            opacity: 0.1,
-            background: 'radial-gradient(circle at 50% 50%, #915eff 0%, transparent 70%)',
+            width: 18,
+            height: '100%',
+            backgroundColor: '#8b5cf6',
           }}
         />
-        
-        {/* Content */}
+
         <div
           style={{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: 24,
-            zIndex: 10,
+            justifyContent: 'space-between',
+            width: 760,
+            padding: '64px 56px 56px 66px',
           }}
         >
-          {/* Name */}
-          <div
-            style={{
-              fontSize: 72,
-              fontWeight: 'bold',
-              color: '#f8f8f8',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            Joey Kubalak
-          </div>
-          
-          {/* Title */}
-          <div
-            style={{
-              fontSize: 40,
-              color: '#b8b8c8',
-              letterSpacing: '0.05em',
-            }}
-          >
-            Software Engineer
-          </div>
-          
-          {/* Accent line */}
-          <div
-            style={{
-              width: 400,
-              height: 2,
-              background: 'linear-gradient(90deg, transparent, #915eff 50%, transparent)',
-              marginTop: 16,
-              marginBottom: 16,
-            }}
-          />
-          
-          {/* Skills */}
           <div
             style={{
               display: 'flex',
-              gap: 32,
-              fontSize: 28,
-              color: '#888899',
+              fontSize: 23,
+              color: '#aaa2b7',
+              letterSpacing: '0.08em',
             }}
           >
-            <span style={{ color: '#915eff' }}>React</span>
-            <span>•</span>
-            <span style={{ color: '#915eff' }}>Next.js</span>
-            <span>•</span>
-            <span style={{ color: '#915eff' }}>Three.js</span>
+            SOFTWARE ENGINEER · COMPTIA SECURITY+
           </div>
-          
-          {/* Certification */}
+
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div
+              style={{
+                display: 'flex',
+                fontSize: 74,
+                lineHeight: 1,
+                fontWeight: 700,
+                letterSpacing: '-0.045em',
+              }}
+            >
+              Joey Kubalak
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                maxWidth: 670,
+                marginTop: 28,
+                fontSize: 34,
+                lineHeight: 1.25,
+                color: '#d6d0dd',
+              }}
+            >
+              Secure web products with thoughtful engineering and dimensional craft.
+            </div>
+          </div>
+
           <div
             style={{
+              display: 'flex',
               fontSize: 24,
-              color: '#b8b8c8',
-              marginTop: 8,
-            }}
-          >
-            CompTIA Security+ Certified
-          </div>
-          
-          {/* Domain */}
-          <div
-            style={{
-              fontSize: 28,
-              color: '#915eff',
-              marginTop: 24,
+              color: '#a88df3',
             }}
           >
             buildwithtreez.com
           </div>
         </div>
+
+        <div
+          style={{
+            flex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'relative',
+            borderLeft: '1px solid #3a3442',
+            backgroundColor: '#1d1a23',
+          }}
+        >
+          {geometryRings.map((diameter, index) => (
+            <div
+              key={diameter}
+              style={{
+                position: 'absolute',
+                display: 'flex',
+                width: diameter,
+                height: diameter,
+                border: `${index === 1 ? 3 : 2}px solid ${index === 1 ? '#8b5cf6' : '#5b5267'}`,
+                transform: `rotate(${index % 2 === 0 ? 45 : 0}deg)`,
+              }}
+            />
+          ))}
+          <div
+            style={{
+              display: 'flex',
+              width: 24,
+              height: 24,
+              backgroundColor: '#a88df3',
+              transform: 'rotate(45deg)',
+            }}
+          />
+        </div>
       </div>
     ),
-    {
-      ...size,
-    }
+    size
   )
 }

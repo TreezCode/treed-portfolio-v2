@@ -1,62 +1,92 @@
-'use client'
+const principles = [
+  {
+    index: '01',
+    title: 'Product judgment',
+    description:
+      'I translate user needs, business constraints, and interface decisions into one shippable product contract.',
+    evidence: 'Discovery, information architecture, interaction design, and implementation stay connected.',
+  },
+  {
+    index: '02',
+    title: 'Security in the architecture',
+    description:
+      'Authorization, privacy, validation, and recovery are designed into the system instead of added after the interface is finished.',
+    evidence: 'Security+ foundation, Postgres RLS, threat modeling, PII boundaries, and secure release practices.',
+  },
+  {
+    index: '03',
+    title: 'Proof before claims',
+    description:
+      'I treat verification and honest outcome boundaries as part of the work, not as cleanup before a launch.',
+    evidence: 'Type checks, browser tests, accessibility review, release gates, rollback plans, and post-launch measurement.',
+  },
+] as const
 
-import { motion } from 'framer-motion'
-import { ScrollReveal } from '@/components/animations/ScrollReveal'
-import { services } from '@/data'
-import { Globe, Zap, Code, Palette } from 'lucide-react'
-
-// Icon mapping
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Globe,
-  Zap,
-  Code,
-  Palette,
-}
-
-const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
-  const Icon = iconMap[service.icon]
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="h-full"
-    >
-      <div className="h-full rounded-2xl bg-surface-primary border border-border-primary hover:border-border-strong transition-colors duration-200 p-6 theme-transition">
-        {Icon && <Icon className="w-8 h-8 text-accent-primary mb-4" aria-hidden />}
-        <h3 className="text-title text-text-primary mb-2 theme-transition">
-          {service.title}
-        </h3>
-        <p className="text-sm text-text-secondary leading-relaxed">
-          {service.description}
-        </p>
-      </div>
-    </motion.div>
-  )
-}
+const workingSet = [
+  {
+    label: 'Core engineering',
+    value: 'TypeScript, React, Next.js, Node.js, PostgreSQL, Supabase',
+  },
+  {
+    label: 'Interface & delivery',
+    value: 'HTML, CSS, Astro, Three.js, Playwright, Figma, Vercel, Netlify',
+  },
+  {
+    label: 'Security practice',
+    value: 'Row Level Security, threat modeling, WebAuthn, Burp Suite, Wireshark, Nmap',
+  },
+] as const
 
 export function About() {
   return (
-    <section id="about" aria-label="About Me" className="relative py-16 sm:py-28 bg-background-secondary overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal>
-          <div className="max-w-3xl mb-10 sm:mb-14">
-            <span className="text-label text-text-tertiary block mb-3">01</span>
-            <h2 className="text-headline text-text-primary theme-transition mb-4">About Me</h2>
-            <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-              I&apos;m a software engineer who cares as much about how an interface feels as how it
-              works. I build with React, Next.js, and Three.js, hold a CompTIA Security+
-              certification, and bring a security-first mindset to every project I ship.
+    <section id="approach" className="portfolio-section approach-section" aria-labelledby="approach-title">
+      <div className="portfolio-container">
+        <header className="section-intro section-intro--split">
+          <div>
+            <span className="section-index" aria-hidden="true">
+              02
+            </span>
+            <h2 id="approach-title" className="text-headline">
+              How I engineer
+            </h2>
+          </div>
+          <p>
+            I&apos;m Joey Kubalak, a product-minded software engineer who cares about how a system
+            feels, how it fails, and how confidently it can be released.
+          </p>
+        </header>
+
+        <ol className="principle-register">
+          {principles.map((principle) => (
+            <li key={principle.index}>
+              <span className="principle-register__index" aria-hidden="true">
+                {principle.index}
+              </span>
+              <div>
+                <h3>{principle.title}</h3>
+                <p>{principle.description}</p>
+                <p className="principle-register__evidence">{principle.evidence}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <div className="working-set">
+          <div className="working-set__intro">
+            <p className="text-label">Working set</p>
+            <p>
+              Tools are selected for the product and its constraints. These are the ones carrying
+              the current body of work.
             </p>
           </div>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {services.map((service, index) => (
-            <ServiceCard key={service.title} service={service} index={index} />
-          ))}
+          <dl>
+            {workingSet.map((group) => (
+              <div key={group.label}>
+                <dt>{group.label}</dt>
+                <dd>{group.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

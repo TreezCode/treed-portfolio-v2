@@ -11,6 +11,7 @@ interface LogoProps {
   variant?: 'square' | 'full' | 'icon' | 'text'
   size?: number
   className?: string
+  priority?: boolean
 }
 
 /** Intrinsic pixel dimensions for layout/CLS; display size is controlled via `size`. */
@@ -21,7 +22,12 @@ const INTRINSIC = {
   text: { width: 640, height: 160 },
 } as const
 
-export function Logo({ variant = 'square', size = 56, className = '' }: LogoProps) {
+export function Logo({
+  variant = 'square',
+  size = 56,
+  className = '',
+  priority = false,
+}: LogoProps) {
   const logoMap = {
     square: '/images/bwt_brand--logo-square.webp',
     full: '/images/bwt-logo-full.webp',
@@ -39,7 +45,7 @@ export function Logo({ variant = 'square', size = 56, className = '' }: LogoProp
       height={height}
       className={`h-auto transition-all duration-300 ${className}`}
       style={{ width: size, height: 'auto' }}
-      priority
+      priority={priority}
     />
   )
 }
