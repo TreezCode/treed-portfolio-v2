@@ -20,7 +20,7 @@ The launch retained the earlier purple/blue browser favicon while updating only 
 
 ### Published release checks
 
-- [x] The connected Git production build completed successfully after PR #2 was merged. Netlify's published-site readback matches the release commit and deploy above.
+- [x] The connected Git production builds completed successfully for the initial PR #2 release and the PR #3 follow-up. Netlify's current published-site readback matches the release commit and deploy above.
 - [x] All 29 live sitemap pages pass canonical, title, description, Open Graph, Twitter and indexing-header checks. All 49 social cards are valid 1200 x 630 PNGs; the Apple icon is 180 x 180. Historical/review pages retain noindex and unknown routes return 404.
 - [x] Search Console accepted `https://buildwithtreez.com/sitemap.xml`, reports **Success**, and discovered all 29 pages. Discovery does not assert indexing or rankings.
 - [x] Four hosted interaction tests pass. Google DebugView confirms a labeled QA homepage view with the expected campaign, clean URL and debug flag. Production consent and event-payload checks pass; no real conversion or contact email was sent.
