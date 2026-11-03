@@ -10,7 +10,7 @@ Thesis: an approachable software engineer opens a dimensional collection of usef
 
 Physical cues: an exhibition wall, a film contact sheet, an illuminated geometric instrument. Ink-green canvas (#191c1b), warm ivory (#f4f1e7), restrained chartreuse (#d5ed9b). Archivo carries a large, tightly set opening and compact supporting information. Sacred geometry remains a precise authored SVG identity.
 
-The signature is a projected wall of Joey's actual work. Adjacent image rows respond in opposite directions to a fine pointer. The wall relaxes on native scroll, while the readable copy and primary action stay in the frontal plane. No scroll trap, splash or artificial loader. Featured products sit in asymmetric image-and-story sections, followed by a complete filterable collection.
+The signature is a projected wall of Joey's actual work. Adjacent image rows respond in opposite directions to a fine pointer. The wall relaxes on native scroll, while the readable copy and primary action stay in the frontal plane. No scroll trap, splash or artificial loader. Three featured stories and a compact creative selection introduce the work; the complete filterable selection lives on its own Work page.
 
 ## Retained direction study: Fieldnotes
 
@@ -83,11 +83,11 @@ Joey Kubalak approved this exact 12-project selection on November 3, 2026. Keep 
 | Local Second Brain | Python, retrieval architecture and evidence-aware tooling |
 | The First Portfolio | One concise origin story that shows progression |
 
-The wall mixes these bodies of work, with Little Portal Studio appearing once as its actual approved logo. Codorus uses its current homepage hero. Studio releases and workbench studies live inside the studio page. The first portfolio's source remains accessible; its former live domain does not resolve, so restoring a working archive preview belongs in the next phase. Renamerly's public homepage and workspace opened successfully in this review.
+The wall mixes these bodies of work, with Little Portal Studio appearing once as its actual approved logo. Codorus uses its current homepage hero. Studio releases and workbench studies live inside the studio page. The first portfolio's source remains accessible; its former live domain does not resolve. The multi-page delivery restores a local historical exhibit at `/archive/first-portfolio/index.html`. Renamerly's public homepage and workspace opened successfully in this review.
 
 Smaller work is retained in source rather than deleted. Elsewhere, Fieldwork, IMPULSE, original music and selected Blender experiments are strong future Playground material. Kismet can explain the practical origin of Renamerly. Sayfold and other technical prototypes can be selected later when their demonstrations add distinct evidence. Older storefront/scraper exercises and the closed Florida Fungi Farm store do not compete with current work in the main list.
 
-## Remaining build after image-framing correction
+## Multi-page delivery and later experiences
 
 Premium Client Site continues to own audience, information architecture, case-study narrative, visual craft and release review. Cinematic Web Experiences continues to own authored interaction, scene behavior, responsive composition and fallback verification. Reuse the approved Living Archive identity and Atrium reference; do not reopen direction selection.
 
@@ -101,9 +101,24 @@ Premium Client Site continues to own audience, information architecture, case-st
 | Contact | Start a relevant engineering or collaboration conversation | Accessible contact form and direct email, with a separate Codorus business-services route |
 | Future game | Choose to spend time in an original playable world | A self-contained game destination, built after a bounded prototype is approved |
 
-### First delivery: deeper work and a real page structure
+### Implemented: deeper work and a real page structure
 
-Create Work, About and Contact destinations, then shorten the homepage around the approved selection. Build a representative deep case study before expanding the case-study system. Start with PresentSphere for product/architecture and Ascension for client delivery; give Russound, Cosmic Zen and Little Portal Studio different narrative/media arrangements suited to their work. Show selective diagrams, visual iterations, working UI demonstrations, media and source where useful. Replace the current two-paragraph shells with evidence-led stories, without padding every project to the same length. Restore the first portfolio preview if its retained source can run cleanly.
+Joey approved the corrected image framing and authorized this phase on November 3. Work, About and Contact are distinct destinations. Home introduces PresentSphere, Russound and Ascension, followed by Cosmic Zen, Little Portal Studio and Rift Riders. The Work page owns the full 12-project selection, filters and search. All 12 case studies now explain the challenge, decisions and delivery using original project evidence.
+
+The case-study rhythm is opening/role/artifact link, challenge, meaningful decisions, selected proof, delivery and next project. PresentSphere and Renamerly have small interactive explanations. App captures are paired at desktop width; full compositions are contained in bounded frames. Creative cases place original artwork beside the opening, then show production frames or game screens. Local Second Brain uses an evidence workflow instead of a fabricated interface. Little Portal Studio retains eight releases inside its single parent entry. About connects the engineering foundation and creative interests; Contact retains the existing validated form and direct email fallback.
+
+| Key view | Visitor question and evidence | Action and behavior | Touch and fallback |
+| --- | --- | --- | --- |
+| Work index | Is there work relevant to me? Twelve approved covers, names and project types | Category/search updates the visible collection; ordinary project links open stories | Wrapping controls and natural reading order; all 12 records in no-JavaScript HTML |
+| Case opening | What is this and what did Joey do? Title, role, year, full original cover | Current artifact/source links and a return to Work | Single-column facts and full contained artwork |
+| Case narrative | What decisions mattered? Concrete tradeoffs, app captures and production artifacts | Sticky desktop anchor index; galleries open original-size images | Wrapped anchor index; native scrolling; complete server-rendered story |
+| PresentSphere example | Who can see a shared profile, private idea or gift plan? Adult-recipient example | Three labeled buttons update an announced permission explanation; 160ms color changes only | Same controls and reading order; reduced motion removes transitions; no-script explanation includes private boundaries |
+| Renamerly example | How does a naming pattern become predictable? Product, view and separator | Local text-only filename preview; no uploads, API calls or account | Stacked labeled controls and wrapping output; initial illustrative result remains readable without scripts |
+| First Portfolio exhibit | Where did the practice begin? Preserved original website and gallery | Explicit archive banner, working gallery/filter/pagination, current contact/resume destinations | Narrow layout, manual carousel, reduced-motion fallback; vendor dependencies served locally under existing CSP |
+
+PresentSphere and Ascension supplied the representative structure before the remaining data was expanded. The bounded rendered review confirmed the inherited Living Archive identity, then corrected oversized portrait galleries, the skip-link destination, duplicated document titles and the adult-recipient example. No new reference direction or animation library was introduced. Atrium remains the homepage motion reference; the case pages use editorial pacing and useful direct interaction, with no scroll traps or hidden-copy reveals.
+
+The restored first portfolio is isolated static content, noindex, with original versioned dependencies and optimized image derivatives. It is an exhibit of earlier work, not a new production app. Its source repository and source masters remain unchanged.
 
 ### Second delivery: one signature Playground experience
 

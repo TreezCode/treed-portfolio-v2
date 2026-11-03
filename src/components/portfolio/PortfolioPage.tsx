@@ -2,11 +2,11 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowDown, ArrowUpRight, Pause, Play, Search, X } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Pause, Play } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { portfolioProjects } from '@/data/portfolio'
-import type { PortfolioCategory, PortfolioProject } from '@/data/portfolio-types'
-import { Contact } from '@/components/sections/Contact'
+import type { PortfolioProject } from '@/data/portfolio-types'
+import { PortfolioCTA } from './PortfolioShell'
 import { DirectionSwitch, GeometryMark, PortfolioFooter, PortfolioHeader } from './PortfolioChrome'
 import './portfolio.css'
 
@@ -261,122 +261,6 @@ function Feature({ project, flip = false }: { project: PortfolioProject; flip?: 
   )
 }
 
-function ProjectArchive() {
-  const [category, setCategory] = useState<PortfolioCategory | 'All work'>('All work')
-  const [query, setQuery] = useState('')
-  const categories = ['All work', 'Web & apps', 'Creative work', 'Tools & systems'] as const
-  const shown = portfolioProjects.filter(
-    (project) =>
-      (category === 'All work' || project.category === category) &&
-      `${project.title} ${project.description} ${project.group ?? ''} ${project.tags.join(' ')}`
-        .toLowerCase()
-        .includes(query.toLowerCase().trim())
-  )
-  return (
-    <section
-      className="folio-collection folio-container"
-      id="archive"
-      aria-labelledby="archive-title"
-    >
-      <div className="folio-section-heading">
-        <h2 id="archive-title">
-          Work worth exploring<span>.</span>
-        </h2>
-        <p>
-          Client work, independent products, and the things I made because I wanted to see them
-          exist.
-        </p>
-      </div>
-      <div className="folio-archive-tools">
-        <div className="folio-filters" role="group" aria-label="Filter projects">
-          {categories.map((value) => (
-            <button
-              key={value}
-              type="button"
-              aria-pressed={category === value}
-              onClick={() => setCategory(value)}
-            >
-              {value}
-              <span>
-                {value === 'All work'
-                  ? portfolioProjects.length
-                  : portfolioProjects.filter((project) => project.category === value).length}
-              </span>
-            </button>
-          ))}
-        </div>
-        <div className="folio-search">
-          <Search size={18} />
-          <label htmlFor="project-search" className="sr-only">
-            Search projects
-          </label>
-          <input
-            id="project-search"
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Find something"
-          />
-          {query && (
-            <button type="button" onClick={() => setQuery('')} aria-label="Clear search">
-              <X size={16} />
-            </button>
-          )}
-        </div>
-      </div>
-      <noscript>
-        <style>{'.folio-archive-tools { display: none; }'}</style>
-      </noscript>
-      <p className="folio-results" aria-live="polite" aria-atomic="true">
-        {shown.length} {shown.length === 1 ? 'project' : 'projects'}
-        {query && ` matching “${query}”`}
-      </p>
-      <div className="folio-project-grid">
-        {shown.map((project) => (
-          <article key={project.id} className="folio-project-card">
-            <Link className={`folio-card-image cover-${project.id}`} href={`/work/${project.id}`}>
-              <Image
-                src={project.image.src}
-                alt={project.image.alt}
-                fill
-                sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw"
-              />
-            </Link>
-            <div className="folio-project-meta">
-              <span>{project.group || project.category}</span>
-              <span>{project.year}</span>
-            </div>
-            <h3>
-              <Link href={`/work/${project.id}`}>
-                {project.title}
-                <ArrowUpRight size={19} />
-              </Link>
-            </h3>
-            <p>{project.description}</p>
-            <span className="folio-project-kind">{project.kind}</span>
-          </article>
-        ))}
-      </div>
-      {shown.length === 0 && (
-        <div className="folio-empty">
-          <h3>No projects found.</h3>
-          <p>Try a project name, a medium, or a technology.</p>
-          <button
-            className="folio-button"
-            type="button"
-            onClick={() => {
-              setQuery('')
-              setCategory('All work')
-            }}
-          >
-            Show all work
-          </button>
-        </div>
-      )}
-    </section>
-  )
-}
-
 export default function PortfolioPage({
   direction = 'archive',
 }: {
@@ -385,100 +269,118 @@ export default function PortfolioPage({
   const root = useRef<HTMLDivElement>(null)
   const [paused, setPaused] = useState(false)
   useChoreography(root, paused)
-  const featured = ['presentsphere', 'russound-digital-experience']
+  const featured = ['presentsphere', 'russound-digital-experience', 'ascension-roofing']
     .map((id) => portfolioProjects.find((project) => project.id === id))
     .filter((project): project is PortfolioProject => Boolean(project))
   return (
     <div className={`folio folio-${direction}`} ref={root} data-motion-paused={paused}>
       <PortfolioHeader direction={direction} />
-      {direction === 'fieldnotes' && <DirectionSwitch direction={direction} />}
-      <Hero direction={direction} paused={paused} setPaused={setPaused} />
-      <div className="folio-intro folio-container">
-        <GeometryMark />
-        <p>
-          Good engineering makes it work.
-          <br />
-          <span>A little imagination makes it yours.</span>
-        </p>
-        <a className="folio-text-link" href="#archive">
-          Explore {portfolioProjects.length} selected projects <ArrowDown size={18} />
-        </a>
-      </div>
-      <section
-        className="folio-selected folio-container"
-        id="work"
-        aria-labelledby="selected-title"
-      >
-        <div className="folio-section-heading">
-          <h2 id="selected-title">
-            A few ways
-            <br />
-            curiosity takes shape<span>.</span>
-          </h2>
-          <p>
-            A family product and an interactive audio experience. Two different problems, each
-            carried from an idea into working software.
-          </p>
-        </div>
-        {featured.map((project, index) => (
-          <Feature key={project.id} project={project} flip={index === 1} />
-        ))}
-      </section>
-      <div className="folio-band" aria-hidden="true">
-        <div>
-          Practical mind. <GeometryMark /> Curious streak.
-        </div>
-        <div>
-          Built with intent. <GeometryMark /> Made to explore.
-        </div>
-      </div>
-      <ProjectArchive />
-      <section className="folio-about folio-container" id="about" aria-labelledby="about-title">
-        <div>
+      <main id="main-content" tabIndex={-1}>
+        {direction === 'fieldnotes' && <DirectionSwitch direction={direction} />}
+        <Hero direction={direction} paused={paused} setPaused={setPaused} />
+        <div className="folio-intro folio-container">
           <GeometryMark />
-          <h2 id="about-title">
-            There’s a person
+          <p>
+            Good engineering makes it work.
             <br />
-            behind the pixels.
-          </h2>
+            <span>A little imagination makes it yours.</span>
+          </p>
+          <Link className="folio-text-link" href="/work">
+            Explore {portfolioProjects.length} selected projects <ArrowDown size={18} />
+          </Link>
         </div>
-        <div>
-          <p className="folio-about-lead">
-            I’m Joey. Treez is the creative side of the same brain.
-          </p>
-          <p>
-            I’m a Pennsylvania-based software engineer with a background in information security. I
-            work across product design and development, taking projects through the details that
-            turn an idea into something people can use.
-          </p>
-          <p>
-            Off the beaten path, you’ll find my animated worlds, original music, and a lasting
-            fascination with sacred geometry. That curiosity carries into the software, too.
-          </p>
-          <dl className="folio-credentials">
-            <div>
-              <dt>Foundation</dt>
-              <dd>
-                A.A.S. Information Security
-                <br />
-                CompTIA Security+
-              </dd>
-            </div>
-            <div>
-              <dt>Practice</dt>
-              <dd>
-                TypeScript · React · Next.js
-                <br />
-                Creative development & motion
-              </dd>
-            </div>
-          </dl>
-          <a className="folio-text-link" href="/joey-kubalak-resume.pdf" download>
-            Download my résumé <ArrowDown size={18} />
-          </a>
+        <section
+          className="folio-selected folio-container"
+          id="work"
+          aria-labelledby="selected-title"
+        >
+          <div className="folio-section-heading">
+            <h2 id="selected-title">
+              A few ways
+              <br />
+              curiosity takes shape<span>.</span>
+            </h2>
+            <p>
+              Open a story to see the product decisions, technical constraints and details that
+              brought the work together.
+            </p>
+          </div>
+          {featured.map((project, index) => (
+            <Feature key={project.id} project={project} flip={index === 1} />
+          ))}
+        </section>
+        <div className="folio-band" aria-hidden="true">
+          <div>
+            Practical mind. <GeometryMark /> Curious streak.
+          </div>
+          <div>
+            Built with intent. <GeometryMark /> Made to explore.
+          </div>
         </div>
-      </section>
-      <Contact />
+        <section className="folio-home-worlds folio-container" aria-labelledby="worlds-title">
+          <div className="folio-section-heading">
+            <h2 id="worlds-title">
+              Leave room
+              <br />
+              for wonder<span>.</span>
+            </h2>
+            <p>
+              The creative side of the practice: characters, places and a game worth learning to
+              play.
+            </p>
+          </div>
+          <div className="folio-home-world-grid">
+            {['cosmic-zen', 'little-portal-studio', 'rift-riders'].map((id) => {
+              const project = portfolioProjects.find((item) => item.id === id)!
+              return (
+                <article key={id}>
+                  <Link className={`folio-card-image cover-${id}`} href={`/work/${id}`}>
+                    <Image
+                      src={project.image.src}
+                      alt={project.image.alt}
+                      fill
+                      sizes="(max-width: 760px) 100vw, 33vw"
+                    />
+                  </Link>
+                  <h3>
+                    <Link href={`/work/${id}`}>
+                      {project.title} <ArrowUpRight size={18} />
+                    </Link>
+                  </h3>
+                  <p>{project.kind}</p>
+                </article>
+              )
+            })}
+          </div>
+          <Link className="folio-text-link" href="/work">
+            Explore all selected work <ArrowUpRight size={18} />
+          </Link>
+        </section>
+        <section className="folio-about folio-container" id="about" aria-labelledby="about-title">
+          <div>
+            <GeometryMark />
+            <h2 id="about-title">
+              There’s a person
+              <br />
+              behind the pixels.
+            </h2>
+          </div>
+          <div>
+            <p className="folio-about-lead">
+              I’m Joey. Treez is the creative side of the same brain.
+            </p>
+            <p>
+              I’m a Pennsylvania-based software engineer with a background in information security.
+              I work across product design and development, taking projects through the details that
+              turn an idea into something people can use.
+            </p>
+            <Link className="folio-text-link" href="/about">
+              A little more about me <ArrowUpRight size={18} />
+            </Link>
+          </div>
+        </section>
+        <PortfolioCTA />
+      </main>
       <PortfolioFooter />
     </div>
   )

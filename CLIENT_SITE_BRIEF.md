@@ -28,6 +28,8 @@ Joey approved the 12-project list on November 3 and requested full-image framing
 
 The current authorization covers local implementation and verification. It does not authorize public deployment.
 
+After approving the corrected framing, Joey authorized the multi-page build and deeper case studies. This delivery creates Home, Work, About and Contact, expands all 12 approved project stories, adds two small illustrative interactions, and restores the first portfolio as a clearly labeled historical exhibit. The later Playground and standalone game remain separate planned deliveries.
+
 ## Content authority and proof
 
 `PRODUCT.md` owns the audience and product boundaries. Current original project records, source repositories and deployed pages own factual claims; `DESIGN.md` owns visual expression. Historical copy and knowledge-base summaries are discovery pointers.
@@ -45,6 +47,8 @@ Warm, precise, curious and confident. Use concrete language and personality. Kee
 **OpenSEO status:** `list_projects` was checked during this pass. The account contains Ascension and Codorus projects, with no Build With Treez project. No project was created and no new paid research was run.
 
 **Research treatment:** Search for the public portfolio; product UI for navigation and controls. **Research status: fallback research**, using bounded current public portfolio results and original repository/project evidence. No search-volume, ranking or conversion estimate is asserted. No first-party recruiter-language corpus is available. Primary intent remains finding and evaluating Joey Kubalak's software-engineering portfolio, not competing with Codorus Web's service pages.
+
+The multi-page copy reuses this same-day research pass. Per-project original-source verification is recorded in the local product, client and creative case-study provenance notes. Case narratives distinguish the problem, consequential decisions and delivered behavior. Architecture explanations and interactive examples are authored from those sources; they are not screenshots or embedded versions of the underlying products.
 
 ## Acceptance and measurement
 

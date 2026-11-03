@@ -1,0 +1,2 @@
+# Historical vendor files retain exact bytes for their integrity hashes.
+public/archive/first-portfolio/vendor/** -text

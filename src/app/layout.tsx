@@ -178,9 +178,7 @@ export default function RootLayout({
         </a>
         <ThemeProvider>
           <PerfProvider>
-            <main id="main-content" className="flex-1">
-              {children}
-            </main>
+            <div className="flex-1">{children}</div>
             {isPerfEnabled && <PerfOverlayRoot />}
           </PerfProvider>
         </ThemeProvider>

@@ -27,7 +27,8 @@ function ArrowIcon() {
   )
 }
 
-export function Contact() {
+export function Contact({ headingLevel = 'h2' }: { headingLevel?: 'h1' | 'h2' }) {
+  const Heading = headingLevel
   const honeypotRef = useRef<HTMLInputElement>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -79,9 +80,9 @@ export function Contact() {
             <span className="section-index" aria-hidden="true">
               04
             </span>
-            <h2 id="contact-title" className="text-headline">
+            <Heading id="contact-title" className="text-headline">
               Let&apos;s talk about the work.
-            </h2>
+            </Heading>
             <p>
               Hiring for a software, product, front-end, or full-stack role? Send the role, the
               problem your team is solving, or the part of my work you want to discuss.

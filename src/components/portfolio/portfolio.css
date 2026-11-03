@@ -700,6 +700,10 @@
   color: var(--paper);
   border-radius: 3px;
 }
+.folio .contact-form-shell button[type='submit']:hover:not(:disabled) {
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--paper), 0 0 0 3px var(--accent);
+}
 .folio-footer {
   display: flex;
   align-items: center;

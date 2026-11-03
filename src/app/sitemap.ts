@@ -9,6 +9,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 1,
     },
+    ...['work', 'about', 'contact'].map((path) => ({
+      url: `https://buildwithtreez.com/${path}`,
+      lastModified: new Date('2026-11-03'),
+      changeFrequency: 'monthly' as const,
+      priority: path === 'work' ? 0.9 : 0.6,
+    })),
     ...indexablePortfolioProjects.map((project) => ({
       url: `https://buildwithtreez.com/work/${project.id}`,
       lastModified: new Date('2026-11-03'),

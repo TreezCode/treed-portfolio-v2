@@ -29,9 +29,11 @@ export function GeometryMark({ className = '' }: { className?: string }) {
 export function PortfolioHeader({
   direction = 'archive',
   detail = false,
+  active,
 }: {
   direction?: 'archive' | 'fieldnotes'
   detail?: boolean
+  active?: 'work' | 'about' | 'contact'
 }) {
   const home = direction === 'archive' ? '/' : '/directions/fieldnotes'
   return (
@@ -43,9 +45,15 @@ export function PortfolioHeader({
         </span>
       </Link>
       <nav aria-label="Main navigation">
-        <a href={`${detail ? home : ''}#work`}>Work</a>
-        <a href={`${detail ? home : ''}#about`}>About</a>
-        <a href={`${detail ? home : ''}#contact`}>Contact</a>
+        <Link href="/work" aria-current={active === 'work' && !detail ? 'page' : undefined}>
+          Work
+        </Link>
+        <Link href="/about" aria-current={active === 'about' ? 'page' : undefined}>
+          About
+        </Link>
+        <Link href="/contact" aria-current={active === 'contact' ? 'page' : undefined}>
+          Contact
+        </Link>
       </nav>
       <a className="folio-resume" href="/joey-kubalak-resume.pdf" download>
         Résumé <ArrowDown size={16} />
@@ -79,6 +87,9 @@ export function PortfolioFooter() {
         <span>Keep making interesting things.</span>
       </a>
       <div>
+        <Link href="/work">Work</Link>
+        <Link href="/about">About</Link>
+        <Link href="/contact">Contact</Link>
         <a href="https://github.com/TreezCode" target="_blank" rel="noreferrer">
           GitHub <ArrowUpRight size={15} />
         </a>

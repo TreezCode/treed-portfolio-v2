@@ -406,7 +406,7 @@ export const developmentProjects: PortfolioProject[] = [
     kind: 'Archived personal website',
     year: 'Archive',
     description:
-      'The earlier, framework-free portfolio. An origin point in HTML, CSS and JavaScript.',
+      'The earlier portfolio, built with HTML, CSS and JavaScript. An origin point for the work that followed.',
     role: 'Design and front-end development',
     image: {
       src: '/portfolio/2026/vanilla-portfolio.webp',
@@ -414,7 +414,7 @@ export const developmentProjects: PortfolioProject[] = [
     },
     tags: ['JavaScript', 'HTML', 'CSS'],
     story: [
-      'A personal website built directly with HTML, CSS and JavaScript. Keeping it in the collection makes the progression visible, from the fundamentals to dimensional interfaces, products and a broader creative practice.',
+      'A personal website built with HTML, CSS and JavaScript, with Bootstrap and jQuery helpers. Keeping it in the collection makes the progression visible, from the fundamentals to dimensional interfaces, products and a broader creative practice.',
     ],
     links: [{ label: 'View source', href: 'https://github.com/TreezCode/TreezCode.github.io' }],
   },

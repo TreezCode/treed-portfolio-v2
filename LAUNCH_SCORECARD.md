@@ -1,6 +1,36 @@
 # Build With Treez: local redesign verification
 
-Date: November 3, 2026. Status: Living Archive and the 12-project selection approved; requested image framing corrected. No production deployment.
+Date: November 3, 2026. Status: Living Archive, the 12-project selection and corrected framing approved. Authorized multi-page delivery implemented and locally verified. No production deployment.
+
+## Current multi-page delivery
+
+Home now introduces three professional/product stories and three creative worlds. Work, About and Contact have their own routes. All 12 approved projects have source-backed case studies, with 19 actual app, website, game and production images. PresentSphere and Renamerly include small local interactive explanations. Little Portal Studio remains one parent entry with eight releases. The first portfolio is restored as a labeled, noindex historical exhibit at `/archive/first-portfolio/index.html`.
+
+- [x] Production build passes with 52 generated routes. ESLint passes. The approved selection and full-image framing are preserved.
+- [x] All 16 primary destinations (Home, Work, About, Contact and 12 cases) return 200 at desktop 1440px and mobile 390px. Six additional narrow 320px checks and six 200% text-size checks pass, totaling 44 views with no horizontal overflow, broken loaded images, duplicate main landmarks or missing/duplicate h1 headings.
+- [x] Galleries use full source compositions without hover zoom. Portrait app screens are paired at desktop widths and capped at a readable height; mobile uses one column. Representative galleries were scrolled, decoded and visually reviewed.
+- [x] Keyboard skip navigation bypasses the header and focuses the actual main region. Page titles, canonical routes, indexable selection and 24-entry sitemap are correct. An unknown project returns 404.
+- [x] Category filtering, search, empty/reset states and the Work-to-project-to-Work round trip pass. Creative returns three projects; Little Portal search returns one parent; all eight studio releases remain inside it.
+- [x] PresentSphere's adult-recipient example preserves private ideas, accepted collaboration and recipient exclusion. Renamerly's illustrative filename responds to text, view and separator changes. Both use labeled native controls; no product account, upload or API is involved.
+- [x] No-JavaScript pages retain all 12 project links and complete case content. Optional filters and the interactive contact form are hidden; a direct email route remains.
+- [x] Fine-pointer movement, native scroll, pause and runtime reduced-motion changes pass. Touch emulation follows the home anchor and Work navigation. Reduced motion removes demo color transitions. No uncaught page errors were recorded.
+- [x] Contact validation blocks invalid data without a request. Intercepted success clears the form; intercepted failure exposes direct email recovery. No real messages were sent. A final hover-state correction keeps the submit button in the approved high-contrast palette instead of inheriting the old purple hover fill.
+- [x] The historical exhibit passes a separate desktop 1680px/mobile 390px review of navigation, gallery category/search/pagination, manual carousel and visible image loading. Exact original dependencies are served locally under the unchanged CSP. It is an earlier-work exhibit, not a claim of modernizing every legacy interaction.
+
+Independent reviews covered case-source accuracy and permissions teaching, keyboard landmarks and metadata, plus desktop/mobile composition. Corrections included the adult-recipient example, skip target, duplicate title suffixes, oversized portrait galleries and contact hover color. Existing original source images and repositories were not altered.
+
+| Current mobile lab | Performance | Accessibility | LCP | TBT | CLS |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Home | 95 | 100 | 2.96s | 39.5ms | 0 |
+| PresentSphere case | 96 | 100 | 2.71s | 38ms | 0 |
+
+Single Lighthouse 13.4.1 simulated mobile runs on build `MWEEipxDcTxgJnd5PmnTy`. These are local lab scores, not field Core Web Vitals, screen-reader review or physical-device qualification. LCP remains above 2.5s; render-blocking CSS and unused initial-load JavaScript are bounded release-optimization opportunities. Images passed the image-delivery audit. Final build `ZsboOpaOspyOC6uv5dd7k` adds only the contact hover CSS correction, confirmed in `multipage-hover-confirmation.txt`; it does not change either audited page's behavior.
+
+Evidence: `output/playwright/multipage-final-results.txt`, final-multipage/final-gallery/final-sharing/final-filename/final-contact screenshots, and `multipage-lighthouse-{home,presentsphere}.{json,html}`. Local source and asset provenance in `docs/portfolio-refresh/`: `product-case-study-provenance.md`, `client-case-provenance.md`, `case-studies-creative-provenance.md`, case asset manifests and `first-portfolio-restoration.md`.
+
+### Measurement after an authorized launch
+
+Use case opens, artifact/source visits, resume downloads and successful contact delivery as supporting signals. Do not count internal QA as engagement. At 30 days, check that the real journeys work and review any recruiter questions. At 60 days, use those questions to improve unclear cases and assess the optional Playground entry. At 90 days, evaluate substantive engineering conversations and interviews alongside engagement, without attributing outcomes to the redesign from sparse evidence. No tracking service or new data collection was introduced in this delivery.
 
 ## Current image-framing correction
 
@@ -82,7 +112,7 @@ Local evidence: output/playwright/final-results.json, contact-results.txt, fallb
 ## Before public launch
 
 - Obtain the outstanding named public portfolio/media permission for Russound and contributor distribution permission for Rift Riders. Local preview inclusion does not settle those permissions.
-- Living Archive and the curated project list are approved. Complete the remaining page build and final owner review, then explicitly authorize production publication when ready.
+- Living Archive, the curated project list and image framing are approved. Review the completed multi-page delivery, then explicitly authorize production publication when ready. The Geometry Bench Playground and later standalone game remain planned future work.
 - Perform physical mobile Safari/touch and assistive-technology review. Current verification used desktop Chromium and mobile emulation, not physical devices.
 - Check production email delivery and hosted performance when a release is authorized. Current form tests were intercepted and the existing contact endpoint was preserved.
 
