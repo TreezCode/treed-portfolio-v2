@@ -36,6 +36,7 @@ import {
   type PuzzleState,
 } from './puzzle'
 import { ObservatoryDiagram } from './ObservatoryDiagram'
+import { trackAnalytics } from '@/lib/analytics'
 
 const ObservatoryCanvas = dynamic(() => import('./ObservatoryCanvas'), {
   ssr: false,
@@ -120,6 +121,8 @@ export default function PortalKeeper() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const stageRef = useRef<HTMLDivElement>(null)
   const completionRef = useRef<HTMLHeadingElement>(null)
+  const startReported = useRef(false)
+  const completionReported = useRef(false)
   const reducedMotion = useSyncExternalStore(subscribeMotion, motionSnapshot, serverSnapshot)
   const documentVisible = useSyncExternalStore(subscribeVisibility, visibleSnapshot, serverSnapshot)
   const light = traceLight(state)
@@ -127,6 +130,7 @@ export default function PortalKeeper() {
   const current = mechanisms.find((item) => item.id === selected)!
   const failedScene = useCallback(() => setFailed(true), [])
   const selectMechanism = useCallback((mechanism: Mechanism) => {
+    if (!startReported.current) startReported.current = trackAnalytics('game_start')
     setSelected(mechanism)
     setNotice('')
   }, [])
@@ -143,6 +147,8 @@ export default function PortalKeeper() {
       } catch {
         setSaveAvailable(false)
       }
+      // Returning to a completed save is not a new room completion.
+      completionReported.current = Boolean(restored?.entered)
       dispatch({ type: 'restore', state: restored ?? INITIAL_STATE })
     })
     return () => cancelAnimationFrame(frame)
@@ -257,6 +263,12 @@ export default function PortalKeeper() {
   }
 
   function change(next: PuzzleState) {
+    if (session.hydrated && JSON.stringify(next) !== JSON.stringify(state)) {
+      if (!startReported.current) startReported.current = trackAnalytics('game_start')
+      if (next.entered && !state.entered && traceLight(next).solved && !completionReported.current) {
+        completionReported.current = trackAnalytics('game_complete')
+      }
+    }
     dispatch({ type: 'change', state: next })
     setNotice('')
     if (sound)
@@ -503,7 +515,14 @@ export default function PortalKeeper() {
                 type="button"
                 aria-expanded={hintLevel > 0}
                 aria-controls="keeper-hint"
-                onClick={() => setHintLevel((level) => (level === 3 ? 0 : level + 1))}
+                onClick={() => {
+                  const next = hintLevel === 3 ? 0 : hintLevel + 1
+                  if (next) {
+                    if (!startReported.current) startReported.current = trackAnalytics('game_start')
+                    trackAnalytics('game_hint', { hint_level: next })
+                  }
+                  setHintLevel(next)
+                }}
               >
                 <CircleHelp size={16} />
                 {hintLevel === 0

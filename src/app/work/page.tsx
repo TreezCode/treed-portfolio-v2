@@ -1,14 +1,15 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/metadata'
 import { PortfolioShell, PortfolioCTA } from '@/components/portfolio/PortfolioShell'
 import ProjectCollection from '@/components/portfolio/ProjectCollection'
 import KeeperStoryPreview from '@/components/playground/KeeperStoryPreview'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Selected Work',
   description:
     'Explore software products, client websites and original creative work by Joey Kubalak, with the decisions and implementation behind each project.',
-  alternates: { canonical: '/work' },
-}
+  path: '/work',
+  image: { url: '/share/work', alt: 'Selected software and creative work by Joey Kubalak' },
+})
 
 export default function WorkPage() {
   return (

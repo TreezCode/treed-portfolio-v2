@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/metadata'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
@@ -7,12 +7,13 @@ import LegacyBenchRecipe from '@/components/playground/LegacyBenchRecipe'
 import KeeperStoryPreview from '@/components/playground/KeeperStoryPreview'
 import '@/components/playground/playground-hub.css'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Playground | Geometry, games and curious worlds',
   description:
     'Make a geometric print or wake a sleeping world. Explore the Geometry Bench and The Portal Keeper, two interactive experiences by Joey Kubalak.',
-  alternates: { canonical: '/playground' },
-}
+  path: '/playground',
+  image: { url: '/share/playground', alt: 'The Playground, with the Portal Keeper observatory' },
+})
 
 export default function PlaygroundPage() {
   return (

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/metadata'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft, ArrowDown, ArrowUpRight } from 'lucide-react'
@@ -6,23 +6,16 @@ import { PortfolioShell } from '@/components/portfolio/PortfolioShell'
 import LightPathDemo from '@/components/portal-keeper/LightPathDemo'
 import '@/components/portal-keeper/keeper-case-study.css'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'The Portal Keeper | Building a playable world',
   description:
     'Inside an original Three.js puzzle by Joey Kubalak: calculated light reflections, procedural worldbuilding and one puzzle model shared by 3D and flat views.',
-  alternates: { canonical: '/work/portal-keeper' },
-  openGraph: {
-    title: 'The Portal Keeper | Build With Treez',
-    description: 'How a small optical puzzle became a world worth stepping into.',
-    url: '/work/portal-keeper',
-    images: [
-      {
-        url: '/portfolio/portal-keeper/observatory.png',
-        alt: 'The Portal Keeper observatory with brass mirrors, geometric plants and an arched portal',
-      },
-    ],
+  path: '/work/portal-keeper',
+  image: {
+    url: '/share/portal-keeper-story',
+    alt: 'Inside The Portal Keeper: the garden beyond the observatory portal',
   },
-}
+})
 
 export default function PortalKeeperCaseStudyPage() {
   return (

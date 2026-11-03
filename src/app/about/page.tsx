@@ -1,16 +1,17 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { GeometryMark } from '@/components/portfolio/PortfolioChrome'
 import { PortfolioShell, PortfolioCTA } from '@/components/portfolio/PortfolioShell'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'About',
   description:
     'Meet Joey Kubalak, a Pennsylvania-based software engineer and creative maker with an information-security foundation and a curiosity for interactive worlds.',
-  alternates: { canonical: '/about' },
-}
+  path: '/about',
+  image: { url: '/share/about', alt: 'About Joey Kubalak. A practical mind. A curious streak.' },
+})
 
 export default function AboutPage() {
   return (

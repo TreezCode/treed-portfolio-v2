@@ -34,6 +34,7 @@ import {
   type BenchPalette,
 } from './bench-config'
 import { buildPosterSvg } from './bench-poster'
+import { trackAnalytics } from '@/lib/analytics'
 
 const GeometryCanvas = dynamic(() => import('./GeometryCanvas'), { ssr: false })
 const reducedQuery = '(prefers-reduced-motion: reduce)'
@@ -93,6 +94,7 @@ export default function GeometryBench() {
   const [config, setConfig] = useState<BenchConfig>(DEFAULT_CONFIG)
   const [paused, setPaused] = useState(false)
   const [yaw, setYaw] = useState(0)
+  const [viewReset, setViewReset] = useState(0)
   const [visible, setVisible] = useState(true)
   const [ready, setReady] = useState(false)
   const [failed, setFailed] = useState(false)
@@ -103,6 +105,7 @@ export default function GeometryBench() {
   const benchRef = useRef<HTMLDivElement>(null)
   const drag = useRef<{ x: number; yaw: number } | null>(null)
   const captureRef = useRef<(() => string | null) | null>(null)
+  const interactionReported = useRef(false)
   const reducedMotion = useSyncExternalStore(subscribeMotion, motionSnapshot, serverSnapshot)
   const documentVisible = useSyncExternalStore(
     subscribeVisibility,
@@ -131,6 +134,7 @@ export default function GeometryBench() {
       if (restored) {
         setConfig(restored)
         setYaw(0)
+        setViewReset((value) => value + 1)
         setMessage('Shared recipe loaded. Make it your own.')
       } else if (window.location.hash.startsWith('#bench='))
         setMessage('That recipe could not be opened. Try one of the starting points below.')
@@ -167,7 +171,12 @@ export default function GeometryBench() {
     return () => observer.disconnect()
   }, [])
 
+  function reportInteraction() {
+    if (!interactionReported.current) interactionReported.current = trackAnalytics('bench_interaction')
+  }
+
   function update(values: Partial<BenchConfig>) {
+    reportInteraction()
     setConfig((previous) => normalizeConfig({ ...previous, ...values }))
     setCopied(false)
     setShareUrl('')
@@ -175,8 +184,10 @@ export default function GeometryBench() {
   }
 
   function selectPreset(next: BenchConfig) {
+    reportInteraction()
     setConfig({ ...next })
     setYaw(0)
+    setViewReset((value) => value + 1)
     setCopied(false)
     setShareUrl('')
     setMessage('')
@@ -189,6 +200,8 @@ export default function GeometryBench() {
     window.history.replaceState(window.history.state, '', url)
     try {
       await navigator.clipboard.writeText(url.href)
+      reportInteraction()
+      trackAnalytics('bench_share')
       setCopied(true)
       setMessage('Recipe link copied. It opens this shape, palette and settings.')
     } catch {
@@ -200,6 +213,8 @@ export default function GeometryBench() {
   function savePoster() {
     const url = URL.createObjectURL(new Blob([buildPosterSvg(config)], { type: 'image/svg+xml' }))
     downloadFile(url, `geometry-bench-${config.shape}-${config.seed}.svg`)
+    reportInteraction()
+    trackAnalytics('bench_export', { format: 'svg' })
     setTimeout(() => URL.revokeObjectURL(url), 1000)
     setMessage('Your flat geometric print is ready as an SVG.')
   }
@@ -208,6 +223,8 @@ export default function GeometryBench() {
     const data = captureRef.current?.()
     if (data) {
       downloadFile(data, `geometry-bench-${config.shape}-${config.seed}.png`)
+      reportInteraction()
+      trackAnalytics('bench_export', { format: 'png' })
       setMessage('Your current 3D view is ready as a PNG.')
     } else setMessage('The 3D view could not be saved. You can still save the SVG print.')
   }
@@ -268,6 +285,7 @@ export default function GeometryBench() {
                 if (!drag.current) return
                 const distance = event.clientX - drag.current.x
                 if (Math.abs(distance) > 5) {
+                  reportInteraction()
                   setPaused(true)
                   setYaw(drag.current.yaw + distance * 0.009)
                 }
@@ -287,6 +305,7 @@ export default function GeometryBench() {
                   <GeometryCanvas
                     config={config}
                     yaw={yaw}
+                    viewReset={viewReset}
                     paused={paused || !visible || !documentVisible}
                     reducedMotion={reducedMotion}
                     onReady={sceneReady}
@@ -324,6 +343,7 @@ export default function GeometryBench() {
                   aria-label="Turn sculpture left"
                   disabled={failed}
                   onClick={() => {
+                    reportInteraction()
                     setPaused(true)
                     setYaw((value) => value - Math.PI / 8)
                   }}
@@ -334,7 +354,12 @@ export default function GeometryBench() {
                   type="button"
                   aria-label="Reset viewing angle"
                   disabled={failed}
-                  onClick={() => setYaw(0)}
+                  onClick={() => {
+                    reportInteraction()
+                    setPaused(true)
+                    setYaw(0)
+                    setViewReset((value) => value + 1)
+                  }}
                 >
                   <RotateCcw size={16} />
                 </button>
@@ -343,6 +368,7 @@ export default function GeometryBench() {
                   aria-label="Turn sculpture right"
                   disabled={failed}
                   onClick={() => {
+                    reportInteraction()
                     setPaused(true)
                     setYaw((value) => value + Math.PI / 8)
                   }}
@@ -442,6 +468,7 @@ export default function GeometryBench() {
             <button
               type="button"
               onClick={() => {
+                reportInteraction()
                 setConfig((value) => makeVariation(value))
                 setCopied(false)
                 setShareUrl('')

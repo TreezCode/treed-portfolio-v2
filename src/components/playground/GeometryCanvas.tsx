@@ -19,6 +19,7 @@ export type GeometryCanvasProps = {
   paused: boolean
   reducedMotion: boolean
   yaw: number
+  viewReset: number
   onReady?: () => void
   onFailure?: () => void
   onCaptureReady?: (capture: (() => string | null) | null) => void
@@ -58,6 +59,7 @@ function Sculpture({
   paused,
   reducedMotion,
   yaw,
+  viewReset,
   onReady,
   onFailure,
   onCaptureReady,
@@ -136,13 +138,20 @@ function Sculpture({
     invalidate()
   }, [active, config, yaw, invalidate])
 
+  useLayoutEffect(() => {
+    // Reset is an explicit action, so pressing it again works even when yaw is already zero.
+    // Shape controls and pause/resume leave accumulated motion alone.
+    phase.current = 0
+    invalidate()
+  }, [viewReset, invalidate])
+
   useFrame((_, delta) => {
     if (active) phase.current += Math.min(delta, 0.05) * (0.02 + config.speed * 0.0024)
     if (group.current) {
       // Single ownership of the sculpture pose: explicit view + accumulated active time.
       group.current.rotation.set(
-        -0.18 + Math.sin(phase.current * 0.65) * 0.12,
-        yaw + 0.28 + Math.sin(phase.current * 0.47) * 0.18,
+        Math.sin(phase.current * 0.65) * 0.12,
+        yaw + Math.sin(phase.current * 0.47) * 0.18,
         phase.current * 0.35
       )
     }

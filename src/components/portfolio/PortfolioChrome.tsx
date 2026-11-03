@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
+import { AnalyticsPreferencesButton } from '@/components/analytics/PortfolioAnalytics'
 
 export function GeometryMark({ className = '' }: { className?: string }) {
   return (
@@ -100,6 +101,8 @@ export function PortfolioFooter() {
         </Link>
         <Link href="/about">About</Link>
         <Link href="/contact">Contact</Link>
+        <Link href="/privacy">Privacy</Link>
+        <AnalyticsPreferencesButton />
         <a href="https://github.com/TreezCode" target="_blank" rel="noreferrer">
           GitHub <ArrowUpRight size={15} />
         </a>

@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: 'https://buildwithtreez.com',
-      lastModified: new Date(),
+      lastModified: new Date('2026-11-03'),
       changeFrequency: 'monthly',
       priority: 1,
     },
@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       'work/portal-keeper',
       'about',
       'contact',
+      'privacy',
     ].map((path) => ({
       url: `https://buildwithtreez.com/${path}`,
       lastModified: new Date('2026-11-03'),

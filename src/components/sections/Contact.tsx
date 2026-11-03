@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import type { z } from 'zod'
 import { contactSchema, type ContactFormData } from '@/lib/validations/contact'
+import { trackAnalytics } from '@/lib/analytics'
 
 const CONTACT_EMAIL = 'jkubalak.dev@gmail.com'
 type ContactFormInput = z.input<typeof contactSchema>
@@ -57,8 +58,11 @@ export function Contact({ headingLevel = 'h2' }: { headingLevel?: 'h1' | 'h2' })
       })
 
       if (!response.ok) throw new Error('Contact request failed')
+      const result = await response.json()
+      if (result.success !== true) throw new Error('Contact request was not accepted')
 
       setSubmitStatus('success')
+      if (!honeypotRef.current?.value) trackAnalytics('generate_lead')
       reset()
       if (honeypotRef.current) honeypotRef.current.value = ''
     } catch {

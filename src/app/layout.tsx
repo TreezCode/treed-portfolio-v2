@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
+import { createPageMetadata, SITE_URL } from '@/lib/metadata'
 import { Archivo, Geist_Mono } from 'next/font/google'
 import Script from 'next/script'
+import { PortfolioAnalytics } from '@/components/analytics/PortfolioAnalytics'
+import { indexablePortfolioProjects } from '@/data/portfolio'
 import './globals.css'
 import { ThemeProvider } from '@/contexts/ThemeContext'
 import dynamic from 'next/dynamic'
@@ -68,15 +71,16 @@ const motionInitializationScript = `
 `
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://buildwithtreez.com'),
+  ...createPageMetadata({
+    title: 'Joey Kubalak | Software Engineer & Creative Maker',
+    description:
+      'Software, imaginative digital worlds, and the curiosity behind them. Explore websites, apps, motion design, and creative projects by Joey Kubalak.',
+    path: '/',
+  }),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Joey Kubalak | Software Engineer & Creative Maker',
     template: '%s | Joey Kubalak',
-  },
-  description:
-    'Software, imaginative digital worlds, and the curiosity behind them. Explore websites, apps, motion design, and creative projects by Joey Kubalak.',
-  alternates: {
-    canonical: '/',
   },
   keywords: [
     'Software Engineer',
@@ -94,23 +98,6 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Joey Kubalak' }],
   creator: 'Joey Kubalak',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://buildwithtreez.com',
-    title: 'Joey Kubalak | Software Engineer & Creative Maker',
-    description:
-      'Thoughtful software and imaginative digital worlds. Explore the complete project collection by Joey Kubalak.',
-    siteName: 'Joey Kubalak Portfolio',
-    // Images automatically generated from opengraph-image.tsx
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Joey Kubalak | Software Engineer & Creative Maker',
-    description:
-      'Thoughtful software and imaginative digital worlds. Explore the complete project collection by Joey Kubalak.',
-    // Images automatically generated from opengraph-image.tsx
-  },
   robots: {
     index: true,
     follow: true,
@@ -182,6 +169,7 @@ export default function RootLayout({
             {isPerfEnabled && <PerfOverlayRoot />}
           </PerfProvider>
         </ThemeProvider>
+        <PortfolioAnalytics projectIds={indexablePortfolioProjects.map((project) => project.id)} />
       </body>
     </html>
   )

@@ -1,16 +1,20 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import GeometryBench from '@/components/playground/GeometryBench'
 import { PortfolioShell } from '@/components/portfolio/PortfolioShell'
 import '@/components/playground/playground.css'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Geometry Bench',
   description:
     'An interactive geometry instrument by Joey Kubalak. Shape a bloom, explore an orbit or twist a portal, then keep a print or share the recipe.',
-  alternates: { canonical: '/playground/geometry-bench' },
-}
+  path: '/playground/geometry-bench',
+  image: {
+    url: '/share/geometry-bench',
+    alt: 'The Geometry Bench, an interactive geometry instrument by Joey Kubalak',
+  },
+})
 
 export default function GeometryBenchPage() {
   return (

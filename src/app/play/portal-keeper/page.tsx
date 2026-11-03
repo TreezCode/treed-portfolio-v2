@@ -1,16 +1,20 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import PortalKeeper from '@/components/portal-keeper/PortalKeeper'
 import { PortfolioShell } from '@/components/portfolio/PortfolioShell'
 import '@/components/portal-keeper/portal-keeper.css'
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'The Portal Keeper | A little puzzle adventure',
   description:
     'Wake a sleeping observatory. Turn mirrors, follow the light and open a door into an impossible garden. An original browser puzzle by Joey Kubalak.',
-  alternates: { canonical: '/play/portal-keeper' },
-}
+  path: '/play/portal-keeper',
+  image: {
+    url: '/share/portal-keeper',
+    alt: 'The Portal Keeper observatory, an original browser puzzle by Joey Kubalak',
+  },
+})
 
 export default function PortalKeeperPage() {
   return (

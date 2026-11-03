@@ -48,7 +48,9 @@ The clean edition is now built and locally verified in `experiences/russound`, p
 
 Warm, precise, curious and confident. Use concrete language and personality. Keep project descriptions short; let images and stories carry depth. Avoid authored em dashes, inflated expertise, generic benefit claims and routine disclaimers that weaken supported accomplishments.
 
-**OpenSEO status:** `list_projects` was checked during this pass. The account contains Ascension and Codorus projects, with no Build With Treez project. No project was created and no new paid research was run.
+**OpenSEO status, original direction pass:** `list_projects` showed Ascension and Codorus projects, with no Build With Treez project. No project was created in that pass and no new paid research was run.
+
+**November 3 launch setup:** The owner subsequently authorized GA4 and Search Console setup. OpenSEO project `f5dbaf72-a417-45bd-9ab7-338fc933e578` now holds the approved portfolio context and is connected to the dedicated GA4 property and verified Search Console domain property. The first Search Console read returned no rows. Social metadata reuses the approved positioning and original project facts; consent/privacy copy uses the implemented behavior. This setup does not retroactively turn the earlier copy research into measured search evidence. No paid research or recurring tracking was started. Account settings and deployment follow-up are recorded in `ANALYTICS.md`.
 
 **Research treatment:** Search for the public portfolio; product UI for navigation and controls. **Research status: fallback research**, using bounded current public portfolio results and original repository/project evidence. No search-volume, ranking or conversion estimate is asserted. No first-party recruiter-language corpus is available. Primary intent remains finding and evaluating Joey Kubalak's software-engineering portfolio, not competing with Codorus Web's service pages.
 

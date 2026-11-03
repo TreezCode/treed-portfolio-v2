@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/metadata'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -18,6 +19,14 @@ import '@/components/portfolio/portfolio.css'
 
 type Props = { params: Promise<{ slug: string }> }
 
+function projectLinkKind(href: string) {
+  if (/^https:\/\/(?:www\.)?github\.com\//i.test(href)) return 'source'
+  if (/^https:\/\/(?:www\.)?(?:youtube\.com|youtu\.be)\//i.test(href)) return 'video'
+  if (/^https:\/\/(?:www\.)?etsy\.com\//i.test(href)) return 'product'
+  if (/^https:\/\/(?:www\.)?codorusweb\.com\/work(?:\/|$)/i.test(href)) return 'case_study'
+  return 'site'
+}
+
 export function generateStaticParams() {
   return allPortfolioProjects.map((project) => ({ slug: project.id }))
 }
@@ -25,20 +34,13 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getProject((await params).slug)
   if (!project) return { title: 'Project not found' }
-  return {
+  return createPageMetadata({
     title: project.title,
     description: project.description,
-    robots: indexablePortfolioProjects.some((item) => item.id === project.id)
-      ? undefined
-      : { index: false, follow: true },
-    alternates: { canonical: `/work/${project.id}` },
-    openGraph: {
-      title: `${project.title} | Build With Treez`,
-      description: project.description,
-      url: `/work/${project.id}`,
-      images: [{ url: project.image.src, alt: project.image.alt }],
-    },
-  }
+    noIndex: !indexablePortfolioProjects.some((item) => item.id === project.id),
+    path: `/work/${project.id}`,
+    image: { url: `/share/project-${project.id}`, alt: `${project.title}. ${project.image.alt}` },
+  })
 }
 
 export default async function ProjectPage({ params }: Props) {
@@ -102,6 +104,9 @@ export default async function ProjectPage({ params }: Props) {
                       className="folio-text-link"
                       key={link.href}
                       href={link.href}
+                      data-analytics-event="project_link_click"
+                      data-project-id={project.id}
+                      data-link-kind={projectLinkKind(link.href)}
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -115,6 +120,9 @@ export default async function ProjectPage({ params }: Props) {
                 <a
                   className="folio-text-link"
                   href="/archive/first-portfolio/index.html"
+                  data-analytics-event="project_link_click"
+                  data-project-id={project.id}
+                  data-link-kind="archive"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -176,6 +184,9 @@ export default async function ProjectPage({ params }: Props) {
                       <a
                         className="folio-button"
                         href={link.href}
+                        data-analytics-event="project_link_click"
+                        data-project-id={project.id}
+                        data-link-kind={projectLinkKind(link.href)}
                         key={link.href}
                         target={link.href.startsWith('http') ? '_blank' : undefined}
                         rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
