@@ -4,6 +4,8 @@ The portfolio of Joey Kubalak, a software engineer and creative maker. The Novem
 
 **Live site:** [buildwithtreez.com](https://buildwithtreez.com/)
 
+The Living Archive browser icon is authored in `src/app/icon.svg`. Run `node scripts/prepare-favicon.mjs` after editing it to regenerate the matching ICO fallback at 16, 32, 48, 64, 128 and 256 pixels. Next.js owns the icon links and their versioned URLs. The Apple home-screen icon remains in `src/app/apple-icon.tsx`.
+
 ## November 2026 release
 
 - `/`: Living Archive, the approved direction with three featured stories and a creative selection.

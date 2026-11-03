@@ -12,7 +12,11 @@ Local candidate `9UczBKT3Jvs0IVvQ2ec_4` fixes feedback recovery on an explicit g
 
 Verification: production build, TypeScript and scoped ESLint pass; 21 Node checks (15 audio including subcases, six puzzle) and all three existing game browser journeys pass. Real Chromium audio instrumentation at 390 x 844 confirms a nonzero sound signal after opt-in and gesture-bound resume after suspension. At 720 x 390, visible controls still produce feedback with the scene above the viewport. Motion pause, mute and route-away cleanup also pass with zero page errors. A failed-initialization browser check confirms retry works and clears the stale failure notice. The game keyboard suite now declines the separately tested Analytics notice so that first-visit consent does not obscure its focus assertions. Audio browser evidence is `output/playwright/audio-recovery-qa.js`, `audio-retry-qa.js` and `audio-recovery-results.json`.
 
-This follow-up is local only. The production release below remains unchanged. Physical-phone confirmation of the recovery patch is not claimed.
+Joey subsequently authorized deploying this audio recovery patch together with a matching Living Archive favicon. Physical-phone confirmation of the recovery patch is not claimed. The published follow-up is recorded in `DEPLOYMENT.md` after hosted verification.
+
+### Favicon follow-up
+
+The launch retained the earlier purple/blue browser favicon while updating only the Apple home-screen icon. The correction uses the existing lichen geometry with fewer lines at tab sizes: `src/app/icon.svg` and a genuine ICO fallback containing 16, 32, 48, 64, 128 and 256 pixel frames. `scripts/prepare-favicon.mjs` reproduces the fallback from the vector. The 16/32 pixel frames were independently inspected and remain recognizable, fully inset and legible against light and dark tab surrounds. The Apple icon remains unchanged. Combined production candidate `omYTQzfirJSKt-a-8S_RZ` builds with 107 generated paths.
 
 ### Published release checks
 
