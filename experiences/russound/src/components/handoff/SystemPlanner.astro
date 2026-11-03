@@ -1,0 +1,74 @@
+---
+import '../../styles/handoff-tools.css';
+---
+<section id="planner" class="tt-planner d-section" data-system-planner aria-labelledby="planner-heading">
+  <div class="d-wrap tt-planner-grid">
+    <div class="tt-planner-questions">
+      <p class="d-kicker">Your home. Your music.</p>
+      <h2 id="planner-heading">A few questions.{' '}<br />A clearer starting point.</h2>
+      <p class="tt-intro">Tell us how you want to listen. Save your ideas, then work with an installer to make them fit your home.</p>
+      <form data-planner-form>
+        <fieldset><legend><span>01</span> How many rooms want music?</legend><div class="tt-choices">
+          <label><input type="radio" name="rooms" value="one" /><span>1 room</span></label>
+          <label><input type="radio" name="rooms" value="eight" checked /><span>2 to 8</span></label>
+          <label><input type="radio" name="rooms" value="sixteen" /><span>9 to 16</span></label>
+          <label><input type="radio" name="rooms" value="larger" /><span>More than 16</span></label>
+        </div></fieldset>
+        <fieldset><legend><span>02</span> Would you like TV sound through the system?</legend><div class="tt-choices">
+          <label><input type="radio" name="tv" value="yes" /><span>Yes</span></label>
+          <label><input type="radio" name="tv" value="no" checked /><span>Music comes first</span></label>
+        </div></fieldset>
+        <fieldset><legend><span>03</span> Will you listen outside, too?</legend><div class="tt-choices">
+          <label><input type="radio" name="outdoors" value="yes" /><span>Patio or garden, too</span></label>
+          <label><input type="radio" name="outdoors" value="no" checked /><span>Indoors only</span></label>
+        </div></fieldset>
+        <fieldset><legend><span>04</span> How would you like to choose your music?</legend><div class="tt-choices">
+          <label><input type="radio" name="control" value="app" checked /><span>On my phone</span></label>
+          <label><input type="radio" name="control" value="touchscreen" /><span>A wall touchscreen</span></label>
+          <label><input type="radio" name="control" value="keypad" /><span>A simple wall keypad</span></label>
+        </div></fieldset>
+      </form>
+      <noscript><p class="tt-small">Turn on JavaScript to update and save your answers. You can also <a href="https://russound.com/dealer-locator/">discuss your home with a Russound dealer</a>.</p></noscript>
+    </div>
+    <aside class="tt-plan-card" aria-labelledby="plan-heading">
+      <div class="tt-plan-top"><p class="d-kicker">A conversation worth starting</p><span class="tt-plan-number" aria-hidden="true">↗</span></div>
+      <h3 id="plan-heading" data-plan-heading>Music in every room you choose.</h3>
+      <p class="tt-plan-description" data-plan-description>For a system with up to eight listening zones, explore the SMZ8 controller amplifier.</p>
+      <div class="tt-plan-product">
+        <img src="/oct27/smz8.webp" width="420" height="260" loading="lazy" alt="Russound SMZ8 controller amplifier" data-plan-image />
+        <div><strong data-plan-model>SMZ8</strong><span data-plan-type>Controller amplifier</span><a href="/products/smz8/" class="tt-text-link" data-plan-link>Explore the product ↗</a></div>
+      </div>
+      <div class="tt-plan-options">
+        <h4>Shape the rest around your home.</h4>
+        <p class="tt-plan-options-intro">Products to explore with your installer.</p>
+        <div class="tt-plan-parts" data-plan-products>
+          <a class="tt-plan-part" href="https://russound.com/products/ic-620-6-5-enhanced-performance-loudspeaker/">
+            <span class="tt-plan-part-image"><img src="/media/ic620.webp" width="160" height="160" loading="lazy" alt="Russound IC-620 in-ceiling speaker" /></span>
+            <span class="tt-plan-part-copy"><strong>IC-620</strong><span>In-ceiling speaker</span><small>For discreet sound in your indoor rooms.</small></span><span class="tt-plan-part-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <p class="d-sr-only" data-plan-summary role="status" aria-live="polite"></p>
+      </div>
+      <details class="tt-plan-installation"><summary>Connections and installation notes</summary><ul class="tt-plan-details" data-plan-details>
+        <li>Six zones have built-in amplification. Zones 7 and 8 use separate amplifiers.</li>
+        <li>Choose music and rooms from the Russound App.</li>
+      </ul></details>
+      <p class="tt-plan-qualification">These are starting points to discuss. Your installer confirms the products, quantities, wiring and listening zones for your home.</p>
+      <details class="tt-brief-editor"><summary>View or edit your listening brief</summary><label for="listening-brief" class="d-sr-only">Your editable listening brief</label><textarea id="listening-brief" data-plan-text rows="11" spellcheck="true">RUSSOUND LISTENING BRIEF
+Rooms: 2 to 8
+TV sound: Music comes first
+Outside: Indoors only
+Preferred control: On my phone
+
+Starting point: Explore the SMZ8 controller amplifier with an installer.
+Please confirm the room layout, listening zones, wiring, speaker choices and amplification.
+
+My notes:</textarea><p class="tt-small">Add anything else your installer should know. Changing an answer above refreshes this brief.</p></details>
+      <div class="tt-plan-actions"><button class="d-button" type="button" data-download-plan disabled>Save my brief <span aria-hidden="true">↓</span></button><button class="tt-copy" type="button" data-copy-plan disabled>Copy brief</button></div>
+      <p class="tt-action-status" data-plan-status role="status" aria-live="polite"></p>
+      <a class="d-link" href="https://russound.com/dealer-locator/">Find a Russound dealer <span aria-hidden="true">↗</span></a>
+      <p class="tt-small tt-plan-local">Your answers stay on this page. Save the brief to share it with an installer.</p>
+    </aside>
+  </div>
+</section>
+<script>import '../../scripts/handoff-tools';</script>

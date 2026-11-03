@@ -60,3 +60,14 @@ next-env.d.ts
 /content/portfolio-refresh-2026-11-03/**/*.png
 /content/portfolio-refresh-2026-11-03/**/*.webm
 /content/portfolio-refresh-2026-11-03/**/*.mp4
+
+# Standalone Russound runtime, media staging and generated release artifacts.
+/experiences/russound/node_modules/
+/experiences/russound/.astro/
+/experiences/russound/.cache/
+/experiences/russound/dist/
+/experiences/russound/public/
+/experiences/russound/release/upload/
+/experiences/russound/release/*.zip
+/experiences/russound/evidence/
+/experiences/russound/**/__pycache__/

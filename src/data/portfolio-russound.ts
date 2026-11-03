@@ -20,12 +20,8 @@ export const russoundProjects: PortfolioProject[] = [
       'The work includes responsive navigation, a system planner, model support, an authored listening scene and a visual handoff covering the buyer journey and proposed sitemap.',
       'Developed with Russound feedback and supplied product assets, with a documented handoff for the production implementation partner.',
     ],
-    links: [
-      {
-        label: 'Explore the concept',
-        href: 'https://russound-november-review.pages.dev/handoff-review/',
-      },
-    ],
+    // Add the separate portfolio edition URL after its hosted artifact is verified.
+    links: [],
     group: 'Russound',
     featured: true,
   },

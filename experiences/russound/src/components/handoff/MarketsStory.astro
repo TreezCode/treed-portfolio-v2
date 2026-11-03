@@ -1,0 +1,46 @@
+---
+const markets = [
+  { title: 'Residential', label: 'Explore home audio', href: '/catalog/?family=audio', image: '/refinement29/guide-p03-residential-architecture.webp', width: 1270, height: 714, copy: 'Music for the kitchen, the living room and the spaces in between.' },
+  { title: 'Commercial', label: 'Explore commercial audio', href: 'https://russound.com/audio-systems/commercial-audio/', image: '/refinement29/maureen-lobby.webp', width: 1280, height: 720, copy: 'Create the atmosphere in restaurants, shops and the places people come together.' },
+];
+---
+<section id="applications" class="rf-markets d-section" aria-labelledby="applications-heading">
+  <div class="d-wrap">
+    <div class="rf-markets-heading">
+      <h2 id="applications-heading">Every space{' '}<br />has a soundtrack.</h2>
+      <p>At home or at work, the right sound starts with a system designed for the space.</p>
+    </div>
+    <div class="rf-markets-grid">
+      {markets.map(market => <a class="rf-market" href={market.href}>
+        <figure><img src={market.image} width={market.width} height={market.height} alt="" loading="lazy" /></figure>
+        <div class="rf-market-title"><h3>{market.title}</h3><span class="rf-market-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span></div>
+        <p>{market.copy}</p>
+        <span class="rf-market-action">{market.label}</span>
+      </a>)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .rf-markets{background:var(--surface);color:var(--ink)}
+  .rf-markets-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:45px}
+  .rf-markets-heading h2{font-size:clamp(38px,4.3vw,68px);max-width:17ch}
+  .rf-markets-heading>p{max-width:33ch;font-size:15px;color:var(--muted);padding-bottom:4px}
+  .rf-markets-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(26px,4vw,68px)}
+  .rf-market{display:grid;grid-template-rows:auto auto 1fr auto;min-width:0;text-decoration:none;align-content:start}
+  .rf-market figure{width:100%;aspect-ratio:1.55;overflow:hidden;background:var(--stone)}
+  .rf-market figure img{width:100%;height:100%;object-fit:cover;transition:transform .75s cubic-bezier(.2,.7,.2,1)}
+  .rf-market:first-child figure img{object-position:48% 50%}
+  .rf-market:last-child figure img{object-position:85% 50%}
+  .rf-market-title{display:flex;align-items:center;justify-content:space-between;gap:18px;border-top:1px solid var(--rule);margin-top:26px;padding-top:23px}
+  .rf-market-title h3{font-size:clamp(29px,3vw,45px);font-weight:400;letter-spacing:-.045em}
+  .rf-market-arrow{display:grid;place-items:center;border:1px solid var(--rule);width:48px;height:48px;border-radius:50%;flex:0 0 48px;color:var(--brand-blue);transition:background .2s,border-color .2s}
+  .rf-market-arrow svg{width:21px;height:21px;transition:transform .2s}
+  .rf-market>p{font-size:14px;color:var(--muted);max-width:44ch;margin:16px 0 23px}
+  .rf-market-action{justify-self:start;font-size:12px;line-height:1.6;font-weight:600;color:var(--brand-blue);padding-bottom:7px;border-bottom:1px solid var(--brand-blue)}
+  .rf-market:focus-visible{outline:2px solid var(--brand-blue);outline-offset:10px}
+  @media(hover:hover) and (prefers-reduced-motion:no-preference){.rf-market:hover figure img{transform:scale(1.035)}.rf-market:hover .rf-market-arrow{background:var(--brand-highlight);border-color:var(--brand-highlight)}.rf-market:hover .rf-market-arrow svg{transform:translateX(2px)}}
+  @media(max-width:760px){.rf-markets-heading{align-items:flex-start;flex-direction:column;gap:22px;margin-bottom:34px}.rf-markets-heading h2{font-size:42px}.rf-markets-heading>p{max-width:39ch;font-size:14px}.rf-markets-grid{gap:32px 22px}.rf-market figure{aspect-ratio:1.15}.rf-market-title{margin-top:20px;padding-top:20px;gap:12px}.rf-market-title h3{font-size:29px}.rf-market-arrow{height:40px;width:40px;flex-basis:40px}.rf-market>p{font-size:13px;margin-top:14px}.rf-market-action{font-size:11px}}
+  @media(max-width:540px){.rf-markets-grid{grid-template-columns:1fr;gap:42px}.rf-market figure{aspect-ratio:1.5}.rf-market-title h3{font-size:34px}.rf-market-title{margin-top:23px}.rf-market>p{max-width:40ch;font-size:14px;margin-bottom:20px}.rf-market-action{font-size:12px}}
+  @media(prefers-reduced-motion:reduce){.rf-market img,.rf-market-arrow,.rf-market-arrow svg{transition:none!important;transform:none!important}}
+</style>

@@ -60,7 +60,7 @@ Primary preview: /. Retained study: /directions/fieldnotes. Shared details: /wor
 
 No publication occurred. Joey subsequently confirmed permission to release Rift Riders on November 3; collaborator attribution remains. His Russound requirement is a separate clean portfolio demo with no guide notes or internal communications, preserving the client-review version separately. The clean-demo plan and remaining Russound publication considerations are recorded in the brief and scorecard.
 
-### Russound portfolio-demo recommendation
+### Russound portfolio edition
 
 Use a separately packaged portfolio edition of the currently published November 1 experience, with a dedicated demo destination. Preserve the existing client-review project. The public edition keeps the six visitor routes, cinematic interactions, product discovery, planner, public product-help links and honest non-collecting newsletter state. A small “Portfolio concept” label and return link identify its purpose.
 
@@ -68,7 +68,9 @@ Exclude the shared `ReviewPanel`, the SMZ8 background comparison controls and qu
 
 Implementation baseline: `C:/Dev/russound-marketing/projects/russound-website-direction/work/client-package-simplification-2026-11-01/release/upload/`. The active Astro prototype under `C:/Users/treez/OneDrive/Documents/ChatGPT/Skills/prototypes/russound-cinematic-proof/` has uncommitted work, including the handoff sources; preserve it before preparing an isolated build. The seven current built handoff HTML files matched the frozen payload in the November 3 source audit. Reuse shared components with explicit public/review build separation and an allowlist of required routes/assets.
 
-Before changing the portfolio link, verify the complete exported HTML, JavaScript, data and asset tree; inspect generated planner downloads and source metadata; provide a real 404 for excluded review/PDF paths; and confirm no navigation leads back to client review sites. Then check the retained interactions on desktop/mobile and reduced motion. Refresh any portfolio/social captures that show review UI. This is a scoped recommendation; the clean variant has not been implemented or deployed.
+Implemented November 3 in `experiences/russound` as a standalone Astro source snapshot and an explicit six-route package. The 81-file release contains the six visitor pages, a real 404 and only their required assets/configuration. Review UI, documents, earlier review links and comparison hooks are absent from the delivered bytes. The original 86-file client package and 46 source inputs retain their hashes.
+
+Desktop/mobile page checks, retained product/search/planner interactions, reduced motion, no-JavaScript content and direct excluded-path probes passed. The existing portfolio featured image has no review UI and remains suitable. The portfolio's client-review CTA was removed; connect the clean hosted URL only after deployment and hosted checks. Local edition: `http://127.0.0.1:4336/`. Verification and release instructions: `experiences/russound/VERIFICATION.md`. No deployment occurred.
 
 ## Review and acceptance
 

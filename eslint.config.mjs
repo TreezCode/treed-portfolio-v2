@@ -15,6 +15,8 @@ const eslintConfig = defineConfig([
     'next-env.d.ts',
     // Preserved historical source and exact vendored dependencies, outside the application build.
     'public/archive/first-portfolio/**',
+    // The standalone Astro experience has its own build and verification.
+    'experiences/russound/**',
   ]),
 ])
 

@@ -1,0 +1,42 @@
+---
+import DirectionLayout from '../../components/handoff/DirectionLayout.astro';
+import '../../styles/handoff-journey.css';
+const otherControllers = [
+  {model:'SMZ16-PRE', kind:'Streaming matrix preamplifier', image:'/oct27/smz16.webp', copy:'A 16-source, 16-zone foundation with built-in streaming. Pair with separate amplification for the spaces you want to hear.', href:'https://russound.com/products/smz16-pre/'},
+  {model:'MCA-66', kind:'Multizone controller amplifier', image:'/oct27/mca66.webp', copy:'Connect six sources across six zones. Add an MBX streaming source when streaming is part of the plan.', href:'https://russound.com/products/mca-66-6-zone-6-source-controller-amplifier/'},
+];
+---
+<DirectionLayout title="Audio Systems | Russound concept" description="Explore a Russound system for whole-home listening, with streaming controllers and room-by-room audio." active="products">
+  <div class="dj-page">
+    <nav class="dj-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Audio systems</span></nav>
+    <section class="dj-category-hero" aria-labelledby="audio-title">
+      <picture><source type="image/avif" srcset="/media/whole-home-1600.avif"/><img src="/media/whole-home-1600.webp" width="1600" height="733" alt="A warm living room beside an illustrative cabinet composition with Russound controllers" fetchpriority="high"/></picture>
+      <div class="dj-category-shade" aria-hidden="true"></div>
+      <div class="dj-category-intro"><p class="dj-category-name">Audio systems</p><h1 id="audio-title">Your music.{' '}<br/>Throughout your home.</h1><p>Build the experience around the way you live. We’ll help you find its starting point.</p><a class="d-button d-button-light" href="#multiroom">Explore multiroom systems</a></div>
+    </section>
+    <nav class="dj-section-nav" aria-label="Audio system sections"><a href="#multiroom">Multi-Room Controllers</a><a href="#streaming">Streamers</a><a href="#more-systems">More ways to listen</a><a href="/catalog/?family=audio">Browse &amp; filter</a><a href="#system-help">Find an installer</a></nav>
+
+    <section class="dj-system-intro dj-section" id="multiroom" aria-labelledby="multiroom-title">
+      <div><p class="dj-kicker">Multi-Room Controllers</p><h2 id="multiroom-title">One system.{' '}<br/>Many ways to enjoy it.</h2></div>
+      <p>A controller connects your music sources with the rooms in your home. Your installer brings together the controller, amplification, speakers and controls that suit each space.</p>
+    </section>
+
+    <section class="dj-featured-system" aria-labelledby="smz8-category-title">
+      <div class="dj-featured-art"><a href="/products/smz8/" aria-label="Explore the Russound SMZ8"><img src="/oct27/smz8.webp" alt="Russound SMZ8 controller amplifier, three-quarter view" width="1400" height="824" loading="lazy"/></a></div>
+      <div class="dj-featured-copy"><p class="dj-kicker">Streaming controller amplifier</p><h2 id="smz8-category-title">SMZ8</h2><p class="dj-featured-lead">A whole-home system{' '}<br/>starts here.</p><p>Eight sources. Eight zones. Built-in music streaming, with amplification for six zones and line-level outputs for the others.</p><a class="d-button" href="/products/smz8/">Discover SMZ8</a><a class="dj-quiet-link" href="https://russound.com/dealer-locator/">Plan a system with an installer</a></div>
+    </section>
+
+    <section class="dj-other-systems dj-section" aria-label="More multiroom controllers">
+      {otherControllers.map(p=><article class="dj-system-card"><a class="dj-card-art" href={p.href} aria-label={`View ${p.model} on the current Russound website`}><img src={p.image} alt={`Russound ${p.model}`} width="1000" height="590" loading="lazy"/></a><div class="dj-system-card-copy"><h3>{p.model}</h3><p class="dj-kind">{p.kind}</p><p>{p.copy}</p><a class="d-link" href={p.href}>View {p.model} <span aria-hidden="true">↗</span></a></div></article>)}
+      <p class="dj-site-note">SMZ8 is shown in this concept. Other model links open the current Russound website.</p>
+    </section>
+
+    <section class="dj-streaming" id="streaming" aria-labelledby="streaming-title">
+      <div class="dj-streaming-photo"><picture><source type="image/avif" srcset="/media/listening-room-1355.avif"/><img src="/media/listening-room-1355.webp" alt="A sunlit listening room with an audio component on a wood cabinet" width="1355" height="914" loading="lazy"/></picture></div>
+      <div class="dj-streaming-copy"><p class="dj-kicker">Streamers</p><h2 id="streaming-title">Make a favorite room{' '}<br/>your listening room.</h2><p>Explore streaming players and amplifiers for a dedicated room or as part of a larger system.</p><p class="dj-small">SMZ controllers also have streaming built in. Your installer can help choose how many music sources your household needs.</p><a class="d-link" href="https://russound.com/audio-systems/mbx-series/">Explore the MBX family <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="dj-more-systems dj-section" id="more-systems" aria-labelledby="more-title"><h2 id="more-title">Find the right fit.</h2><div class="dj-other-links"><a href="https://russound.com/audio-systems/voiceplay/">VoicePlay<span>Explore the wall-mounted audio system</span><span class="dj-out" aria-hidden="true">↗</span></a><a href="https://russound.com/audio-systems/commercial-audio/">Commercial audio<span>Sound for spaces where people meet</span><span class="dj-out" aria-hidden="true">↗</span></a><a href="https://russound.com/speakers/soundbars/">Cinema Bar<span>Explore sound for the screen</span><span class="dj-out" aria-hidden="true">↗</span></a></div><p class="dj-site-note">Explore these ranges on the current Russound website.</p></section>
+    <section class="dj-dealer-banner" id="system-help" aria-labelledby="system-help-title"><div><h2 id="system-help-title">Start with your home.{' '}<br/>We’ll help with the rest.</h2><p>A Russound dealer can help you choose the right system and arrange professional installation.</p></div><a class="d-button d-button-light" href="https://russound.com/dealer-locator/">Find a Russound dealer</a></section>
+  </div>
+</DirectionLayout>

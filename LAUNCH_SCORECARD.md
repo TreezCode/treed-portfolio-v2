@@ -166,7 +166,7 @@ Local evidence: output/playwright/final-results.json, contact-results.txt, fallb
 ## Before public launch
 
 - Rift Riders release permission is confirmed by Joey on November 3. Preserve collaborator attribution; do not reopen that permission gate.
-- Replace the current Russound client-review destination with a verified clean portfolio demo. Exclude review UI, internal notes/communications, handoff PDFs and links to review archives from its published artifact. Preserve the existing client-review version separately. Named Russound public portfolio/media permission remains the existing separate publication consideration.
+- The Russound clean portfolio edition is built and locally verified. The old client-review CTA is removed. Publish only `experiences/russound/release/upload`, repeat excluded-path checks on that host, then connect its URL to the portfolio. Original client-review files remain unchanged. See `experiences/russound/VERIFICATION.md`. Named Russound public portfolio/media permission remains the existing separate publication consideration.
 - Living Archive, the curated project list, image framing, multi-page delivery and Geometry Bench are approved. Joey reported a positive initial Portal Keeper playthrough. Complete the prepared uncoached-player and physical-phone checks; production publication still requires explicit authorization. Additional rooms remain future work.
 - Perform physical mobile Safari/touch and assistive-technology review. Current verification used desktop Chromium and mobile emulation, not physical devices.
 - Check production email delivery and hosted performance when a release is authorized. Current form tests were intercepted and the existing contact endpoint was preserved.

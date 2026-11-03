@@ -1,0 +1,18 @@
+---
+const announcements = [
+ {text:'Make every room a listening room.',label:'Discover SMZ8',href:'/products/smz8/'},
+ {text:'Sound for the spaces where people meet.',label:'Explore Commercial Audio',href:'https://russound.com/audio-systems/commercial-audio/'},
+ {text:'A sound relationship. Since 1967.',label:'Discover our story',href:'/#story'},
+];
+---
+<div class="ho-announcement" data-announcements role="region" aria-roledescription="carousel" aria-label="Russound announcements">
+ <div class="ho-announcement-inner">
+  <button class="ho-announcement-toggle" type="button" hidden data-announcement-toggle aria-label="Pause announcements" aria-controls="ho-announcements"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg></button>
+  <button class="ho-announcement-previous" type="button" hidden data-announcement-previous aria-label="Previous announcement" aria-controls="ho-announcements"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
+  <div class="ho-announcement-slides" id="ho-announcements">
+   {announcements.map((item,index)=><a data-announcement href={item.href} hidden={index!==0}><span class="ho-announcement-message">{item.text}</span><strong>{item.label} <span aria-hidden="true">↗</span></strong></a>)}
+  </div>
+  <button class="ho-announcement-next" type="button" hidden data-announcement-next aria-label="Next announcement" aria-controls="ho-announcements"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
+  <p class="d-sr-only" data-announcement-status role="status" aria-live="polite" aria-atomic="true"></p>
+ </div>
+</div>

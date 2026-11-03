@@ -1,0 +1,108 @@
+---
+import { featuredNews, productStories } from '../../data/handoff-news';
+interface Props { standalone?: boolean; }
+const { standalone = false } = Astro.props;
+const Heading = standalone ? 'h1' : 'h2';
+const StoryHeading = standalone ? 'h2' : 'h3';
+---
+<section class:list={['rv-news', 'd-section', { 'rv-news--standalone': standalone }]} id="news" aria-labelledby="news-heading">
+  <div class="d-wrap">
+    <div class="rv-news-heading">
+      <div>
+        <p class="d-kicker">{standalone ? 'From Russound' : 'News & product stories'}</p>
+        <Heading id="news-heading">{standalone ? 'News & stories.' : 'From Russound.'}</Heading>
+        <p class="rv-news-intro">New products, fresh ideas and a closer look at the systems behind the sound.</p>
+      </div>
+      <a class="d-link" href={standalone ? 'https://russound.com/news/' : '/news/'}>{standalone ? 'Explore the news archive' : 'Explore news & stories'} <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="rv-news-grid">
+      <article class="rv-news-feature" aria-labelledby="news-p-series" data-news-reveal>
+        <a href={featuredNews.href} class="rv-news-feature-link">
+          <div class="rv-news-feature-art"><img src={featuredNews.image} alt={featuredNews.alt} width={featuredNews.width} height={featuredNews.height} loading={standalone ? 'eager' : 'lazy'} decoding="async" /></div>
+          <div class="rv-news-feature-copy">
+            <p class="rv-news-meta">{featuredNews.type}</p>
+            <StoryHeading id="news-p-series">{featuredNews.title}</StoryHeading>
+            <p class="rv-news-summary">{featuredNews.summary}</p>
+            <span class="rv-news-read">{featuredNews.cta} <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+      </article>
+      <div class="rv-news-stories" aria-label="Product stories">
+        {productStories.map(story => <article class="rv-news-story" aria-labelledby={`news-${story.id}`} data-news-reveal>
+          <a href={story.href} class="rv-news-story-link">
+            <div class="rv-news-story-art"><img src={story.image} alt={story.alt} width="1000" height="500" loading="lazy" decoding="async" /></div>
+            <div class="rv-news-story-copy">
+              <p class="rv-news-meta"><span>{story.type}</span><span aria-hidden="true">·</span><time datetime={story.date}>{story.dateLabel}</time></p>
+              <StoryHeading id={`news-${story.id}`}>{story.title}</StoryHeading>
+              <p class="rv-news-summary">{story.summary}</p>
+              <span class="rv-news-read">{story.cta} <span aria-hidden="true">↗</span></span>
+            </div>
+          </a>
+        </article>)}
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const revealCards = Array.from(document.querySelectorAll<HTMLElement>('[data-news-reveal]'));
+  if (!motionQuery.matches && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.removeAttribute('data-news-waiting');
+        observer.unobserve(entry.target);
+      }
+    }, { threshold: 0.08 });
+    for (const card of revealCards) {
+      if (card.getBoundingClientRect().top > window.innerHeight) {
+        card.setAttribute('data-news-waiting', '');
+        observer.observe(card);
+      }
+    }
+    motionQuery.addEventListener('change', event => {
+      if (!event.matches) return;
+      observer.disconnect();
+      revealCards.forEach(card => card.removeAttribute('data-news-waiting'));
+    }, { once: true });
+  }
+</script>
+<style>
+.rv-news{background:var(--paper);color:var(--ink)}
+.rv-news-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:36px;margin-bottom:48px}
+.rv-news-heading h1,.rv-news-heading h2{font-size:clamp(42px,5.3vw,78px);font-weight:400;line-height:1.04;letter-spacing:-.065em;margin:0}
+.rv-news-intro{max-width:49ch;font-size:14px;line-height:1.8;color:var(--muted);margin:22px 0 0}
+.rv-news-heading>.d-link{font-size:12px;flex-shrink:0;margin-bottom:5px}
+.rv-news-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(290px,1fr);align-items:start;gap:clamp(26px,4.2vw,64px)}
+.rv-news-feature,.rv-news-story{min-width:0;transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+[data-news-waiting]{opacity:0;transform:translateY(24px)}
+.rv-news-feature-link,.rv-news-story-link{display:block;color:inherit;text-decoration:none}
+.rv-news-feature-link:focus-visible,.rv-news-story-link:focus-visible{outline:3px solid var(--brand-blue);outline-offset:7px}
+.rv-news-feature-art{aspect-ratio:1509/605;overflow:hidden;background:var(--stone)}
+.rv-news-feature-art img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv-news-feature-copy{padding:clamp(28px,3.4vw,50px);background:var(--feature);color:var(--feature-ink);position:relative}
+:global(html[data-team-theme="warm"]) .rv-news-feature-copy{--feature:#60432f;--feature-ink:#fff8ef;--feature-muted:#eadccc}
+.rv-news-feature-copy:before{content:'';position:absolute;top:0;left:clamp(28px,3.4vw,50px);width:40px;height:3px;background:var(--brand-highlight)}
+.rv-news-meta{font-size:10px;line-height:1.7;letter-spacing:.02em;color:var(--muted);margin:0 0 13px;display:flex;gap:7px;flex-wrap:wrap}
+.rv-news-feature .rv-news-meta{color:var(--feature-muted)}
+.rv-news-feature :is(h2,h3){font-size:clamp(32px,3.6vw,52px);font-weight:400;line-height:1.12;letter-spacing:-.055em;margin:0 0 18px}
+.rv-news-summary{font-size:13px;line-height:1.8;color:var(--muted);margin:0 0 23px;max-width:46ch}
+.rv-news-feature .rv-news-summary{color:var(--feature-muted);font-size:14px}
+.rv-news-read{display:inline-flex;align-items:center;gap:24px;font-size:11px;line-height:1.8;padding-bottom:5px;border-bottom:1px solid currentColor}
+.rv-news-read>span{transition:transform .3s ease}
+.rv-news-stories{display:grid;gap:30px}
+.rv-news-story-link{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.35fr);gap:clamp(18px,1.8vw,28px);align-items:start}
+.rv-news-story-art{background:#fff;overflow:hidden;aspect-ratio:1;display:flex;align-items:center;padding:12px}
+.rv-news-story-art img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv-news-story :is(h2,h3){font-size:clamp(22px,2vw,29px);line-height:1.16;font-weight:400;letter-spacing:-.045em;margin:0 0 12px}
+.rv-news-story .rv-news-summary{font-size:12px;line-height:1.75;margin-bottom:17px}
+.rv-news-story+.rv-news-story{border-top:1px solid var(--rule);padding-top:30px}
+.rv-news-story .rv-news-meta{font-size:9px;margin-bottom:10px}
+.rv-news--standalone{padding-top:42px}
+.rv-news--standalone .rv-news-heading{margin-bottom:58px}
+@media(hover:hover){.rv-news-feature-link:hover .rv-news-feature-art img,.rv-news-story-link:hover .rv-news-story-art img{transform:scale(1.025)}.rv-news-feature-link:hover .rv-news-read>span,.rv-news-story-link:hover .rv-news-read>span{transform:translate(2px,-2px)}}
+@media(max-width:1100px){.rv-news-grid{grid-template-columns:minmax(0,1.4fr) minmax(270px,1fr);gap:30px}.rv-news-story-link{grid-template-columns:1fr}.rv-news-story-art{aspect-ratio:2.7;padding:15px 35px}.rv-news-story-copy{padding:0 0 5px}.rv-news-stories{gap:26px}.rv-news-story+.rv-news-story{padding-top:26px}.rv-news-feature-copy{padding:32px}}
+@media(max-width:760px){.rv-news-heading{display:block;margin-bottom:30px}.rv-news-heading h1,.rv-news-heading h2{font-size:clamp(42px,8vw,60px)}.rv-news-intro{font-size:13px;margin-top:18px}.rv-news-heading>.d-link{margin-top:24px}.rv-news-grid{grid-template-columns:1fr;gap:36px}.rv-news-feature-copy{padding:30px 26px}.rv-news-feature :is(h2,h3){font-size:36px}.rv-news-feature .rv-news-summary{font-size:13px}.rv-news-story-link{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:22px}.rv-news-story-art{aspect-ratio:1.15;padding:12px}.rv-news-story :is(h2,h3){font-size:25px}.rv-news--standalone{padding-top:30px}.rv-news--standalone .rv-news-heading{margin-bottom:34px}}
+@media(max-width:440px){.rv-news-story-link{grid-template-columns:1fr}.rv-news-story-art{aspect-ratio:2.6;padding:18px 40px}.rv-news-story :is(h2,h3){font-size:28px}.rv-news-story .rv-news-summary{font-size:13px}.rv-news-feature :is(h2,h3){font-size:32px}.rv-news-feature-copy{padding:28px 23px}}
+@media(prefers-reduced-motion:reduce){.rv-news-feature,.rv-news-story,.rv-news-feature-art img,.rv-news-story-art img,.rv-news-read>span{transition:none;transform:none!important}[data-news-waiting]{opacity:1;transform:none}}
+</style>

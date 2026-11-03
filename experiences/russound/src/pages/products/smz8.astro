@@ -1,0 +1,44 @@
+---
+import DirectionLayout from '../../components/handoff/DirectionLayout.astro';
+import RearPanel from '../../components/handoff/RearPanel.astro';
+import '../../styles/handoff-journey.css';
+const specifications=[
+ ['System','8 sources / 8 zones'],
+ ['Built-in amplification','6 stereo zones; 50 watts per channel at 8 ohms'],
+ ['Additional zones','Zones 7 and 8 use line-level outputs and separate amplification'],
+ ['Streaming','Built-in streamer with AirPlay and Google Cast'],
+ ['TV connection','HDMI ARC input'],
+ ['Control options','Russound App, XTS7 touchscreen and IPK-1 keypad'],
+ ['Dimensions (W × D × H)','17.1 × 15.83 × 3.48 in'],
+ ['Installation','Russound Certified Installer required'],
+];
+---
+<DirectionLayout title="SMZ8 | Whole-home audio | Russound concept" description="Meet the Russound SMZ8, an eight-source, eight-zone controller amplifier with built-in streaming. Explore its design and plan your system with an installer." active="products">
+  <div class="dj-page dj-product-page">
+    <nav class="dj-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/audio-systems/">Audio systems</a><span aria-hidden="true">/</span><span aria-current="page">SMZ8</span></nav>
+    <section class="dj-product-hero" aria-labelledby="smz8-title">
+      <div class="dj-product-heading"><p class="dj-kicker">Streaming controller amplifier</p><h1 id="smz8-title">SMZ8</h1><p class="dj-product-promise">Every room.{' '}<br/>Your kind of music.</p><p class="dj-product-summary">Music streaming, room-by-room control and amplification, brought together in one whole-home system.</p><a class="d-button" href="https://russound.com/dealer-locator/">Find a Russound dealer</a><a class="dj-quiet-link" href="#details">Explore the details</a></div>
+      <fieldset class="dj-product-gallery" aria-label="Product view">
+        <input class="dj-view-radio" type="radio" name="smz8-view" id="smz8-front" checked/>
+        <input class="dj-view-radio" type="radio" name="smz8-view" id="smz8-rear"/>
+        <div class="dj-product-art"><figure class="dj-front"><img src="/oct27/smz8.webp" alt="SMZ8 front and right side, with Russound wordmark and model label" width="1400" height="824" fetchpriority="high"/><figcaption>SMZ8 · Front view</figcaption></figure><figure class="dj-rear"><img src="/media/smz8-rear.webp" alt="SMZ8 rear connection panel with speaker outputs, source inputs and network connections" width="1000" height="383" loading="eager"/><figcaption>SMZ8 · Rear connections</figcaption></figure></div>
+        <div class="dj-view-controls"><label for="smz8-front">Front view</label><label for="smz8-rear">Rear connections</label></div>
+      </fieldset>
+    </section>
+
+    <nav class="dj-section-nav" aria-label="SMZ8 page sections"><a href="#experience">The experience</a><a href="#connections">Connections</a><a href="#details">Specifications</a><a href="#documents">Documents & support</a><a href="#installation">Installation</a></nav>
+    <section class="dj-product-facts" aria-label="SMZ8 at a glance"><div><strong>8</strong><p>Sources for your music</p></div><div><strong>8</strong><p>Independently controlled zones</p></div><div><strong>6</strong><p>Zones with built-in amplification</p></div><p class="dj-fact-note">Zones 7 and 8 connect to separate amplifiers. One music streamer is built in; your installer can add sources for more independent listening.</p></section>
+
+    <RearPanel id="connections" />
+    <section class="dj-product-experience dj-section" id="experience" aria-labelledby="experience-title"><div class="dj-experience-heading"><h2 id="experience-title">Let the music{' '}<br/>move through your day.</h2><p>A favorite playlist while you cook. Something different in another room. Or one song shared across the house. The system is planned around your spaces and the people who enjoy them.</p></div><div class="dj-experience-wide"><picture><source type="image/avif" srcset="/media/kitchen-1600.avif"/><img src="/media/kitchen-1600.webp" alt="Choosing music from a Russound XTS7 wall touchscreen" width="1600" height="1068" loading="lazy"/></picture><div class="dj-experience-panel"><h3>Choose the room.{' '}<br/>Set the mood.</h3><p>Use the Russound App, an XTS7 touchscreen or an IPK-1 keypad to control your system.</p><a class="d-link" href="https://russound.com/russound-apps/">Explore Russound control <span aria-hidden="true">↗</span></a></div></div></section>
+
+    <section class="dj-product-benefits dj-section" aria-label="SMZ8 features"><article><h3>Your streaming.{' '}<br/>Built in.</h3><p>Listen through the built-in streamer, with AirPlay and Google Cast support.</p></article><article><h3>A place for{' '}<br/>TV sound, too.</h3><p>An HDMI ARC input brings a connected TV into the system.</p></article><article><h3>Tuned for{' '}<br/>your rooms.</h3><p>A seven-band graphic equalizer and Russound speaker presets give your installer useful setup options.</p></article></section>
+
+    <section class="dj-details dj-section" id="details" aria-labelledby="details-title"><div class="dj-details-intro"><h2 id="details-title">A closer look.</h2><p>The essentials for your system conversation. Your installer will confirm the speakers, sources and amplification for each room.</p><a class="d-link" href="https://russound.com/products/smz8/">Full product information <span aria-hidden="true">↗</span></a></div><dl class="dj-specifications">{specifications.map(([label,value])=><div><dt>{label}</dt><dd>{value}</dd></div>)}</dl></section>
+
+    <section class="dj-documents dj-section" id="documents" aria-labelledby="documents-title"><div><h2 id="documents-title">Details, when{' '}<br/>you need them.</h2><p>Official product documents and help from Russound.</p></div><div class="dj-document-links"><a href="https://russound.com/wp-content/uploads/2026/07/SMZ8-Product-Guide.pdf"><span>SMZ8 product guide</span><span>PDF <span aria-hidden="true">↗</span></span></a><a href="https://russound.com/wp-content/uploads/2026/07/SMZ8-Manual.pdf"><span>SMZ8 installation guide</span><span>PDF <span aria-hidden="true">↗</span></span></a><a href="https://russound.com/document-center/"><span>Documents and firmware</span><span aria-hidden="true">↗</span></a><a href="https://russound.com/contact-us/"><span>Contact Russound support</span><span aria-hidden="true">↗</span></a></div></section>
+
+    <section class="dj-dealer-banner" id="installation" aria-labelledby="installation-title"><div><h2 id="installation-title">A system for your home.{' '}<br/>An expert to bring it together.</h2><p>The SMZ8 requires a Russound Certified Installer. Find a dealer to discuss your rooms, music sources and installation.</p></div><a class="d-button d-button-light" href="https://russound.com/dealer-locator/">Find a Russound dealer</a></section>
+    <div class="dj-back"><a class="d-link" href="/audio-systems/">Back to audio systems</a></div>
+  </div>
+</DirectionLayout>

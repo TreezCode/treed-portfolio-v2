@@ -42,6 +42,8 @@ Creative brands, films, music, products and prototypes receive useful project co
 
 On November 3, Joey confirmed permission to release Rift Riders; retain its collaborator attribution. He also required a separate Russound portfolio experience with no guide notes or internal communications. The current client-review URL must be replaced with a verified clean demo before public portfolio release. Keep internal review routes, attachments and operational records out of that demo. Named Russound public-media permission remains a separate recorded consideration; this cleanup request does not claim new permission evidence.
 
+The clean edition is now built and locally verified in `experiences/russound`, preserving the original client-review source and frozen release. The portfolio's old client-review CTA has been removed. The remaining release integration is to publish only the verified upload artifact, repeat its route/privacy checks on the hosted origin and connect that URL to the portfolio.
+
 ## Voice and copy research
 
 Warm, precise, curious and confident. Use concrete language and personality. Keep project descriptions short; let images and stories carry depth. Avoid authored em dashes, inflated expertise, generic benefit claims and routine disclaimers that weaken supported accomplishments.

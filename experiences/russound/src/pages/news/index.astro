@@ -1,0 +1,12 @@
+---
+import DirectionLayout from '../../components/handoff/DirectionLayout.astro';
+import FeaturedNews from '../../components/handoff/FeaturedNews.astro';
+---
+<DirectionLayout title="News & product stories | Russound" description="Discover Russound product news and the systems behind the sound, from Bluetooth stereo amplifiers to whole-home audio." active="news">
+  <div class="news-breadcrumb d-wrap"><nav aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">News &amp; stories</span></nav></div>
+  <FeaturedNews standalone />
+  <section class="news-next d-section" aria-labelledby="news-next-heading"><div class="d-wrap"><div><p class="d-kicker">Make it part of your space</p><h2 id="news-next-heading">Find your kind of sound.</h2><p>Explore audio systems, amplifiers, speakers and the controls that bring it all together.</p></div><a class="d-link" href="/#products">Explore the product families <span aria-hidden="true">↗</span></a></div></section>
+</DirectionLayout>
+<style>
+.news-breadcrumb{padding-top:128px}.news-breadcrumb nav{display:flex;gap:13px;font-size:11px;line-height:1.8;color:var(--muted)}.news-breadcrumb a{color:var(--ink);text-decoration:none}.news-breadcrumb a:hover{text-decoration:underline;text-underline-offset:4px}.news-next{border-top:1px solid var(--rule);background:var(--stone)}.news-next>.d-wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:35px}.news-next h2{font-size:clamp(35px,4.5vw,58px);font-weight:400;letter-spacing:-.055em;line-height:1.1;margin:0 0 18px}.news-next p:not(.d-kicker){font-size:14px;line-height:1.8;color:var(--muted);max-width:48ch;margin:0}.news-next .d-link{flex-shrink:0;font-size:12px;margin-bottom:6px}@media(max-width:760px){.news-breadcrumb{padding-top:110px}.news-next>.d-wrap{display:block}.news-next .d-link{margin-top:26px}}
+</style>

@@ -1,0 +1,42 @@
+html[data-team-theme]{
+  --reference-copper-light:#a9743f;
+  --reference-copper:#a46c45;
+  --reference-copper-middle:#95653f;
+  --reference-copper-copy-light:#8b5e3e;
+  --reference-copper-text:#805638;
+  --reference-copper-shade:#664d37;
+  --reference-copper-deep:#5d4634;
+  --reference-copper-ink:#fff8ef;
+  --reference-copper-muted:#f5e7d5;
+  --reference-copper-rule:#bc9c7e;
+  --reference-copper-glow:#b5793e30;
+}
+
+.rv-header.rv-navigation-selected .rv-menu-feature{
+  --nav-ink:var(--reference-copper-ink);
+  background:radial-gradient(ellipse at 55% 25%,var(--reference-copper-light) 0%,var(--reference-copper) 46%,var(--reference-copper-shade) 100%);
+}
+
+html[data-team-theme][data-smz-backdrop="brown"] main .d-product-story{
+  --feature-ink:var(--reference-copper-ink);
+  --feature-muted:var(--reference-copper-muted);
+  --feature-rule:var(--reference-copper-rule);
+  --feature-reading:#e3cdb5;
+  background:radial-gradient(ellipse at 24% 44%,var(--reference-copper-glow),transparent 55%),linear-gradient(110deg,var(--reference-copper) 0%,var(--reference-copper-middle) 25%,var(--reference-copper-text) 48%,var(--reference-copper-shade) 76%,var(--reference-copper-deep) 100%);
+  color:var(--feature-ink);
+}
+html[data-team-theme][data-smz-backdrop="brown"] .d-product-story .d-product-model{color:var(--feature-ink)}
+
+html[data-team-theme="warm"] .rv-news .rv-news-feature .rv-news-feature-copy{
+  --feature-ink:var(--reference-copper-ink);
+  --feature-muted:var(--reference-copper-muted);
+  background:linear-gradient(115deg,var(--reference-copper-copy-light) 0%,var(--reference-copper-text) 48%,var(--reference-copper-shade) 100%);
+  color:var(--feature-ink);
+}
+
+
+@media(max-width:760px){
+  html[data-team-theme][data-smz-backdrop="brown"] main .d-product-story{
+    background:radial-gradient(ellipse at 24% 20%,var(--reference-copper-glow),transparent 45%),linear-gradient(155deg,var(--reference-copper) 0%,var(--reference-copper-middle) 24%,var(--reference-copper-text) 43%,var(--reference-copper-shade) 76%,var(--reference-copper-deep) 100%);
+  }
+}

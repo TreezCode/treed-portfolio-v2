@@ -1,0 +1,34 @@
+---
+import '../../styles/handoff-rear.css';
+interface Props { id?: string; }
+const { id = 'connections' } = Astro.props;
+const connections = [
+  { id: 'hdmi', label: 'TV audio', title: 'Bring your TV into the mix.', body: 'Connect the TV’s HDMI ARC socket to bring its audio into your Russound system.', detail: 'HDMI ARC input', x: .204, y: .554 },
+  { id: 'network', label: 'Network', title: 'Connect to your home network.', body: 'Two Ethernet ports provide a wired network connection. When the SMZ8 is wired to your router, the second port can connect another network device.', detail: 'Two-port Ethernet switch', x: .718, y: .556 },
+  { id: 'analog', label: 'Analog sources', title: 'Give your sources a place to play.', body: 'Stereo RCA inputs accept audio from connected source devices. Your installer configures the inputs used by your system.', detail: 'Up to eight stereo analog inputs', x: .160, y: .704 },
+  { id: 'digital', label: 'Digital sources', title: 'A digital path for your sources.', body: 'Optical and coaxial inputs bring in digital audio from compatible source devices.', detail: 'Three optical and two coaxial inputs', x: .272, y: .566 },
+  { id: 'speakers', label: 'Speaker outputs', title: 'Power six listening zones.', body: 'The built-in amplifier connects to passive speakers in zones 1–6, with 50 watts per channel at 8 ohms.', detail: 'Six amplified stereo zones', x: .445, y: .862 },
+  { id: 'zones', label: 'Zone outputs', title: 'Add the power each room needs.', body: 'Eight zone line outputs connect to external amplifiers. Zones 7 and 8 use these outputs and need separate amplification.', detail: 'Eight stereo line outputs', x: .707, y: .704 },
+  { id: 'loop', label: 'Source pass-through', title: 'Pass a source on.', body: 'Buffered loop outputs pass connected analog source signals on to other equipment.', detail: 'Eight stereo source loop outputs', x: .460, y: .704 },
+  { id: 'control', label: 'System control', title: 'Let the system work together.', body: 'Trigger and infrared connections let your installer coordinate compatible connected equipment.', detail: 'Trigger and IR connections', x: .480, y: .562 },
+];
+---
+<section class="tr-rear" id={id} data-rear-panel aria-labelledby={`${id}-title`}>
+  <div class="d-wrap">
+    <header class="tr-rear-heading"><div><p class="tr-rear-kicker">SMZ8 · Behind the music</p><h2 id={`${id}-title`}>Every connection.{' '}<br/>A little clearer.</h2></div><p>Explore the connections that bring your system together. Choose a point on the SMZ8, or a connection below.</p></header>
+    <div class="tr-rear-diagram" data-rear-diagram>
+      <figure class="tr-rear-product" data-rear-product>
+        <div class="tr-rear-image-box" data-rear-image-box><img src="/media/smz8-rear.webp" width="1000" height="383" alt="The real Russound SMZ8 rear panel, showing its audio inputs, zone outputs, speaker terminals and control connections" loading="lazy" data-rear-image/>
+          <div class="tr-rear-points" data-rear-points hidden>{connections.map((c,i)=><button type="button" class="tr-rear-point" data-rear-point={c.id} style={`left:${c.x*100}%;top:${c.y*100}%`} aria-label={`Show ${c.label}`} aria-pressed={i===0?'true':'false'} tabindex="-1"><span>{String(i+1).padStart(2,'0')}</span></button>)}</div>
+        </div>
+        <figcaption>SMZ8 · Rear connections</figcaption>
+      </figure>
+      <svg class="tr-rear-leader" data-rear-leader aria-hidden="true" hidden><path data-rear-path pathLength="1"/><circle data-rear-origin r="4"/></svg>
+      <div class="tr-rear-card-anchor" data-rear-card-anchor hidden><div class="tr-rear-card" data-rear-card role="tabpanel" id={`${id}-detail`} aria-labelledby={`${id}-tab-hdmi`} tabindex="0"><p class="tr-rear-card-number" data-rear-number>01 / 08</p><p class="tr-rear-card-type" data-rear-type>{connections[0].detail}</p><h3 data-rear-title>{connections[0].title}</h3><p class="tr-rear-card-body" data-rear-body>{connections[0].body}</p></div></div>
+    </div>
+    <div class="tr-rear-controls" data-rear-controls role="tablist" aria-label="Explore SMZ8 rear connections" hidden>{connections.map((c,i)=><button type="button" role="tab" id={`${id}-tab-${c.id}`} aria-controls={`${id}-detail`} aria-selected={i===0?'true':'false'} tabindex={i===0?'0':'-1'} data-rear-tab={c.id} data-x={c.x} data-y={c.y} data-title={c.title} data-body={c.body} data-detail={c.detail}><span class="tr-rear-control-number">{String(i+1).padStart(2,'0')}</span><span>{c.label}</span></button>)}</div>
+    <div class="tr-rear-fallback" data-rear-fallback>{connections.map((c,i)=><details><summary><span>{String(i+1).padStart(2,'0')}</span>{c.label}</summary><h3>{c.title}</h3><p>{c.body}</p><small>{c.detail}</small></details>)}</div>
+    <div class="tr-rear-foot"><p>Your installer brings the connections together around your home.</p><a class="d-link" href="https://russound.com/wp-content/uploads/2026/07/SMZ8-Manual.pdf#page=7">See the installation guide <span aria-hidden="true">↗</span></a></div>
+  </div>
+  <script>import '../../scripts/handoff-rear';</script>
+</section>

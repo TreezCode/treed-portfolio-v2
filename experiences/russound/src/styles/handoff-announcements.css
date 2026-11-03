@@ -1,0 +1,28 @@
+:root{--handoff-header-height:129px;--handoff-nav-height:85px;--handoff-brand-height:0px;--handoff-nav-hidden:0px;--handoff-announcement-height:44px;--handoff-announcement-hidden:0px;--handoff-visible-header-height:calc(var(--handoff-header-height) - var(--handoff-announcement-hidden) - var(--handoff-nav-hidden))}
+.rv-header{top:0;transform:translate3d(0,0,0);transition:transform 360ms cubic-bezier(.22,1,.36,1)}
+.rv-header[data-scroll-ready]{top:calc(-1 * var(--handoff-announcement-height))}
+.rv-header[data-scroll-hidden]{transform:translate3d(0,calc(-1 * var(--handoff-nav-height)),0);pointer-events:none}
+.rv-header:has(:focus-visible){transition:none}
+.ho-announcement{background:#0f2a4d;color:#fff;font-size:.875rem;font-weight:400;letter-spacing:0;line-height:1.5}
+.ho-announcement-inner{display:grid;grid-template-columns:44px 44px minmax(0,1fr) 44px 44px;align-items:center;min-height:48px;max-width:1440px;padding-inline:clamp(12px,3vw,40px);margin:auto}
+.ho-announcement-slides{grid-area:1/3;display:grid;min-width:0;width:100%;max-width:900px;justify-self:center;overflow:hidden;text-align:center}
+.rv-header .ho-announcement a{grid-area:1/1;color:#fff;display:flex;align-items:center;justify-content:center;gap:18px;min-height:48px;padding:10px 8px;text-decoration:none;line-height:1.5;min-width:0}
+.rv-header .ho-announcement a[hidden]{display:none}
+.rv-header .ho-announcement a[data-inactive]{visibility:hidden}
+.ho-announcement-message{color:#ffffffd9}
+.ho-announcement-message,.ho-announcement strong{position:relative;top:-.1em}
+.ho-announcement strong{font-weight:600;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;text-decoration-color:#ffffff66}
+.ho-announcement strong>span{margin-left:8px;text-decoration:none}
+.ho-announcement-previous{grid-area:1/2}.ho-announcement-next{grid-area:1/4}.ho-announcement-toggle{grid-area:1/5}
+.ho-announcement button{height:44px;width:44px;background:none;border:0;color:#ffffffc7;border-radius:0;padding:10px;cursor:pointer;display:grid;place-items:center;transition:color .2s}
+.ho-announcement button svg{height:14px;width:14px;fill:none;stroke:currentColor;stroke-width:1.5}
+.rv-header .ho-announcement :is(a,button):focus-visible{outline:2px solid #fbb03b;outline-offset:-4px}
+.rv-header .ho-announcement a:hover{color:#fff}.ho-announcement a:hover strong{text-decoration-color:#fff}.ho-announcement button:hover{color:#fff}
+.rv-dropdown,.rv-mobile-panel{top:100%;max-height:calc(100svh - var(--handoff-visible-header-height))}
+html{scroll-padding-top:calc(var(--handoff-nav-height) - var(--handoff-nav-hidden) + 16px)}
+.d-hero{height:calc(100svh - var(--handoff-header-height))}
+@media(min-width:1240px){:root{--handoff-header-height:168px;--handoff-nav-height:120px;--handoff-brand-height:64px;--handoff-announcement-height:48px}}
+@media(max-width:1190px){:root{--handoff-header-height:119px;--handoff-nav-height:75px}}
+@media(max-width:900px){.rv-header .ho-announcement a{flex-direction:column;gap:1px;padding-block:8px}}
+@media(max-width:600px){.ho-announcement{font-size:.8125rem}.ho-announcement-inner{grid-template-columns:32px minmax(0,1fr) 32px 32px;padding-inline:8px}.ho-announcement-slides{grid-area:1/2}.ho-announcement-previous{grid-area:1/1}.ho-announcement-next{grid-area:1/3}.ho-announcement-toggle{grid-area:1/4}.rv-header .ho-announcement a{padding-inline:3px}.ho-announcement button{width:32px;padding:8px}.ho-announcement strong>span{margin-left:4px}.d-hero{min-height:610px}}
+@media(prefers-reduced-motion:reduce){.rv-header,.ho-announcement button{transition:none}}
