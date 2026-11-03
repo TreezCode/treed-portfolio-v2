@@ -1076,6 +1076,9 @@
   .folio-hero-copy {
     margin-left: max(56px, calc((100vw - 1440px) / 2));
   }
+  .folio-archive .folio-hero-foot {
+    inset-inline: max(56px, calc((100vw - 1440px) / 2));
+  }
   .media-wall-tile {
     width: 400px;
     height: 245px;
