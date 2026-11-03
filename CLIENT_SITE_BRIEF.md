@@ -26,11 +26,11 @@ Joey's follow-up on November 3 explicitly selects **Living Archive** and replace
 
 Joey approved the 12-project list on November 3 and requested full-image framing before broader expansion. Both the selection and Living Archive direction are owner-approved. Fieldnotes is retained at its review URL, outside the main navigation. Atrium continues to inform the perspective wall. Premium Client Site and Cinematic Web Experiences remain active for the multi-page build; the page plan and future Playground/game ideas are recorded in `DESIGN.md`.
 
-The current authorization covers local implementation and verification. It does not authorize public deployment.
+The original authorization covered local implementation and verification. After the launch pass and clean Russound edition were reviewed, Joey authorized continuation into release on November 3, 2026. The Living Archive portfolio is now published at `https://buildwithtreez.com`. Release identifiers and hosted verification are recorded in `DEPLOYMENT.md`.
 
 Joey subsequently approved the multi-page delivery and authorized Geometry Bench as the next Playground feature, retaining Living Archive and both design skills. He requested Three.js and discovery of valuable expert-authored Three.js skills. This delivery implements three procedural sculpture families, native controls, deterministic variation and share links, local SVG/PNG exports, and readable technical explanations. The user also requested a compact mobile pause control that does not cover the artwork. No new dependency, backend, account, paid research or deployment is needed.
 
-After approving the corrected framing, Joey authorized the multi-page build and deeper case studies. This delivery creates Home, Work, About and Contact, expands all 12 approved project stories, adds two small illustrative interactions, and restores the first portfolio as a clearly labeled historical exhibit. The later Playground and standalone game remain separate planned deliveries.
+After approving the corrected framing, Joey authorized the multi-page build and deeper case studies. That delivery created Home, Work, About and Contact, expanded all 12 approved project stories, added two small illustrative interactions, and restored the first portfolio as a clearly labeled historical exhibit. Playground and the standalone game were separate planned deliveries at that stage; both have since been built and published with their own case studies.
 
 ## Content authority and proof
 
@@ -42,7 +42,7 @@ Creative brands, films, music, products and prototypes receive useful project co
 
 On November 3, Joey confirmed permission to release Rift Riders; retain its collaborator attribution. He also required a separate Russound portfolio experience with no guide notes or internal communications. The current client-review URL must be replaced with a verified clean demo before public portfolio release. Keep internal review routes, attachments and operational records out of that demo. Named Russound public-media permission remains a separate recorded consideration; this cleanup request does not claim new permission evidence.
 
-The clean edition is now built and locally verified in `experiences/russound`, preserving the original client-review source and frozen release. The portfolio's old client-review CTA has been removed. The remaining release integration is to publish only the verified upload artifact, repeat its route/privacy checks on the hosted origin and connect that URL to the portfolio.
+The clean edition in `experiences/russound` is now published separately at `https://treez-russound-experience.netlify.app`, preserving the original client-review source and frozen release. Only the verified upload artifact was published. Hosted file hashes, document/source exclusions and retained interactions passed before the portfolio CTA was connected to the clean URL. Both directions of the case-study link are part of the portfolio release checks.
 
 ## Voice and copy research
 

@@ -1,25 +1,28 @@
 # Build With Treez
 
-The portfolio of Joey Kubalak, a software engineer and creative maker. The November 2026 local redesign brings software, original motion, digital products and creative worlds into one complete collection.
+The portfolio of Joey Kubalak, a software engineer and creative maker. The November 2026 Living Archive release brings software, original motion, digital products and creative worlds into one curated collection.
 
 **Live site:** [buildwithtreez.com](https://buildwithtreez.com/)
 
-## November 2026 local review
+## November 2026 release
 
 - `/`: Living Archive, the approved direction with three featured stories and a creative selection.
 - `/work`: The approved 12-project collection with categories and search.
 - `/about` and `/contact`: Background, creative interests, resume and engineering inquiries.
-- `/playground`: Geometry Bench, an original Three.js instrument with Bloom/Orbit/Portal forms, keyboard/touch controls, reproducible recipes and local PNG/SVG exports.
+- `/playground`: The hub for two original interactive experiences and their technical stories.
+- `/playground/geometry-bench`: A Three.js instrument with Bloom/Orbit/Portal forms, keyboard/touch controls, reproducible recipes and local PNG/SVG exports.
+- `/play/portal-keeper`: A standalone light-and-mirror puzzle with a playable diagram fallback, progressive hints and local saves. Its engineering case study is at `/work/portal-keeper`.
+- `/privacy`: The consent-based analytics policy and preference controls.
 - `/work/little-portal-studio`: One studio project with eight released products inside it.
 - `/directions/fieldnotes`: Retained, unlinked editorial direction study.
 - `/work/[slug]`: All 12 approved projects have deeper case studies, with original screenshots, decisions and delivery details. PresentSphere and Renamerly include small interactive explanations. Original detail URLs remain recoverable; unselected records are noindex and excluded from the sitemap.
 - `/archive/first-portfolio/index.html`: Restored historical portfolio, with locally served original dependencies and optimized images. Clearly labeled and noindex.
 
-Run `npm run build`, then `npm run start -- --hostname 127.0.0.1 --port 4318` to review the production-built selection. No publication is part of this revision.
+Run `npm run build`, then `npm run start -- --hostname 127.0.0.1 --port 4318` to review a local production build. The authorized November 3 release is live. See `DEPLOYMENT.md` for deployed commits, origins and hosted verification.
 
 Current project content lives in `src/data/portfolio-{development,creative,russound}.ts`, joined by `src/data/portfolio.ts`. Source reconciliation and asset manifests are retained locally in `docs/portfolio-refresh/`, which this repository intentionally excludes from Git. Read `DESIGN.md` for reference decisions and `LAUNCH_SCORECARD.md` for actual verification and launch boundaries.
 
-The deeper narratives live in `src/data/case-studies-{products,client,creative}.ts`. Their original image derivatives are in `public/portfolio/cases`; run `node scripts/prepare-case-image-sizes.mjs` after adding images to refresh intrinsic dimensions. Geometry Bench's configuration, procedural geometry, renderer and poster generator live under `src/components/playground/`. The standalone game remains future work.
+The deeper narratives live in `src/data/case-studies-{products,client,creative}.ts`. Their original image derivatives are in `public/portfolio/cases`; run `node scripts/prepare-case-image-sizes.mjs` after adding images to refresh intrinsic dimensions. Geometry Bench's configuration, procedural geometry, renderer and poster generator live under `src/components/playground/`. Portal Keeper's renderer, diagram and puzzle model live under `src/components/portal-keeper/`. `PLAYTEST.md` defines the fresh-player check before additional rooms.
 
 ## What this repository demonstrates
 

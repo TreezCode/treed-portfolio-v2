@@ -1,6 +1,18 @@
 # Russound portfolio edition verification
 
-Date: November 3, 2026. Status: complete local release candidate. No deployment.
+Date: November 3, 2026. Status: published and independently verified at `https://treez-russound-experience.netlify.app`. The original client-review edition remains unchanged. The local-candidate evidence below is preserved as release lineage.
+
+## Hosted release
+
+Netlify site `05a6ea2b-a2ac-4326-9b9a-c40a600ca7a6`, deploy `6aea1fb01491af4b74be38d7`. Only the immutable 81-file `release/upload` artifact was published. The host processes `_headers`; all 80 served files match the reviewed artifact hashes.
+
+- All six public routes return HTTP 200 with noindex. The video supports HTTP 206 byte ranges.
+- Sixty-eight excluded GET/HEAD requests were blocked: 62 returned 404, and six malformed/encoded traversal requests returned 400. No internal notes, documents, source, manifests or release archives were accessible in this audit.
+- Seventeen retained interactions pass on the hosted origin. Desktop 1440px, mobile 390px and the 320px homepage were visually checked with no horizontal overflow or uncaught page errors.
+- Netlify's injected hosting badge was disabled and its absence was confirmed in a fresh anonymous browser. The artifact itself was not changed.
+- The main portfolio now links to this clean edition. The footer returns to the portfolio case study.
+
+Evidence: `../../output/playwright/russound-independent-audit/hosted-results.json` and `../../output/playwright/russound-hosted/FINAL_REVIEW.md`. Physical Safari/touch remains outside this Chromium/emulated-mobile audit.
 
 ## Delivered boundary
 
@@ -24,10 +36,10 @@ The guide dialog, review footer/archive links, review page, comparison controls/
 
 Local browser evidence and reproducible CLI scripts: `../../output/playwright/russound-clean/`. Independent audit details are saved separately beside this report. Original image metadata was inspected; ordinary Adobe software/document identifiers were found, with no GPS, local paths, authors or communication text.
 
-## Reproduce and publish later
+## Original predeployment procedure
 
 Follow `scripts/README.md` for preparation, build, package, seven boundary tests and strict preview. Current local preview: `http://127.0.0.1:4336/`. The portfolio runs at `http://127.0.0.1:4318/`.
 
 Only `release/upload` is the deployment candidate. Preserve the client-review hosting project. After deployment authorization, publish this candidate to a separate origin, verify actual hosted 404 behavior and document/source exclusions, then connect the new URL to the portfolio. Confirm the case-study return URL as part of the portfolio release. Do not enable a catch-all homepage rewrite or publish the parent project/release folder.
 
-Browser checks used desktop Chromium and mobile emulation. Physical Safari/touch behavior and the future host remain to be checked at release. No paid tools, new packages, external submissions or original client-review changes were used.
+The original local checks used desktop Chromium and mobile emulation. At that stage physical Safari/touch behavior and the future host remained unchecked; the hosted release results above now resolve the hosting checks. No paid tools, new packages, external submissions or original client-review changes were used in that local preparation.

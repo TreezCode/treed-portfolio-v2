@@ -1,10 +1,20 @@
-# Build With Treez: local redesign verification
+# Build With Treez: release verification
 
-Date: November 3, 2026. Status: Living Archive, the 12-project selection, corrected framing and multi-page delivery approved. Geometry Bench and Portal Keeper are implemented; Joey's initial game playthrough found no issues at first glance. The authorized Playground hub and game case study are locally verified. No production deployment.
+Date: November 3, 2026. Status: the approved Living Archive portfolio, curated work, Geometry Bench and Portal Keeper are published at `https://buildwithtreez.com`. Release commit `6173ee9356ac1c947e75871cdbdac69656d19811`, Netlify deploy `6aea218d53f77b439f44e0f5`. `DEPLOYMENT.md` owns the current hosted verification and follow-up; older candidate evidence below retains its original scope and chronology.
+
+## Authorized production release, November 3, 2026
+
+- [x] The connected Git production build completed successfully after PR #2 was merged. Netlify's published-site readback matches the release commit and deploy above.
+- [x] All 29 live sitemap pages pass canonical, title, description, Open Graph, Twitter and indexing-header checks. All 49 social cards are valid 1200 x 630 PNGs; the Apple icon is 180 x 180. Historical/review pages retain noindex and unknown routes return 404.
+- [x] Search Console accepted `https://buildwithtreez.com/sitemap.xml`, reports **Success**, and discovered all 29 pages. Discovery does not assert indexing or rankings.
+- [x] Four hosted interaction tests pass. Google DebugView confirms a labeled QA homepage view with the expected campaign, clean URL and debug flag. Production consent and event-payload checks pass; no real conversion or contact email was sent.
+- [x] The separate clean Russound origin passed file-hash, excluded-document, route and interaction checks before being linked from the portfolio. Its original client-review edition remains unchanged. See `experiences/russound/VERIFICATION.md`.
+
+The hosted interaction and Analytics receipt evidence is recorded in `DEPLOYMENT.md` and `ANALYTICS.md`. Fresh-player sessions and physical-device checks remain the next work in `PLAYTEST.md` before another room.
 
 ## SEO, social previews and measurement launch pass, November 3, 2026
 
-Current production candidate: `ehUPGqfFr8uX0wCP-EwxD`, served locally at `http://127.0.0.1:4340`, with 106 generated paths. This section supersedes earlier metadata counts and account-setup status while preserving the dated evidence below. The public website has not been redeployed.
+Predeployment candidate: `ehUPGqfFr8uX0wCP-EwxD`, served locally at `http://127.0.0.1:4340`, with 106 generated paths. This section records the original candidate pass. The production release above supersedes its deployment status.
 
 - [x] All 29 candidate sitemap pages pass independent rendered-HTML checks: canonical and Open Graph URLs use `https://buildwithtreez.com`; titles and descriptions are explicit and consistent across page, Open Graph and Twitter metadata; image URLs are absolute and include useful alt text. Privacy is included; historical/review exclusions are preserved. Unknown project and social-card routes return 404.
 - [x] All 50 image endpoints return valid PNGs: 49 social cards at 1200 x 630 and an Apple icon at 180 x 180. Largest card: 764,096 bytes. Nine representative cards were visually reviewed, including the homepage, About, product/client work, studio art, both interactive experiences and Privacy. Complete source images fit inside the frames without edge cropping. The artwork uses the approved Living Archive colors, geometric identity and existing project assets.
@@ -15,7 +25,7 @@ Current production candidate: `ehUPGqfFr8uX0wCP-EwxD`, served locally at `http:/
 
 **Copy provenance:** OpenSEO Copy was applied alongside Premium Client Site and Cinematic Web Experiences. This metadata and artwork pass reuses the approved employer-first brief, same-day fallback portfolio research and source-backed project wording in `CLIENT_SITE_BRIEF.md` and the existing case-study provenance records. Search treatment applies to route metadata; product-UI treatment applies to Privacy and consent controls. No new paid research, keyword estimates, ranking claims or invented project outcomes were introduced. The newly linked OpenSEO project is measurement infrastructure, not retroactive evidence for the earlier copy research.
 
-**Release follow-up:** The current live sitemap still contains one URL; the candidate contains 29. After an authorized deployment, verify the hosted metadata/images and preview headers, submit or refresh the production sitemap in Search Console, and perform an identified production analytics check. Local intercepted QA does not establish live event receipt. Final Google settings and custom-dimension checks are tracked in `ANALYTICS.md`.
+**Original release follow-up:** At this candidate check the old live sitemap contained one URL, while the candidate contained 29. Hosted metadata/images, preview headers, sitemap submission and an identified production analytics check were queued for the authorized release. Their current results are recorded above and in `DEPLOYMENT.md` and `ANALYTICS.md`.
 
 Evidence: `output/playwright/social-preview/{FINAL_REVIEW.md,production-results.json,verify-production.py}` and the accompanying card PNGs. The verification script accepts a hosted origin for the release recheck. No deployment or commit was performed in this pass.
 

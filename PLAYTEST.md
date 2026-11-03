@@ -1,12 +1,12 @@
 # Playground: a small first-player check
 
-Prepared November 3, 2026. No participant sessions are recorded yet. Joey's initial playthrough found no issues at first glance; the check below adds two people who have not seen the solution.
+Prepared November 3, 2026. No participant sessions are recorded yet. Joey's initial playthrough found no issues at first glance; the check below adds two people who have not seen the solution. The released hub is `https://buildwithtreez.com/playground`, and the direct game is `https://buildwithtreez.com/play/portal-keeper`. Record the active deployment from `DEPLOYMENT.md` with each session.
 
 ## Set up
 
 - Invite two fresh players. One may perform the physical-phone session, so this need not be a third participant. Do not show the case study or puzzle solution first.
 - Record the build, preview URL, device, OS, browser and input method. Use a fresh browser profile or reset the room before each session.
-- Have one player use a physical phone. A desktop `127.0.0.1` URL is not reachable from that phone; arrange a reachable preview separately. Browser emulation does not count as this check.
+- Have one player use a physical phone with the released HTTPS URL above. Browser emulation does not count as this check.
 - Allow roughly ten minutes each. Observe without coaching. Ask permission before recording their screen or voice; written notes are enough.
 
 ## Neutral prompts
