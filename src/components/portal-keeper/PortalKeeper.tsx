@@ -36,6 +36,7 @@ import {
   type PuzzleState,
 } from './puzzle'
 import { ObservatoryDiagram } from './ObservatoryDiagram'
+import { KeeperAudio } from './keeper-audio'
 import { trackAnalytics } from '@/lib/analytics'
 
 const ObservatoryCanvas = dynamic(() => import('./ObservatoryCanvas'), {
@@ -116,8 +117,7 @@ export default function PortalKeeper() {
   const [sound, setSound] = useState(false)
   const [notice, setNotice] = useState('')
   const [saveAvailable, setSaveAvailable] = useState(true)
-  const audioRef = useRef<AudioContext | null>(null)
-  const soundPending = useRef(false)
+  const audioRef = useRef<KeeperAudio | null>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
   const stageRef = useRef<HTMLDivElement>(null)
   const completionRef = useRef<HTMLHeadingElement>(null)
@@ -191,15 +191,14 @@ export default function PortalKeeper() {
   }, [])
 
   useEffect(() => {
-    const context = audioRef.current
-    if (context && context.state !== 'closed') {
-      if (!documentVisible || !visible || paused) void context.suspend().catch(() => {})
-      else if (sound) void context.resume().catch(() => {})
-    }
-  }, [documentVisible, visible, paused, sound])
+    // Feedback belongs to explicit play, not the visual scene's motion loop.
+    // Do not automatically resume audio outside a user gesture on return.
+    if (!documentVisible) audioRef.current?.quiet()
+  }, [documentVisible])
   useEffect(
     () => () => {
-      void audioRef.current?.close().catch(() => {})
+      audioRef.current?.dispose()
+      audioRef.current = null
     },
     []
   )
@@ -209,70 +208,40 @@ export default function PortalKeeper() {
     return () => cancelAnimationFrame(frame)
   }, [state.entered])
 
-  function chime(kind: 'move' | 'wake' | 'enter', context = audioRef.current) {
-    if (!context || context.state !== 'running') return
-    const notes =
-      kind === 'move'
-        ? [293.66]
-        : kind === 'wake'
-          ? [293.66, 349.23, 440, 659.25]
-          : [440, 587.33, 659.25, 880]
-    notes.forEach((frequency, index) => {
-      const oscillator = context.createOscillator()
-      const gain = context.createGain()
-      oscillator.type = 'sine'
-      oscillator.frequency.value = frequency
-      const start = context.currentTime + index * 0.16
-      gain.gain.setValueAtTime(0, start)
-      gain.gain.linearRampToValueAtTime(kind === 'move' ? 0.025 : 0.045, start + 0.025)
-      gain.gain.exponentialRampToValueAtTime(0.0001, start + 1.6)
-      oscillator.connect(gain)
-      gain.connect(context.destination)
-      oscillator.start(start)
-      oscillator.stop(start + 1.7)
-      oscillator.onended = () => {
-        oscillator.disconnect()
-        gain.disconnect()
-      }
-    })
-  }
-
-  async function toggleSound() {
-    if (soundPending.current) return
-    soundPending.current = true
-    if (sound) {
-      setSound(false)
-      await audioRef.current?.close().catch(() => {})
-      audioRef.current = null
-      soundPending.current = false
-      return
+  function toggleSound() {
+    setNotice('')
+    if (!audioRef.current) {
+      audioRef.current = new KeeperAudio({
+        onUnavailable: () => {
+          setSound(false)
+          setNotice(
+            'Sound could not start. Tap the sound button to try again. Every clue is also visible.'
+          )
+        },
+      })
     }
-    try {
-      const context = new AudioContext()
-      audioRef.current = context
-      await context.resume()
-      setSound(true)
-      chime('move', context)
-    } catch {
-      await audioRef.current?.close().catch(() => {})
-      audioRef.current = null
-      setNotice('Sound is unavailable in this browser. Every clue is also visible.')
-    } finally {
-      soundPending.current = false
-    }
+    setSound(!sound)
+    audioRef.current.setEnabled(!sound)
   }
 
   function change(next: PuzzleState) {
     if (session.hydrated && JSON.stringify(next) !== JSON.stringify(state)) {
       if (!startReported.current) startReported.current = trackAnalytics('game_start')
-      if (next.entered && !state.entered && traceLight(next).solved && !completionReported.current) {
+      if (
+        next.entered &&
+        !state.entered &&
+        traceLight(next).solved &&
+        !completionReported.current
+      ) {
         completionReported.current = trackAnalytics('game_complete')
       }
     }
     dispatch({ type: 'change', state: next })
     setNotice('')
     if (sound)
-      chime(next.entered ? 'enter' : traceLight(next).solved && !light.solved ? 'wake' : 'move')
+      audioRef.current?.play(
+        next.entered ? 'enter' : traceLight(next).solved && !light.solved ? 'wake' : 'move'
+      )
   }
   function rotate(delta: 1 | -1) {
     change(applyMove(state, { type: 'rotate', target: selected, delta }))

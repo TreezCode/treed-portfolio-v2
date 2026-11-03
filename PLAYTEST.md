@@ -1,6 +1,12 @@
 # Playground: a small first-player check
 
-Prepared November 3, 2026. No participant sessions are recorded yet. Joey's initial playthrough found no issues at first glance; the check below adds two people who have not seen the solution. The released hub is `https://buildwithtreez.com/playground`, and the direct game is `https://buildwithtreez.com/play/portal-keeper`. Record the active deployment from `DEPLOYMENT.md` with each session.
+Prepared November 3, 2026. One mobile check is reported below; no complete structured participant session is recorded yet. Joey's initial playthrough found no issues at first glance; the check below adds two people who have not seen the solution. The released hub is `https://buildwithtreez.com/playground`, and the direct game is `https://buildwithtreez.com/play/portal-keeper`. Record the active deployment from `DEPLOYMENT.md` with each session.
+
+### First reported mobile check, November 3
+
+Joey reported that one player tried the game on a mobile device. The initial concern was silent audio, which Joey also encountered before refreshing. He subsequently confirmed that audio works and believes the player's volume was too low. Treat that reported symptom as resolved; the device, browser, completion result and other session observations were not supplied.
+
+The investigation separately reproduced two recovery defects in Chromium: a suspended audio context stayed silent after a game tap, and a short landscape viewport could silence visible controls when the scene scrolled away. A local reliability patch addresses those independent findings without changing sound levels. See the follow-up in `LAUNCH_SCORECARD.md`. This report is not yet a complete uncoached-player session record.
 
 ## Set up
 

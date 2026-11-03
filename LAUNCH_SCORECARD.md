@@ -4,6 +4,22 @@ Date: November 3, 2026. Status: the approved Living Archive portfolio, curated w
 
 ## Authorized production release, November 3, 2026
 
+### Local audio recovery follow-up
+
+After release, Joey reported a mobile sound concern, then confirmed sound works and suspected low device volume. Independent debugging still reproduced suspended-audio recovery and offscreen-scene coupling defects. These are separate findings, not a claim about the cause on the player's device.
+
+Local candidate `9UczBKT3Jvs0IVvQ2ec_4` fixes feedback recovery on an explicit game gesture, keeps event sounds independent of ambient-motion pause and scene visibility, releases old notes on interruption/hide/mute/unmount, and leaves sound retry usable after a failed or unresolved resume. Sound remains opt-in, with the same note levels. The brief retry message uses OpenSEO Copy's product-UI treatment; research is not needed for this bounded control message.
+
+Verification: production build, TypeScript and scoped ESLint pass; 21 Node checks (15 audio including subcases, six puzzle) and all three existing game browser journeys pass. Real Chromium audio instrumentation at 390 x 844 confirms a nonzero sound signal after opt-in and gesture-bound resume after suspension. At 720 x 390, visible controls still produce feedback with the scene above the viewport. Motion pause, mute and route-away cleanup also pass with zero page errors. A failed-initialization browser check confirms retry works and clears the stale failure notice. The game keyboard suite now declines the separately tested Analytics notice so that first-visit consent does not obscure its focus assertions. Audio browser evidence is `output/playwright/audio-recovery-qa.js`, `audio-retry-qa.js` and `audio-recovery-results.json`.
+
+Joey subsequently authorized deploying this audio recovery patch together with a matching Living Archive favicon. Physical-phone confirmation of the recovery patch is not claimed. The published follow-up is recorded in `DEPLOYMENT.md` after hosted verification.
+
+### Favicon follow-up
+
+The launch retained the earlier purple/blue browser favicon while updating only the Apple home-screen icon. The correction uses the existing lichen geometry with fewer lines at tab sizes: `src/app/icon.svg` and a genuine ICO fallback containing 16, 32, 48, 64, 128 and 256 pixel frames. `scripts/prepare-favicon.mjs` reproduces the fallback from the vector. The 16/32 pixel frames were independently inspected and remain recognizable, fully inset and legible against light and dark tab surrounds. The Apple icon remains unchanged. Combined production candidate `omYTQzfirJSKt-a-8S_RZ` builds with 107 generated paths.
+
+### Published release checks
+
 - [x] The connected Git production build completed successfully after PR #2 was merged. Netlify's published-site readback matches the release commit and deploy above.
 - [x] All 29 live sitemap pages pass canonical, title, description, Open Graph, Twitter and indexing-header checks. All 49 social cards are valid 1200 x 630 PNGs; the Apple icon is 180 x 180. Historical/review pages retain noindex and unknown routes return 404.
 - [x] Search Console accepted `https://buildwithtreez.com/sitemap.xml`, reports **Success**, and discovered all 29 pages. Discovery does not assert indexing or rankings.
