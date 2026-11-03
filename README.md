@@ -9,6 +9,7 @@ The portfolio of Joey Kubalak, a software engineer and creative maker. The Novem
 - `/`: Living Archive, the approved direction with three featured stories and a creative selection.
 - `/work`: The approved 12-project collection with categories and search.
 - `/about` and `/contact`: Background, creative interests, resume and engineering inquiries.
+- `/playground`: Geometry Bench, an original Three.js instrument with Bloom/Orbit/Portal forms, keyboard/touch controls, reproducible recipes and local PNG/SVG exports.
 - `/work/little-portal-studio`: One studio project with eight released products inside it.
 - `/directions/fieldnotes`: Retained, unlinked editorial direction study.
 - `/work/[slug]`: All 12 approved projects have deeper case studies, with original screenshots, decisions and delivery details. PresentSphere and Renamerly include small interactive explanations. Original detail URLs remain recoverable; unselected records are noindex and excluded from the sitemap.
@@ -18,7 +19,7 @@ Run `npm run build`, then `npm run start -- --hostname 127.0.0.1 --port 4318` to
 
 Current project content lives in `src/data/portfolio-{development,creative,russound}.ts`, joined by `src/data/portfolio.ts`. Source reconciliation and asset manifests are retained locally in `docs/portfolio-refresh/`, which this repository intentionally excludes from Git. Read `DESIGN.md` for reference decisions and `LAUNCH_SCORECARD.md` for actual verification and launch boundaries.
 
-The deeper narratives live in `src/data/case-studies-{products,client,creative}.ts`. Their original image derivatives are in `public/portfolio/cases`; run `node scripts/prepare-case-image-sizes.mjs` after adding images to refresh intrinsic dimensions. The planned Playground and standalone game are not part of this delivery.
+The deeper narratives live in `src/data/case-studies-{products,client,creative}.ts`. Their original image derivatives are in `public/portfolio/cases`; run `node scripts/prepare-case-image-sizes.mjs` after adding images to refresh intrinsic dimensions. Geometry Bench's configuration, procedural geometry, renderer and poster generator live under `src/components/playground/`. The standalone game remains future work.
 
 ## What this repository demonstrates
 

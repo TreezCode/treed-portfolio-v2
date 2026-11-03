@@ -33,7 +33,7 @@ export function PortfolioHeader({
 }: {
   direction?: 'archive' | 'fieldnotes'
   detail?: boolean
-  active?: 'work' | 'about' | 'contact'
+  active?: 'work' | 'playground' | 'about' | 'contact'
 }) {
   const home = direction === 'archive' ? '/' : '/directions/fieldnotes'
   return (
@@ -47,6 +47,13 @@ export function PortfolioHeader({
       <nav aria-label="Main navigation">
         <Link href="/work" aria-current={active === 'work' && !detail ? 'page' : undefined}>
           Work
+        </Link>
+        <Link
+          href="/playground"
+          prefetch={false}
+          aria-current={active === 'playground' ? 'page' : undefined}
+        >
+          Playground
         </Link>
         <Link href="/about" aria-current={active === 'about' ? 'page' : undefined}>
           About
@@ -88,6 +95,9 @@ export function PortfolioFooter() {
       </a>
       <div>
         <Link href="/work">Work</Link>
+        <Link href="/playground" prefetch={false}>
+          Playground
+        </Link>
         <Link href="/about">About</Link>
         <Link href="/contact">Contact</Link>
         <a href="https://github.com/TreezCode" target="_blank" rel="noreferrer">

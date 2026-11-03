@@ -356,6 +356,32 @@ export default function PortfolioPage({
             Explore all selected work <ArrowUpRight size={18} />
           </Link>
         </section>
+        <section
+          className="folio-playground-invite folio-container"
+          aria-labelledby="playground-invite-title"
+        >
+          <Image
+            src="/portfolio/geometry-bench-poster.svg"
+            alt="A sixfold geometric bloom from the Geometry Bench"
+            width={1200}
+            height={1200}
+            sizes="(max-width: 760px) 60vw, 300px"
+          />
+          <div>
+            <h2 id="playground-invite-title">
+              Your turn to
+              <br />
+              make something.
+            </h2>
+            <p>
+              A small playground for a curious mind. Shape a bloom, twist a portal and see where the
+              numbers take you.
+            </p>
+            <Link className="folio-text-link" href="/playground" prefetch={false}>
+              Open the Geometry Bench <ArrowUpRight size={18} />
+            </Link>
+          </div>
+        </section>
         <section className="folio-about folio-container" id="about" aria-labelledby="about-title">
           <div>
             <GeometryMark />

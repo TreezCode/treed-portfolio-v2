@@ -128,6 +128,7 @@
 }
 .folio-header nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 38px;
   align-items: center;
   margin-left: auto;

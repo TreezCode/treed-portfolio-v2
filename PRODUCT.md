@@ -3,7 +3,7 @@
 ## Authority
 
 - **Status:** Active
-- **Version:** 4.1
+- **Version:** 4.2
 - **Owner:** Joey Kubalak
 - **Current scope authorized:** November 3, 2026
 - **Visual authority:** `DESIGN.md`
@@ -50,7 +50,7 @@ Continue the owner-approved **Living Archive** direction using the shared refere
 
 The opening immediately communicates identity and invites the work. Sacred geometry remains part of Joey's visual vocabulary. Dimensional motion, artwork and typography reveal personality without making visitors wait or learn special controls. CSS projection and native browser behavior may replace WebGL when they better serve the experience.
 
-The curated list is approved. Complete the requested image-framing correction before building the deeper case studies, dedicated pages and Playground. The portfolio should demonstrate technical creativity through usable interactions and substantive project evidence. A full game is a later, separately scoped build, not part of the current correction pass.
+The curated list, full-image framing and multi-page case-study delivery are approved. Joey has now authorized the Geometry Bench Playground in the same Living Archive direction, with Three.js and research into relevant expert-authored skills. The instrument demonstrates technical creativity through original procedural forms, direct controls and reproducible outputs. A full game remains a later, separately scoped build.
 
 ## Product principles
 

@@ -1,4 +1,36 @@
 /* Living Archive: distinct destinations, shared framing and readable native scroll. */
+.folio-playground-invite {
+  display: grid;
+  grid-template-columns: minmax(180px, 300px) minmax(0, 1fr);
+  gap: 65px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding-block: 45px;
+}
+.folio-playground-invite img {
+  width: 100%;
+  height: auto;
+}
+.folio-playground-invite h2 {
+  font-size: clamp(2.6rem, 3.8vw, 3.8rem);
+}
+.folio-playground-invite p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 500px;
+  margin-block: 24px;
+}
+@media (max-width: 760px) {
+  .folio-playground-invite {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+  }
+  .folio-playground-invite img {
+    max-width: 260px;
+  }
+}
 .folio-header a[aria-current='page'] {
   color: var(--accent);
   text-decoration: underline;

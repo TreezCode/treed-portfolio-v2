@@ -120,11 +120,26 @@ PresentSphere and Ascension supplied the representative structure before the rem
 
 The restored first portfolio is isolated static content, noindex, with original versioned dependencies and optimized image derivatives. It is an exhibit of earlier work, not a new production app. Its source repository and source masters remain unchanged.
 
-### Second delivery: one signature Playground experience
+### Implemented: the Geometry Bench Playground
 
-Proposed concept: **The Geometry Bench**. Visitors adjust symmetry, movement and color in an original geometric composition. A deterministic configuration can recreate the same result; a later export/share capability is useful only after the core interaction works well. A concise “How it works” view explains state, rendering and performance decisions. Optional sound requires an explicit visitor action. Keyboard controls, pause and a composed reduced-motion state are part of the first slice.
+Joey approved this delivery after the multi-page build. The page at `/playground` retains Living Archive's ink-green canvas, ivory type and chartreuse controls. It extends the site's sacred-geometric identity into an original instrument with three forms: Bloom, Orbit and Portal. The curated starting points are Seed of Wonder, After Hours and Little Doorway. Lichen, Cosmic and Ember palettes supply controlled variation inside the art; site navigation stays consistent.
 
-Use a small homepage invitation to this experience. Optional discoveries can reveal a behind-the-scenes note or a new visual preset. Avoid forced accounts, locked case studies, résumé gates, artificial points systems and mandatory play. These are proposed features, not claims about today's implementation.
+The stage pairs a large original procedural sculpture with a narrow control rail. Symmetry, layers, spread, twist and speed change actual geometry or motion. Sideways drag and explicit left/right/reset buttons turn the sculpture. Surprise me produces a bounded deterministic variation within the chosen family and palette. The stage stays visible while phone visitors adjust controls. Its caption, artwork and compact pause/rotation row occupy separate layout rows, including at enlarged text sizes. Native vertical scroll remains available.
+
+Three.js 0.183.2 through the installed React Three Fiber 9.5.0 owns the renderer. There is one pose owner, delta-based active time, a demand frame loop, bounded DPR and explicit buffer cleanup. Seeded geometry is computed only when its structural parameters change. Palette/speed changes do not rebuild vertex buffers. A small point shader draws structural nodes; translucent planes and lines give the forms depth without a postprocessing chain. The canvas imports only on the Playground route; links to it disable prefetch. The homepage invitation uses a static SVG print.
+
+| State | What the visitor sees and does | Motion, fallback and ownership |
+| --- | --- | --- |
+| Arrival | Default Bloom print is present immediately; the 3D scene enhances it | No splash or hidden opening. WebGL2 preflight prevents initialization errors from leaving a broken canvas |
+| Explore | A preset or control changes the original sculpture; horizontal drag or buttons turn it | One Three.js transform owner. Native scroll is not consumed; keyboard controls are ordinary HTML |
+| Play/rest | Gentle evolving orientation makes depth legible; Pause holds the current pose | Active time stops for pause, reduced motion, offscreen stage or hidden document. Parameter/view changes still draw when motion is stopped |
+| Keep/share | Save a PNG of the current view, a flat scalable SVG print, or copy the recipe link | Exports stay in the browser. Versioned, bounded URL parameters store shape/settings/palette/seed, not camera pose or animation time. Clipboard denial exposes a selectable URL |
+| Unavailable/lost WebGL | The flat print continues responding to controls | No WebGL canvas is mounted after failed preflight. Context loss switches to the same poster; PNG/rotation controls disable while SVG remains available |
+| No JavaScript | The authored default print, explanation, navigation and print-download link remain | Optional controls are hidden; no pretend interactivity |
+
+The generated poster and sculpture use original mathematical forms, not reference artwork. Atrium remains the reference for the homepage wall; it is not a claim about this independent 3D instrument. Shared skills guide composition, interaction ownership and verification. Reviewed technical sources include the maintainer-contributed [pmndrs math skill](https://github.com/pmndrs/math/blob/main/skills/math/SKILL.md), the community [EnzeD R3F fundamentals/geometry/animation guides](https://github.com/EnzeD/r3f-skills), and [official R3F performance documentation](https://r3f.docs.pmnd.rs/advanced/scaling-performance). Installed source governs version-specific APIs. No external skill pack or extra math library was installed. Detailed provenance and the rejected/stale alternatives remain in the local research note.
+
+The homepage invitation and shared navigation lead directly to the instrument. A concise “How it works” view explains procedural construction, reproducibility, exports and rendering rest. Sound and additional discoveries remain optional future additions. No accounts, locked case studies, résumé gates or mandatory play were introduced.
 
 ### Later delivery: a standalone game
 

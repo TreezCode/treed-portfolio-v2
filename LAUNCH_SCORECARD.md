@@ -1,6 +1,32 @@
 # Build With Treez: local redesign verification
 
-Date: November 3, 2026. Status: Living Archive, the 12-project selection and corrected framing approved. Authorized multi-page delivery implemented and locally verified. No production deployment.
+Date: November 3, 2026. Status: Living Archive, the 12-project selection, corrected framing and multi-page delivery approved. Authorized Geometry Bench Playground implemented and locally verified. No production deployment.
+
+## Current Geometry Bench delivery
+
+The dedicated `/playground` route adds Bloom, Orbit and Portal sculptures with five parameter controls, three palettes, curated presets, seeded variations, sideways rotation and explicit view/pause buttons. Visitors can download a current-view PNG, generate a flat scalable SVG print, and share a versioned configuration link. Shared navigation and a static homepage invitation expose the experience without adding a WebGL canvas to Home.
+
+- [x] Production build passes with 53 generated routes. ESLint passes. No new dependencies or paid services were introduced.
+- [x] All three geometry families pass finite-coordinate, deterministic-buffer and bounded-radius checks at extreme settings. Versioned recipe parsing rejects malformed labels/syntax and clamps valid numeric ranges. One thousand deterministic variations and SVG outputs were checked.
+- [x] Desktop 1440px, tablet 1024px/768px, mobile 390px/320px and short 844x390 landscape render one canvas and one main/h1 without horizontal overflow. Final 320px with doubled text also fits after allowing preset labels to wrap.
+- [x] All three normal-motion compositions were inspected. Orbit's nearly edge-on loops were widened into readable ellipses. Parameter controls, presets, keyboard increments, touch preset activation and route remount work.
+- [x] The mobile pause button uses a compact Play/Pause label with a full accessible name. Caption, sculpture and controls occupy separate rows. At 390px the control is about 70px wide and 44px high; actions begin 12px below the artwork. At 320px with doubled text the rows remain separate. Focused control labels are visible after native scrolling settles.
+- [x] Actual WebGL draw-call instrumentation records activity during motion and zero draws during paused/reduced states. The fully offscreen sample records zero draws with the stage bottom 310px above the viewport. The first tall-viewport sample still intersected the stage and was not treated as an offscreen pass.
+- [x] SVG/PNG download actions succeed. The actual PNG was inspected and contains the complete sculpture. Shared recipe restoration reproduces the selected Portal and changed twist value. Clipboard denial exposes a selectable recipe link.
+- [x] WebGL2 returning null or throwing activates the responsive flat edition with no mounted canvas or uncaught page error. Context loss switches to the same fallback. SVG remains available, PNG disables, and form controls continue changing the print.
+- [x] Without JavaScript, the poster, page content, navigation and original print download remain; inactive controls are hidden. Reduced motion keeps geometry controls useful without autoplay. A native emulated touch swipe over the sculpture scrolled the page 93px without pausing motion (`geometry-touch-scroll.txt`).
+- [x] Independent source review covered resource ownership, frame-loop state, safe URL/SVG generation and unavailable-WebGL initialization. The Impeccable mechanical detector returned no findings for the changed page/UI targets.
+
+| Current mobile lab | Performance | Accessibility | LCP | TBT | CLS |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Home | 94 | 100 | 3.02s | 14ms | 0 |
+| Playground | 85 | 100 | 3.53s | 274ms | 0 |
+
+These are one Lighthouse 13.4.1 simulated mobile run per route on build `lGXfBwRU3GjCBFc6kIcgB`, not physical-device performance or accessibility certification. The audit screenshot shows the 3D sculpture. Initial 3D JavaScript and render-blocking CSS remain optimization opportunities; no field Core Web Vitals claim is made. Final build `Iz49hsL80mZ9p6lI4c0Sd` adds only the narrow enlarged-text preset wrapping correction. Final layout evidence confirms it at 320px/200% text.
+
+Evidence under `output/playwright/`: `geometry-bench-results.txt`, `geometry-fallback-results.txt`, `geometry-final-layout-results.txt`, `bench-focus-settled.txt`, `geometry-release-results.txt`, `bench-release-*` screenshots, `bench-export.{png,svg}` and `geometry-lighthouse-*` reports. The first full harness hit a wrapped-label selector mismatch; the UI now has an explicit Form accessible name and the successful results include the corrected selector. Focus/scroll measurements use settled native scrolling, not the early in-flight sample.
+
+Source provenance and selected/rejected external skill findings are in `docs/portfolio-refresh/threejs-skills-research.md`. Expert authorship is recorded where verified; community skill packs are not described as official Three.js guidance. No third-party skill pack was installed or executed. The standalone game and optional sound remain future work.
 
 ## Current multi-page delivery
 
@@ -112,7 +138,7 @@ Local evidence: output/playwright/final-results.json, contact-results.txt, fallb
 ## Before public launch
 
 - Obtain the outstanding named public portfolio/media permission for Russound and contributor distribution permission for Rift Riders. Local preview inclusion does not settle those permissions.
-- Living Archive, the curated project list and image framing are approved. Review the completed multi-page delivery, then explicitly authorize production publication when ready. The Geometry Bench Playground and later standalone game remain planned future work.
+- Living Archive, the curated project list, image framing and multi-page delivery are approved. Review the completed Geometry Bench, then explicitly authorize production publication when ready. The standalone game remains future work.
 - Perform physical mobile Safari/touch and assistive-technology review. Current verification used desktop Chromium and mobile emulation, not physical devices.
 - Check production email delivery and hosted performance when a release is authorized. Current form tests were intercepted and the existing contact endpoint was preserved.
 

@@ -9,7 +9,7 @@ export function PortfolioShell({
   active,
 }: {
   children: React.ReactNode
-  active?: 'work' | 'about' | 'contact'
+  active?: 'work' | 'playground' | 'about' | 'contact'
 }) {
   return (
     <div className="folio folio-archive folio-page">

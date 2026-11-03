@@ -28,6 +28,8 @@ Joey approved the 12-project list on November 3 and requested full-image framing
 
 The current authorization covers local implementation and verification. It does not authorize public deployment.
 
+Joey subsequently approved the multi-page delivery and authorized Geometry Bench as the next Playground feature, retaining Living Archive and both design skills. He requested Three.js and discovery of valuable expert-authored Three.js skills. This delivery implements three procedural sculpture families, native controls, deterministic variation and share links, local SVG/PNG exports, and readable technical explanations. The user also requested a compact mobile pause control that does not cover the artwork. No new dependency, backend, account, paid research or deployment is needed.
+
 After approving the corrected framing, Joey authorized the multi-page build and deeper case studies. This delivery creates Home, Work, About and Contact, expands all 12 approved project stories, adds two small illustrative interactions, and restores the first portfolio as a clearly labeled historical exhibit. The later Playground and standalone game remain separate planned deliveries.
 
 ## Content authority and proof
@@ -49,6 +51,8 @@ Warm, precise, curious and confident. Use concrete language and personality. Kee
 **Research treatment:** Search for the public portfolio; product UI for navigation and controls. **Research status: fallback research**, using bounded current public portfolio results and original repository/project evidence. No search-volume, ranking or conversion estimate is asserted. No first-party recruiter-language corpus is available. Primary intent remains finding and evaluating Joey Kubalak's software-engineering portfolio, not competing with Codorus Web's service pages.
 
 The multi-page copy reuses this same-day research pass. Per-project original-source verification is recorded in the local product, client and creative case-study provenance notes. Case narratives distinguish the problem, consequential decisions and delivered behavior. Architecture explanations and interactive examples are authored from those sources; they are not screenshots or embedded versions of the underlying products.
+
+Geometry Bench uses product-UI treatment: invite exploration, name the controls and explain what each export/share action does. Research status: research not needed for these controls; the same-day portfolio audience evidence remains adequate. Separate Three.js skill research used primary repositories, author profiles and official documentation, with authorship/version caveats retained in `docs/portfolio-refresh/threejs-skills-research.md`.
 
 ## Acceptance and measurement
 
