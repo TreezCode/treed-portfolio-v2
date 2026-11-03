@@ -2,18 +2,30 @@
 
 Released November 3, 2026, after owner approval of the launch pass and clean Russound portfolio edition.
 
+Latest authorized follow-up: the Living Archive favicon and Portal Keeper audio recovery fix were published November 3 after [PR #3](https://github.com/TreezCode/treed-portfolio-v2/pull/3) merged at 20:39:12 UTC (3:39:12 PM New York). Netlify's published-site readback confirms the current portfolio deployment below.
+
 ## Published origins
 
 | Surface | URL | Release |
 | --- | --- | --- |
-| Portfolio | https://buildwithtreez.com | Git commit `6173ee9356ac1c947e75871cdbdac69656d19811`; Netlify deploy `6aea218d53f77b439f44e0f5` |
+| Portfolio | https://buildwithtreez.com | Git commit `852c6ee0bc00c5e1f052324568ac5fdff7fa02fd`; Netlify deploy `6aea467256f49ff62da3930d` |
 | Clean Russound experience | https://treez-russound-experience.netlify.app | Netlify deploy `6aea1fb01491af4b74be38d7`; immutable 81-file `experiences/russound/release/upload` artifact |
 
-Portfolio [PR #2](https://github.com/TreezCode/treed-portfolio-v2/pull/2) was merged at 18:01:46 UTC. The connected production build succeeded, and Netlify's published-site readback confirms the commit and deployment above. Local `main` was fast-forwarded to the merged release. Later documentation-only commits do not change these deployed application bytes.
+The initial portfolio [PR #2](https://github.com/TreezCode/treed-portfolio-v2/pull/2) was merged at 18:01:46 UTC, publishing commit `6173ee9356ac1c947e75871cdbdac69656d19811` as deploy `6aea218d53f77b439f44e0f5`. The follow-up above supersedes that deployment. Local `main` was fast-forwarded to the merged release. Later documentation-only commits do not change these deployed application bytes.
 
 The live release includes Home, Work, About, Contact, Privacy, deeper case studies, the Playground hub, Geometry Bench and Portal Keeper. The bench's face-on alignment and reset/export correction are included. The standalone game remains one room pending fresh-player feedback.
 
-## Hosted verification
+## Favicon and audio follow-up verification
+
+- The browser favicon now matches Living Archive: a simplified lichen-green geometric flower on a dark tile, supplied as SVG and a true ICO with 16/32/48/64/128/256 pixel frames. Small-size review passed at 16 and 32 pixels. `scripts/prepare-favicon.mjs` regenerates the ICO from the editable vector.
+- Home, Work and Portal Keeper return new versioned icon links. Both served files match the reviewed hashes and return the correct MIME types with revalidation caching. The Apple icon is unchanged byte-for-byte. Intended production pages remain indexable.
+- Audio now resumes directly on an explicit game action after interruption. Event feedback is independent of ambient-motion pause and scene visibility. Pending or old sounds are canceled on mute, hide and unmount; failed starts can be retried. Note levels remain unchanged.
+- The combined candidate passed its production build, scoped lint, 21 audio/puzzle unit checks and all three gameplay browser journeys. Production Chromium instrumentation confirms a nonzero audio signal after opt-in, gesture-bound recovery after suspension, feedback with the scene offscreen in landscape, feedback while ambient motion is paused, mute and route cleanup. No page errors were observed. Analytics was declined and collection requests were blocked throughout QA.
+- Preview deploy `6aea45b4a6836afcd9cac13b` passed before publication. Netlify's injected preview drawer obstructed the landscape mute control, so preview mute/cleanup was checked in portrait. The unmodified production page passed the full landscape harness without that preview-only obstruction. No security policy or application layout was changed for the drawer.
+
+Evidence: `output/playwright/favicon-production-results.json`, `favicon-release-review.md`, `audio-recovery-hosted-qa.js` and `audio-recovery-hosted-results.json`. The reported player's original audio concern was subsequently attributed by the owner to likely low device volume; the independently reproduced recovery issues are separate findings. Physical-device recovery testing remains a follow-up.
+
+## Initial launch hosted verification
 
 - All 29 sitemap routes pass canonical, title, description, Open Graph, Twitter and indexing-header checks. All 49 social cards return valid 1200 x 630 PNGs, and the Apple icon is 180 x 180.
 - All 40 project routes pass the old-Russound-link and indexing-boundary audit. Twenty unselected projects remain noindex. Fieldnotes and the restored first portfolio also remain noindex; unknown project/share routes return 404.

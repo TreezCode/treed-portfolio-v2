@@ -1,10 +1,10 @@
 # Build With Treez: release verification
 
-Date: November 3, 2026. Status: the approved Living Archive portfolio, curated work, Geometry Bench and Portal Keeper are published at `https://buildwithtreez.com`. Release commit `6173ee9356ac1c947e75871cdbdac69656d19811`, Netlify deploy `6aea218d53f77b439f44e0f5`. `DEPLOYMENT.md` owns the current hosted verification and follow-up; older candidate evidence below retains its original scope and chronology.
+Date: November 3, 2026. Status: the approved Living Archive portfolio, curated work, Geometry Bench and Portal Keeper are published at `https://buildwithtreez.com`. Current release commit `852c6ee0bc00c5e1f052324568ac5fdff7fa02fd`, Netlify deploy `6aea467256f49ff62da3930d`, includes the favicon and audio follow-up. `DEPLOYMENT.md` owns the current hosted verification and follow-up; older candidate evidence below retains its original scope and chronology.
 
 ## Authorized production release, November 3, 2026
 
-### Local audio recovery follow-up
+### Audio recovery follow-up
 
 After release, Joey reported a mobile sound concern, then confirmed sound works and suspected low device volume. Independent debugging still reproduced suspended-audio recovery and offscreen-scene coupling defects. These are separate findings, not a claim about the cause on the player's device.
 
@@ -12,7 +12,7 @@ Local candidate `9UczBKT3Jvs0IVvQ2ec_4` fixes feedback recovery on an explicit g
 
 Verification: production build, TypeScript and scoped ESLint pass; 21 Node checks (15 audio including subcases, six puzzle) and all three existing game browser journeys pass. Real Chromium audio instrumentation at 390 x 844 confirms a nonzero sound signal after opt-in and gesture-bound resume after suspension. At 720 x 390, visible controls still produce feedback with the scene above the viewport. Motion pause, mute and route-away cleanup also pass with zero page errors. A failed-initialization browser check confirms retry works and clears the stale failure notice. The game keyboard suite now declines the separately tested Analytics notice so that first-visit consent does not obscure its focus assertions. Audio browser evidence is `output/playwright/audio-recovery-qa.js`, `audio-retry-qa.js` and `audio-recovery-results.json`.
 
-Joey subsequently authorized deploying this audio recovery patch together with a matching Living Archive favicon. Physical-phone confirmation of the recovery patch is not claimed. The published follow-up is recorded in `DEPLOYMENT.md` after hosted verification.
+Joey subsequently authorized deploying this audio recovery patch together with a matching Living Archive favicon. Both are now published and pass hosted verification, recorded in `DEPLOYMENT.md`. Physical-phone confirmation of the recovery patch is not claimed.
 
 ### Favicon follow-up
 
