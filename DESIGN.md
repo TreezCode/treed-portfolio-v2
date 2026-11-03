@@ -99,7 +99,7 @@ Premium Client Site continues to own audience, information architecture, case-st
 | Playground | Try technical ideas and see how they work | Original geometry instrument, interaction studies, short motion/music experiments |
 | About | Understand the person, background and approach | Professional foundation, creative interests, concise progression and resume |
 | Contact | Start a relevant engineering or collaboration conversation | Accessible contact form and direct email, with a separate Codorus business-services route |
-| Future game | Choose to spend time in an original playable world | A self-contained game destination, built after a bounded prototype is approved |
+| The Portal Keeper | Restore an original miniature world, then return to the portfolio | One complete light-routing puzzle at `/play/portal-keeper`, with a garden arrival |
 
 ### Implemented: deeper work and a real page structure
 
@@ -141,11 +141,26 @@ The generated poster and sculpture use original mathematical forms, not referenc
 
 The homepage invitation and shared navigation lead directly to the instrument. A concise “How it works” view explains procedural construction, reproducibility, exports and rendering rest. Sound and additional discoveries remain optional future additions. No accounts, locked case studies, resume gates or mandatory play were introduced.
 
-### Later delivery: a standalone game
+### Implemented: The Portal Keeper's first room
 
-Working concept: **The Portal Keeper**, a single-player exploration/puzzle game built around original geometry, light and portal worlds. One room and one satisfying puzzle should establish the visual identity, controls, sound and repeatable game loop before a larger world is scoped. Existing creative worlds may inform its art direction after asset suitability is checked. Give the game its own route and loading boundary so portfolio navigation remains immediate. No game implementation is included in the curation pass.
+Joey approved the one-room plan and requested the first playable build on November 3. `/play/portal-keeper` now contains **The Sleeping Observatory**, a complete light-routing and pattern-alignment puzzle with an awakening, a garden arrival and routes back to the observatory, Playground and work. `GAME_PLAN.md` retains the approved scope and expansion gate. Living Archive remains the visual authority: ink-green surroundings, ivory typography and chartreuse guidance frame an original green miniature with brass instruments, viewed through a fixed three-quarter camera.
 
-After approving Geometry Bench, Joey requested the standalone game plan. `GAME_PLAN.md` develops the recommendation into The Sleeping Observatory: a fixed-camera light-routing and pattern-alignment puzzle, with a complete one-room payoff, desktop/touch/keyboard controls and a bounded expansion gate. This remains a proposed specification for owner review. No game implementation has been authorized by the planning request.
+The room's form language comes from optical instruments: engraved circular dials, brass mirror frames, an asymmetrically notched lens and an arched portal. Procedural geometric plants open when the room wakes; a small geometric light-moth supplies a restrained living detail. Warm directional light, green materials and a static floor shadow ground the miniature. The portal reveals a separate floating garden through a live 320 × 512 Drei `RenderTexture`; entering replaces the observatory with the garden and a completion message. All scene geometry and synthesized notes are authored locally. No external art assets or new dependencies were added.
+
+| State | What the visitor sees and does | Interaction and ownership |
+| --- | --- | --- |
+| Sleeping room | A lantern casts a visible beam across two mirrors toward a dark portal | Select a named instrument in the scene or with the buttons beneath it; turn mirrors through eight discrete stops |
+| Route and align | Each mirror changes the calculated beam path; the placed lens must match the receiver's left-facing notch | The deterministic model intersects finite mirror segments and calculates reflections, capped at eight. The 3D room and flat diagram draw the same model output |
+| Awake and arrive | Plants open, the receiver lights and the garden becomes visible inside the portal | An enabled Enter action opens the garden. Focus moves to the completion heading; returning to the observatory preserves the solved room |
+| Undo, reset and resume | Undo reverses moves, including a reset; three graduated hints progress from attention to a useful next move | Versioned, validated browser-local saves restore puzzle state. Invalid saves start a fresh room with an explanation; unavailable storage leaves play usable |
+| Flat view or unavailable 3D | A complete SVG diagram retains the current beam, mirror and lens state, followed by a composed garden ending | The visitor can choose Flat view. Failed WebGL2 preflight, renderer failure or context loss selects the same playable fallback; HTML controls remain the keyboard path |
+| Rest and sound | Pause or reduced motion holds a composed scene; optional notes mark moves, awakening and arrival | Ambient motion stops offscreen or in a hidden document. Web Audio begins only after Sound on, suspends with hidden/offscreen/paused play and closes on exit |
+
+Controls remain below the artwork. Desktop uses an instrument desk beside progress and hints; narrow screens stack those regions while keeping the stage visible below the site header. `ResizeObserver` measures the actual header and stage heights for sticky positioning and focus scroll margins, including the completion heading. Short mobile viewports release the sticky stage. Native vertical scrolling, named HTML buttons, visible selection, textual state announcements and explicit left/right actions provide the same puzzle path for mouse, touch and keyboard. No precision drag or audio-only clue is required. Without JavaScript, the initial diagram, explanation and portfolio return remain, while inactive controls are hidden.
+
+The route dynamically imports its canvas, and the Playground invitation disables prefetch. Rendering uses a demand loop, DPR capped at 1.5 and a 1024 × 1024 shadow map refreshed for state changes rather than every ambient frame. The portal draws one frame when motion rests. Geometry and local label textures are disposed with their components. The page's optional “How it works” disclosures explain ray reflection, the shared flat-view model and browser-local restoration without interrupting play.
+
+Technical review is recorded in `LAUNCH_SCORECARD.md`: production build, six model tests and three browser cases, with rendered desktop checks at 1440px/1869px and mobile checks at 390px/320px, reduced motion and fallback restoration. Independent review covers pointer selection, opt-in audio, context loss, navigation, 200% text and mobile focus. These checks establish the recorded browser behavior; owner acceptance of the rendered room, independent player testing, a measured physical-device budget and public deployment remain separate next steps. Additional rooms are not part of this delivery.
 
 ### Final delivery review
 

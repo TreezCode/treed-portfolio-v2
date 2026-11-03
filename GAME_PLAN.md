@@ -1,6 +1,6 @@
 # The Portal Keeper
 
-November 3, 2026. Recommended game direction for owner review. This is a plan, not an approved implementation specification or a completed game. Living Archive and the Geometry Bench are approved; today's request authorizes game planning and the resume spelling correction only.
+November 3, 2026. The owner approved this direction and requested the first playable build. This document defines the one-room delivery; additional rooms remain future proposals. Living Archive and the Geometry Bench remain the visual and interaction foundation.
 
 ## Recommendation
 
@@ -71,6 +71,6 @@ Expand only when a new player can recognize the goal, understand the consequence
 
 Possible later rooms are **The Curious Glasshouse** (split and direct light to awaken growth) and **The Quiet Sky Garden** (connect a path across floating structures). Introduce one new rule per room. A compact three-room edition could target a 10–15 minute visit after the first room proves enjoyable. Free-roaming worlds, procedural puzzle generation, multiplayer and combat remain outside this proposed first delivery.
 
-## Decisions still open
+## Delivery boundary
 
-The title, exact room story, art assets and musical theme remain recommendations for owner review. The strongest next commitment is one finished observatory room. No game runtime or public game route is created by this planning pass.
+The approved next commitment is one complete observatory room at `/play/portal-keeper`, with a garden arrival and return path. The local implementation uses original procedural geometry and optional synthesized interface notes. Further rooms, public deployment and independent player testing remain separate next steps. Technical verification is recorded in `LAUNCH_SCORECARD.md`; neither browser checks nor the target duration establish that an uncoached player finds the puzzle enjoyable.

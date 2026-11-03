@@ -708,3 +708,31 @@
     scroll-margin-top: calc(var(--bench-header-height, 118px) + 380px);
   }
 }
+.keeper-invitation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding-block: 35px;
+  border-block: 1px solid var(--line);
+  margin-block: 40px 45px;
+}
+.keeper-invitation h2 {
+  font-size: 28px;
+}
+.keeper-invitation p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 8px;
+  max-width: 490px;
+}
+.keeper-invitation .folio-button {
+  flex-shrink: 0;
+}
+@media (max-width: 760px) {
+  .keeper-invitation {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

@@ -138,8 +138,26 @@ Local evidence: output/playwright/final-results.json, contact-results.txt, fallb
 ## Before public launch
 
 - Obtain the outstanding named public portfolio/media permission for Russound and contributor distribution permission for Rift Riders. Local preview inclusion does not settle those permissions.
-- Living Archive, the curated project list, image framing and multi-page delivery are approved. Review the completed Geometry Bench, then explicitly authorize production publication when ready. The standalone game remains future work.
+- Living Archive, the curated project list, image framing, multi-page delivery and Geometry Bench are approved. Portal Keeper's direction and first-room implementation are authorized; review the delivered room and explicitly authorize production publication when ready. Additional rooms remain future work.
 - Perform physical mobile Safari/touch and assistive-technology review. Current verification used desktop Chromium and mobile emulation, not physical devices.
 - Check production email delivery and hosted performance when a release is authorized. Current form tests were intercepted and the existing contact endpoint was preserved.
 
 No paid research, new service subscription, outreach, real contact submission or deployment was performed for this local build.
+
+## Portal Keeper first-room delivery, November 3, 2026
+
+The owner approved the game plan and requested implementation. The first room is available locally at `/play/portal-keeper`, linked from the Playground, with its canonical route in the sitemap. It uses the existing Three.js/Fiber/Drei stack and original procedural geometry. No packages or external art assets were added.
+
+- Production build `-O14HTP41ICLITYBA3B1k` passes with 54 generated pages. Scoped ESLint and `git diff --check` pass. The layout detector returned no findings for the new surface.
+- Six model tests pass, covering all 64 mirror configurations, bounded reflections, equal incidence/reflection, the unique lens orientation, entry gating and versioned save validation. Only the intended mirror pair reaches the receiver.
+- Three browser journey tests pass against that build: complete play with wrong-lens gating, save restoration, entry/undo/reversible reset; keyboard play at 390px with reduced motion and unobscured focused controls/completion; unavailable WebGL with playable diagram and corrupt-save recovery. A 320px overflow check is included. Repeat with `npm run test:portal-keeper` while the local server runs.
+- A separate no-JavaScript check confirms the authored diagram, explanatory recovery text and portfolio route remain visible, while inactive game controls are hidden. The Playground's game link remains present without JavaScript.
+- Normal-motion renders were inspected at 1440x1100 and 1869x947, and mobile at 390x844. Final views cover initial, awakened, garden arrival, scrolled lens controls and completion. The first pass found a missing render-texture attachment and insufficient mirror identification; both were corrected and visually confirmed.
+- Independent interaction QA verified direct 3D picking, opt-in audio, pause/resume/mute, context-loss fallback, route-away audio cleanup and single-canvas restoration. At 390px, 200% computed text scaling produced no horizontal overflow. Native keyboard focus initially hid behind the sticky scene; measured scroll margins and completion focus corrected it, verified by settled geometry and hit testing.
+- The independent visual review returned **ship within its screenshot-based scope**. Portal rendering, A/B correspondence and scrolled control placement are resolved. Supporting 10–11px text is readable in captures but remains a physical-phone readability check.
+
+The renderer caps DPR at 1.5 and the garden target at 320x512 logical pixels, uses demand rendering, suspends ambient motion offscreen/hidden/paused, and uses a single static shadow map refreshed on relevant changes. These are implementation controls, not measured phone frame-rate claims. Only an upstream Three.js Clock deprecation warning remains in the game browser check; no uncaught page errors were observed.
+
+Local captures are `.impeccable/review/portal-*.png`; independent QA artifacts are under `output/playwright/portal-*`. Source and model/browser tests are committed; generated screenshots and traces stay local.
+
+Remaining acceptance: owner and uncoached-player playthrough, physical mobile readability/touch/Safari and assistive-technology review, and measured frame/loading behavior on a named physical device before expanding the game. Use Pixel 6a Chrome and iPhone 13 Safari as initial performance targets, aiming for 60fps during ambient motion; no result on either device is claimed. The 3–5 minute duration remains a design target, not observed player data. This delivery does not authorize deployment or more rooms.

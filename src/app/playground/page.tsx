@@ -31,6 +31,18 @@ export default function PlaygroundPage() {
       <div className="folio-container">
         <GeometryBench />
       </div>
+      <section className="keeper-invitation folio-container" aria-labelledby="keeper-invite-title">
+        <div>
+          <h2 id="keeper-invite-title">There’s a world to wake up.</h2>
+          <p>
+            The Portal Keeper. A little puzzle adventure with mirrors, light and an impossible
+            garden.
+          </p>
+        </div>
+        <Link className="folio-button" href="/play/portal-keeper" prefetch={false}>
+          Play The Portal Keeper <ArrowUpRight size={18} />
+        </Link>
+      </section>
       <section
         className="bench-making folio-container"
         id="how-it-works"

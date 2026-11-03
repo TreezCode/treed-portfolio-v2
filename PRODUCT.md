@@ -3,7 +3,7 @@
 ## Authority
 
 - **Status:** Active
-- **Version:** 4.2
+- **Version:** 4.3
 - **Owner:** Joey Kubalak
 - **Current scope authorized:** November 3, 2026
 - **Visual authority:** `DESIGN.md`
@@ -50,7 +50,7 @@ Continue the owner-approved **Living Archive** direction using the shared refere
 
 The opening immediately communicates identity and invites the work. Sacred geometry remains part of Joey's visual vocabulary. Dimensional motion, artwork and typography reveal personality without making visitors wait or learn special controls. CSS projection and native browser behavior may replace WebGL when they better serve the experience.
 
-The curated list, full-image framing and multi-page case-study delivery are approved. Joey has now authorized the Geometry Bench Playground in the same Living Archive direction, with Three.js and research into relevant expert-authored skills. The instrument demonstrates technical creativity through original procedural forms, direct controls and reproducible outputs. A full game remains a later, separately scoped build.
+The curated list, full-image framing, multi-page case-study delivery and Geometry Bench are approved. The instrument demonstrates technical creativity through original procedural forms, direct controls and reproducible outputs. Joey subsequently approved The Portal Keeper and authorized its first playable room in the same Living Archive direction. `GAME_PLAN.md` bounds this delivery to the Sleeping Observatory, its light-routing puzzle and garden arrival. Additional rooms remain future work. The delivered game still needs the owner's playthrough and physical-device review before public release.
 
 ## Product principles
 
