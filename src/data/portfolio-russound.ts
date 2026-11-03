@@ -20,8 +20,9 @@ export const russoundProjects: PortfolioProject[] = [
       'The work includes responsive navigation, a system planner, model support, an authored listening scene and a visual handoff covering the buyer journey and proposed sitemap.',
       'Developed with Russound feedback and supplied product assets, with a documented handoff for the production implementation partner.',
     ],
-    // Add the separate portfolio edition URL after its hosted artifact is verified.
-    links: [],
+    links: [
+      { label: 'Explore the experience', href: 'https://treez-russound-experience.netlify.app/' },
+    ],
     group: 'Russound',
     featured: true,
   },
@@ -66,12 +67,7 @@ export const russoundProjects: PortfolioProject[] = [
       'The latest effects study animates individually composed notes across a contour field. Desktop and phone treatments preserve the people and the visual source of the music.',
       'Earlier website motion concepts pair silent films with editable page copy, playback controls and still alternatives.',
     ],
-    links: [
-      {
-        label: 'View the earlier motion concept',
-        href: 'https://russound-design-review.pages.dev/motion',
-      },
-    ],
+    links: [],
     group: 'Russound',
   },
 ]
