@@ -40,7 +40,7 @@ The catalog is reconciled through `docs/portfolio-refresh/development-inventory.
 
 Creative brands, films, music, products and prototypes receive useful project context. A fictional concept is identified as a concept. Lead with what the evidence supports; keep absent-metric qualifications internal unless they materially affect what the visitor understands. Do not invent authorship, capabilities, verification, measured results or client acceptance. Test counts and lab scores, if used, need dates and remain technical evidence.
 
-Internal publication gates stay separate from this local review: named public use of Russound work needs the applicable permission, and Rift Riders retains collaborator attribution and its unresolved distribution boundary. Private sources, operational data and credentials are not public portfolio assets.
+On November 3, Joey confirmed permission to release Rift Riders; retain its collaborator attribution. He also required a separate Russound portfolio experience with no guide notes or internal communications. The current client-review URL must be replaced with a verified clean demo before public portfolio release. Keep internal review routes, attachments and operational records out of that demo. Named Russound public-media permission remains a separate recorded consideration; this cleanup request does not claim new permission evidence.
 
 ## Voice and copy research
 

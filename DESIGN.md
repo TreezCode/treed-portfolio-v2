@@ -58,7 +58,17 @@ Use original local project exports, actual website captures and clearly describe
 
 Primary preview: /. Retained study: /directions/fieldnotes. Shared details: /work/[slug]. Fieldnotes is noindex and canonicalizes to the primary page. Current sitemap includes selected projects and the eight studio releases. Existing application contact behavior remains intact.
 
-No publication occurred. Local creative delegation does not supply Russound's named public portfolio permission or Rift Riders contributor distribution permission. These remain internal launch considerations in the brief and scorecard.
+No publication occurred. Joey subsequently confirmed permission to release Rift Riders on November 3; collaborator attribution remains. His Russound requirement is a separate clean portfolio demo with no guide notes or internal communications, preserving the client-review version separately. The clean-demo plan and remaining Russound publication considerations are recorded in the brief and scorecard.
+
+### Russound portfolio-demo recommendation
+
+Use a separately packaged portfolio edition of the currently published November 1 experience, with a dedicated demo destination. Preserve the existing client-review project. The public edition keeps the six visitor routes, cinematic interactions, product discovery, planner, public product-help links and honest non-collecting newsletter state. A small “Portfolio concept” label and return link identify its purpose.
+
+Exclude the shared `ReviewPanel`, the SMZ8 background comparison controls and query hooks, internal review/footer copy, the review route, review-package PDFs and links to earlier review sites from the generated release. The root destination should open the experience itself. Official public Russound manuals can remain source links. Public company-history facts and the visitor's own planner notes are distinct from internal correspondence and should be evaluated in context.
+
+Implementation baseline: `C:/Dev/russound-marketing/projects/russound-website-direction/work/client-package-simplification-2026-11-01/release/upload/`. The active Astro prototype under `C:/Users/treez/OneDrive/Documents/ChatGPT/Skills/prototypes/russound-cinematic-proof/` has uncommitted work, including the handoff sources; preserve it before preparing an isolated build. The seven current built handoff HTML files matched the frozen payload in the November 3 source audit. Reuse shared components with explicit public/review build separation and an allowlist of required routes/assets.
+
+Before changing the portfolio link, verify the complete exported HTML, JavaScript, data and asset tree; inspect generated planner downloads and source metadata; provide a real 404 for excluded review/PDF paths; and confirm no navigation leads back to client review sites. Then check the retained interactions on desktop/mobile and reduced motion. Refresh any portfolio/social captures that show review UI. This is a scoped recommendation; the clean variant has not been implemented or deployed.
 
 ## Review and acceptance
 
