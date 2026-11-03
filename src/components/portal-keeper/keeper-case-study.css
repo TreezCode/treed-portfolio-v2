@@ -1,0 +1,403 @@
+.keeper-case-opening {
+  padding-block: 45px 40px;
+}
+.keeper-case-back {
+  min-height: 44px;
+  margin-bottom: 35px;
+}
+.keeper-case-title-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(250px, 0.7fr);
+  gap: 75px;
+  align-items: end;
+}
+.keeper-case h1 {
+  font-size: clamp(3.6rem, 6.5vw, 6rem);
+  max-width: 900px;
+}
+.keeper-case h1 span,
+.keeper-case h2 span {
+  color: var(--accent);
+}
+.keeper-case-summary {
+  color: var(--muted);
+  max-width: 570px;
+  font-size: 21px;
+  line-height: 1.6;
+  margin-top: 28px !important;
+}
+.keeper-case-facts {
+  margin: 0;
+  display: grid;
+  gap: 17px;
+}
+.keeper-case-facts dt {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+.keeper-case-facts dd {
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+.keeper-case-opening-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px 35px;
+  margin-top: 35px;
+}
+.keeper-case-figure {
+  margin-block: 0;
+}
+.keeper-case-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  background: #14251e;
+}
+.keeper-case-figure figcaption {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+  margin-top: 15px;
+  max-width: 650px;
+}
+.keeper-case-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: 85px;
+  padding-block: 100px;
+}
+.keeper-case-story h2,
+.keeper-case-section-heading h2,
+.keeper-case-engineering h2,
+.keeper-case-close h2 {
+  font-size: clamp(2.5rem, 4.4vw, 4.2rem);
+}
+.keeper-case-story p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 600px;
+  margin-top: 22px;
+}
+.keeper-case-story p:first-child {
+  margin-top: 0;
+}
+.keeper-case-story .keeper-case-lead {
+  color: var(--ink);
+  font-size: 21px;
+  line-height: 1.65;
+}
+.keeper-case-mechanism {
+  border-top: 1px solid var(--line);
+  padding-block: 65px 90px;
+  scroll-margin-top: 115px;
+}
+.keeper-case-section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: 85px;
+  align-items: end;
+  margin-bottom: 40px;
+}
+.keeper-case-section-heading > p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 580px;
+}
+.keeper-path-demo {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  background: #15251e;
+  border-block: 1px solid #415140;
+}
+.keeper-path-diagram {
+  padding: 26px;
+  align-self: center;
+}
+.keeper-path-diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+.keeper-path-explanation {
+  padding: 35px 35px 30px;
+  border-left: 1px solid #415140;
+}
+.keeper-path-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  margin-bottom: 30px;
+}
+.keeper-path-controls button {
+  min-height: 48px;
+  font-size: 13px;
+  padding: 11px 8px;
+  border: 1px solid #67765a;
+  color: var(--ink);
+}
+.keeper-path-controls button[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
+}
+.keeper-path-controls button:hover {
+  border-color: var(--accent);
+}
+.keeper-path-description {
+  min-height: 245px;
+}
+.keeper-path-description h3 {
+  font-size: 25px;
+  line-height: 1.2;
+  max-width: 350px;
+}
+.keeper-path-description > p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-top: 17px;
+  max-width: 420px;
+}
+.keeper-path-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 30px;
+  margin-block: 24px 0;
+}
+.keeper-path-facts dt {
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.keeper-path-facts dd {
+  font-size: 13px;
+  color: var(--accent);
+  margin: 0;
+}
+.keeper-path-caption {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 410px;
+  margin-top: 24px !important;
+}
+.keeper-case-mechanism-notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 85px;
+  margin-top: 28px;
+}
+.keeper-case-mechanism-notes p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 600px;
+}
+.keeper-case-reward {
+  padding-bottom: 90px;
+}
+.keeper-case-engineering {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: 85px;
+  padding-block: 65px 95px;
+  border-top: 1px solid var(--line);
+}
+.keeper-case-engineering-intro > p {
+  max-width: 400px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.8;
+  margin-top: 25px;
+}
+.keeper-case-decisions section + section {
+  border-top: 1px solid var(--line);
+  margin-top: 32px;
+  padding-top: 30px;
+}
+.keeper-case-decisions h3 {
+  font-size: 23px;
+  line-height: 1.2;
+}
+.keeper-case-decisions p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-top: 18px;
+  max-width: 600px;
+}
+.keeper-case-close {
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 45px;
+  align-items: center;
+  padding-block: 60px 90px;
+}
+.keeper-case-close p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+  margin-top: 22px;
+  max-width: 420px;
+}
+.keeper-case-close-actions {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 22px;
+  justify-self: end;
+}
+@media (max-width: 1100px) {
+  .keeper-case-title-row {
+    gap: 35px;
+    grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.7fr);
+  }
+  .keeper-case-story,
+  .keeper-case-section-heading,
+  .keeper-case-engineering,
+  .keeper-case-mechanism-notes {
+    gap: 40px;
+  }
+  .keeper-path-explanation {
+    padding: 28px 22px;
+  }
+  .keeper-path-diagram {
+    padding: 15px;
+  }
+  .keeper-path-description {
+    min-height: 290px;
+  }
+}
+@media (max-width: 760px) {
+  .keeper-case-opening {
+    padding-block: 25px 30px;
+  }
+  .keeper-case-back {
+    margin-bottom: 25px;
+  }
+  .keeper-case h1 {
+    font-size: clamp(3rem, 9vw, 4.2rem);
+  }
+  .keeper-case-title-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .keeper-case-summary {
+    font-size: 18px;
+    margin-top: 22px !important;
+  }
+  .keeper-case-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 24px;
+  }
+  .keeper-case-facts dd {
+    font-size: 12px;
+  }
+  .keeper-case-opening-actions {
+    margin-top: 26px;
+    gap: 20px;
+  }
+  .keeper-case-story,
+  .keeper-case-section-heading,
+  .keeper-case-engineering,
+  .keeper-case-mechanism-notes,
+  .keeper-case-close {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .keeper-case-story {
+    padding-block: 60px;
+  }
+  .keeper-case-story h2,
+  .keeper-case-section-heading h2,
+  .keeper-case-engineering h2,
+  .keeper-case-close h2 {
+    font-size: clamp(2.4rem, 8vw, 3.2rem);
+  }
+  .keeper-case-story .keeper-case-lead {
+    font-size: 19px;
+  }
+  .keeper-case-story p {
+    font-size: 15px;
+  }
+  .keeper-case-mechanism {
+    padding-block: 45px 60px;
+    scroll-margin-top: 140px;
+  }
+  .keeper-case-section-heading {
+    margin-bottom: 28px;
+  }
+  .keeper-case-section-heading > p {
+    font-size: 15px;
+  }
+  .keeper-path-demo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .keeper-path-diagram {
+    padding: 12px 5px;
+  }
+  .keeper-path-explanation {
+    border-left: 0;
+    border-top: 1px solid #415140;
+    padding: 22px 18px;
+  }
+  .keeper-path-controls {
+    margin-bottom: 24px;
+  }
+  .keeper-path-controls button {
+    font-size: 12px;
+  }
+  .keeper-path-description {
+    min-height: 255px;
+  }
+  .keeper-path-description h3 {
+    font-size: 24px;
+  }
+  .keeper-path-description > p {
+    font-size: 13px;
+  }
+  .keeper-path-facts {
+    gap: 14px 23px;
+  }
+  .keeper-path-caption {
+    font-size: 11px;
+    margin-top: 18px !important;
+  }
+  .keeper-case-mechanism-notes {
+    gap: 20px;
+  }
+  .keeper-case-reward {
+    padding-bottom: 55px;
+  }
+  .keeper-case-engineering {
+    padding-block: 45px 55px;
+  }
+  .keeper-case-engineering-intro > p {
+    font-size: 15px;
+    margin-top: 20px;
+  }
+  .keeper-case-close {
+    padding-block: 45px 65px;
+    gap: 30px;
+  }
+  .keeper-case-close-actions {
+    justify-self: start;
+  }
+  .keeper-case-close p {
+    font-size: 15px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .keeper-case {
+    scroll-behavior: auto;
+  }
+}

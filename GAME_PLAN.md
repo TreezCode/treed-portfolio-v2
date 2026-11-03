@@ -74,3 +74,5 @@ Possible later rooms are **The Curious Glasshouse** (split and direct light to a
 ## Delivery boundary
 
 The approved next commitment is one complete observatory room at `/play/portal-keeper`, with a garden arrival and return path. The local implementation uses original procedural geometry and optional synthesized interface notes. Further rooms, public deployment and independent player testing remain separate next steps. Technical verification is recorded in `LAUNCH_SCORECARD.md`; neither browser checks nor the target duration establish that an uncoached player finds the puzzle enjoyable.
+
+The owner subsequently reported an initial playthrough with no issues at first glance and approved the next portfolio integration pass. The Playground hub, dedicated Geometry Bench route and Portal Keeper case study now make both experiences and their engineering easier to discover. `PLAYTEST.md` provides the short fresh-player/physical-phone check before the proposed Curious Glasshouse room. No participant results or second-room implementation are implied by this integration.

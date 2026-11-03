@@ -339,6 +339,10 @@
   border-bottom: 1px solid var(--line);
   padding-block: 16px;
 }
+.keeper-making-link {
+  margin-top: 24px;
+  font-size: 14px;
+}
 .keeper-making summary {
   font-size: 15px;
   cursor: pointer;

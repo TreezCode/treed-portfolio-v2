@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import PortalKeeper from '@/components/portal-keeper/PortalKeeper'
 import { PortfolioShell } from '@/components/portfolio/PortfolioShell'
 import '@/components/portal-keeper/portal-keeper.css'
@@ -47,6 +47,9 @@ export default function PortalKeeperPage() {
             I wanted to make something you could spend a little time inside. Part optical toy, part
             impossible place, with a door worth opening.
           </p>
+          <Link className="folio-text-link keeper-making-link" href="/work/portal-keeper">
+            Inside the build <ArrowUpRight size={17} />
+          </Link>
         </div>
         <div>
           <details>

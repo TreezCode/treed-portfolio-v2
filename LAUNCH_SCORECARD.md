@@ -1,10 +1,26 @@
 # Build With Treez: local redesign verification
 
-Date: November 3, 2026. Status: Living Archive, the 12-project selection, corrected framing and multi-page delivery approved. Authorized Geometry Bench Playground implemented and locally verified. No production deployment.
+Date: November 3, 2026. Status: Living Archive, the 12-project selection, corrected framing and multi-page delivery approved. Geometry Bench and Portal Keeper are implemented; Joey's initial game playthrough found no issues at first glance. The authorized Playground hub and game case study are locally verified. No production deployment.
 
-## Current Geometry Bench delivery
+## Playground hub and case study delivery, November 3, 2026
 
-The dedicated `/playground` route adds Bloom, Orbit and Portal sculptures with five parameter controls, three palettes, curated presets, seeded variations, sideways rotation and explicit view/pause buttons. Visitors can download a current-view PNG, generate a flat scalable SVG print, and share a versioned configuration link. Shared navigation and a static homepage invitation expose the experience without adding a WebGL canvas to Home.
+`/playground` now gives Geometry Bench and The Portal Keeper equivalent original previews and direct actions. The instrument lives at `/playground/geometry-bench`; existing recipe and explanatory bookmarks forward with their query and hash intact. `/work/portal-keeper` adds an editorial story, actual scene captures and an independent three-state light-path example driven by the game's puzzle model. Home, Work and the game connect these pages while retaining the approved 12-project collection.
+
+- [x] Final production build `IgqEnj7jbkGIvTqvG0I-X` generated 56 pages. Scoped ESLint passes. No dependencies were added. The Impeccable mechanical detector returned no findings for the new surface.
+- [x] Five browser regression cases cover both hub destinations, the dedicated bench canonical and anchor, old recipe/query restoration, new copied addresses, hash navigation, malformed recipe recovery, clipboard-denial recovery, direct case refresh and all three diagram states.
+- [x] Independent browser review covered 1440px, 390px and 320px, plus doubled computed text and line height at 390px. Images load with complete compositions, controls remain visible, navigation round trips work and no horizontal overflow or uncaught page errors were recorded.
+- [x] The example responds to keyboard activation, exposes pressed states and announces its explanation. Its 48px-high stage controls and static SVG do not alter the saved game.
+- [x] Fresh independent visual review approved the hub and case at desktop/mobile sizes for local owner review. Full-page case captures were taken after decoding all lazy images; an extra desktop reward-only capture with overlapping sticky header was excluded.
+- [x] Three original 960 × 641 scene captures retain source provenance and embedded origin metadata. The metadata scan found no missing entries. The hub and story use static images, with game canvases confined to their own routes.
+- [x] Final served HTML matches build `IgqEnj7jbkGIvTqvG0I-X`; all five route cases pass again in 12.8s. Fresh contexts with JavaScript disabled retain the hub, story, native navigation and static diagram while hiding inactive stage buttons. Neither page requests the identified Three renderer chunk with JavaScript enabled or disabled, including scrolling and example interaction; both have zero canvases and page errors.
+
+Evidence: `.impeccable/review/{hub,keeper-case}-{desktop,mobile}.png`, `output/playwright/playground-hub-detect.json`, the `hub-independent-*` review scripts, and `tests/playground-routes.spec.ts`. The broader review used build `CDkW_J2z9D3pltHXRcZJo`; the final build replaces the hub's deprecated image priority prop with eager loading. The earlier six model and three browser game cases below remain prior evidence for the unchanged game core, not a repeated test run.
+
+`PLAYTEST.md` prepares two uncoached first-player sessions, including one physical phone. No sessions or physical-device results are recorded yet. These are the next check before expanding into a second room. No new Lighthouse scores, field performance claims or public release are part of this delivery.
+
+## Earlier Geometry Bench delivery
+
+The original `/playground` route, now `/playground/geometry-bench`, adds Bloom, Orbit and Portal sculptures with five parameter controls, three palettes, curated presets, seeded variations, sideways rotation and explicit view/pause buttons. Visitors can download a current-view PNG, generate a flat scalable SVG print, and share a versioned configuration link. Shared navigation and a static homepage invitation expose the experience without adding a WebGL canvas to Home.
 
 - [x] Production build passes with 53 generated routes. ESLint passes. No new dependencies or paid services were introduced.
 - [x] All three geometry families pass finite-coordinate, deterministic-buffer and bounded-radius checks at extreme settings. Versioned recipe parsing rejects malformed labels/syntax and clamps valid numeric ranges. One thousand deterministic variations and SVG outputs were checked.
@@ -26,7 +42,7 @@ These are one Lighthouse 13.4.1 simulated mobile run per route on build `lGXfBwR
 
 Evidence under `output/playwright/`: `geometry-bench-results.txt`, `geometry-fallback-results.txt`, `geometry-final-layout-results.txt`, `bench-focus-settled.txt`, `geometry-release-results.txt`, `bench-release-*` screenshots, `bench-export.{png,svg}` and `geometry-lighthouse-*` reports. The first full harness hit a wrapped-label selector mismatch; the UI now has an explicit Form accessible name and the successful results include the corrected selector. Focus/scroll measurements use settled native scrolling, not the early in-flight sample.
 
-Source provenance and selected/rejected external skill findings are in `docs/portfolio-refresh/threejs-skills-research.md`. Expert authorship is recorded where verified; community skill packs are not described as official Three.js guidance. No third-party skill pack was installed or executed. The standalone game and optional sound remain future work.
+Source provenance and selected/rejected external skill findings are in `docs/portfolio-refresh/threejs-skills-research.md`. Expert authorship is recorded where verified; community skill packs are not described as official Three.js guidance. No third-party skill pack was installed or executed. The standalone game and optional sound were future work at this checkpoint; their subsequent delivery is recorded below.
 
 ## Current multi-page delivery
 
@@ -138,7 +154,7 @@ Local evidence: output/playwright/final-results.json, contact-results.txt, fallb
 ## Before public launch
 
 - Obtain the outstanding named public portfolio/media permission for Russound and contributor distribution permission for Rift Riders. Local preview inclusion does not settle those permissions.
-- Living Archive, the curated project list, image framing, multi-page delivery and Geometry Bench are approved. Portal Keeper's direction and first-room implementation are authorized; review the delivered room and explicitly authorize production publication when ready. Additional rooms remain future work.
+- Living Archive, the curated project list, image framing, multi-page delivery and Geometry Bench are approved. Joey reported a positive initial Portal Keeper playthrough. Complete the prepared uncoached-player and physical-phone checks; production publication still requires explicit authorization. Additional rooms remain future work.
 - Perform physical mobile Safari/touch and assistive-technology review. Current verification used desktop Chromium and mobile emulation, not physical devices.
 - Check production email delivery and hosted performance when a release is authorized. Current form tests were intercepted and the existing contact endpoint was preserved.
 
@@ -160,4 +176,4 @@ The renderer caps DPR at 1.5 and the garden target at 320x512 logical pixels, us
 
 Local captures are `.impeccable/review/portal-*.png`; independent QA artifacts are under `output/playwright/portal-*`. Source and model/browser tests are committed; generated screenshots and traces stay local.
 
-Remaining acceptance: owner and uncoached-player playthrough, physical mobile readability/touch/Safari and assistive-technology review, and measured frame/loading behavior on a named physical device before expanding the game. Use Pixel 6a Chrome and iPhone 13 Safari as initial performance targets, aiming for 60fps during ambient motion; no result on either device is claimed. The 3–5 minute duration remains a design target, not observed player data. This delivery does not authorize deployment or more rooms.
+Joey subsequently reported a positive initial playthrough. Remaining acceptance: uncoached-player sessions, physical mobile readability/touch/Safari and assistive-technology review, and measured frame/loading behavior on a named physical device before expanding the game. Use Pixel 6a Chrome and iPhone 13 Safari as initial performance targets, aiming for 60fps during ambient motion; no result on either device is claimed. The 3–5 minute duration remains a design target, not observed player data. This delivery does not authorize deployment or more rooms.

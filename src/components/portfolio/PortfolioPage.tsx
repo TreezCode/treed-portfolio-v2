@@ -371,14 +371,14 @@ export default function PortfolioPage({
             <h2 id="playground-invite-title">
               Your turn to
               <br />
-              make something.
+              follow a little curiosity.
             </h2>
             <p>
-              A small playground for a curious mind. Shape a bloom, twist a portal and see where the
-              numbers take you.
+              Shape a geometric print or wake a sleeping world. Two little experiences, built for
+              the pleasure of figuring things out.
             </p>
             <Link className="folio-text-link" href="/playground" prefetch={false}>
-              Open the Geometry Bench <ArrowUpRight size={18} />
+              Explore the Playground <ArrowUpRight size={18} />
             </Link>
           </div>
         </section>

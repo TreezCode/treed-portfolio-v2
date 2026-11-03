@@ -9,7 +9,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 1,
     },
-    ...['work', 'playground', 'play/portal-keeper', 'about', 'contact'].map((path) => ({
+    ...[
+      'work',
+      'playground',
+      'playground/geometry-bench',
+      'play/portal-keeper',
+      'work/portal-keeper',
+      'about',
+      'contact',
+    ].map((path) => ({
       url: `https://buildwithtreez.com/${path}`,
       lastModified: new Date('2026-11-03'),
       changeFrequency: 'monthly' as const,

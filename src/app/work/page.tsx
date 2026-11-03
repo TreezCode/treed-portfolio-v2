@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { PortfolioShell, PortfolioCTA } from '@/components/portfolio/PortfolioShell'
 import ProjectCollection from '@/components/portfolio/ProjectCollection'
+import KeeperStoryPreview from '@/components/playground/KeeperStoryPreview'
 
 export const metadata: Metadata = {
   title: 'Selected Work',
@@ -24,6 +25,7 @@ export default function WorkPage() {
         </p>
       </header>
       <ProjectCollection />
+      <KeeperStoryPreview />
       <PortfolioCTA />
     </PortfolioShell>
   )

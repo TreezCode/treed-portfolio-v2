@@ -1,99 +1,117 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
-import GeometryBench from '@/components/playground/GeometryBench'
 import { PortfolioShell } from '@/components/portfolio/PortfolioShell'
-import '@/components/playground/playground.css'
+import LegacyBenchRecipe from '@/components/playground/LegacyBenchRecipe'
+import KeeperStoryPreview from '@/components/playground/KeeperStoryPreview'
+import '@/components/playground/playground-hub.css'
 
 export const metadata: Metadata = {
-  title: 'Geometry Bench Playground',
+  title: 'Playground | Geometry, games and curious worlds',
   description:
-    'An interactive geometry instrument by Joey Kubalak. Shape a bloom, explore an orbit or twist a portal, then keep a print or share the recipe.',
+    'Make a geometric print or wake a sleeping world. Explore the Geometry Bench and The Portal Keeper, two interactive experiences by Joey Kubalak.',
   alternates: { canonical: '/playground' },
 }
 
 export default function PlaygroundPage() {
   return (
     <PortfolioShell active="playground">
-      <header className="bench-intro folio-container">
+      <LegacyBenchRecipe />
+      <header className="playground-intro folio-container">
         <h1>
-          The Geometry
+          Follow your
           <br />
-          <span>Bench.</span>
+          <span>curiosity.</span>
         </h1>
-        <div>
-          <p>I like seeing how far a simple shape can go. This is a place to play with that.</p>
-          <a className="folio-text-link" href="#how-it-works">
-            How it works <ArrowUpRight size={17} />
-          </a>
-        </div>
+        <p>
+          A shape to make your own. A small world to wake up. This is where I turn interesting ideas
+          into things you can play with.
+        </p>
       </header>
-      <div className="folio-container">
-        <GeometryBench />
-      </div>
-      <section className="keeper-invitation folio-container" aria-labelledby="keeper-invite-title">
-        <div>
-          <h2 id="keeper-invite-title">There’s a world to wake up.</h2>
+      <section className="playground-experiences folio-container" aria-label="Choose an experience">
+        <article className="playground-experience">
+          <Link
+            className="playground-preview playground-preview-bench"
+            href="/playground/geometry-bench"
+            prefetch={false}
+            aria-label="Open the Geometry Bench"
+          >
+            <Image
+              src="/portfolio/geometry-bench-poster.svg"
+              alt="A layered geometric bloom in chartreuse and soft teal"
+              width={1200}
+              height={1200}
+              loading="eager"
+            />
+          </Link>
+          <h2>The Geometry Bench.</h2>
           <p>
-            The Portal Keeper. A little puzzle adventure with mirrors, light and an impossible
-            garden.
+            Start with a simple shape. Change its symmetry, twist it into something unexpected, then
+            keep a print or share your recipe.
           </p>
-        </div>
-        <Link className="folio-button" href="/play/portal-keeper" prefetch={false}>
-          Play The Portal Keeper <ArrowUpRight size={18} />
-        </Link>
-      </section>
-      <section
-        className="bench-making folio-container"
-        id="how-it-works"
-        aria-labelledby="bench-making-title"
-      >
-        <div>
-          <h2 id="bench-making-title">
-            A few rules.
-            <br />
-            Room to wander.
-          </h2>
+          <div className="playground-experience-actions">
+            <Link className="folio-button" href="/playground/geometry-bench" prefetch={false}>
+              Make something <ArrowUpRight size={18} />
+            </Link>
+            <Link
+              className="folio-text-link"
+              href="/playground/geometry-bench#how-it-works"
+              prefetch={false}
+            >
+              How it works <ArrowUpRight size={16} />
+            </Link>
+          </div>
+        </article>
+        <article className="playground-experience">
+          <Link
+            className="playground-preview playground-preview-keeper"
+            href="/play/portal-keeper"
+            prefetch={false}
+            aria-label="Play The Portal Keeper"
+          >
+            <Image
+              src="/portfolio/portal-keeper/observatory.png"
+              alt="The Portal Keeper's brass mirrors and sleeping doorway on a green miniature observatory"
+              width={960}
+              height={641}
+              sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1552px) 46vw, 700px"
+              loading="eager"
+            />
+          </Link>
+          <h2>The Portal Keeper.</h2>
           <p>
-            The same curiosity runs through my products, animated worlds and little experiments like
-            this one.
+            A lantern, two mirrors and a curious lens. Follow the light through a sleeping
+            observatory and find out what waits on the other side.
+          </p>
+          <div className="playground-experience-actions">
+            <Link className="folio-button" href="/play/portal-keeper" prefetch={false}>
+              Wake the world <ArrowUpRight size={18} />
+            </Link>
+            <Link className="folio-text-link" href="/work/portal-keeper">
+              Behind the game <ArrowUpRight size={16} />
+            </Link>
+          </div>
+        </article>
+      </section>
+      <KeeperStoryPreview />
+      <section
+        className="playground-outro folio-container"
+        aria-labelledby="playground-outro-title"
+      >
+        <h2 id="playground-outro-title">
+          The same curiosity,
+          <br />
+          out in the world.
+        </h2>
+        <div>
+          <p>
+            These little experiments sit alongside the products, websites and creative projects I
+            build.
           </p>
           <Link className="folio-text-link" href="/work">
-            Explore the rest of my work <ArrowUpRight size={17} />
+            Explore the selected work <ArrowUpRight size={18} />
           </Link>
-        </div>
-        <div className="bench-making-notes">
-          <details open>
-            <summary>How a shape grows</summary>
-            <p>
-              Three.js draws the sculpture from points and lines. Symmetry repeats a form around a
-              center; layers add depth. Spread and twist change how those repetitions meet. The seed
-              gives each variation a repeatable starting point.
-            </p>
-          </details>
-          <details>
-            <summary>What the recipe remembers</summary>
-            <p>
-              The link stores the form, settings, color and seed in its address. Opening it rebuilds
-              the same sculpture. It starts from the default viewing angle, so the recipe stays
-              separate from the moment you captured.
-            </p>
-          </details>
-          <details>
-            <summary>Two ways to keep it</summary>
-            <p>
-              The PNG captures your current 3D view. The SVG is a flat geometric print made from the
-              same recipe, ready to scale. Both are created in your browser.
-            </p>
-          </details>
-          <details>
-            <summary>Built to come to rest</summary>
-            <p>
-              React Three Fiber connects the controls to the scene. Motion stops when you pause,
-              leave the page out of view or prefer reduced motion. The controls still work in a flat
-              edition when 3D rendering is unavailable.
-            </p>
-          </details>
         </div>
       </section>
     </PortfolioShell>

@@ -56,6 +56,8 @@ Geometry Bench uses product-UI treatment: invite exploration, name the controls 
 
 Portal Keeper continues that same-day audience and voice context. Product-UI treatment governs the task, mechanism labels, progressive hints, save notices and completion. Research status: research not needed for game controls. The route metadata and Playground invitation describe the actual one-room browser game, with no claim about player completion time or measured engagement. The owner approved the game direction before implementation.
 
+The subsequent Playground hub and Portal Keeper case study reuse the same-day portfolio audience/search evidence. The hub makes both experiences discoverable; the case study serves hiring managers and collaborators evaluating creative engineering. Claims are grounded in the implemented game source and its recorded browser checks. Its interactive ray diagram uses the actual puzzle model with isolated example state. Research status: reused fallback portfolio research, with product-UI treatment for choices, migration notices and diagram controls. No new paid research or search-performance claims were needed. The owner reported an initial game playthrough without issues at first glance; uncoached-player and physical-device results remain unrecorded in `PLAYTEST.md`.
+
 ## Acceptance and measurement
 
 Make identity, real work and next actions legible at desktop and mobile widths. Retain native scrolling, keyboard access, reduced-motion parity and useful failure states. Verify normal-motion sequences as well as settled views. Record actual browser coverage and remaining physical-device limits in `LAUNCH_SCORECARD.md`.

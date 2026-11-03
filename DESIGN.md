@@ -91,15 +91,17 @@ Smaller work is retained in source rather than deleted. Elsewhere, Fieldwork, IM
 
 Premium Client Site continues to own audience, information architecture, case-study narrative, visual craft and release review. Cinematic Web Experiences continues to own authored interaction, scene behavior, responsive composition and fallback verification. Reuse the approved Living Archive identity and Atrium reference; do not reopen direction selection.
 
-| Destination | Visitor purpose and next action | Planned proof or experience |
+| Destination | Visitor purpose and next action | Proof or experience |
 | --- | --- | --- |
 | Home | Understand Joey's practice quickly, then open a strong project | Balanced perspective wall, three or four selected stories, a small invitation to play |
 | Work | Find relevant engineering or creative work | The approved curated collection, useful categories, current live/source destinations |
 | Individual project pages | Evaluate judgment and contribution, then inspect the artifact | Challenge, role, meaningful decisions, implementation evidence and the resulting experience |
-| Playground | Try technical ideas and see how they work | Original geometry instrument, interaction studies, short motion/music experiments |
+| Playground | Choose an experience, then play or inspect its construction | Two equivalent original previews at `/playground`, linking to Geometry Bench and The Portal Keeper |
+| Geometry Bench | Make a shape, keep a print or share a recipe | Original geometry instrument at `/playground/geometry-bench`, with controls, exports and a construction explanation |
 | About | Understand the person, background and approach | Professional foundation, creative interests, concise progression and resume |
 | Contact | Start a relevant engineering or collaboration conversation | Accessible contact form and direct email, with a separate Codorus business-services route |
 | The Portal Keeper | Restore an original miniature world, then return to the portfolio | One complete light-routing puzzle at `/play/portal-keeper`, with a garden arrival |
+| Portal Keeper story | Understand the design and engineering choices, then try the game | Editorial case study at `/work/portal-keeper`, original scene captures and a model-driven light-path example |
 
 ### Implemented: deeper work and a real page structure
 
@@ -122,11 +124,11 @@ The restored first portfolio is isolated static content, noindex, with original 
 
 ### Implemented: the Geometry Bench Playground
 
-Joey approved this delivery after the multi-page build. The page at `/playground` retains Living Archive's ink-green canvas, ivory type and chartreuse controls. It extends the site's sacred-geometric identity into an original instrument with three forms: Bloom, Orbit and Portal. The curated starting points are Seed of Wonder, After Hours and Little Doorway. Lichen, Cosmic and Ember palettes supply controlled variation inside the art; site navigation stays consistent.
+Joey approved this delivery after the multi-page build. The instrument now lives at `/playground/geometry-bench` and retains Living Archive's ink-green canvas, ivory type and chartreuse controls. It extends the site's sacred-geometric identity into an original instrument with three forms: Bloom, Orbit and Portal. The curated starting points are Seed of Wonder, After Hours and Little Doorway. Lichen, Cosmic and Ember palettes supply controlled variation inside the art; site navigation stays consistent.
 
 The stage pairs a large original procedural sculpture with a narrow control rail. Symmetry, layers, spread, twist and speed change actual geometry or motion. Sideways drag and explicit left/right/reset buttons turn the sculpture. Surprise me produces a bounded deterministic variation within the chosen family and palette. The stage stays visible while phone visitors adjust controls. Its caption, artwork and compact pause/rotation row occupy separate layout rows, including at enlarged text sizes. Native vertical scroll remains available.
 
-Three.js 0.183.2 through the installed React Three Fiber 9.5.0 owns the renderer. There is one pose owner, delta-based active time, a demand frame loop, bounded DPR and explicit buffer cleanup. Seeded geometry is computed only when its structural parameters change. Palette/speed changes do not rebuild vertex buffers. A small point shader draws structural nodes; translucent planes and lines give the forms depth without a postprocessing chain. The canvas imports only on the Playground route; links to it disable prefetch. The homepage invitation uses a static SVG print.
+Three.js 0.183.2 through the installed React Three Fiber 9.5.0 owns the renderer. There is one pose owner, delta-based active time, a demand frame loop, bounded DPR and explicit buffer cleanup. Seeded geometry is computed only when its structural parameters change. Palette/speed changes do not rebuild vertex buffers. A small point shader draws structural nodes; translucent planes and lines give the forms depth without a postprocessing chain. The canvas imports only on the dedicated Geometry Bench route; links to it disable prefetch. The homepage invitation uses a static SVG print.
 
 | State | What the visitor sees and does | Motion, fallback and ownership |
 | --- | --- | --- |
@@ -134,12 +136,13 @@ Three.js 0.183.2 through the installed React Three Fiber 9.5.0 owns the renderer
 | Explore | A preset or control changes the original sculpture; horizontal drag or buttons turn it | One Three.js transform owner. Native scroll is not consumed; keyboard controls are ordinary HTML |
 | Play/rest | Gentle evolving orientation makes depth legible; Pause holds the current pose | Active time stops for pause, reduced motion, offscreen stage or hidden document. Parameter/view changes still draw when motion is stopped |
 | Keep/share | Save a PNG of the current view, a flat scalable SVG print, or copy the recipe link | Exports stay in the browser. Versioned, bounded URL parameters store shape/settings/palette/seed, not camera pose or animation time. Clipboard denial exposes a selectable URL |
+| Previous links | A recipe or explanatory bookmark shared at `/playground` opens the dedicated instrument | `LegacyBenchRecipe` forwards `#bench=` and `#how-it-works` client-side, preserving the query and hash. Invalid recipes reach the instrument's existing recovery; unrelated hashes stay on the hub |
 | Unavailable/lost WebGL | The flat print continues responding to controls | No WebGL canvas is mounted after failed preflight. Context loss switches to the same poster; PNG/rotation controls disable while SVG remains available |
 | No JavaScript | The authored default print, explanation, navigation and print-download link remain | Optional controls are hidden; no pretend interactivity |
 
 The generated poster and sculpture use original mathematical forms, not reference artwork. Atrium remains the reference for the homepage wall; it is not a claim about this independent 3D instrument. Shared skills guide composition, interaction ownership and verification. Reviewed technical sources include the maintainer-contributed [pmndrs math skill](https://github.com/pmndrs/math/blob/main/skills/math/SKILL.md), the community [EnzeD R3F fundamentals/geometry/animation guides](https://github.com/EnzeD/r3f-skills), and [official R3F performance documentation](https://r3f.docs.pmnd.rs/advanced/scaling-performance). Installed source governs version-specific APIs. No external skill pack or extra math library was installed. Detailed provenance and the rejected/stale alternatives remain in the local research note.
 
-The homepage invitation and shared navigation lead directly to the instrument. A concise “How it works” view explains procedural construction, reproducibility, exports and rendering rest. Sound and additional discoveries remain optional future additions. No accounts, locked case studies, resume gates or mandatory play were introduced.
+The homepage invitation and shared navigation lead to the Playground hub, where the instrument has its own preview and action. A concise “How it works” view on the instrument route explains procedural construction, reproducibility, exports and rendering rest. Sound and additional discoveries remain optional future additions. No accounts, locked case studies, resume gates or mandatory play were introduced.
 
 ### Implemented: The Portal Keeper's first room
 
@@ -160,7 +163,19 @@ Controls remain below the artwork. Desktop uses an instrument desk beside progre
 
 The route dynamically imports its canvas, and the Playground invitation disables prefetch. Rendering uses a demand loop, DPR capped at 1.5 and a 1024 × 1024 shadow map refreshed for state changes rather than every ambient frame. The portal draws one frame when motion rests. Geometry and local label textures are disposed with their components. The page's optional “How it works” disclosures explain ray reflection, the shared flat-view model and browser-local restoration without interrupting play.
 
-Technical review is recorded in `LAUNCH_SCORECARD.md`: production build, six model tests and three browser cases, with rendered desktop checks at 1440px/1869px and mobile checks at 390px/320px, reduced motion and fallback restoration. Independent review covers pointer selection, opt-in audio, context loss, navigation, 200% text and mobile focus. These checks establish the recorded browser behavior; owner acceptance of the rendered room, independent player testing, a measured physical-device budget and public deployment remain separate next steps. Additional rooms are not part of this delivery.
+Technical review is recorded in `LAUNCH_SCORECARD.md`: production build, six model tests and three browser cases, with rendered desktop checks at 1440px/1869px and mobile checks at 390px/320px, reduced motion and fallback restoration. Independent review covers pointer selection, opt-in audio, context loss, navigation, 200% text and mobile focus. Joey subsequently completed an initial playthrough, reported no issues at first glance and strongly approved the appearance. Uncoached first-player testing, physical-device review, a measured physical-device budget and public deployment remain separate next steps. `PLAYTEST.md` prepares the player sessions; room two remains behind that gate and has not been built.
+
+### Implemented: the Playground hub and Portal Keeper story
+
+Joey approved the follow-up recommendations after his initial game review. `/playground` now presents Geometry Bench and The Portal Keeper with equivalent image areas, titles, descriptions and primary actions. Each has a direct route into the experience and an explanatory route. The two-column desktop composition becomes a single reading order below 760px; actions wrap and text grows naturally. Original static previews preserve the complete image edges and avoid loading a 3D scene just to choose an experience. The homepage invitation now introduces both experiences and opens this hub.
+
+`KeeperStoryPreview` uses the awakened-room capture to connect the hub and Work page to `/work/portal-keeper`. It sits outside the curated collection, so the 12 approved records remain unchanged. The game footer links to the story, whose opening and closing actions return to play or the Playground. These routes let an employer inspect the work without completing the puzzle.
+
+The custom case study uses editorial spacing, contained scene captures and the existing Archivo, ink-green, ivory and chartreuse system. Its sequence explains the small first-room scope, visible consequences of mirror turns, the garden reward, shared puzzle state, deliberate rendering work and player control. `LightPathDemo` supplies three labeled states, Misaligned, Routed and Awake, using the same `traceLight` calculation and SVG diagram as the game. Pressed-state buttons and a polite status region connect each diagram to its explanation and receiver/pattern/portal facts. Its local state does not touch the saved game. The article and initial diagram remain without JavaScript; inactive example controls are hidden. Neither the hub nor the story imports the Three.js scene.
+
+The observatory, awakened portal and garden images are original 960 × 641 PNG captures of the locally authored game. `public/portfolio/portal-keeper/provenance.md` records the source commit, build, scene state and capture conditions; embedded PNG metadata carries the same origin. Source PNGs remain intact, with Next.js supplying responsive delivery formats. They show the complete scene without page chrome or retouching.
+
+Five browser regression tests passed for the hub, dedicated bench, legacy recipes and bookmarks, clipboard-denial recovery, direct case-study refresh and the example's three states. Independent review covered 1440px, 390px and 320px layouts, 200% text and navigation; a fresh visual review found no required changes within the authorized local scope. The earlier six model and three browser game tests remain prior evidence for the unchanged game core and were not rerun for this delivery. These checks do not replace the prepared uncoached player sessions or physical-phone review.
 
 ### Final delivery review
 

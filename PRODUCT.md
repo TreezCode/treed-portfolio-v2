@@ -3,7 +3,7 @@
 ## Authority
 
 - **Status:** Active
-- **Version:** 4.3
+- **Version:** 4.4
 - **Owner:** Joey Kubalak
 - **Current scope authorized:** November 3, 2026
 - **Visual authority:** `DESIGN.md`
@@ -35,7 +35,7 @@ The site demonstrates craft, while project facts and an accessible resume establ
 ## Collection contract
 
 - Present the strongest recent projects first. Joey approved the 12-entry selection on November 3. Preserve full image compositions in every project frame, including hover states.
-- Include Cosmic Zen Collections, Little Portal Studio, Russound, client websites, substantial apps and practical tools. Consolidate studio releases on their parent page. Route smaller motion, music and interaction studies into the planned Playground rather than giving every experiment equal main-list weight.
+- Include Cosmic Zen Collections, Little Portal Studio, Russound, client websites, substantial apps and practical tools. Consolidate studio releases on their parent page. Route smaller motion, music and interaction studies into the Playground rather than giving every experiment equal main-list weight.
 - Use current names, descriptions, stages, links and featured images. Preserve source assets and derivative provenance.
 - Group related versions into a project history instead of treating every rebuild or alternate render as a new client engagement.
 - Identify a concept, prototype, archived project or released product when the distinction changes understanding. Positive capabilities lead; internal evidence caveats do not become routine public disclaimers.
@@ -46,11 +46,15 @@ Reconciliation inventories record discoveries, exclusions, rights considerations
 
 ## Creative contract
 
-Continue the owner-approved **Living Archive** direction using the shared reference library and the Premium Client Site and Cinematic Web Experiences workflows. Fieldnotes is retained only as a direction study. `DESIGN.md` records references, the owner approval and the planned multi-page expansion.
+Continue the owner-approved **Living Archive** direction using the shared reference library and the Premium Client Site and Cinematic Web Experiences workflows. Fieldnotes is retained only as a direction study. `DESIGN.md` records references, the owner approval and the delivered page structure and experiences.
 
 The opening immediately communicates identity and invites the work. Sacred geometry remains part of Joey's visual vocabulary. Dimensional motion, artwork and typography reveal personality without making visitors wait or learn special controls. CSS projection and native browser behavior may replace WebGL when they better serve the experience.
 
-The curated list, full-image framing, multi-page case-study delivery and Geometry Bench are approved. The instrument demonstrates technical creativity through original procedural forms, direct controls and reproducible outputs. Joey subsequently approved The Portal Keeper and authorized its first playable room in the same Living Archive direction. `GAME_PLAN.md` bounds this delivery to the Sleeping Observatory, its light-routing puzzle and garden arrival. Additional rooms remain future work. The delivered game still needs the owner's playthrough and physical-device review before public release.
+The curated list, full-image framing, multi-page case-study delivery and Geometry Bench are approved. The instrument demonstrates technical creativity through original procedural forms, direct controls and reproducible outputs. Joey subsequently approved The Portal Keeper and authorized its first playable room in the same Living Archive direction. `GAME_PLAN.md` bounds this delivery to the Sleeping Observatory, its light-routing puzzle and garden arrival. Joey's initial playthrough found no issues at first glance and strongly approved the appearance.
+
+The approved follow-up makes `/playground` a hub with equivalent invitations to Geometry Bench and The Portal Keeper. Geometry Bench now lives at `/playground/geometry-bench`; client-side forwarding preserves previously shared recipes and the explanatory bookmark. The dedicated `/work/portal-keeper` story presents original scene captures, design decisions and a small light-path example using the game's puzzle model. A separate story preview on Work and the hub connects the experience to engineering evidence while preserving the approved 12-project collection. The homepage invitation and game footer complete the routes between play, explanation and selected work.
+
+`PLAYTEST.md` prepares two uncoached first-player sessions, including one on a physical phone. Those sessions and physical-device review remain pending. The owner's initial playthrough does not substitute for them. Room two remains behind the recorded playtest gate and has not been built; public release still requires separate authorization.
 
 ## Product principles
 
