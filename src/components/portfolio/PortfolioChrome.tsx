@@ -63,7 +63,7 @@ export function PortfolioHeader({
         </Link>
       </nav>
       <a className="folio-resume" href="/joey-kubalak-resume.pdf" download>
-        Résumé <ArrowDown size={16} />
+        Resume <ArrowDown size={16} />
       </a>
     </header>
   )

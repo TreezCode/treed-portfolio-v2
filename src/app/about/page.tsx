@@ -56,7 +56,7 @@ export default function AboutPage() {
             </div>
           </dl>
           <a className="folio-text-link" href="/joey-kubalak-resume.pdf" download>
-            Download my résumé <ArrowDown size={17} />
+            Download my resume <ArrowDown size={17} />
           </a>
         </div>
         <div className="folio-about-prose">

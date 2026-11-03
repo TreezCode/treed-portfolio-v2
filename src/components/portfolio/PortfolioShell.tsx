@@ -39,7 +39,7 @@ export function PortfolioCTA() {
           Start a conversation <ArrowUpRight size={18} />
         </Link>
         <a className="folio-text-link" href="/joey-kubalak-resume.pdf" download>
-          My résumé <ArrowDown size={17} />
+          My resume <ArrowDown size={17} />
         </a>
       </div>
     </section>

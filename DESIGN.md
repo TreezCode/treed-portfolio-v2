@@ -139,11 +139,13 @@ Three.js 0.183.2 through the installed React Three Fiber 9.5.0 owns the renderer
 
 The generated poster and sculpture use original mathematical forms, not reference artwork. Atrium remains the reference for the homepage wall; it is not a claim about this independent 3D instrument. Shared skills guide composition, interaction ownership and verification. Reviewed technical sources include the maintainer-contributed [pmndrs math skill](https://github.com/pmndrs/math/blob/main/skills/math/SKILL.md), the community [EnzeD R3F fundamentals/geometry/animation guides](https://github.com/EnzeD/r3f-skills), and [official R3F performance documentation](https://r3f.docs.pmnd.rs/advanced/scaling-performance). Installed source governs version-specific APIs. No external skill pack or extra math library was installed. Detailed provenance and the rejected/stale alternatives remain in the local research note.
 
-The homepage invitation and shared navigation lead directly to the instrument. A concise “How it works” view explains procedural construction, reproducibility, exports and rendering rest. Sound and additional discoveries remain optional future additions. No accounts, locked case studies, résumé gates or mandatory play were introduced.
+The homepage invitation and shared navigation lead directly to the instrument. A concise “How it works” view explains procedural construction, reproducibility, exports and rendering rest. Sound and additional discoveries remain optional future additions. No accounts, locked case studies, resume gates or mandatory play were introduced.
 
 ### Later delivery: a standalone game
 
 Working concept: **The Portal Keeper**, a single-player exploration/puzzle game built around original geometry, light and portal worlds. One room and one satisfying puzzle should establish the visual identity, controls, sound and repeatable game loop before a larger world is scoped. Existing creative worlds may inform its art direction after asset suitability is checked. Give the game its own route and loading boundary so portfolio navigation remains immediate. No game implementation is included in the curation pass.
+
+After approving Geometry Bench, Joey requested the standalone game plan. `GAME_PLAN.md` develops the recommendation into The Sleeping Observatory: a fixed-camera light-routing and pattern-alignment puzzle, with a complete one-room payoff, desktop/touch/keyboard controls and a bounded expansion gate. This remains a proposed specification for owner review. No game implementation has been authorized by the planning request.
 
 ### Final delivery review
 
