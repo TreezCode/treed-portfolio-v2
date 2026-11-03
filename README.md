@@ -6,7 +6,7 @@ The portfolio of Joey Kubalak, a software engineer and creative maker. The Novem
 
 ## November 2026 local review
 
-- `/`: Living Archive, the approved direction with 12 proposed selected projects.
+- `/`: Living Archive, the approved direction and approved 12-project selection.
 - `/work/little-portal-studio`: One studio project with eight released products inside it.
 - `/directions/fieldnotes`: Retained, unlinked editorial direction study.
 - `/work/[slug]`: Current project stories. Original detail URLs remain recoverable; unselected records are noindex and excluded from the sitemap.

@@ -1,8 +1,19 @@
 # Build With Treez: local redesign verification
 
-Date: November 3, 2026. Status: Living Archive approved; curated project selection ready for owner review. No production deployment.
+Date: November 3, 2026. Status: Living Archive and the 12-project selection approved; requested image framing corrected. No production deployment.
 
-## Current curation revision
+## Current image-framing correction
+
+Build PqdGJTWrjIOvZsaHNGqKR preserves full source compositions across hero tiles, featured work, project cards and retained Fieldnotes prints. Cover sizing and hover zoom were removed. Small frame insets protect the edges, and corner icons no longer obscure the artwork. Source assets were not cropped or replaced.
+
+- [x] Desktop 1440px and mobile 390px/320px inspection confirms full framed images, no horizontal overflow, loaded images and no uncaught page errors.
+- [x] Featured, project-card and studio-release images remain unscaled on hover.
+- [x] Portrait Cosmic Zen artwork and wide website screenshots were visually reviewed at desktop and mobile sizes. The hero's intentional outer viewport clipping remains part of its composition.
+- [x] Build and ESLint pass. The approved 12-project selection is unchanged.
+
+Evidence: output/playwright/framing-review.txt, framing-feature-1440.png, framing-feature-390.png, framing-collection-1440.png, framing-collection-390.png and framing-hero-1440.png. Earlier performance scores below were not remeasured for this CSS-only framing correction.
+
+## Previous curation revision
 
 Build KJiOYz8PyAPnZygg97r0o implements the owner's follow-up: 12 proposed selected projects, one Little Portal Studio logo entry, eight releases on its collection page, and Codorus Web's actual current hero. The direction switch is removed from the primary page. Original records remain recoverable; unselected records are noindex and outside the sitemap. The full next-phase plan is in DESIGN.md.
 
@@ -71,7 +82,7 @@ Local evidence: output/playwright/final-results.json, contact-results.txt, fallb
 ## Before public launch
 
 - Obtain the outstanding named public portfolio/media permission for Russound and contributor distribution permission for Rift Riders. Local preview inclusion does not settle those permissions.
-- Living Archive is selected. Approve the curated project list before broader page expansion, then explicitly authorize production publication when the full build is ready.
+- Living Archive and the curated project list are approved. Complete the remaining page build and final owner review, then explicitly authorize production publication when ready.
 - Perform physical mobile Safari/touch and assistive-technology review. Current verification used desktop Chromium and mobile emulation, not physical devices.
 - Check production email delivery and hosted performance when a release is authorized. Current form tests were intercepted and the existing contact endpoint was preserved.
 

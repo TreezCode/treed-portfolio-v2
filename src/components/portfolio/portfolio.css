@@ -323,7 +323,9 @@
   overflow: hidden;
 }
 .media-wall-tile img {
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+  padding: 8px;
 }
 .wall-cosmic-zen img {
   object-fit: contain;
@@ -416,28 +418,9 @@
   border-radius: 3px;
 }
 .folio-feature-image img {
-  object-fit: cover;
-  transition: transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-.folio-feature-image:hover img {
-  transform: scale(1.025);
-}
-.folio-image-open {
-  display: grid;
-  place-items: center;
-  position: absolute;
-  bottom: 18px;
-  right: 18px;
-  width: 45px;
-  height: 45px;
-  color: #19221a;
-  background: #f2f2e9;
-  border-radius: 50%;
-  transition: background 180ms;
-}
-.folio-feature-image:hover .folio-image-open,
-.folio-card-image:hover .folio-image-open {
-  background: var(--accent);
+  object-fit: contain;
+  object-position: center;
+  padding: 12px;
 }
 .folio-project-meta {
   display: flex;
@@ -587,17 +570,9 @@
   border-radius: 3px;
 }
 .folio-card-image img {
-  object-fit: cover;
-  transition: transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-.folio-card-image:hover img {
-  transform: scale(1.035);
-}
-.folio-card-image .folio-image-open {
-  width: 36px;
-  height: 36px;
-  right: 14px;
-  bottom: 14px;
+  object-fit: contain;
+  object-position: center;
+  padding: 8px;
 }
 .folio-project-card > .folio-project-meta {
   margin: 20px 0 10px;
@@ -836,7 +811,8 @@
   box-shadow: 0 12px 24px #31291912;
 }
 .sheet-image img {
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
 }
 .sheet-image-0 {
   transform: rotate(-3deg);
@@ -907,10 +883,6 @@
 }
 .folio-fieldnotes .folio-feature-image img {
   object-fit: contain;
-}
-.folio-fieldnotes .folio-feature-image:hover .folio-image-open,
-.folio-fieldnotes .folio-card-image:hover .folio-image-open {
-  color: var(--paper);
 }
 .folio-fieldnotes .folio-band {
   background: #a63c23;
@@ -1629,10 +1601,6 @@
   .media-wall-scroll,
   .folio-band > div {
     transform: none !important;
-  }
-  .folio-card-image:hover img,
-  .folio-feature-image:hover img {
-    transform: none;
   }
 }
 @media (hover: none) {

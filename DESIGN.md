@@ -32,7 +32,7 @@ Full source routes and provenance: docs/portfolio-refresh/reference-and-russound
 
 ## Creative decision record
 
-The initial studies and recommendation were made under delegated creative direction. Joey subsequently approved Living Archive explicitly. The current 12-project curation is a local review candidate, not yet an owner-approved final list. Fieldnotes remains a historical direction study outside primary navigation. No new direction exercise is needed.
+The initial studies and recommendation were made under delegated creative direction. Joey subsequently approved Living Archive explicitly, then approved the 12-project selection on November 3. His required correction before expansion is to preserve the full featured-image edges. Fieldnotes remains a historical direction study outside primary navigation. No new direction exercise is needed.
 
 Impeccable was used for craft and bounded visual review. Its concept seed b9da638b was consulted. The user's explicit two-direction/reference-led commission and delegation govern the presentation; no additional selection ceremony was added. The seed's alternatives were considered as disciplines: character-led identity, authored color commitment, keyboard clarity, compact indexing, attributable collections and independent visual planes. Their literal costume systems were declined because they would obscure this portfolio's product work. Collection attribution and stable foreground planes strengthen the selected worlds without copying those costumes.
 
@@ -41,12 +41,14 @@ Impeccable was used for craft and bounded visual review. Its concept seed b9da63
 1. Opening: identity, software-engineering role, expressive headline, short support, Explore the work. All visible in server HTML. Artwork is decorative with empty alt text; meaningful project links live outside the projected wall.
 2. Proof: PresentSphere's current family product and Russound's digital experience. Real project images, role/stage, clear detail links. Little Portal Studio is one logo-led entry in the curated selection, with eight releases inside its collection page.
 3. Graphic transition: two opposing tracks move a bounded 110px across their visible viewport interval. Reverse follows scroll; there is no autoplay or pin.
-4. Selected work: 12 proposed records, categories and text search. Static HTML contains the selection. Empty results have a clear reset. The 40 original detail records remain recoverable, but unselected records are removed from the main collection and sitemap and are noindex. The eight studio releases remain discoverable inside their parent project.
+4. Selected work: 12 approved records, categories and text search. Static HTML contains the selection. Empty results have a clear reset. The 40 original detail records remain recoverable, but unselected records are removed from the main collection and sitemap and are noindex. The eight studio releases remain discoverable inside their parent project.
 5. Human context and contact: geometry, education, practical experience, downloadable resume, unchanged validated contact endpoint and separate Codorus Web route.
 
 The pointer loop is eligible only for hover/fine-pointer users, stops when settled/offscreen/hidden and cleans up on unmount. Scroll and pointer transforms have separate owners. The Pause artwork control stops the wall and typography effects. It does not claim to pause user-controlled media or form feedback.
 
-Touch: native page scrolling, composed static collage and two mounted prints in Fieldnotes. No gesture capture. At 320/390px content grows naturally; no fixed hero height clips enlarged text. Reduced motion removes decorative translation and hover scaling, responding to changes during the session. No JavaScript retains complete copy, projects and ordinary links; filters are optional enhancement. Video/audio use native controls and preload=none.
+Touch: native page scrolling, composed static collage and two mounted prints in Fieldnotes. No gesture capture. At 320/390px content grows naturally; no fixed hero height clips enlarged text. Reduced motion removes decorative translation, responding to changes during the session. No JavaScript retains complete copy, projects and ordinary links; filters are optional enhancement. Video/audio use native controls and preload=none.
+
+Image framing: preserve the complete source composition inside every tile, feature and project card with centered contain sizing. Small insets protect image edges from rounded frame clipping. Images do not zoom on hover, and opaque corner icons do not cover the artwork; adjacent title and text links retain the navigation cues. The decorative perspective wall can still extend beyond the hero viewport as part of the approved Atrium composition.
 
 ## Assets, production and boundaries
 
@@ -62,9 +64,9 @@ First rendered review: 1440x1000 and 390x844 for both directions, plus 320px, ta
 
 Final verification is recorded in LAUNCH_SCORECARD.md. Screenshot and sampled-state evidence are not a claim of physical-device frame pacing, continuous playback review or field Core Web Vitals. The final owner taste review remains available through both local previews.
 
-## Curated selection for owner review
+## Approved curated selection
 
-The current local implementation makes this exact proposed list reviewable. Direction approval is recorded above; list approval remains Joey's retained decision.
+Joey Kubalak approved this exact 12-project selection on November 3, 2026. Keep it stable during the image-framing correction and subsequent page expansion.
 
 | Project | Why it earns a place |
 | --- | --- |
@@ -85,7 +87,7 @@ The wall mixes these bodies of work, with Little Portal Studio appearing once as
 
 Smaller work is retained in source rather than deleted. Elsewhere, Fieldwork, IMPULSE, original music and selected Blender experiments are strong future Playground material. Kismet can explain the practical origin of Renamerly. Sayfold and other technical prototypes can be selected later when their demonstrations add distinct evidence. Older storefront/scraper exercises and the closed Florida Fungi Farm store do not compete with current work in the main list.
 
-## Remaining build after list approval
+## Remaining build after image-framing correction
 
 Premium Client Site continues to own audience, information architecture, case-study narrative, visual craft and release review. Cinematic Web Experiences continues to own authored interaction, scene behavior, responsive composition and fallback verification. Reuse the approved Living Archive identity and Atrium reference; do not reopen direction selection.
 

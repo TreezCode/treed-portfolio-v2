@@ -238,9 +238,6 @@ function Feature({ project, flip = false }: { project: PortfolioProject; flip?: 
           fill
           sizes="(max-width: 760px) 100vw, 63vw"
         />
-        <span className="folio-image-open">
-          <ArrowUpRight size={24} />
-        </span>
       </Link>
       <div className="folio-feature-copy">
         <div className="folio-project-meta">
@@ -344,9 +341,6 @@ function ProjectArchive() {
                 fill
                 sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw"
               />
-              <span className="folio-image-open">
-                <ArrowUpRight size={23} />
-              </span>
             </Link>
             <div className="folio-project-meta">
               <span>{project.group || project.category}</span>

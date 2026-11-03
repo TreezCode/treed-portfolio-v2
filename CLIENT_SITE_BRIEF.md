@@ -24,7 +24,7 @@ The page should give a fast first impression and reward a deeper look. It should
 
 Joey's follow-up on November 3 explicitly selects **Living Archive** and replaces the exhaustive collection with the strongest current work. Retain one early project, the first portfolio, as a clear origin point. Little Portal Studio becomes one logo-led entry with its releases inside the project page. The hero must balance professional and creative work rather than predominantly showing studio listings.
 
-The local review now proposes 12 selected projects. Their exact membership remains subject to Joey's requested list approval before broader expansion. The Living Archive direction itself is owner-approved. Fieldnotes is retained at its review URL, outside the main navigation. Atrium continues to inform the perspective wall. Premium Client Site and Cinematic Web Experiences remain active for the multi-page build; the page plan and future Playground/game ideas are recorded in `DESIGN.md`.
+Joey approved the 12-project list on November 3 and requested full-image framing before broader expansion. Both the selection and Living Archive direction are owner-approved. Fieldnotes is retained at its review URL, outside the main navigation. Atrium continues to inform the perspective wall. Premium Client Site and Cinematic Web Experiences remain active for the multi-page build; the page plan and future Playground/game ideas are recorded in `DESIGN.md`.
 
 The current authorization covers local implementation and verification. It does not authorize public deployment.
 

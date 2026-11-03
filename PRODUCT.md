@@ -34,7 +34,7 @@ The site demonstrates craft, while project facts and an accessible resume establ
 
 ## Collection contract
 
-- Present the strongest recent projects first. The local review proposes 12 entries; the owner retains final list approval before broader expansion.
+- Present the strongest recent projects first. Joey approved the 12-entry selection on November 3. Preserve full image compositions in every project frame, including hover states.
 - Include Cosmic Zen Collections, Little Portal Studio, Russound, client websites, substantial apps and practical tools. Consolidate studio releases on their parent page. Route smaller motion, music and interaction studies into the planned Playground rather than giving every experiment equal main-list weight.
 - Use current names, descriptions, stages, links and featured images. Preserve source assets and derivative provenance.
 - Group related versions into a project history instead of treating every rebuild or alternate render as a new client engagement.
@@ -50,7 +50,7 @@ Continue the owner-approved **Living Archive** direction using the shared refere
 
 The opening immediately communicates identity and invites the work. Sacred geometry remains part of Joey's visual vocabulary. Dimensional motion, artwork and typography reveal personality without making visitors wait or learn special controls. CSS projection and native browser behavior may replace WebGL when they better serve the experience.
 
-Reconcile and review the curated list before building the deeper case studies, dedicated pages and Playground. The portfolio should demonstrate technical creativity through usable interactions and substantive project evidence. A full game is a later, separately scoped build, not part of the current curation pass.
+The curated list is approved. Complete the requested image-framing correction before building the deeper case studies, dedicated pages and Playground. The portfolio should demonstrate technical creativity through usable interactions and substantive project evidence. A full game is a later, separately scoped build, not part of the current correction pass.
 
 ## Product principles
 
