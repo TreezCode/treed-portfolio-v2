@@ -1,0 +1,95 @@
+---
+import ListeningRail from './ListeningRail.astro';
+import { navigationResources } from '../../data/handoff-navigation';
+// Project the untouched supplied screenshot onto the handset with native SVG.
+// Narrow affine strips approximate the four-corner perspective without foreignObject.
+const projectScreen = (x: number, y: number) => {
+  const z = 1 - .0000389949 * x + .0000228063 * y;
+  return [(.0953389145 * x + .0086639429 * y + 979) / z, (-.0106257494 * x + .1711814956 * y + 480) / z];
+};
+const screenStrips = Array.from({length:24}, (_, i) => {
+  const y = i * 2556 / 24, dy = 2556 / 24;
+  const tl = projectScreen(0,y), tr = projectScreen(1179,y), bl = projectScreen(0,y+dy), br = projectScreen(1179,y+dy);
+  const a = (tr[0]-tl[0])/1179, b = (tr[1]-tl[1])/1179, c = (bl[0]-tl[0])/dy, d = (bl[1]-tl[1])/dy;
+  return {id:'rs-screen-strip-'+i, points:[tl,tr,br,bl].map(p=>p.join(',')).join(' '), transform:`matrix(${a} ${b} ${c} ${d} ${tl[0]-c*y} ${tl[1]-d*y})`};
+});
+const screenEdge = 'M 1000 481 L 1122 489 Q 1146 490 1143 513 L 1102 874 Q 1100 895 1080 890 L 963 869 Q 946 866 949 848 L 977 506 Q 979 481 1000 481 Z';
+---
+<section class="d-control-story rs-app-story" id="russound-app" aria-labelledby="control-heading">
+  <div class="rs-app-stage">
+    <div class="rs-app-scene">
+      <svg class="rs-app-photograph" viewBox="0 0 2016 1344" preserveAspectRatio="xMidYMin slice" role="img" aria-labelledby="rs-scene-title">
+        <title id="rs-scene-title">A listener chooses rooms in the Russound App while friends set the dining table.</title>
+        <image href="/streaming01/soul-evening-a.webp" width="2016" height="1344"/>
+        <defs>
+          <clipPath id="rs-screen-edge"><path d={screenEdge}/></clipPath>
+          {screenStrips.map(strip => <clipPath id={strip.id}><polygon points={strip.points}/></clipPath>)}
+          <mask id="rs-phone-hand-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="2016" height="1344">
+            <rect width="2016" height="1344" fill="white" stroke="none"/>
+            <ellipse cx="1136" cy="795" rx="32" ry="27" fill="black" stroke="none" transform="rotate(-19 1136 795)"/>
+            <ellipse cx="1125" cy="846" rx="33" ry="24" fill="black" stroke="none" transform="rotate(3 1125 846)"/>
+          </mask>
+        </defs>
+        <g class="rs-app-screen" mask="url(#rs-phone-hand-mask)" clip-path="url(#rs-screen-edge)">
+          <path d={screenEdge} fill="#171e2e" stroke="none"/>
+          {screenStrips.map(strip => <g clip-path={`url(#${strip.id})`}><image href="/streaming01/russound-rooms-original.jpg" width="1179" height="2556" transform={strip.transform}/></g>)}
+        </g>
+      </svg>
+    </div>
+    <div class="rs-app-shade" aria-hidden="true"></div>
+    <div class="rs-app-copy">
+      <h2 id="control-heading">The right music.{' '}<br/>Right at hand.</h2>
+      <p>Set the mood for dinner. Find a favorite, choose a room and make yourself at home with the Russound App.</p>
+      <a class="rs-app-primary" href={navigationResources.apps.href}>Explore the Russound App <span aria-hidden="true">↗</span></a>
+      <div class="rs-app-secondary">
+        <span>Always ready, right on the wall.</span>
+        <a href="https://russound.com/products/xts7-wall-mounted-7-color-touchscreen/">Explore the XTS7 <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </div>
+  <ListeningRail />
+</section>
+
+<style>
+  html[data-team-theme] .rs-app-story {
+    display:block;background:#0f2a4d;color:#fff8ef;isolation:isolate;
+    --heading:#fff8ef;--muted:#e1e6ed;
+  }
+  .rs-app-stage{position:relative;min-height:clamp(680px,49vw,820px);height:auto;overflow:hidden;}
+  .rs-app-scene{position:absolute;inset:0;}
+  .rs-app-photograph{display:block;width:100%;height:100%;stroke:none;fill:none;}
+  .rs-app-screen{stroke:none;}
+  .rs-app-shade{position:absolute;inset:0;background:linear-gradient(90deg,#0d2442fa 0%,#0d2442ed 17%,#0d2442bf 29%,#0d244260 40%,#0d244200 57%),linear-gradient(0deg,#0f2a4d 0%,#0f2a4d00 19%);pointer-events:none;}
+  .rs-app-copy{position:relative;z-index:1;width:40%;max-width:650px;padding:clamp(80px,10vw,150px) 0 90px var(--gutter);}
+  .rs-app-copy h2{color:#fff8ef;font-size:clamp(40px,4.05vw,65px);line-height:1.08;letter-spacing:-.045em;text-wrap:initial;}
+  .rs-app-copy>p{max-width:32ch;font-size:16px;line-height:1.8;color:#e1e6ed;margin:27px 0 30px;}
+  .rs-app-primary{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:54px;padding:15px 22px;border:1px solid #d5a36f;background:#fff8ef;color:#0f2a4d;text-decoration:none;font-size:13px;font-weight:650;line-height:1.5;}
+  .rs-app-primary:hover{background:#f2e6d7;}
+  .rs-app-primary span{font-size:20px;font-weight:400;}
+  .rs-app-secondary{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:32px;font-size:12px;color:#c9d5e3;}
+  .rs-app-secondary a{display:inline-flex;gap:30px;align-items:center;min-height:44px;color:#fff8ef;font-size:13px;text-decoration-thickness:1px;}
+  .rs-app-secondary a:hover{color:#fbb03b;}
+  .rs-app-story a:focus-visible{outline:2px solid #fbb03b;outline-offset:6px;}
+  @media(min-width:1800px){.rs-app-photograph{width:90%;margin-left:auto}.rs-app-shade{background:linear-gradient(90deg,#0d2442 0%,#0d2442f0 20%,#0d244270 40%,transparent 55%),linear-gradient(0deg,#0f2a4d,transparent 20%)}}
+  @media(max-width:1100px) and (min-width:761px){
+    .rs-app-stage{height:auto;min-height:660px;}
+    .rs-app-scene{left:15%;}
+    .rs-app-photograph{width:125%;max-width:none;}
+    .rs-app-copy{width:44%;padding-top:110px;}
+    .rs-app-copy h2{font-size:43px;}
+    .rs-app-copy>p{max-width:29ch;font-size:15px;}
+    .rs-app-shade{background:linear-gradient(90deg,#0d2442fa,#0d2442e8 28%,#0d244260 46%,transparent 68%),linear-gradient(0deg,#0f2a4d,transparent 18%);}
+  }
+  @media(max-width:760px){
+    .rs-app-stage{height:auto;min-height:0;display:flex;flex-direction:column;overflow:visible;}
+    .rs-app-scene{position:relative;inset:auto;width:100%;height:clamp(360px,100vw,540px);overflow:hidden;}
+    .rs-app-photograph{width:165%;height:100%;max-width:none;position:relative;left:-44%;}
+    .rs-app-shade{inset:0 0 auto;height:clamp(360px,100vw,540px);background:linear-gradient(0deg,#0f2a4d,transparent 25%);}
+    .rs-app-copy{width:100%;max-width:none;padding:15px var(--gutter) 40px;}
+    .rs-app-copy h2{font-size:clamp(39px,8vw,54px);max-width:none;}
+    .rs-app-copy>p{max-width:42ch;font-size:15px;margin:23px 0 26px;}
+    .rs-app-primary{font-size:13px;max-width:100%;}
+    .rs-app-secondary{margin-top:25px;}
+  }
+  @media(prefers-reduced-motion:reduce){.rs-app-story a{transition:none;}}
+</style>

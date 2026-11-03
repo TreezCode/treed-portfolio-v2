@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="data:,">
+  <title>Living Archive · Before & after capture library</title>
+  <style>
+    :root{color-scheme:dark;--bg:#151d19;--panel:#1c2720;--ink:#f1efe4;--muted:#b2bdb2;--line:#3d4b3f;--accent:#d3eb97}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,sans-serif}a{color:var(--accent);text-underline-offset:4px}button,a,summary{touch-action:manipulation}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+    .wrap{width:min(1440px,calc(100% - 48px));margin:auto}header{padding:64px 0 32px;border-bottom:1px solid var(--line)}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--accent);margin:0 0 14px}h1{font-size:clamp(2.4rem,5vw,4.5rem);line-height:1.04;letter-spacing:-.05em;margin:0 0 22px;max-width:900px}h1 span{color:var(--accent)}h2{font-size:clamp(1.65rem,3vw,2.25rem);letter-spacing:-.03em;line-height:1.15;margin:0}h3{font-size:1.1rem;margin:0 0 9px}p{margin:0 0 15px}header .intro{max-width:760px;color:var(--muted);font-size:18px}.meta{display:flex;flex-wrap:wrap;gap:10px 26px;font-size:13px;color:var(--muted);margin-top:25px}
+    .toolbar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--bg);padding:18px 0;border-bottom:1px solid var(--line)}.toolbar p{margin:0;font-size:14px;color:var(--muted)}.view-controls{display:flex;gap:8px}button{border:1px solid var(--line);background:var(--panel);color:var(--ink);font:inherit;font-size:14px;min-height:44px;padding:8px 18px;border-radius:5px;cursor:pointer}button[aria-pressed=true]{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+    section{padding:43px 0;border-bottom:1px solid var(--line)}.section-head{display:flex;align-items:baseline;gap:20px;justify-content:space-between;margin-bottom:23px}.section-head p{color:var(--muted);font-size:14px;max-width:580px;margin:0}.compare{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}.capture{margin:0;min-width:0}.capture-title{display:flex;justify-content:space-between;gap:12px;margin-bottom:11px;font-size:13px;color:var(--muted)}.capture-title strong{font-weight:650;color:var(--ink)}.image-frame{display:flex;justify-content:center;align-items:flex-start;background:#0c110e;border:1px solid var(--line);overflow:hidden}.image-frame img{display:block;width:100%;height:auto;object-fit:contain}.mobile-view .image-frame img{max-width:390px}.mobile-view .image-frame{padding:15px}.image-frame a{display:block;width:100%}.mobile-view .image-frame a{width:min(100%,390px)}figcaption{display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;color:var(--muted);font-size:12px;padding-top:10px}figcaption a{font-size:13px}.subnote{font-size:13px;color:var(--muted);margin-top:16px;max-width:900px}.downloads{display:flex;gap:12px 22px;flex-wrap:wrap;margin-top:20px;font-size:14px}
+    video{display:block;width:100%;max-height:680px;background:#090e0b;border:1px solid var(--line);object-fit:contain}.motion-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 22px}.motion-grid article{min-width:0}.motion-grid h3{font-size:15px}.motion-grid p{font-size:13px;color:var(--muted);margin-top:9px}.showcase{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.showcase figure{margin:0}.showcase img{display:block;width:100%;height:auto;object-fit:contain;border:1px solid var(--line)}.showcase figcaption{display:block;font-size:13px}
+    .plan{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:24px}.plan ol{padding-left:22px;margin:0}.plan li{padding-left:4px;margin-bottom:12px;color:var(--muted)}.plan li strong{color:var(--ink)}.plan p{color:var(--muted)}.plan aside{padding:22px;border:1px solid var(--line);align-self:start}.small{font-size:13px;color:var(--muted)}footer{padding:32px 0 48px;font-size:13px;color:var(--muted)}footer p{margin-bottom:8px}
+    @media(max-width:760px){.wrap{width:calc(100% - 32px)}header{padding-top:36px}.toolbar{gap:12px}.toolbar p{font-size:12px;max-width:150px}button{padding-inline:13px}.section-head{display:block}.section-head p{margin-top:12px}.compare,.motion-grid,.plan{grid-template-columns:1fr;gap:25px}.showcase{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}.capture-title{margin-bottom:8px}section{padding-block:32px}.mobile-view .image-frame{padding:8px}.plan{margin-top:20px}header .intro{font-size:16px}}
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <p class="eyebrow">Build With Treez · Capture library</p>
+    <h1>A portfolio with<br><span>more room to play.</span></h1>
+    <p class="intro">Before and after originals for telling the story of Living Archive. Compare the redesign, inspect the details and keep the source captures ready for a carousel, short video or longer article.</p>
+    <div class="meta"><span>Captured November 3, 2026</span><span>Before: live production</span><span>After: unpublished local candidate</span></div>
+  </header>
+  <main class="wrap" id="library">
+    <noscript><style>.view-controls{display:none}</style><p class="small">Desktop comparison shown. Open the before and after folders for the mobile originals.</p></noscript>
+    <div class="toolbar">
+      <p>Matched viewport sizes. Full image edges preserved.</p>
+      <div class="view-controls" role="group" aria-label="Compare viewport">
+        <button type="button" data-view="desktop" aria-pressed="true">Desktop</button>
+        <button type="button" data-view="mobile" aria-pressed="false">Mobile</button>
+      </div>
+    </div>
+
+    <section aria-labelledby="home-title">
+      <div class="section-head"><h2 id="home-title">01 / The first impression</h2><p>The older introduction and Living Archive's new opening, captured from the root page.</p></div>
+      <div class="compare" data-shot="home-hero">
+        <figure class="capture"><div class="capture-title"><strong>Before</strong><span>Live production</span></div><div class="image-frame"><a href="before/desktop-home-hero.png" data-original="before"><img src="before/desktop-home-hero.png" alt="Before: desktop homepage hero of the live purple-accent portfolio" data-side="before" data-label="homepage hero"></a></div><figcaption><span data-dimensions>1440 × 1000 viewport · DPR 2</span><a href="before/desktop-home-hero.png" download data-download="before">Download original PNG</a></figcaption></figure>
+        <figure class="capture"><div class="capture-title"><strong>After</strong><span>Unpublished local candidate</span></div><div class="image-frame"><a href="after/desktop-home-hero.png" data-original="after"><img src="after/desktop-home-hero.png" alt="After: desktop homepage hero of the Living Archive candidate" data-side="after" data-label="homepage hero"></a></div><figcaption><span data-dimensions>1440 × 1000 viewport · DPR 2</span><a href="after/desktop-home-hero.png" download data-download="after">Download original PNG</a></figcaption></figure>
+      </div>
+      <div class="downloads"><a href="before/desktop-home-full.png" data-full="before" download>Before: full-page PNG</a><a href="after/desktop-home-full.png" data-full="after" download>After: full-page PNG</a></div>
+      <p class="subnote">The full-page originals are intentionally tall. Open or download them to inspect individual sections at full resolution.</p>
+    </section>
+
+    <section aria-labelledby="work-title">
+      <div class="section-head"><h2 id="work-title">02 / Showing the work</h2><p>The old Work section and the new dedicated Work page. These compare the visitor's purpose, not identical page structures.</p></div>
+      <div class="compare" data-shot="work">
+        <figure class="capture"><div class="capture-title"><strong>Before</strong><span>Homepage Work section</span></div><div class="image-frame"><a href="before/desktop-work.png" data-original="before"><img src="before/desktop-work.png" alt="Before: desktop Work section from the live portfolio" loading="lazy" data-side="before" data-label="Work"></a></div><figcaption><span data-dimensions>1440 × 1000 viewport · DPR 2</span><a href="before/desktop-work.png" download data-download="before">Download original PNG</a></figcaption></figure>
+        <figure class="capture"><div class="capture-title"><strong>After</strong><span>Dedicated Work page</span></div><div class="image-frame"><a href="after/desktop-work.png" data-original="after"><img src="after/desktop-work.png" alt="After: desktop Work page of the Living Archive candidate" loading="lazy" data-side="after" data-label="Work"></a></div><figcaption><span data-dimensions>1440 × 1000 viewport · DPR 2</span><a href="after/desktop-work.png" download data-download="after">Download original PNG</a></figcaption></figure>
+      </div>
+    </section>
+
+    <section aria-labelledby="contact-title">
+      <div class="section-head"><h2 id="contact-title">03 / Starting a conversation</h2><p>The old Contact section and the new dedicated Contact page. Forms are empty in both captures.</p></div>
+      <div class="compare" data-shot="contact">
+        <figure class="capture"><div class="capture-title"><strong>Before</strong><span>Homepage Contact section</span></div><div class="image-frame"><a href="before/desktop-contact.png" data-original="before"><img src="before/desktop-contact.png" alt="Before: desktop Contact section from the live portfolio" loading="lazy" data-side="before" data-label="Contact"></a></div><figcaption><span data-dimensions>1440 × 1000 viewport · DPR 2</span><a href="before/desktop-contact.png" download data-download="before">Download original PNG</a></figcaption></figure>
+        <figure class="capture"><div class="capture-title"><strong>After</strong><span>Dedicated Contact page</span></div><div class="image-frame"><a href="after/desktop-contact.png" data-original="after"><img src="after/desktop-contact.png" alt="After: desktop Contact page of the Living Archive candidate" loading="lazy" data-side="after" data-label="Contact"></a></div><figcaption><span data-dimensions>1440 × 1000 viewport · DPR 2</span><a href="after/desktop-contact.png" download data-download="after">Download original PNG</a></figcaption></figure>
+      </div>
+    </section>
+
+    <section aria-labelledby="motion-title">
+      <div class="section-head"><h2 id="motion-title">Keep the movement</h2><p>Normal-motion screen recordings. Press play when ready; these are clean source clips for a later edit.</p></div>
+      <div class="motion-grid">
+        <article><h3>Before / Home to Work</h3><video controls playsinline preload="none" poster="before/desktop-home-hero.png" data-home-video="before"><source src="before/desktop-home-to-work.webm" type="video/webm">Your browser cannot play this recording. <a href="before/desktop-home-to-work.webm">Download the original.</a></video><p><a href="before/desktop-home-to-work.webm" download data-home-video-download="before">Download native WebM</a></p></article>
+        <article><h3>After / Home to Work</h3><video controls playsinline preload="none" poster="after/desktop-home-hero.png" data-home-video="after"><source src="after/desktop-home-to-work.mp4" type="video/mp4"><source src="after/desktop-home-to-work.webm" type="video/webm">Your browser cannot play this recording. <a href="after/desktop-home-to-work.webm">Download the original.</a></video><p><a href="after/desktop-home-to-work.mp4" download data-home-video-download="after">Download MP4</a> · <a href="after/desktop-home-to-work.webm" download data-home-video-native>Native WebM</a></p></article>
+        <article><h3>After / Geometry Bench</h3><video controls playsinline preload="none" poster="after/desktop-geometry-bench.png"><source src="after/desktop-geometry-bench.mp4" type="video/mp4"><source src="after/desktop-geometry-bench.webm" type="video/webm">Download the <a href="after/desktop-geometry-bench.webm">Geometry Bench recording.</a></video><p><a href="after/desktop-geometry-bench.mp4" download>Download MP4</a> · <a href="after/desktop-geometry-bench.webm" download>Native WebM</a></p></article>
+        <article><h3>After / The Portal Keeper</h3><video controls playsinline preload="none" poster="after/desktop-portal-keeper.png"><source src="after/desktop-portal-keeper.mp4" type="video/mp4"><source src="after/desktop-portal-keeper.webm" type="video/webm">Download the <a href="after/desktop-portal-keeper.webm">Portal Keeper recording.</a></video><p><a href="after/desktop-portal-keeper.mp4" download>Download MP4</a> · <a href="after/desktop-portal-keeper.webm" download>Native WebM</a></p></article>
+      </div>
+      <p class="subnote">The old site also supported a light theme. Supplemental light-theme recordings are preserved in the before folder; the dark recordings above match the primary comparison. Mobile captures are browser emulation, not physical-device qualification.</p>
+    </section>
+
+    <section aria-labelledby="new-title">
+      <div class="section-head"><h2 id="new-title">New places to explore</h2><p>Additional candidate captures for showing the work beyond the homepage.</p></div>
+      <div class="showcase">
+        <figure><a href="after/desktop-playground.png"><img src="after/desktop-playground.png" alt="The new Playground hub" loading="lazy"></a><figcaption>Playground hub<br><a href="after/desktop-playground.png" download>Original PNG</a> · <a href="after/mobile-playground.png" download>Mobile PNG</a></figcaption></figure>
+        <figure><a href="after/desktop-geometry-bench.png"><img src="after/desktop-geometry-bench.png" alt="The Geometry Bench procedural sculpture and controls" loading="lazy"></a><figcaption>Geometry Bench<br><a href="after/desktop-geometry-bench.png" download>Original PNG</a></figcaption></figure>
+        <figure><a href="after/desktop-portal-keeper.png"><img src="after/desktop-portal-keeper.png" alt="The Portal Keeper browser puzzle" loading="lazy"></a><figcaption>The Portal Keeper<br><a href="after/desktop-portal-keeper.png" download>Original PNG</a></figcaption></figure>
+        <figure><a href="after/desktop-portal-keeper-case.png"><img src="after/desktop-portal-keeper-case.png" alt="The Portal Keeper engineering case study" loading="lazy"></a><figcaption>Inside the build<br><a href="after/desktop-portal-keeper-case.png" download>Original PNG</a> · <a href="after/desktop-portal-keeper-case-full.png" download>Full page</a></figcaption></figure>
+      </div>
+    </section>
+
+    <section aria-labelledby="plan-title">
+      <div class="section-head"><h2 id="plan-title">A useful first story</h2><p>Internal editorial plan. This is a starting point for choosing an edit, not publication-ready campaign copy.</p></div>
+      <div class="plan">
+        <ol>
+          <li><strong>Open with the change.</strong> Put the two homepage captures together and explain why the portfolio needed to reflect more of your personality.</li>
+          <li><strong>Show the design decision.</strong> Introduce Living Archive through its geometric identity, full-image framing and selected work.</li>
+          <li><strong>Show the structure.</strong> Compare the old Work section with the new Work page and deeper case studies.</li>
+          <li><strong>Make the creativity tangible.</strong> Show Geometry Bench and one shape or palette change.</li>
+          <li><strong>Offer a small world to enter.</strong> Show Portal Keeper's light puzzle and the case study that explains it.</li>
+          <li><strong>End with what comes next.</strong> Invite specific playtest feedback once a reachable preview is ready. Explain that player feedback will inform the next room.</li>
+        </ol>
+        <aside><h3>Reuse the same material</h3><p>Start with a six-slide before-and-after carousel. Follow with a short Bench or Portal Keeper clip that shows one clear interaction. A longer build article can then connect the design choices, procedural geometry, shared puzzle model, fallbacks and what the playtest teaches you.</p><p class="small">Use observed changes and implementation facts. Keep “local candidate,” “published,” and “playtested” distinct as the project moves forward. Choose the final platform, captions and publication date after reviewing the captures.</p><a href="README.md">Capture guide and source map</a></aside>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap"><p>Original captures are preserved separately from future edits. Click an image to open the full-resolution source.</p><p><a href="before/README.md">Before capture notes</a> · <a href="before/manifest.json">Before manifest</a> · <a href="media-manifest.json">Complete media manifest</a> · <a href="MOTION_REVIEW.md">Motion review</a></p></footer>
+  <script>
+    const library=document.querySelector('#library');
+    document.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>{
+      const view=button.dataset.view;
+      document.querySelectorAll('[data-view]').forEach(other=>other.setAttribute('aria-pressed',String(other===button)));
+      library.classList.toggle('mobile-view',view==='mobile');
+      document.querySelectorAll('[data-shot]').forEach(group=>{
+        const shot=group.dataset.shot;
+        group.querySelectorAll('[data-side]').forEach(img=>{const side=img.dataset.side;img.src=`${side}/${view}-${shot}.png`;img.alt=`${side==='before'?'Before':'After'}: ${view} ${img.dataset.label}, ${side==='before'?'live production':'unpublished Living Archive candidate'}`;});
+        group.querySelectorAll('[data-original],[data-download]').forEach(link=>link.href=`${link.dataset.original||link.dataset.download}/${view}-${shot}.png`);
+      });
+      document.querySelectorAll('[data-dimensions]').forEach(el=>el.textContent=(view==='mobile'?'390 × 844':'1440 × 1000')+' viewport · DPR 2');
+      document.querySelectorAll('[data-full]').forEach(link=>link.href=`${link.dataset.full}/${view}-home-full.png`);
+      document.querySelectorAll('[data-home-video]').forEach(video=>{const side=video.dataset.homeVideo;video.pause();video.poster=`${side}/${view}-home-hero.png`;video.querySelectorAll('source').forEach(source=>source.src=`${side}/${view}-home-to-work.${source.type==='video/mp4'?'mp4':'webm'}`);video.querySelector('a').href=`${side}/${view}-home-to-work.webm`;video.load();});
+      document.querySelectorAll('[data-home-video-download]').forEach(link=>{const side=link.dataset.homeVideoDownload;link.href=`${side}/${view}-home-to-work.${side==='before'?'webm':'mp4'}`;});
+      document.querySelector('[data-home-video-native]').href=`after/${view}-home-to-work.webm`;
+    }));
+  </script>
+</body>
+</html>

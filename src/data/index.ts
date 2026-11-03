@@ -1,4 +1,5 @@
 export * from './services'
 export * from './technologies'
 export * from './experience'
-export * from './projects'
+export * from './portfolio'
+export * from './portfolio-types'

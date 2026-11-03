@@ -1,275 +1,196 @@
----
-name: BuildWithTreez
-description: "Precise, dimensional developer portfolio: sacred geometry in WebGL over disciplined tonal surfaces, one committed purple accent, hairline borders, expanded-width Archivo display type."
-status: "active-employer-portfolio"
-colors:
-  accent-purple: "oklch(0.65 0.19 292)"
-  accent-purple-hover: "oklch(0.72 0.16 292)"
-  accent-purple-light: "oklch(0.50 0.21 292)"
-  accent-purple-light-hover: "oklch(0.44 0.21 292)"
-  canvas-dark: "oklch(0.15 0.012 290)"
-  surface-1-dark: "oklch(0.18 0.014 290)"
-  surface-2-dark: "oklch(0.21 0.016 290)"
-  surface-3-dark: "oklch(0.24 0.018 290)"
-  ink-dark: "oklch(0.96 0.005 290)"
-  ink-muted-dark: "oklch(0.78 0.012 290)"
-  ink-subtle-dark: "oklch(0.64 0.015 290)"
-  hairline-dark: "oklch(0.28 0.02 290)"
-  hairline-strong-dark: "oklch(0.36 0.025 290)"
-  canvas-light: "oklch(0.97 0.005 290)"
-  surface-1-light: "oklch(0.945 0.007 290)"
-  surface-2-light: "oklch(0.92 0.009 290)"
-  surface-3-light: "oklch(0.895 0.011 290)"
-  ink-light: "oklch(0.22 0.02 290)"
-  ink-muted-light: "oklch(0.40 0.02 290)"
-  ink-subtle-light: "oklch(0.50 0.02 290)"
-  hairline-light: "oklch(0.87 0.01 290)"
-  hairline-strong-light: "oklch(0.80 0.014 290)"
-  scene-cyan: "#00d4ff"
-  scene-pink: "#ff6b9d"
-  semantic-success: "oklch(0.68 0.15 162)"
-  semantic-error: "oklch(0.64 0.19 22)"
-typography:
-  display:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "clamp(2.75rem, 6vw, 4.5rem)"
-    fontWeight: 700
-    lineHeight: 1.05
-    letterSpacing: "-0.02em"
-    fontVariation: "'wdth' 125"
-  headline:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "clamp(2rem, 4vw, 2.75rem)"
-    fontWeight: 650
-    lineHeight: 1.1
-    letterSpacing: "-0.015em"
-    fontVariation: "'wdth' 118"
-  title:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "1.25rem"
-    fontWeight: 600
-    lineHeight: 1.3
-    letterSpacing: "-0.005em"
-  body:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "1rem"
-    fontWeight: 400
-    lineHeight: 1.6
-    letterSpacing: "0"
-  label:
-    fontFamily: "Geist Mono, ui-monospace, monospace"
-    fontSize: "0.75rem"
-    fontWeight: 500
-    lineHeight: 1.4
-    letterSpacing: "0.04em"
-rounded:
-  sm: "8px"
-  md: "12px"
-  lg: "16px"
-  full: "9999px"
-spacing:
-  xs: "8px"
-  sm: "12px"
-  md: "16px"
-  lg: "24px"
-  xl: "40px"
-  section: "clamp(64px, 10vw, 128px)"
-components:
-  button-primary:
-    backgroundColor: "{colors.accent-purple}"
-    textColor: "#ffffff"
-    rounded: "{rounded.md}"
-    padding: "14px 28px"
-  button-primary-hover:
-    backgroundColor: "{colors.accent-purple-hover}"
-  button-secondary:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink-dark}"
-    rounded: "{rounded.md}"
-    padding: "14px 28px"
-  card:
-    backgroundColor: "{colors.surface-1-dark}"
-    rounded: "{rounded.lg}"
-    padding: "24px"
-  chip:
-    backgroundColor: "{colors.surface-2-dark}"
-    textColor: "{colors.ink-muted-dark}"
-    rounded: "{rounded.full}"
-    padding: "4px 12px"
-  chip-selected:
-    backgroundColor: "{colors.accent-purple}"
-    textColor: "#ffffff"
-  input:
-    backgroundColor: "{colors.surface-1-dark}"
-    textColor: "{colors.ink-dark}"
-    rounded: "{rounded.md}"
-    padding: "12px 16px"
----
+# Build With Treez: portfolio direction contract
 
-# Design System: BuildWithTreez
+Date: November 3, 2026. Surface mode: Experience.
 
-> Scope: this is the active visual contract for the employer-first Build With Treez portfolio. Codorus Web owns the separate business-services marketing journey. Any future visual replacement requires a new explicit creative gate.
+Joey Kubalak, owner and creative approver, selected Living Archive on November 3 after reviewing both built directions. Required corrections: curate the strongest projects, consolidate Little Portal Studio under its logo, balance the hero across professional and creative work, and use Codorus Web's actual hero. This supersedes the initial exhaustive 40-entry presentation. PRODUCT.md preserves the employer-first audience and separate Codorus Web services journey.
 
-## Approval record
+## Approved direction: Living Archive
 
-- **Gate:** Employer-first portfolio implementation
-- **Approver:** Joey Kubalak, owner and creative director
-- **Decision date:** August 26, 2026
-- **Decision:** Preserve The Geometer's Study and sacred-geometry signature. Move proof directly after the hero, replace repeated card scaffolding with asymmetric case-study evidence, make core claims static, and treat motion as optional enhancement.
-- **Required corrections:** Immediate recruiter-readable hero, resume path, honest project-status labels, mobile-composed technology evidence, complete reduced-motion parity, and a separate Codorus client path.
+Thesis: an approachable software engineer opens a dimensional collection of useful products and imaginative worlds.
 
-## 1. Overview
+Physical cues: an exhibition wall, a film contact sheet, an illuminated geometric instrument. Ink-green canvas (#191c1b), warm ivory (#f4f1e7), restrained chartreuse (#d5ed9b). Archivo carries a large, tightly set opening and compact supporting information. Sacred geometry remains a precise authored SVG identity.
 
-**Creative North Star: "The Geometer's Study"**
+The signature is a projected wall of Joey's actual work. Adjacent image rows respond in opposite directions to a fine pointer. The wall relaxes on native scroll, while the readable copy and primary action stay in the frontal plane. No scroll trap, splash or artificial loader. Three featured stories and a compact creative selection introduce the work; the complete filterable selection lives on its own Work page.
 
-A quiet, purple-tinted room where precise instruments sit on dark surfaces and the only spectacle is the geometry itself. The dimensional identity of BuildWithTreez lives in its real-time WebGL scenes: the Merkaba, the platonic solids, the orb. Everything around those scenes is deliberately flat, tonal, and exact, so the 3D work reads as the signature rather than one glow among many. The system's confidence comes from restraint: hairline borders, a single committed accent, expanded-width display type, and generous spacing that lets each section breathe.
+## Retained direction study: Fieldnotes
 
-This system explicitly rejects the gradient-everything AI-portfolio look: no purple-to-pink buttons, no gradient card borders, no tri-color hover glows, no pulsing availability badges, no glassmorphism-by-default. It also rejects badge walls and template scaffolding (the repeated uppercase eyebrow label above every section is retired). Depth is conveyed by WebGL and tonal layering, never by decorative gradient chrome.
+Thesis: the same body of work becomes a personal, illustrated publication with a practical mind and a curious streak.
 
-**Key Characteristics:**
+Physical cues: warm paper, mounted prints, a large serif margin note. Paper (#eee9df), dark brown (#302d26), burnt red (#a63c23). Archivo pairs with Cormorant Garamond for an expressive italic opening and feature titles. A three-print contact sheet replaces the spatial wall. The project collection uses two staggered columns on desktop and natural reading order on mobile.
 
-- Purple-tinted neutrals everywhere; no pure black or pure white anywhere.
-- One accent (purple) in UI chrome; cyan and pink exist only inside WebGL scenes.
-- Hairline borders and tonal surface steps instead of shadows and glows.
-- Single type family (Archivo) with committed weight and width contrast.
-- 3D scenes never trap scroll and never require lock/unlock instructions.
+Opposing scroll typography provides the graphic transition; the geometric mark responds subtly to the pointer. Both directions carry the same content, links, primary CTA, resume and contact form. They are different compositions and typographic systems, not theme recolors.
 
-## 2. Colors
+## References and intentional divergences
 
-Purple-tinted tonal neutrals with a single saturated violet accent; committed, not decorated.
+- `atrium-music-perspective-wall`, https://www.atriummusic.com/: the CSS projection and opposing pointer-driven rows informed Living Archive. Reused the source-confirmed October 29 audit and perspective-media-wall recipe; sampled live desktop rest and right-pointer states on November 3. Divergence: original project media, three rows rather than five, green/ivory identity, stable immediate copy, bounded travel and a separate touch composition. Reference imagery is not copied.
+- `grovery-graphic-brand-choreography`, https://thegrovery.com/: graphic type scale, original geometric identity, opposing scroll tracks and section rhythm informed Fieldnotes. Reused its audit/recipe and independently authored Fieldwork study; sampled the live desktop opening on November 3. Divergence: paper publication, original sacred geometry, portfolio work and native reading flow, without the consultancy's claims, artwork or palette.
+- Elsewhere, local authored Atrium study: separate positioning, projection and pointer owners, settled static fallback and deliberate mobile overscan. Its prior Windows WebKit perspective limitation remains a reason not to imply physical Safari qualification here.
+- Fieldwork, local authored Grovery study: original motif, readable headline holds, native-scroll ownership and complete accessible content. Only the relevant mechanics were reused.
+- Cosmic Zen Collections and Little Portal Studio: first-party artwork supplies personality, material variety and the actual creative-world evidence. PresentSphere's current folded-bow identity supplies clear product proof.
 
-### Primary
+Full source routes and provenance: docs/portfolio-refresh/reference-and-russound-inventory.md, creative-assets.json, development-asset-manifest.json and russound-assets.json. Current web references informed craft, not claimed conversion or performance outcomes.
 
-- **Treez Violet** (oklch(0.65 0.19 292), dark theme / oklch(0.50 0.21 292), light theme): the one voice of the brand in UI chrome. Used on primary CTAs, selected filter chips, active nav indicators, focus rings, and link hovers. It appears on well under 15% of any viewport; its rarity is what makes it read as intentional. The light-theme value is darkened to hold 4.5:1 against light surfaces.
+## Creative decision record
 
-### Neutral
+The initial studies and recommendation were made under delegated creative direction. Joey subsequently approved Living Archive explicitly, then approved the 12-project selection on November 3. His required correction before expansion is to preserve the full featured-image edges. Fieldnotes remains a historical direction study outside primary navigation. No new direction exercise is needed.
 
-- **Study Dark** (oklch(0.15 0.012 290)): the dark canvas. Near-black tinted toward the brand hue, never `#000`.
-- **Surface steps 1-3** (oklch 0.18 / 0.21 / 0.24, chroma 0.014-0.018, hue 290): tonal layering for cards, chips, and inputs. Depth = lighter step, not shadow.
-- **Ink** (oklch(0.96 0.005 290) dark / oklch(0.22 0.02 290) light): primary text. Tinted, never pure white or pure black.
-- **Ink Muted / Ink Subtle**: secondary and tertiary text, both AA-verified against their canvases.
-- **Hairline** (oklch(0.28 0.02 290) dark / oklch(0.87 0.01 290) light): 1px borders on every container. **Hairline Strong** for hover and emphasis.
+Impeccable was used for craft and bounded visual review. Its concept seed b9da638b was consulted. The user's explicit two-direction/reference-led commission and delegation govern the presentation; no additional selection ceremony was added. The seed's alternatives were considered as disciplines: character-led identity, authored color commitment, keyboard clarity, compact indexing, attributable collections and independent visual planes. Their literal costume systems were declined because they would obscure this portfolio's product work. Collection attribution and stable foreground planes strengthen the selected worlds without copying those costumes.
 
-### Tertiary (scene-only)
+## Page and motion contract
 
-- **Scene Cyan** (#00d4ff) and **Scene Pink** (#ff6b9d): live exclusively inside WebGL canvases as light colors and material emissives, where they are genuinely dimensional. They never appear in 2D UI chrome, text, borders, or backgrounds.
+1. Opening: identity, software-engineering role, expressive headline, short support, Explore the work. All visible in server HTML. Artwork is decorative with empty alt text; meaningful project links live outside the projected wall.
+2. Proof: PresentSphere's current family product and Russound's digital experience. Real project images, role/stage, clear detail links. Little Portal Studio is one logo-led entry in the curated selection, with eight releases inside its collection page.
+3. Graphic transition: two opposing tracks move a bounded 110px across their visible viewport interval. Reverse follows scroll; there is no autoplay or pin.
+4. Selected work: 12 approved records, categories and text search. Static HTML contains the selection. Empty results have a clear reset. The 40 original detail records remain recoverable, but unselected records are removed from the main collection and sitemap and are noindex. The eight studio releases remain discoverable inside their parent project.
+5. Human context and contact: geometry, education, practical experience, downloadable resume, unchanged validated contact endpoint and separate Codorus Web route.
 
-### Named Rules
+The pointer loop is eligible only for hover/fine-pointer users, stops when settled/offscreen/hidden and cleans up on unmount. Scroll and pointer transforms have separate owners. The Pause artwork control stops the wall and typography effects. It does not claim to pause user-controlled media or form feedback.
 
-**The One Accent Rule.** Treez Violet is the only chromatic color permitted in 2D UI. If a second color appears outside a WebGL canvas or a semantic state (success/error), it is a bug.
+Touch: native page scrolling, composed static collage and two mounted prints in Fieldnotes. No gesture capture. At 320/390px content grows naturally; no fixed hero height clips enlarged text. Reduced motion removes decorative translation, responding to changes during the session. No JavaScript retains complete copy, projects and ordinary links; filters are optional enhancement. Video/audio use native controls and preload=none.
 
-**The Scene Exception.** Cyan and pink are stage lighting, not brand chrome. They exist only inside `<Canvas>`.
+Image framing: preserve the complete source composition inside every tile, feature and project card with centered contain sizing. Small insets protect image edges from rounded frame clipping. Images do not zoom on hover, and opaque corner icons do not cover the artwork; adjacent title and text links retain the navigation cues. The decorative perspective wall can still extend beyond the hero viewport as part of the approved Atrium composition.
 
-**The No-Gradient-Chrome Rule.** Gradients are prohibited on buttons, borders, text, badges, chips, and underlines. The only permitted gradients are alpha fade masks (e.g. canvas edge fades) and the hero background wash.
+Predeployment finish: the document scrollbar now uses the Living Archive dark-green track and muted-olive thumb at native width, and the keyboard skip link uses chartreuse and ink. These rules follow the current `.folio-archive` surface, including after navigation, and respect forced-color system palettes. Fieldnotes retains its own styling. The November 3 motion review confirmed the approved signature sequences; immediate copy and editorial case-study pacing remain intentional. No additional text-reveal layer, loading curtain or motion dependency was added. The review and reusable before/after source captures are catalogued in `content/portfolio-refresh-2026-11-03/`.
 
-## 3. Typography
+## Assets, production and boundaries
 
-**Display Font:** Archivo (variable; with system-ui fallback)
-**Body Font:** Archivo (with system-ui fallback)
-**Label/Mono Font:** Geist Mono (numeric labels only)
+Use original local project exports, actual website captures and clearly described architecture illustrations. No generated stock filler or third-party reference art. Preserve source masters; WebP derivatives and two small native media previews live under public/portfolio/2026. Project-specific provenance is retained in the local reconciliation manifests. No new paid tools, CMS, animation runtime or hosted service was added.
 
-**Character:** One engineered grotesque doing all the work through committed contrast. Display type is set heavy (700) and expanded (width 125) with tight negative tracking, giving headlines a machined, dimensional presence; body text returns to normal width and weight for calm legibility. Geist Mono survives only as tiny numeric labels (nav numbers, section indices), a nod to the technical register without wearing mono as a costume.
+Primary preview: /. Retained study: /directions/fieldnotes. Shared details: /work/[slug]. Fieldnotes is noindex and canonicalizes to the primary page. Current sitemap includes selected projects and the eight studio releases. Existing application contact behavior remains intact.
 
-### Hierarchy
+No publication occurred. Joey subsequently confirmed permission to release Rift Riders on November 3; collaborator attribution remains. His Russound requirement is a separate clean portfolio demo with no guide notes or internal communications, preserving the client-review version separately. The clean-demo plan and remaining Russound publication considerations are recorded in the brief and scorecard.
 
-- **Display** (700, clamp(2.75rem, 6vw, 4.5rem), 1.05, -0.02em, width 125): hero headline only.
-- **Headline** (650, clamp(2rem, 4vw, 2.75rem), 1.1, -0.015em, width 118): section headings.
-- **Title** (600, 1.25rem, 1.3): card and item titles.
-- **Body** (400, 1rem-1.125rem, 1.6): paragraphs, capped at 65-75ch measure.
-- **Label** (Geist Mono 500, 0.75rem, +0.04em): numeric indices and small metadata only.
+### Russound portfolio edition
 
-### Named Rules
+Use a separately packaged portfolio edition of the currently published November 1 experience, with a dedicated demo destination. Preserve the existing client-review project. The public edition keeps the six visitor routes, cinematic interactions, product discovery, planner, public product-help links and honest non-collecting newsletter state. A small “Portfolio concept” label and return link identify its purpose.
 
-**The Width-Is-Voice Rule.** Hierarchy is expressed through Archivo's weight and width axes, never through color, gradients, or added families.
+Exclude the shared `ReviewPanel`, the SMZ8 background comparison controls and query hooks, internal review/footer copy, the review route, review-package PDFs and links to earlier review sites from the generated release. The root destination should open the experience itself. Official public Russound manuals can remain source links. Public company-history facts and the visitor's own planner notes are distinct from internal correspondence and should be evaluated in context.
 
-**The One Kicker Rule.** The repeated uppercase eyebrow label above every section heading is prohibited. Sections open with the headline itself, differentiated by a mono numeric index at most.
+Implementation baseline: `C:/Dev/russound-marketing/projects/russound-website-direction/work/client-package-simplification-2026-11-01/release/upload/`. The active Astro prototype under `C:/Users/treez/OneDrive/Documents/ChatGPT/Skills/prototypes/russound-cinematic-proof/` has uncommitted work, including the handoff sources; preserve it before preparing an isolated build. The seven current built handoff HTML files matched the frozen payload in the November 3 source audit. Reuse shared components with explicit public/review build separation and an allowlist of required routes/assets.
 
-## 4. Elevation
+Implemented November 3 in `experiences/russound` as a standalone Astro source snapshot and an explicit six-route package. The 81-file release contains the six visitor pages, a real 404 and only their required assets/configuration. Review UI, documents, earlier review links and comparison hooks are absent from the delivered bytes. The original 86-file client package and 46 source inputs retain their hashes.
 
-The system is flat by conviction. Depth belongs to the WebGL scenes; 2D surfaces express hierarchy through tonal steps (surface-1 through surface-3) and hairline borders, not shadows. There are no ambient drop shadows on cards at rest and no colored glow shadows anywhere. The single permitted shadow is a soft, neutral focus/hover cue on interactive elements, and even that is optional where a hairline-strong border change suffices.
+Desktop/mobile page checks, retained product/search/planner interactions, reduced motion, no-JavaScript content and direct excluded-path probes passed. The existing portfolio featured image has no review UI and remains suitable. The portfolio's client-review CTA was removed; connect the clean hosted URL only after deployment and hosted checks. Local edition: `http://127.0.0.1:4336/`. Verification and release instructions: `experiences/russound/VERIFICATION.md`. No deployment occurred.
 
-### Shadow Vocabulary
+## Review and acceptance
 
-- **hover-lift** (`box-shadow: 0 8px 24px oklch(0 0 0 / 0.25)`): optional, dark theme only, on interactive cards at hover. Neutral, never tinted with the accent.
+First rendered review: 1440x1000 and 390x844 for both directions, plus 320px, tablet and short desktop geometry. Largest corrections: preserve the Cosmic Zen portrait, contain the Fieldnotes website capture, use content-growing mobile heroes, and allow long project names to reflow at 200% text size. Search labels, related collection grouping, current links and touch target sizes were independently reviewed.
 
-### Named Rules
+Final verification is recorded in LAUNCH_SCORECARD.md. Screenshot and sampled-state evidence are not a claim of physical-device frame pacing, continuous playback review or field Core Web Vitals. The final owner taste review remains available through both local previews.
 
-**The Flat-By-Default Rule.** Surfaces are flat at rest. A state change (hover, focus) may lighten the surface one tonal step or strengthen the hairline; it never adds a colored glow.
+## Approved curated selection
 
-## 5. Components
+Joey Kubalak approved this exact 12-project selection on November 3, 2026. Keep it stable during the image-framing correction and subsequent page expansion.
 
-### Buttons
+| Project | Why it earns a place |
+| --- | --- |
+| PresentSphere | Complete product thinking across the family app, privacy model, identity and website |
+| Russound Digital Experience | Professional product discovery and interactive web design |
+| Ascension Roofing | Delivered client website, migration and release responsibility |
+| Codorus Web | Original studio identity and technically expressive web design |
+| Honeyden | Substantial app systems with a character-led family experience |
+| Renamerly | Current, usable software with a deterministic filename engine |
+| Sound, Made Clear | Interactive diagrams, learner activities and instructional interface design |
+| Cosmic Zen Collections | Recurring characters, worldbuilding and cinematic storytelling |
+| Little Portal Studio | One creative business with eight released products and a coherent delivery practice |
+| Rift Riders | Multiplayer game systems and playful technical range |
+| Local Second Brain | Python, retrieval architecture and evidence-aware tooling |
+| The First Portfolio | One concise origin story that shows progression |
 
-- **Shape:** gently rounded (12px).
-- **Primary:** solid Treez Violet fill, white text, 14px 28px padding. Hover lightens to accent-hover; no gradient, no scale bounce, no glow.
-- **Secondary:** transparent fill, hairline-strong border, ink text. Hover: surface-1 fill.
-- **Focus:** 2px focus ring in Treez Violet with 2px offset, both themes.
+The wall mixes these bodies of work, with Little Portal Studio appearing once as its actual approved logo. Codorus uses its current homepage hero. Studio releases and workbench studies live inside the studio page. The first portfolio's source remains accessible; its former live domain does not resolve. The multi-page delivery restores a local historical exhibit at `/archive/first-portfolio/index.html`. Renamerly's public homepage and workspace opened successfully in this review.
 
-### Chips (tech tags, project filters)
+Smaller work is retained in source rather than deleted. Elsewhere, Fieldwork, IMPULSE, original music and selected Blender experiments are strong future Playground material. Kismet can explain the practical origin of Renamerly. Sayfold and other technical prototypes can be selected later when their demonstrations add distinct evidence. Older storefront/scraper exercises and the closed Florida Fungi Farm store do not compete with current work in the main list.
 
-- **Style:** surface-2 fill, ink-muted text, full radius, 4px 12px padding, hairline border.
-- **Selected (filters):** solid Treez Violet fill, white text. Unselected hover: hairline-strong border.
-- Filters are a curated set of 4-5 categories, never an auto-generated tag union.
+## Multi-page delivery and later experiences
 
-### Cards / Containers
+Premium Client Site continues to own audience, information architecture, case-study narrative, visual craft and release review. Cinematic Web Experiences continues to own authored interaction, scene behavior, responsive composition and fallback verification. Reuse the approved Living Archive identity and Atrium reference; do not reopen direction selection.
 
-- **Corner Style:** 16px radius.
-- **Background:** surface-1 on canvas; surface-2 for nested emphasis zones (never nested cards).
-- **Border:** 1px hairline on all sides. Hover: hairline-strong. Prohibited: gradient `p-px` wrappers, colored side stripes, colored glow shadows.
-- **Internal Padding:** 24px (lg spacing).
-- **Height discipline:** cards in a shared row are equal height; copy is trimmed to fit, not the reverse.
+| Destination | Visitor purpose and next action | Proof or experience |
+| --- | --- | --- |
+| Home | Understand Joey's practice quickly, then open a strong project | Balanced perspective wall, three or four selected stories, a small invitation to play |
+| Work | Find relevant engineering or creative work | The approved curated collection, useful categories, current live/source destinations |
+| Individual project pages | Evaluate judgment and contribution, then inspect the artifact | Challenge, role, meaningful decisions, implementation evidence and the resulting experience |
+| Playground | Choose an experience, then play or inspect its construction | Two equivalent original previews at `/playground`, linking to Geometry Bench and The Portal Keeper |
+| Geometry Bench | Make a shape, keep a print or share a recipe | Original geometry instrument at `/playground/geometry-bench`, with controls, exports and a construction explanation |
+| About | Understand the person, background and approach | Professional foundation, creative interests, concise progression and resume |
+| Contact | Start a relevant engineering or collaboration conversation | Accessible contact form and direct email, with a separate Codorus business-services route |
+| The Portal Keeper | Restore an original miniature world, then return to the portfolio | One complete light-routing puzzle at `/play/portal-keeper`, with a garden arrival |
+| Portal Keeper story | Understand the design and engineering choices, then try the game | Editorial case study at `/work/portal-keeper`, original scene captures and a model-driven light-path example |
 
-### Inputs / Fields
+### Implemented: deeper work and a real page structure
 
-- **Style:** surface-1 fill, hairline border, 12px radius, 12px 16px padding, ink text, ink-subtle placeholder.
-- **Focus:** border becomes Treez Violet plus a 2px violet ring; no colored outer glow, no per-field accent colors.
-- **Error:** semantic-error border and message text.
+Joey approved the corrected image framing and authorized this phase on November 3. Work, About and Contact are distinct destinations. Home introduces PresentSphere, Russound and Ascension, followed by Cosmic Zen, Little Portal Studio and Rift Riders. The Work page owns the full 12-project selection, filters and search. All 12 case studies now explain the challenge, decisions and delivery using original project evidence.
 
-### Navigation
+The case-study rhythm is opening/role/artifact link, challenge, meaningful decisions, selected proof, delivery and next project. PresentSphere and Renamerly have small interactive explanations. App captures are paired at desktop width; full compositions are contained in bounded frames. Creative cases place original artwork beside the opening, then show production frames or game screens. Local Second Brain uses an evidence workflow instead of a fabricated interface. Little Portal Studio retains eight releases inside its single parent entry. About connects the engineering foundation and creative interests; Contact retains the existing validated form and direct email fallback.
 
-- Fixed header, transparent at top; scrolled state gains an opaque tonal surface and a bottom hairline. The header must not sample scene lighting through backdrop blur: cyan or pink color bleed in navigation chrome is a defect. Nav items are ink-muted, hover ink, active ink with a solid violet underline indicator. Mono numeric indices in ink-subtle. Mobile menu is a full-screen canvas surface with the same grammar, one close control, and one persistent theme toggle whose icon animates only when the theme actually changes.
+| Key view | Visitor question and evidence | Action and behavior | Touch and fallback |
+| --- | --- | --- | --- |
+| Work index | Is there work relevant to me? Twelve approved covers, names and project types | Category/search updates the visible collection; ordinary project links open stories | Wrapping controls and natural reading order; all 12 records in no-JavaScript HTML |
+| Case opening | What is this and what did Joey do? Title, role, year, full original cover | Current artifact/source links and a return to Work | Single-column facts and full contained artwork |
+| Case narrative | What decisions mattered? Concrete tradeoffs, app captures and production artifacts | Sticky desktop anchor index; galleries open original-size images | Wrapped anchor index; native scrolling; complete server-rendered story |
+| PresentSphere example | Who can see a shared profile, private idea or gift plan? Adult-recipient example | Three labeled buttons update an announced permission explanation; 160ms color changes only | Same controls and reading order; reduced motion removes transitions; no-script explanation includes private boundaries |
+| Renamerly example | How does a naming pattern become predictable? Product, view and separator | Local text-only filename preview; no uploads, API calls or account | Stacked labeled controls and wrapping output; initial illustrative result remains readable without scripts |
+| First Portfolio exhibit | Where did the practice begin? Preserved original website and gallery | Explicit archive banner, working gallery/filter/pagination, current contact/resume destinations | Narrow layout, manual carousel, reduced-motion fallback; vendor dependencies served locally under existing CSP |
 
-### WebGL Scenes (signature component)
+PresentSphere and Ascension supplied the representative structure before the remaining data was expanded. The bounded rendered review confirmed the inherited Living Archive identity, then corrected oversized portrait galleries, the skip-link destination, duplicated document titles and the adult-recipient example. No new reference direction or animation library was introduced. Atrium remains the homepage motion reference; the case pages use editorial pacing and useful direct interaction, with no scroll traps or hidden-copy reveals.
 
-- Scenes render on transparent canvases blended into the page. Cyan/pink/violet stage lighting is permitted and encouraged inside the scene.
-- **Interaction contract:** `touch-action: pan-y` on every canvas at all times; no scroll-zoom, no OrbitControls zoom, no lock/unlock overlays or buttons. Pointer drag rotates; scroll always scrolls the page. Camera framing is fixed.
-- **Adaptive rendering contract:** device class and pointer type are not exclusions. Capable phones receive the real reduced-complexity scene at DPR 1 with post-processing disabled. Save Data, 2G-class connections, very low memory/concurrency, WebGL failure, and major performance caveats receive the matching animated vector geometry. Reduced-motion visitors receive the same vector composition without animation.
-- **Load-state contract:** the composed vector geometry is the first rendered state and remains visible until WebGL has produced a frame. The two layers crossfade without a mismatched placeholder flash.
+The restored first portfolio is isolated static content, noindex, with original versioned dependencies and optimized image derivatives. It is an exhibit of earlier work, not a new production app. Its source repository and source masters remain unchanged.
 
-### Motion
+### Implemented: the Geometry Bench Playground
 
-- **Library:** Motion for React is the portfolio motion runtime. It is already part of the application, integrates directly with component state, and provides the required visual payoff without adding another animation runtime.
-- **Timing vocabulary:** 140ms feedback, 220ms interface transitions, 680ms content reveals, and 760ms hero choreography. Spatial reveals use an ease-out-expo curve (`0.16, 1, 0.3, 1`) and short, consistent staggers.
-- **Hierarchy:** the hero receives one deliberate load sequence. Section introductions, case-study headings, evidence, principles, experience, and contact reveal as grouped ideas rather than as unrelated effects. Buttons, links, fields, navigation, and form status share the same feedback language.
-- **Progressive enhancement:** essential content is present and visible in server HTML. Motion may hide a sequence only after the browser has opted in, and every sequence must restore visibility after completion, interruption, or initialization failure. JavaScript-disabled, constrained-device, and reduced-motion states remain fully readable.
-- **Restraint:** no scroll hijacking, parallax for its own sake, perpetual UI movement, springy CTA bounce, or layout animation. The sacred geometry owns ambient motion; interface motion communicates hierarchy and state.
+Joey approved this delivery after the multi-page build. The instrument now lives at `/playground/geometry-bench` and retains Living Archive's ink-green canvas, ivory type and chartreuse controls. It extends the site's sacred-geometric identity into an original instrument with three forms: Bloom, Orbit and Portal. The curated starting points are Seed of Wonder, After Hours and Little Doorway. Lichen, Cosmic and Ember palettes supply controlled variation inside the art; site navigation stays consistent.
 
-## 6. Do's and Don'ts
+The stage pairs a large original procedural sculpture with a narrow control rail. Symmetry, layers, spread, twist and speed change actual geometry or motion. Sideways drag and explicit left/right/reset buttons turn the sculpture. Surprise me produces a bounded deterministic variation within the chosen family and palette. The stage stays visible while phone visitors adjust controls. Its caption, artwork and compact pause/rotation row occupy separate layout rows, including at enlarged text sizes. Native vertical scroll remains available.
 
-### Do:
+Three.js 0.183.2 through the installed React Three Fiber 9.5.0 owns the renderer. There is one pose owner, delta-based active time, a demand frame loop, bounded DPR and explicit buffer cleanup. Seeded geometry is computed only when its structural parameters change. Palette/speed changes do not rebuild vertex buffers. A small point shader draws structural nodes; translucent planes and lines give the forms depth without a postprocessing chain. The canvas imports only on the dedicated Geometry Bench route; links to it disable prefetch. The homepage invitation uses a static SVG print.
 
-- **Do** use Treez Violet (oklch(0.65 0.19 292) dark / oklch(0.50 0.21 292) light) as the single accent, on a small fraction of the screen.
-- **Do** express depth with tonal surface steps and hairline borders; save real depth for the WebGL scenes.
-- **Do** set display type in Archivo at weight 700 / width 125 with -0.02em tracking.
-- **Do** keep every canvas scrollable: `touch-action: pan-y`, zoom disabled, no lock UI.
-- **Do** trim copy so cards in a row are naturally equal height; 1-2 lines of description per card.
-- **Do** verify 4.5:1 contrast for all text in both themes and honor `prefers-reduced-motion`.
+| State | What the visitor sees and does | Motion, fallback and ownership |
+| --- | --- | --- |
+| Arrival | Default Bloom print is present immediately; the 3D scene enhances it | No splash or hidden opening. WebGL2 preflight prevents initialization errors from leaving a broken canvas |
+| Explore | A preset or control changes the original sculpture; horizontal drag or buttons turn it | One Three.js transform owner. Native scroll is not consumed; keyboard controls are ordinary HTML |
+| Play/rest | Gentle evolving orientation makes depth legible; Pause holds the current pose | Active time stops for pause, reduced motion, offscreen stage or hidden document. Parameter/view changes still draw when motion is stopped |
+| Keep/share | Save a PNG of the current view, a flat scalable SVG print, or copy the recipe link | Exports stay in the browser. Versioned, bounded URL parameters store shape/settings/palette/seed, not camera pose or animation time. Clipboard denial exposes a selectable URL |
+| Previous links | A recipe or explanatory bookmark shared at `/playground` opens the dedicated instrument | `LegacyBenchRecipe` forwards `#bench=` and `#how-it-works` client-side, preserving the query and hash. Invalid recipes reach the instrument's existing recovery; unrelated hashes stay on the hub |
+| Unavailable/lost WebGL | The flat print continues responding to controls | No WebGL canvas is mounted after failed preflight. Context loss switches to the same poster; PNG/rotation controls disable while SVG remains available |
+| No JavaScript | The authored default print, explanation, navigation and print-download link remain | Optional controls are hidden; no pretend interactivity |
 
-### Don't:
+The generated poster and sculpture use original mathematical forms, not reference artwork. Atrium remains the reference for the homepage wall; it is not a claim about this independent 3D instrument. Shared skills guide composition, interaction ownership and verification. Reviewed technical sources include the maintainer-contributed [pmndrs math skill](https://github.com/pmndrs/math/blob/main/skills/math/SKILL.md), the community [EnzeD R3F fundamentals/geometry/animation guides](https://github.com/EnzeD/r3f-skills), and [official R3F performance documentation](https://r3f.docs.pmnd.rs/advanced/scaling-performance). Installed source governs version-specific APIs. No external skill pack or extra math library was installed. Detailed provenance and the rejected/stale alternatives remain in the local research note.
 
-- **Don't** use gradients on buttons, card borders, text, badges, underlines, or separators ("gradient-everything AI slop" per PRODUCT.md).
-- **Don't** use cyan (#00d4ff) or pink (#ff6b9d) anywhere outside a WebGL canvas.
-- **Don't** repeat an uppercase tracked eyebrow label above section headings ("template SaaS hero" scaffolding).
-- **Don't** render badge walls: no auto-generated filter unions, no 28-chip technology grids.
-- **Don't** use backdrop blur in persistent navigation or decorative chrome; it can sample the scene's cyan and pink lighting and violate the one-accent rule.
-- **Don't** use `#000`, `#fff`, or untinted grays; every neutral carries the 290 hue.
-- **Don't** add lock/unlock overlays, hints, or buttons to 3D scenes.
-- **Don't** use border-left/right stripes thicker than 1px as colored accents, gradient text, or pulsing status badges.
+The homepage invitation and shared navigation lead to the Playground hub, where the instrument has its own preview and action. A concise “How it works” view on the instrument route explains procedural construction, reproducibility, exports and rendering rest. Sound and additional discoveries remain optional future additions. No accounts, locked case studies, resume gates or mandatory play were introduced.
 
-## 7. Creative gate record
+### Implemented: The Portal Keeper's first room
 
-### August 26, 2026
+Joey approved the one-room plan and requested the first playable build on November 3. `/play/portal-keeper` now contains **The Sleeping Observatory**, a complete light-routing and pattern-alignment puzzle with an awakening, a garden arrival and routes back to the observatory, Playground and work. `GAME_PLAN.md` retains the approved scope and expansion gate. Living Archive remains the visual authority: ink-green surroundings, ivory typography and chartreuse guidance frame an original green miniature with brass instruments, viewed through a fixed three-quarter camera.
 
-The employer-first information architecture, clearer project evidence, and stronger professional calls to action are approved. The portfolio must still feel unmistakably personal: sacred geometry remains a signature motif, motion should feel intentional and spatial, and the interface must not collapse into a generic marketing-site template.
+The room's form language comes from optical instruments: engraved circular dials, brass mirror frames, an asymmetrically notched lens and an arched portal. Procedural geometric plants open when the room wakes; a small geometric light-moth supplies a restrained living detail. Warm directional light, green materials and a static floor shadow ground the miniature. The portal reveals a separate floating garden through a live 320 × 512 Drei `RenderTexture`; entering replaces the observatory with the garden and a completion message. All scene geometry and synthesized notes are authored locally. No external art assets or new dependencies were added.
 
-For this release, the hero keeps composed vector geometry visible until the WebGL scene has rendered, then crossfades between matching visual states. Capable phones receive a measured DPR-1 WebGL tier rather than being excluded by viewport or pointer heuristics; constrained devices receive animated vector geometry, and reduced-motion visitors receive the same composition statically. The mobile navigation is a full-viewport canvas with one close control, the numbered engineering-ledger hierarchy, and the restored rotating Flower of Life. Desktop navigation retains the same clarity while using a continuous shared active indicator. The page-wide Motion system follows shared timing and easing tokens, while essential content remains visible without JavaScript or after animation failure.
+| State | What the visitor sees and does | Interaction and ownership |
+| --- | --- | --- |
+| Sleeping room | A lantern casts a visible beam across two mirrors toward a dark portal | Select a named instrument in the scene or with the buttons beneath it; turn mirrors through eight discrete stops |
+| Route and align | Each mirror changes the calculated beam path; the placed lens must match the receiver's left-facing notch | The deterministic model intersects finite mirror segments and calculates reflections, capped at eight. The 3D room and flat diagram draw the same model output |
+| Awake and arrive | Plants open, the receiver lights and the garden becomes visible inside the portal | An enabled Enter action opens the garden. Focus moves to the completion heading; returning to the observatory preserves the solved room |
+| Undo, reset and resume | Undo reverses moves, including a reset; three graduated hints progress from attention to a useful next move | Versioned, validated browser-local saves restore puzzle state. Invalid saves start a fresh room with an explanation; unavailable storage leaves play usable |
+| Flat view or unavailable 3D | A complete SVG diagram retains the current beam, mirror and lens state, followed by a composed garden ending | The visitor can choose Flat view. Failed WebGL2 preflight, renderer failure or context loss selects the same playable fallback; HTML controls remain the keyboard path |
+| Rest and sound | Pause or reduced motion holds a composed scene; optional notes mark moves, awakening and arrival | Ambient motion stops offscreen or in a hidden document. Web Audio begins only after Sound on, suspends with hidden/offscreen/paused play and closes on exit |
+
+Controls remain below the artwork. Desktop uses an instrument desk beside progress and hints; narrow screens stack those regions while keeping the stage visible below the site header. `ResizeObserver` measures the actual header and stage heights for sticky positioning and focus scroll margins, including the completion heading. Short mobile viewports release the sticky stage. Native vertical scrolling, named HTML buttons, visible selection, textual state announcements and explicit left/right actions provide the same puzzle path for mouse, touch and keyboard. No precision drag or audio-only clue is required. Without JavaScript, the initial diagram, explanation and portfolio return remain, while inactive controls are hidden.
+
+The route dynamically imports its canvas, and the Playground invitation disables prefetch. Rendering uses a demand loop, DPR capped at 1.5 and a 1024 × 1024 shadow map refreshed for state changes rather than every ambient frame. The portal draws one frame when motion rests. Geometry and local label textures are disposed with their components. The page's optional “How it works” disclosures explain ray reflection, the shared flat-view model and browser-local restoration without interrupting play.
+
+Technical review is recorded in `LAUNCH_SCORECARD.md`: production build, six model tests and three browser cases, with rendered desktop checks at 1440px/1869px and mobile checks at 390px/320px, reduced motion and fallback restoration. Independent review covers pointer selection, opt-in audio, context loss, navigation, 200% text and mobile focus. Joey subsequently completed an initial playthrough, reported no issues at first glance and strongly approved the appearance. Uncoached first-player testing, physical-device review, a measured physical-device budget and public deployment remain separate next steps. `PLAYTEST.md` prepares the player sessions; room two remains behind that gate and has not been built.
+
+### Implemented: the Playground hub and Portal Keeper story
+
+Joey approved the follow-up recommendations after his initial game review. `/playground` now presents Geometry Bench and The Portal Keeper with equivalent image areas, titles, descriptions and primary actions. Each has a direct route into the experience and an explanatory route. The two-column desktop composition becomes a single reading order below 760px; actions wrap and text grows naturally. Original static previews preserve the complete image edges and avoid loading a 3D scene just to choose an experience. The homepage invitation now introduces both experiences and opens this hub.
+
+`KeeperStoryPreview` uses the awakened-room capture to connect the hub and Work page to `/work/portal-keeper`. It sits outside the curated collection, so the 12 approved records remain unchanged. The game footer links to the story, whose opening and closing actions return to play or the Playground. These routes let an employer inspect the work without completing the puzzle.
+
+The custom case study uses editorial spacing, contained scene captures and the existing Archivo, ink-green, ivory and chartreuse system. Its sequence explains the small first-room scope, visible consequences of mirror turns, the garden reward, shared puzzle state, deliberate rendering work and player control. `LightPathDemo` supplies three labeled states, Misaligned, Routed and Awake, using the same `traceLight` calculation and SVG diagram as the game. Pressed-state buttons and a polite status region connect each diagram to its explanation and receiver/pattern/portal facts. Its local state does not touch the saved game. The article and initial diagram remain without JavaScript; inactive example controls are hidden. Neither the hub nor the story imports the Three.js scene.
+
+The observatory, awakened portal and garden images are original 960 × 641 PNG captures of the locally authored game. `public/portfolio/portal-keeper/provenance.md` records the source commit, build, scene state and capture conditions; embedded PNG metadata carries the same origin. Source PNGs remain intact, with Next.js supplying responsive delivery formats. They show the complete scene without page chrome or retouching.
+
+Five browser regression tests passed for the hub, dedicated bench, legacy recipes and bookmarks, clipboard-denial recovery, direct case-study refresh and the example's three states. Independent review covered 1440px, 390px and 320px layouts, 200% text and navigation; a fresh visual review found no required changes within the authorized local scope. The earlier six model and three browser game tests remain prior evidence for the unchanged game core and were not rerun for this delivery. These checks do not replace the prepared uncoached player sessions or physical-phone review.
+
+### Final delivery review
+
+Run separate creative, content/conversion and technical reviews across the selected pages. Verify real normal-motion behavior, touch/mobile composition, keyboard and assistive-technology use, reduced motion, route restoration, media loading, contact delivery and hosted performance. Resolve the already recorded client/contributor publication boundaries and obtain explicit deployment authorization. Measure useful project engagement, resume/source visits and substantive engineering conversations after release.

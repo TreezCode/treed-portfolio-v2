@@ -1,0 +1,142 @@
+---
+const families = [
+  {
+    name: 'Multi-Room Controllers',
+    image: '/media/whole-home-960.webp', width: 960, height: 440, position: '64% 48%',
+    alt: 'Russound SMZ controllers inside a living-room cabinet',
+    copy: 'Bring your favorite music to the rooms you love, with control that makes it yours.',
+    models: 'SMZ8 · SMZ16-PRE',
+    href: '/audio-systems/#multiroom',
+    links: [],
+  },
+  {
+    name: 'Streamers',
+    image: '/media/listening-room-960.webp', width: 960, height: 835, position: '61% 65%',
+    alt: 'An MBX streaming amplifier on a cabinet in a warm living room',
+    copy: 'Give a favorite room easy access to the music you want to hear.',
+    models: 'MBX-AMP · MBX-PRE',
+    href: '/audio-systems/#streaming',
+    links: [],
+  },
+  {
+    name: 'VoicePlay',
+    image: '/refinement29/guide-p18-voiceplay-wall-control.webp', width: 827, height: 604, position: '50% 50%',
+    alt: 'A white Russound VoicePlay keypad installed on a wall',
+    copy: 'Streaming music and voice control, built into an easy-to-reach wall keypad.',
+    models: 'VoicePlay amplified keypad',
+    href: 'https://russound.com/audio-systems/voiceplay/',
+    links: [],
+  },
+  {
+    name: 'Amplifiers',
+    image: '/refinement29/guide-p17-p-series-in-room.webp', width: 1509, height: 605, position: '35% 52%',
+    alt: 'Russound P-Series amplifiers on a wood surface in a home',
+    copy: 'The power behind a listening room, a whole-home system or better TV sound.',
+    models: 'D-Series · P-Series · Mini AVRs',
+    href: '/catalog/?family=amplifiers',
+    links: [
+      {name:'Multichannel',href:'/catalog/?family=amplifiers&group=multichannel'},
+      {name:'Stereo',href:'https://russound.com/amplifiers/two-channel-amplifiers/'},
+      {name:'Mini AVRs',href:'https://russound.com/amplifiers/mini-avrs/'},
+    ],
+  },
+  {
+    name: 'In-ceiling & in-wall speakers',
+    image: '/media/home-728.webp', width: 728, height: 604, position: '50% 30%',
+    alt: 'A discreet in-ceiling speaker in a bright living room overlooking the water',
+    copy: 'Fill your space with sound while the speakers blend into the room.',
+    models: 'IC-Series · IW-Series',
+    href: 'https://russound.com/speakers/in-ceiling-in-wall/',
+    links: [],
+  },
+  {
+    name: 'Outdoor speakers',
+    image: '/refinement29/outdoor-group-rock.webp', width: 1672, height: 941, position: '50% 55%',
+    alt: 'Friends relaxing outdoors with a Russound rock speaker in the landscape',
+    copy: 'Make the patio, garden and the time you spend outside part of the listening experience.',
+    models: 'OutBack · Landscape · Rock speakers',
+    href: '/catalog/?family=speakers&use=outdoors',
+    links: [],
+  },
+  {
+    name: 'Soundbars',
+    image: '/refinement29/guide-p21-cinema-bar-installed.webp', width: 1509, height: 793, position: '45% 52%',
+    alt: 'A Russound Cinema Bar mounted directly below a television',
+    copy: 'Bring dialogue, music and movie sound into focus with a carefully matched TV setup.',
+    models: 'Cinema Bar 3.0 · Pairs with AVA3.1',
+    href: '/catalog/?family=speakers&group=soundbars',
+    links: [],
+  },
+  {
+    name: 'Connectivity & Control',
+    image: '/media/kitchen-960.webp', width: 960, height: 640, position: '63% 48%',
+    alt: 'Using a Russound XTS7 touchscreen installed beside a kitchen',
+    copy: 'Connect the system and choose the controls that fit the way you use each room.',
+    models: 'Connections, volume and room control',
+    href: '/connectivity-control/',
+    links: [
+      {name:'Speaker selectors',href:'https://russound.com/connectivity-and-control/speaker-selectors/'},
+      {name:'Volume controls',href:'https://russound.com/connectivity-and-control/volume-controls/'},
+      {name:'Infrared',href:'https://russound.com/connectivity-and-control/infrared-systems/'},
+      {name:'Wall plates',href:'https://russound.com/connectivity-and-control/wall-plates/'},
+      {name:'Touchscreens & keypads',href:'/catalog/?family=control&group=interfaces'},
+    ],
+  },
+  {
+    name: 'Commercial audio',
+    image: '/refinement29/maureen-restaurant.webp', width: 1280, height: 720, position: '50% 50%',
+    alt: 'Diners in a warm restaurant with pendant speakers overhead',
+    copy: 'Set the atmosphere in shops, restaurants and the spaces where people come together.',
+    models: 'Mixer amplifiers · Commercial speakers',
+    href: 'https://russound.com/audio-systems/commercial-audio/',
+    links: [],
+  },
+];
+---
+
+<section class="rf-discovery" id="products" aria-labelledby="discover-heading">
+  <div class="d-wrap">
+    <div class="rf-discovery-heading">
+      <h2 id="discover-heading">Find your<br /> kind of sound.</h2>
+      <div><p>A whole home. A favorite room. A better movie night. Explore the Russound families and find your place to begin.</p><a href="/catalog/">Browse products <span aria-hidden="true">↗</span></a></div>
+    </div>
+    <div class="rf-family-grid">
+      {families.map((family,index) => <article class="rf-family-card" style={`--family-position:${family.position}`}>
+        <a class="rf-family-main" href={family.href}>
+          <div class="rf-family-image"><img src={family.image} width={family.width} height={family.height} alt={family.alt} loading="lazy" decoding="async" /><span class="rf-family-number" aria-hidden="true">{String(index+1).padStart(2,'0')}</span></div>
+          <div class="rf-family-copy"><h3>{family.name}<span aria-hidden="true">↗</span></h3><p>{family.copy}</p><span class="rf-family-models">{family.models}</span></div>
+        </a>
+        {family.links.length > 0 && <ul class="rf-family-links" aria-label={`${family.name} choices`}>{family.links.map(link=><li><a href={link.href}>{link.name}<span aria-hidden="true">↗</span></a></li>)}</ul>}
+      </article>)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .rf-discovery{padding:clamp(72px,8vw,132px) 0;background:var(--surface,#fffdfa);scroll-margin-top:100px}
+  .rf-discovery-heading{display:grid;grid-template-columns:1fr .86fr;align-items:end;gap:clamp(28px,6vw,100px);margin-bottom:50px}
+  .rf-discovery-heading h2{margin:0;color:var(--heading,#252522);font-size:clamp(40px,4.5vw,70px);line-height:1.02;font-weight:450;letter-spacing:-.055em}
+  .rf-discovery-heading p{max-width:460px;margin:0 0 22px;font-size:clamp(15px,1.35vw,18px);line-height:1.7;color:var(--muted,#62605b)}
+  .rf-discovery-heading a{display:inline-flex;align-items:center;gap:38px;min-height:44px;border-bottom:1px solid var(--brand-blue,#0f2a4d);font-size:13px;font-weight:600;color:var(--brand-blue,#0f2a4d);text-decoration:none}
+  .rf-family-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:46px 26px;align-items:start}
+  .rf-family-card{min-width:0;margin:0}
+  .rf-family-main{display:block;color:inherit;text-decoration:none}
+  .rf-family-image{position:relative;overflow:hidden;aspect-ratio:1.56;background:var(--stone,#ede7dd)}
+  .rf-family-image::after{content:'';position:absolute;inset:65% 0 0;pointer-events:none;background:linear-gradient(transparent,#0b101626)}
+  .rf-family-image img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--family-position);transition:transform .8s cubic-bezier(.2,.65,.3,1)}
+  .rf-family-number{position:absolute;z-index:1;bottom:14px;left:16px;display:grid;place-items:center;min-width:29px;height:29px;border:1px solid #ffffff9c;color:#fff;font-size:10px;font-weight:650;letter-spacing:.08em;background:#151c2645;backdrop-filter:blur(8px)}
+  .rf-family-copy{padding-top:21px}
+  .rf-family-copy h3{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;min-height:2.4em;margin:0;font-size:clamp(21px,1.8vw,28px);font-weight:500;letter-spacing:-.04em;line-height:1.18;color:var(--heading,#252522)}
+  .rf-family-copy h3>span{flex:none;margin-top:3px;font-size:22px;font-weight:400;color:var(--brand-blue,#0f2a4d);transition:transform .25s}
+  .rf-family-copy p{min-height:4.8em;margin:9px 0 15px;max-width:37ch;color:var(--muted,#62605b);font-size:14px;line-height:1.6}
+  .rf-family-models{display:block;padding-top:13px;border-top:1px solid var(--rule,#d8d2c6);font-size:11px;line-height:1.65;color:var(--brand-blue,#0f2a4d);font-weight:600;letter-spacing:.005em}
+  .rf-family-links{display:flex;flex-wrap:wrap;gap:0 15px;list-style:none;padding:7px 0 0;margin:0}
+  .rf-family-links li{padding:0;margin:0}
+  .rf-family-links a{display:inline-flex;align-items:center;gap:7px;min-height:38px;color:var(--brand-blue,#0f2a4d);font-size:11px;line-height:1.35;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--rule,#d8d2c6)}
+  .rf-family-links a:hover{text-decoration-color:var(--brand-blue,#0f2a4d)}
+  .rf-family-main:focus-visible,.rf-family-links a:focus-visible,.rf-discovery-heading a:focus-visible{outline:2px solid var(--brand-blue,#0f2a4d);outline-offset:6px}
+  @media(hover:hover) and (prefers-reduced-motion:no-preference){.rf-family-main:hover .rf-family-image img{transform:scale(1.045)}.rf-family-main:hover h3>span{transform:translate(2px,-2px)}}
+  @media(max-width:1050px){.rf-family-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:42px 25px}.rf-discovery-heading{gap:40px}.rf-family-copy h3{font-size:25px}}
+  @media(max-width:600px){.rf-discovery{padding:64px 0}.rf-discovery-heading{grid-template-columns:1fr;gap:22px;margin-bottom:34px}.rf-discovery-heading h2{font-size:43px}.rf-discovery-heading h2 br{display:none}.rf-discovery-heading p{margin-bottom:10px;max-width:37ch}.rf-family-grid{grid-template-columns:1fr;gap:38px}.rf-family-image{aspect-ratio:1.5}.rf-family-copy{padding-top:18px}.rf-family-copy h3{min-height:0;font-size:26px;line-height:1.2}.rf-family-copy p{min-height:0;font-size:14px;margin:10px 0 14px;max-width:none}.rf-family-models{font-size:11px}.rf-family-links a{min-height:44px;font-size:12px}}
+  @media(prefers-reduced-motion:reduce){.rf-family-image img,.rf-family-copy h3>span{transition:none}}
+</style>

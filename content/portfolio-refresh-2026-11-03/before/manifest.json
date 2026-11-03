@@ -1,0 +1,372 @@
+{
+  "capturedAtUtc": "2026-11-03T15:21:08.2918524Z",
+  "origin": "https://buildwithtreez.com/",
+  "productionTitle": "Joey Kubalak | Product-Minded Software Engineer",
+  "sourceType": "Live production browser capture. No production Git commit inferred.",
+  "stills": [
+    {
+      "name": "desktop",
+      "url": "https://buildwithtreez.com/",
+      "title": "Joey Kubalak | Product-Minded Software Engineer",
+      "capturedAt": "2026-11-03T15:18:45.565Z",
+      "browser": "156.0.8078.80",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "deviceScaleFactor": 2,
+      "reducedMotion": "reduce",
+      "colorScheme": "dark",
+      "status": 200,
+      "headers": {
+        "age": "5931646",
+        "cache-control": "public,max-age=0,must-revalidate",
+        "cache-status": "\"Netlify Durable\"; hit; ttl=25604353, \"Next.js\"; hit, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+        "content-encoding": "br",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Tue, 03 Nov 2026 15:18:39 GMT",
+        "etag": "\"1le8t4rpei2ll6-df\"",
+        "netlify-vary": "query=__nextDataReq|_rsc, header=x-nextjs-data|x-next-debug-logging|next-router-prefetch|next-router-segment-prefetch|next-router-state-tree|next-url|rsc|accept-encoding, cookie=__prerender_bypass|__next_preview_data",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "server": "Netlify",
+        "strict-transport-security": "max-age=31536000",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-frame-options": "DENY",
+        "x-nextjs-date": "Sat, 31 Oct 2026 11:28:30 GMT",
+        "x-nextjs-prerender": "1, 1",
+        "x-nextjs-stale-time": "300",
+        "x-nf-request-id": "01M6GZVB5A3JC5P3ZQWQ05HXXD"
+      },
+      "pageHeight": 11422,
+      "images": [
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fbwt_brand--logo.webp&w=1080&q=75",
+          "complete": true,
+          "width": 176,
+          "height": 332
+        },
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fbwt_brand--logo.webp&w=1080&q=75",
+          "complete": false,
+          "width": 176,
+          "height": 332
+        },
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fwork%2Fascension-roofing.webp&w=1920&q=75",
+          "complete": true,
+          "width": 533,
+          "height": 333
+        },
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fwork%2Fpresentsphere.webp&w=1920&q=75",
+          "complete": true,
+          "width": 533,
+          "height": 333
+        },
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fwork%2Fcodorus-web.webp&w=1920&q=75",
+          "complete": true,
+          "width": 533,
+          "height": 333
+        },
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fwork%2Fidentity-os.webp&w=1920&q=75",
+          "complete": true,
+          "width": 533,
+          "height": 333
+        },
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fwork%2Faieos.webp&w=1920&q=75",
+          "complete": true,
+          "width": 533,
+          "height": 333
+        },
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fbwt-logo-full.webp&w=1920&q=75",
+          "complete": true,
+          "width": 375,
+          "height": 392
+        }
+      ],
+      "errors": [],
+      "failedRequests": [],
+      "captures": [
+        {
+          "id": "work",
+          "state": {
+            "tag": "SECTION",
+            "text": "01Selected workProduction launches, privacy-sensitive products, and developer tooling. Each record separates what shipped from what still needs to be proven.01P"
+          },
+          "scrollY": 915
+        },
+        {
+          "id": "contact",
+          "state": {
+            "tag": "SECTION",
+            "text": "04Let's talk about the work.Hiring for a software, product, front-end, or full-stack role? Send the role, the problem your team is solving, or the part of my wo"
+          },
+          "scrollY": 9968
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "url": "https://buildwithtreez.com/",
+      "title": "Joey Kubalak | Product-Minded Software Engineer",
+      "capturedAt": "2026-11-03T15:18:52.759Z",
+      "browser": "156.0.8078.80",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "reducedMotion": "reduce",
+      "colorScheme": "dark",
+      "status": 200,
+      "headers": {
+        "age": "5931654",
+        "cache-control": "public,max-age=0,must-revalidate",
+        "cache-status": "\"Netlify Durable\"; hit; ttl=25604345, \"Next.js\"; hit, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+        "content-encoding": "br",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Tue, 03 Nov 2026 15:18:47 GMT",
+        "etag": "\"1le8t4rpei2ll6-df\"",
+        "netlify-vary": "query=__nextDataReq|_rsc, header=x-nextjs-data|x-next-debug-logging|next-router-prefetch|next-router-segment-prefetch|next-router-state-tree|next-url|rsc|accept-encoding, cookie=__prerender_bypass|__next_preview_data",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "server": "Netlify",
+        "strict-transport-security": "max-age=31536000",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-frame-options": "DENY",
+        "x-nextjs-date": "Sat, 31 Oct 2026 11:28:30 GMT",
+        "x-nextjs-prerender": "1, 1",
+        "x-nextjs-stale-time": "300",
+        "x-nf-request-id": "01M6GZVKN0509QTG2KZYH26EBS"
+      },
+      "pageHeight": 16470,
+      "images": [
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fbwt_brand--logo.webp&w=1080&q=75",
+          "complete": true,
+          "width": 176,
+          "height": 332
+        },
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fbwt_brand--logo.webp&w=1080&q=75",
+          "complete": true,
+          "width": 176,
+          "height": 332
+        },
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fwork%2Fascension-roofing.webp&w=750&q=75",
+          "complete": true,
+          "width": 357,
+          "height": 223
+        },
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fwork%2Fpresentsphere.webp&w=750&q=75",
+          "complete": true,
+          "width": 357,
+          "height": 223
+        },
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fwork%2Fcodorus-web.webp&w=750&q=75",
+          "complete": true,
+          "width": 357,
+          "height": 223
+        },
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fwork%2Fidentity-os.webp&w=750&q=75",
+          "complete": true,
+          "width": 357,
+          "height": 223
+        },
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fwork%2Faieos.webp&w=750&q=75",
+          "complete": true,
+          "width": 357,
+          "height": 223
+        },
+        {
+          "src": "https://buildwithtreez.com/_next/image?url=%2Fimages%2Fbwt-logo-full.webp&w=1920&q=75",
+          "complete": true,
+          "width": 375,
+          "height": 392
+        }
+      ],
+      "errors": [],
+      "failedRequests": [],
+      "captures": [
+        {
+          "id": "work",
+          "state": {
+            "tag": "SECTION",
+            "text": "01Selected workProduction launches, privacy-sensitive products, and developer tooling. Each record separates what shipped from what still needs to be proven.01P"
+          },
+          "scrollY": 842
+        },
+        {
+          "id": "contact",
+          "state": {
+            "tag": "SECTION",
+            "text": "04Let's talk about the work.Hiring for a software, product, front-end, or full-stack role? Send the role, the problem your team is solving, or the part of my wo"
+          },
+          "scrollY": 13871
+        }
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "name": "desktop-home-to-work.webm",
+      "role": "Primary matching dark-theme recording",
+      "theme": "dark, selected through browser color-scheme emulation; native Switch to light mode control verified",
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1,
+      "fps": "30/1",
+      "durationSeconds": 22.466,
+      "codec": "vp9",
+      "reducedMotion": "no-preference",
+      "audio": "none",
+      "physicalDevice": false,
+      "capturedAtUtc": "2026-11-03T15:22:07.5243465Z"
+    },
+    {
+      "name": "desktop-light-home-to-work.webm",
+      "role": "Supplemental light-theme view",
+      "theme": "light",
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1,
+      "fps": "30/1",
+      "durationSeconds": 29.333,
+      "codec": "vp9",
+      "reducedMotion": "no-preference",
+      "audio": "none",
+      "physicalDevice": false,
+      "capturedAtUtc": "2026-11-03T15:19:59.6791143Z"
+    },
+    {
+      "name": "mobile-home-to-work.webm",
+      "role": "Primary matching dark-theme recording",
+      "theme": "dark, selected through browser color-scheme emulation; native Switch to light mode control verified",
+      "width": 390,
+      "height": 844,
+      "dpr": 1,
+      "fps": "30/1",
+      "durationSeconds": 20.333,
+      "codec": "vp9",
+      "reducedMotion": "no-preference",
+      "audio": "none",
+      "physicalDevice": false,
+      "capturedAtUtc": "2026-11-03T15:22:31.8145776Z"
+    },
+    {
+      "name": "mobile-light-home-to-work.webm",
+      "role": "Supplemental light-theme view",
+      "theme": "light",
+      "width": 390,
+      "height": 844,
+      "dpr": 1,
+      "fps": "30/1",
+      "durationSeconds": 23.566,
+      "codec": "vp9",
+      "reducedMotion": "no-preference",
+      "audio": "none",
+      "physicalDevice": false,
+      "capturedAtUtc": "2026-11-03T15:20:32.9908541Z"
+    }
+  ],
+  "files": [
+    {
+      "name": "desktop-contact.png",
+      "bytes": 216052,
+      "width": 2880,
+      "height": 2000,
+      "sha256": "7261c4a73cad2dfe5e59296330c1e9c169110afcc2e94b756512fa3fe59278b5"
+    },
+    {
+      "name": "desktop-home-full.png",
+      "bytes": 6533401,
+      "width": 2880,
+      "height": 22832,
+      "sha256": "26e3013a68ee0f8b36b0a3fc245bed21bf45134b2f9edd2485ba387e7e5cdbae"
+    },
+    {
+      "name": "desktop-home-hero.png",
+      "bytes": 492270,
+      "width": 2880,
+      "height": 2000,
+      "sha256": "0e0bc4597438d2146aad1b32d6462c056bff37456c359aba98f9adc0735ca198"
+    },
+    {
+      "name": "desktop-home-to-work.webm",
+      "bytes": 9683137,
+      "width": 1440,
+      "height": 1000,
+      "sha256": "5fe747537d8028737a0fd8a9fdc4a9bced17a68049d2cf27d34d42e5ae967e11"
+    },
+    {
+      "name": "desktop-light-home-to-work.webm",
+      "bytes": 11845877,
+      "width": 1440,
+      "height": 1000,
+      "sha256": "ba27d2876959c2b5406d9deae94be5e3bfaa910b92c7746d193d3df40c68817f"
+    },
+    {
+      "name": "desktop-work.png",
+      "bytes": 1021145,
+      "width": 2880,
+      "height": 2000,
+      "sha256": "6c9eedc48b2b7b4b2011953710d928c00d552733c00a8be65001dbdac3de865a"
+    },
+    {
+      "name": "mobile-contact.png",
+      "bytes": 115395,
+      "width": 780,
+      "height": 1688,
+      "sha256": "bd1c74dfd225d3af7331a921783582fe65efb002f8dff38030b3fdbb41b9f415"
+    },
+    {
+      "name": "mobile-home-full.png",
+      "bytes": 4050784,
+      "width": 780,
+      "height": 32710,
+      "sha256": "9bd889f3d1a6e13018904fca308f3f184106568c224bfe03cbe7a47192d229da"
+    },
+    {
+      "name": "mobile-home-hero.png",
+      "bytes": 254722,
+      "width": 780,
+      "height": 1688,
+      "sha256": "e2290697e20b9beb232429fb5a173dae1ece7bfa50baf4c5282d6d67d745d7ce"
+    },
+    {
+      "name": "mobile-home-to-work.webm",
+      "bytes": 2601005,
+      "width": 390,
+      "height": 844,
+      "sha256": "e4ee89ad27a65b793566be32ace8b36514e3d347625282a49cb5ecdcd280763f"
+    },
+    {
+      "name": "mobile-light-home-to-work.webm",
+      "bytes": 2983095,
+      "width": 390,
+      "height": 844,
+      "sha256": "d26ed95a941b2ffaaaf2e066fddc790991066fa8d36fc2237d8f99494622d4ee"
+    },
+    {
+      "name": "mobile-work.png",
+      "bytes": 370861,
+      "width": 780,
+      "height": 1688,
+      "sha256": "7fc12d80641eae374765617fef0c376e34f0b5783e4a603b6e5dcdcd209b3401"
+    }
+  ]
+}

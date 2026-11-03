@@ -4,11 +4,11 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 
 const contentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ''};
+  script-src 'self' 'unsafe-inline' https://www.googletagmanager.com${isDevelopment ? " 'unsafe-eval'" : ''};
   style-src 'self' 'unsafe-inline';
-  img-src 'self' blob: data:;
+  img-src 'self' blob: data: https://www.googletagmanager.com https://*.google-analytics.com;
   font-src 'self' data:;
-  connect-src 'self';
+  connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com;
   object-src 'none';
   base-uri 'self';
   form-action 'self';
@@ -17,6 +17,10 @@ const contentSecurityPolicy = `
 `
 
 const nextConfig: NextConfig = {
+  env: {
+    // Netlify supplies CONTEXT for real production/preview builds. Local builds remain off.
+    NEXT_PUBLIC_ANALYTICS_CONTEXT: process.env.CONTEXT ?? process.env.NEXT_PUBLIC_ANALYTICS_CONTEXT ?? 'local',
+  },
   reactStrictMode: true,
   poweredByHeader: false,
   experimental: {
@@ -32,6 +36,9 @@ const nextConfig: NextConfig = {
       {
         source: '/:path*',
         headers: [
+          ...(process.env.CONTEXT && process.env.CONTEXT !== 'production'
+            ? [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }]
+            : []),
           {
             key: 'Content-Security-Policy',
             value: contentSecurityPolicy.replace(/\s{2,}/g, ' ').trim(),

@@ -1,0 +1,41 @@
+.analytics-notice {
+  position: fixed;
+  z-index: 110;
+  inset: auto 20px 20px auto;
+  width: min(720px, calc(100% - 40px));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  padding: 20px 24px;
+  color: #f2f0e7;
+  background: #202622;
+  border: 1px solid #61704c;
+  border-radius: 4px;
+  box-shadow: 0 8px 36px #0004;
+  font-family: var(--font-archivo), sans-serif;
+  line-height: 1.5;
+}
+.analytics-notice h2 { margin: 0 0 6px; font-size: 16px; font-weight: 600; }
+.analytics-notice p { margin: 0; color: #c6cdc2; font-size: 13px; }
+.analytics-notice a { color: #d5ed9b; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+.analytics-notice-actions { display: grid; gap: 8px; }
+.analytics-notice-actions button { min-height: 44px; padding: 10px 14px; border: 1px solid #87916e; color: #f2f0e7; background: transparent; border-radius: 3px; cursor: pointer; font: inherit; font-size: 13px; white-space: nowrap; }
+.analytics-notice-actions button:last-child { color: #191c1b; background: #d5ed9b; border-color: #d5ed9b; }
+.analytics-notice :is(a, button):focus-visible, .analytics-preferences-button:focus-visible { outline: 2px solid #d5ed9b; outline-offset: 4px; }
+.analytics-preferences-button { padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.privacy-content { max-width: 800px; padding-block: 84px; }
+.privacy-content h1 { font-size: clamp(44px, 7vw, 76px); line-height: 1.05; letter-spacing: -.05em; margin-bottom: 30px; }
+.privacy-content h2 { font-size: 24px; line-height: 1.3; margin: 38px 0 12px; letter-spacing: -.02em; }
+.privacy-content p { color: var(--muted); margin-block: 14px; }
+.privacy-content a { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 640px) {
+  .analytics-notice { inset: auto 12px 12px; width: auto; padding: 16px; grid-template-columns: 1fr; gap: 12px; }
+  .analytics-notice-actions { grid-template-columns: 1fr 1fr; }
+  .analytics-notice h2 { font-size: 15px; }
+  .privacy-content { padding-block: 48px; }
+}
+@media (forced-colors: active) {
+  .analytics-notice { border: 1px solid CanvasText; }
+  .analytics-notice-actions button { border: 1px solid ButtonText; }
+}

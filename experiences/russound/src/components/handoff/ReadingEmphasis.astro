@@ -1,0 +1,24 @@
+---
+interface Props {
+  as?: 'p' | 'h2';
+  lines: string[];
+  id?: string;
+  tone?: 'light' | 'dark';
+}
+const { as: Tag = 'p', lines, id, tone = 'light' } = Astro.props;
+---
+<Tag id={id} data-reading-emphasis={tone}>
+  {lines.map((line, index) => <Fragment>{index > 0 && <Fragment>{' '}<br /></Fragment>}{line.split(/(\s+)/).map(token => /\s/.test(token) ? token : <span data-reading-word>{token}</span>)}</Fragment>)}
+</Tag>
+<style>
+  /* Base text stays at full contrast. Only the successful motion enhancement mutes it. */
+  [data-reading-emphasis] { --reading-muted: #6e6e6e; }
+  [data-reading-emphasis="dark"] { --reading-muted: #a5ada9; }
+  [data-reading-word] { transition: none; }
+  @media (prefers-reduced-motion: reduce), (max-width: 760px), (hover: none) {
+    [data-reading-word] { color: inherit !important; }
+  }
+  @media print {
+    [data-reading-word] { color: inherit !important; }
+  }
+</style>

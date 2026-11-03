@@ -1,0 +1,40 @@
+---
+import DirectionLayout from '../components/handoff/DirectionLayout.astro';
+import ReadingEmphasis from '../components/handoff/ReadingEmphasis.astro';
+import SystemFlow from '../components/handoff/SystemFlow.astro';
+import RearPanel from '../components/handoff/RearPanel.astro';
+import SystemPlanner from '../components/handoff/SystemPlanner.astro';
+import ModelSupport from '../components/handoff/ModelSupport.astro';
+import InstallerConnection from '../components/handoff/InstallerConnection.astro';
+import OutdoorStory from '../components/handoff/OutdoorStory.astro';
+import FamilyDiscovery from '../components/handoff/FamilyDiscovery.astro';
+import HeritageStory from '../components/handoff/HeritageStory.astro';
+import MarketsStory from '../components/handoff/MarketsStory.astro';
+import AppListeningStory from '../components/handoff/AppListeningStory.astro';
+
+---
+<DirectionLayout title="Russound | A home in harmony" description="Music for every part of your day. Discover thoughtfully installed Russound audio systems, speakers and control." active="home">
+ <section class="d-hero" id="top" aria-labelledby="home-heading">
+  <picture class="d-hero-picture"><img src="/oct27/hero.jpg" width="1920" height="1080" alt="A warm kitchen opens into a living room, with a listener enjoying music at home" fetchpriority="high"/></picture>
+  <video class="d-hero-video" data-hero-layer="0" muted playsinline preload="none" tabindex="-1" aria-hidden="true"></video><video class="d-hero-video" data-hero-layer="1" muted playsinline preload="none" tabindex="-1" aria-hidden="true"></video>
+  <div class="d-hero-shade" aria-hidden="true"></div>
+  <div class="d-hero-copy"><h1 id="home-heading">A home{' '}<br/>in harmony.</h1><p>Beautiful sound, thoughtfully installed.{' '}<br/>For every room. For every part of your day.</p><a class="d-button d-button-light" href="/audio-systems/">Explore home audio <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+  <a class="d-hero-caption rf-anniversary-link" href="#story">1967–2027 · Celebrating 60 years <span aria-hidden="true">↗</span></a><button class="d-hero-control" data-hero-toggle hidden aria-label="Play background film"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7Z"/></svg><span>Play film</span></button>
+ </section>
+ <div class="d-introduction d-wrap"><ReadingEmphasis lines={["Music moves through your day.", "Let it move through your home."]} /></div>
+ <FamilyDiscovery />
+ <section id="smz-story" class="d-product-story" aria-labelledby="system-heading"><div class="d-wrap d-product-inner"><div class="d-product-visual" data-product-arrival><img src="/oct27/smz8.webp" alt="Russound SMZ8 streaming controller amplifier" width="1200" height="500" loading="lazy"/><span class="d-product-model">SMZ8</span></div><div class="d-product-copy"><ReadingEmphasis as="h2" id="system-heading" tone="dark" lines={["Your whole home.", "One starting point."]} /><p>The SMZ8 brings music streaming, room control and amplification together. Your installer shapes the rest of the system around your home.</p><ul class="d-product-facts"><li><strong>Your music</strong><span>Streaming built into the system.</span></li><li><strong>Your rooms</strong><span>Control the sound, room by room.</span></li></ul><a class="d-button d-button-light" href="/products/smz8/">Meet the SMZ8 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div></div></section>
+ <RearPanel id="connections" />
+ <SystemFlow />
+ <AppListeningStory />
+ <section class="d-speaker" id="speakers" aria-labelledby="speaker-heading"><div class="d-wrap d-speaker-stage"><div class="d-speaker-copy"><h2 id="speaker-heading">Beautiful sound.{' '}<br/>Out of sight.</h2><p>Let the music fill the room while the speaker fits quietly into it. Explore the IC-620 and its paintable ICG-6R grille.</p><div class="d-speaker-controls" hidden role="group" aria-label="Speaker view"><button type="button" data-speaker-pose="0" aria-pressed="true">See the speaker</button><button type="button" data-speaker-pose="1" aria-pressed="false">See the finish</button></div><a class="d-link" href="https://russound.com/products/ic-620-6-5-enhanced-performance-loudspeaker/">Explore architectural speakers <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div><div class="d-speaker-visual"><div class="d-speaker-ring" aria-hidden="true"></div><div class="d-speaker-art"><img class="d-speaker-body" src="/media/ic620.webp" alt="IC-620 in-ceiling speaker driver" width="1000" height="998" loading="lazy"/><img class="d-speaker-grille" src="/media/grille.webp" alt="" width="1000" height="1000" loading="lazy"/></div><p class="d-speaker-state" aria-live="polite">IC-620 · Speaker detail</p></div></div></section>
+ <OutdoorStory />
+ <HeritageStory />
+ <div id="support"><ModelSupport /></div>
+ <MarketsStory />
+ <SystemPlanner />
+ <InstallerConnection />
+ <script>import '../scripts/handoff-home';</script>
+</DirectionLayout>
+
+<style>.rf-anniversary-link{color:#fff;text-decoration:none;text-underline-offset:5px}.rf-anniversary-link:hover{text-decoration:underline}.rf-anniversary-link:focus-visible{outline:2px solid #FBB03B;outline-offset:6px}</style>

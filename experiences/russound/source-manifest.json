@@ -1,0 +1,593 @@
+{
+  "schemaVersion": 1,
+  "sourceRoot": "C:\\Users\\treez\\OneDrive\\Documents\\ChatGPT\\Skills\\prototypes\\russound-cinematic-proof",
+  "method": "Six visitor entry points and recursive local source dependencies; explicit review modules excluded before traversal. Public assets are separately allowlisted from the frozen publication.",
+  "routes": [
+    "/",
+    "/audio-systems/",
+    "/products/smz8/",
+    "/catalog/",
+    "/connectivity-control/",
+    "/news/"
+  ],
+  "excludedModules": [
+    "MavlersChecklist.astro",
+    "ReviewPanel.astro",
+    "SmzBackdropCompare.astro",
+    "ThemePicker.astro"
+  ],
+  "entries": [
+    {
+      "source": "src/pages/handoff-review/index.astro",
+      "sourceSha256": "1bd2149714a793a54c793d7b1bd75f69c0e8a9dcef5910f69546f63507cf4316",
+      "curated": "src/pages/index.astro",
+      "curatedSha256": "837056585d04cc33eb42f7122d6b751731b5c54e18c0b546a6df6131b7e74d95",
+      "changed": true
+    },
+    {
+      "source": "src/pages/handoff-review/audio-systems/index.astro",
+      "sourceSha256": "109903d824bcc7137bf02f079ea6d705997c348de5ea061cf6a5565c531b7b77",
+      "curated": "src/pages/audio-systems/index.astro",
+      "curatedSha256": "af71763a65dd492301882a230a9d64ef2f59d8db0585549fe8e35a720b227dd3",
+      "changed": true
+    },
+    {
+      "source": "src/pages/handoff-review/products/smz8.astro",
+      "sourceSha256": "e31e124480856b0e01cbe94225da8264cd5975d12a97d4a8c4098860b1a08baf",
+      "curated": "src/pages/products/smz8.astro",
+      "curatedSha256": "fbed57030fe2efc6f0d2bf5e22b0ecac0f33dcf96247f18f38b612176e30aafc",
+      "changed": true
+    },
+    {
+      "source": "src/pages/handoff-review/catalog/index.astro",
+      "sourceSha256": "f693ac345fa15a87db6a55b612b4303b185482315ec3fb832682f52dad9f314a",
+      "curated": "src/pages/catalog/index.astro",
+      "curatedSha256": "72861341627c7475c4dcf89efdc57d22c85cd5b5d0cd42bff3c8c0ec5a10faaa",
+      "changed": true
+    },
+    {
+      "source": "src/pages/handoff-review/connectivity-control/index.astro",
+      "sourceSha256": "157a8e17b5b8473f454a78fab693ae59d9f2b846be0ff65a21390a169cdb869a",
+      "curated": "src/pages/connectivity-control/index.astro",
+      "curatedSha256": "9a1c32d8f4fc35dabd983f129c602dc3a01ff19f7738ffbcd956fe946a6a07d9",
+      "changed": true
+    },
+    {
+      "source": "src/pages/handoff-review/news/index.astro",
+      "sourceSha256": "99e6df8957abaf16bbfa34d111b0d35ad7e8b15cbad39e73a12a95c216d84c28",
+      "curated": "src/pages/news/index.astro",
+      "curatedSha256": "df19a93475c1cfd0e4ee8b1baa80c617e051f02ec4d76e5b496c44215bef3269",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/DirectionLayout.astro",
+      "sourceSha256": "21b3c80b90ff9a78697386c7c958b33507ed77cd60d681e74d033caa5c10bff5",
+      "curated": "src/components/handoff/DirectionLayout.astro",
+      "curatedSha256": "a87d54add6403352088343487d3fa829905caa5d89cce3dbeb293211a8d30481",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/ReadingEmphasis.astro",
+      "sourceSha256": "26ef4c92162c0ffe890f693c4565c95cd38de57710531ce79bbbae22c5f89e66",
+      "curated": "src/components/handoff/ReadingEmphasis.astro",
+      "curatedSha256": "2ba21bcf121bce880439bec05086f16b23d811aa0b685a670cb700c18807baf9",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/SystemFlow.astro",
+      "sourceSha256": "eec5b7d917a6b1a296040f74868bf92ea8672fff44cfcb82fe26e0d64ce9c5aa",
+      "curated": "src/components/handoff/SystemFlow.astro",
+      "curatedSha256": "cdddeb01481eb20fce5b482a7fb78dacc24196b27263c25186d8a5352930d16e",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/RearPanel.astro",
+      "sourceSha256": "cc814efd0df5d65adaa75d6a09c686228e7817c52357ee24ceeb7058f6406888",
+      "curated": "src/components/handoff/RearPanel.astro",
+      "curatedSha256": "2e392ac9d91877eeec85978c0b40960c378e5e41e94642f9a769aed53e2e2243",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/SystemPlanner.astro",
+      "sourceSha256": "e64d976ecd5da6633141b73da760053621d4531fb44889c998ffb1b917ce521f",
+      "curated": "src/components/handoff/SystemPlanner.astro",
+      "curatedSha256": "e55d1e242ff8ed6c9a478d4409f1d856be6bfe16562a107f647b2a7e836b25d4",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/ModelSupport.astro",
+      "sourceSha256": "ea3d7fa5828b498d061c096ff773bdf7f5690360aed750d7413fea0b0bfd2e0e",
+      "curated": "src/components/handoff/ModelSupport.astro",
+      "curatedSha256": "6a8a38c80a005c3cb7a7493a411060f2828adf5ae8b1feb596192c20953b2bda",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/InstallerConnection.astro",
+      "sourceSha256": "50bba1c7754633791638f62dc10c819d5e255ee8dfec346496267b6470cee591",
+      "curated": "src/components/handoff/InstallerConnection.astro",
+      "curatedSha256": "3f229a24916a686338b049001abc06c69c13bede5fb327ed7e4359d421ed0d1a",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/OutdoorStory.astro",
+      "sourceSha256": "ee3b10313787b417cfd0ff82b7f88c1b4aa5ef084ba6cd9ba426d3df249dd34c",
+      "curated": "src/components/handoff/OutdoorStory.astro",
+      "curatedSha256": "e1dd04f2e81b8eb81bdfd3ce4578ea939466fb4e391c67dad421aceac81ee21a",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/FamilyDiscovery.astro",
+      "sourceSha256": "8a237a765ec3803d0f890df8f654cfdfd2d0f4b64de600fa1bae8193efe3f30d",
+      "curated": "src/components/handoff/FamilyDiscovery.astro",
+      "curatedSha256": "1fdd64b473657d3863b2b480ce693c2a4a32c7efb5fba5b4908484cceea9eef7",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/HeritageStory.astro",
+      "sourceSha256": "5282c67513c23f3753df1580ddb8288aa096c5341822fab90da26d145a33625b",
+      "curated": "src/components/handoff/HeritageStory.astro",
+      "curatedSha256": "f66f10a86e61d6685dee595594c212fd992e688ecde16a878f560b2876e910c0",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/MarketsStory.astro",
+      "sourceSha256": "77e8071a4f149ba8bfceefca4b704cb5a4f63cc92a14b142a4ceae63ffba4297",
+      "curated": "src/components/handoff/MarketsStory.astro",
+      "curatedSha256": "4368288c3b37baa6c9fb94484c93748fd2eab79ecc84f4e38f532f8ce08e8260",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/AppListeningStory.astro",
+      "sourceSha256": "e0a5c2a8591277882e05b8fd944613266b3c284270f0aeaf0281703eac02ec3f",
+      "curated": "src/components/handoff/AppListeningStory.astro",
+      "curatedSha256": "79f5ca16b1e864179f104cf7687c5c5658886678f27fdb1edb3599a712f06f5e",
+      "changed": true
+    },
+    {
+      "source": "src/scripts/handoff-home.ts",
+      "sourceSha256": "0e31fc95bbafd034633e31615c48c2bbdfda70d0a8a3f53fdaf906b7b162e268",
+      "curated": "src/scripts/handoff-home.ts",
+      "curatedSha256": "1000754e5ad69f5467f11315957c32e8723b9b4bb778e52cdaf4aa688eb65711",
+      "changed": true
+    },
+    {
+      "source": "src/styles/handoff-journey.css",
+      "sourceSha256": "b4c676285ed2a701972e0b4c71ec8c1111959f31069e13523e7abed600339c4e",
+      "curated": "src/styles/handoff-journey.css",
+      "curatedSha256": "a20f00b57bcd1db6e5ff07872124ea830a25ae53842b2fa5e2136ec7382822ef",
+      "changed": true
+    },
+    {
+      "source": "src/data/handoff-catalog.ts",
+      "sourceSha256": "0f407c6bba5ad7f1eaf47a3472671775220abe0180a833be9b6f4a9d1b2fff82",
+      "curated": "src/data/handoff-catalog.ts",
+      "curatedSha256": "966cb329e508b99544031d8ecd094e63cf27d950f08e04adbeaa5f8e09e63497",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/FeaturedNews.astro",
+      "sourceSha256": "944cde25a9c849bd9971d2a36fef1bdc0250ccb400f2ea1b380215b7a317c9da",
+      "curated": "src/components/handoff/FeaturedNews.astro",
+      "curatedSha256": "435679f9fe86cbfd8bbcdc847b99cec6d62670aaebe89d324aba9750d23c41cb",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/DirectionHeader.astro",
+      "sourceSha256": "3d31430c842e302a930ad3e8cb8dbccf5eeb17c403e1bf506c24bd6a894e18ee",
+      "curated": "src/components/handoff/DirectionHeader.astro",
+      "curatedSha256": "f60465dab11ae4d9806d5a21a12701b21feba671e9946511cc5bb5328decaed6",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/DirectionFooter.astro",
+      "sourceSha256": "43a3e80642aa00435006f14cc3bec3579b3031eb9671de377f871fbb2e663642",
+      "curated": "src/components/handoff/DirectionFooter.astro",
+      "curatedSha256": "6e214dbd2572aa4c1f7c19b004beea2a6150836504b81b8bae0b5c3f44d1bea4",
+      "changed": true
+    },
+    {
+      "source": "src/styles/handoff.css",
+      "sourceSha256": "9c8ea6f14c1556b99073246032e8251d395b1c74cfcb6425969eb4a1ac88da79",
+      "curated": "src/styles/handoff.css",
+      "curatedSha256": "30eaca09b4efed8aba7fbaab60f234c035bca0ef668cdc901d305613fa184f87",
+      "changed": true
+    },
+    {
+      "source": "src/styles/handoff-shell.css",
+      "sourceSha256": "992356e678bfb9b73649d39ccdf298f4ba37532287fc15a7a2f2651ef4dcd0c2",
+      "curated": "src/styles/handoff-shell.css",
+      "curatedSha256": "c3f78a98ac6eaedf2834748118991551bfa34fafc0982d40ec84982b40c0b3d4",
+      "changed": true
+    },
+    {
+      "source": "src/styles/handoff-themes.css",
+      "sourceSha256": "5f461b450d9bf39294011a0b5582d5c5f0f6db296fd3d0c8eda134402ec38c55",
+      "curated": "src/styles/handoff-themes.css",
+      "curatedSha256": "492b773d9a596a283c0cb32e90f5b9e0155ccd14b06afa7ab7ca47dc4384978b",
+      "changed": true
+    },
+    {
+      "source": "src/styles/handoff-announcements.css",
+      "sourceSha256": "77fccd9ecdffc19a2e4269ef93cde409e9258e9dcb854449e7f75559a22130fe",
+      "curated": "src/styles/handoff-announcements.css",
+      "curatedSha256": "a846375eac4f46743e1ba85a27c5666fd23059beb9a06812e9be6f5b6754560d",
+      "changed": true
+    },
+    {
+      "source": "src/styles/handoff-footer-polish.css",
+      "sourceSha256": "68cbdf23691228997c6257319a707c979ea97fe0f4c9bdd109dcd54bda0d7f8f",
+      "curated": "src/styles/handoff-footer-polish.css",
+      "curatedSha256": "2197c276f989d024ccc65d55682ab5c137180cca13097b2184a6a63cb2a2596a",
+      "changed": true
+    },
+    {
+      "source": "src/styles/handoff-polish.css",
+      "sourceSha256": "0e5119c76fda2600ee9364f2a0d24451229b441233d5f8b68d95c16bffb36a82",
+      "curated": "src/styles/handoff-polish.css",
+      "curatedSha256": "355c995dcaef6ff0d8db97c3966f4744a97e49c7a09db58a03d1456598b078e9",
+      "changed": true
+    },
+    {
+      "source": "src/styles/handoff-reference-palette.css",
+      "sourceSha256": "cd04ca7c9709c0cbe44ace4c2cd286a9cb9b91155407223d6ca8bc8704293068",
+      "curated": "src/styles/handoff-reference-palette.css",
+      "curatedSha256": "11c4b86b9b99e2a4ff4a1cfe2845e22b196294aa94598e08b3e81e437ad22adc",
+      "changed": true
+    },
+    {
+      "source": "src/scripts/handoff-shell.ts",
+      "sourceSha256": "31f747febb4b9f7a00b502261025a6e49c89fd91bfd50419ee278309b218a01f",
+      "curated": "src/scripts/handoff-shell.ts",
+      "curatedSha256": "c76a8b4cc8de91f1dba7cdad10392430fba2878334acfc70e5b494979485bf6d",
+      "changed": true
+    },
+    {
+      "source": "src/styles/handoff-system.css",
+      "sourceSha256": "bb7c3866adabf7e1a8a02b70aadc7bf21f9d25c326ffb3f93ac4259ba1f794fe",
+      "curated": "src/styles/handoff-system.css",
+      "curatedSha256": "5a89d48a7fe73912047143d8e77fa5a0409e54a34e6e385e7e8551cb91366795",
+      "changed": true
+    },
+    {
+      "source": "src/styles/handoff-rear.css",
+      "sourceSha256": "67dcea26f783fe7d76d65ba5bd5f37314d57a91f1aecd889d20c4ada9ac0e782",
+      "curated": "src/styles/handoff-rear.css",
+      "curatedSha256": "d57e1375ee6d0854444409ed292d4036ac1b3d99fbc923aaf33cff5434d0730a",
+      "changed": true
+    },
+    {
+      "source": "src/scripts/handoff-rear.ts",
+      "sourceSha256": "3410fb042ec64d9588b9bab0bdc52e834651c730ed1f98aaf952105b8bbd3993",
+      "curated": "src/scripts/handoff-rear.ts",
+      "curatedSha256": "8940a10b9d5b7d34bc7a0af273cfd2a60f4f4235176046a1c4a77501a1e57812",
+      "changed": true
+    },
+    {
+      "source": "src/styles/handoff-tools.css",
+      "sourceSha256": "010be3cee22c71bad08afe10c844708fbe5d7f084d193a031fa32cf1d2e0a885",
+      "curated": "src/styles/handoff-tools.css",
+      "curatedSha256": "1fc698e7890ced1f6078abf18e9056ab4aec25b39d8c5aab4b3f65f48429aedb",
+      "changed": true
+    },
+    {
+      "source": "src/scripts/handoff-tools.ts",
+      "sourceSha256": "304cbc4d8b220a534e788b8567ea4fc643930ce89352115a7972592cb4a5fb4e",
+      "curated": "src/scripts/handoff-tools.ts",
+      "curatedSha256": "867e42046699c1766f88f0ff41ab0fe097a49291f0c2d5dcb3ec51b4a4ce6bf6",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/ListeningRail.astro",
+      "sourceSha256": "de62e7e008d7d7db174d09f763ecbf41d8b765b4f5499945b8f68af7318e4c49",
+      "curated": "src/components/handoff/ListeningRail.astro",
+      "curatedSha256": "d2a99a72ab55d79ed38045dbe7833ffa0ce1df2902afd3f2929e902577945f66",
+      "changed": true
+    },
+    {
+      "source": "src/data/handoff-navigation.ts",
+      "sourceSha256": "1ed27bb9e424e86116f2e98e6071b8afd06cc4e5cd5e1691d9180c54c7b440fa",
+      "curated": "src/data/handoff-navigation.ts",
+      "curatedSha256": "ea80a4b061093a7df7f6d4060eab49cc9074fe03aa1e3e52a9c97fdf7f513a05",
+      "changed": true
+    },
+    {
+      "source": "src/data/handoff-news.ts",
+      "sourceSha256": "87e1fae22a16a9d4b4dc5e310581f83084226aa5fce82b4763241417458fb138",
+      "curated": "src/data/handoff-news.ts",
+      "curatedSha256": "91bef88ce59e6df05b07c9227506d65f31e694f0eb03f63c8b26d97fdc259ce9",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/SearchDialog.astro",
+      "sourceSha256": "31962d79cc9310f350091d885bfaac56c58ddc0e5da6884716103d6f4c7288c8",
+      "curated": "src/components/handoff/SearchDialog.astro",
+      "curatedSha256": "c02e5539b888b503a708170675527da44a2f56866dcfd54c794591a41c833843",
+      "changed": true
+    },
+    {
+      "source": "src/components/handoff/AnnouncementStrip.astro",
+      "sourceSha256": "32f4754d88fabf24e1e4656b7a28e93b93bd6e7118e648da65bfa6da90ab9b66",
+      "curated": "src/components/handoff/AnnouncementStrip.astro",
+      "curatedSha256": "2829f888e5d06dd0630f80df1bf4a74e7f86791b3a5c645af013b53da3d70bde",
+      "changed": true
+    },
+    {
+      "source": "src/styles/handoff-discovery.css",
+      "sourceSha256": "2cbc70fac51789a97f6cbbb33413d625507eb15bdc013b28a0f1b10a35bfe9a1",
+      "curated": "src/styles/handoff-discovery.css",
+      "curatedSha256": "ff730e4477f02b37878912830f71a09a0094b7db5ef27797ecd1d5f801973d3a",
+      "changed": true
+    },
+    {
+      "source": "src/styles/handoff-navigation.css",
+      "sourceSha256": "a0ddc5650db215720674947b3a4b17bf29e3f320d0f573f33bc13e61e9491024",
+      "curated": "src/styles/handoff-navigation.css",
+      "curatedSha256": "aeb3888f02187ff59e017b03aecb85f48380869c477b42c870b2ce7142cdaabe",
+      "changed": true
+    },
+    {
+      "source": "src/data/product-corpus.ts",
+      "sourceSha256": "e280a860e24cb12560ce294e0ebde613acf6a1ff0c2133c6f769a0432ef18147",
+      "curated": "src/data/product-corpus.ts",
+      "curatedSha256": "958a5c1b671c3711bf5a5af04ee5f2a20d697e315fe6a1b03af4ae608ef658db",
+      "changed": true
+    },
+    {
+      "source": "src/scripts/handoff-discovery.ts",
+      "sourceSha256": "4c7f4dd8ca7e5bc9c4751763b0f3701e38899008648826822e3c75c4de15dfd6",
+      "curated": "src/scripts/handoff-discovery.ts",
+      "curatedSha256": "3c3337964eee69f2ebbe6b77b3f7303b21632bc1b30f230911bcc6f91c539da4",
+      "changed": true
+    }
+  ],
+  "dependencyEdges": [
+    {
+      "from": "src/pages/handoff-review/index.astro",
+      "to": "src/components/handoff/DirectionLayout.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/index.astro",
+      "to": "src/components/handoff/ReadingEmphasis.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/index.astro",
+      "to": "src/components/handoff/SystemFlow.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/index.astro",
+      "to": "src/components/handoff/RearPanel.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/index.astro",
+      "to": "src/components/handoff/SystemPlanner.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/index.astro",
+      "to": "src/components/handoff/ModelSupport.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/index.astro",
+      "to": "src/components/handoff/InstallerConnection.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/index.astro",
+      "to": "src/components/handoff/OutdoorStory.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/index.astro",
+      "to": "src/components/handoff/FamilyDiscovery.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/index.astro",
+      "to": "src/components/handoff/HeritageStory.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/index.astro",
+      "to": "src/components/handoff/MarketsStory.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/index.astro",
+      "to": "src/components/handoff/AppListeningStory.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/index.astro",
+      "to": "src/scripts/handoff-home.ts"
+    },
+    {
+      "from": "src/pages/handoff-review/audio-systems/index.astro",
+      "to": "src/components/handoff/DirectionLayout.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/audio-systems/index.astro",
+      "to": "src/styles/handoff-journey.css"
+    },
+    {
+      "from": "src/pages/handoff-review/products/smz8.astro",
+      "to": "src/components/handoff/DirectionLayout.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/products/smz8.astro",
+      "to": "src/components/handoff/RearPanel.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/products/smz8.astro",
+      "to": "src/styles/handoff-journey.css"
+    },
+    {
+      "from": "src/pages/handoff-review/catalog/index.astro",
+      "to": "src/components/handoff/DirectionLayout.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/catalog/index.astro",
+      "to": "src/data/handoff-catalog.ts"
+    },
+    {
+      "from": "src/pages/handoff-review/connectivity-control/index.astro",
+      "to": "src/components/handoff/DirectionLayout.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/news/index.astro",
+      "to": "src/components/handoff/DirectionLayout.astro"
+    },
+    {
+      "from": "src/pages/handoff-review/news/index.astro",
+      "to": "src/components/handoff/FeaturedNews.astro"
+    },
+    {
+      "from": "src/components/handoff/DirectionLayout.astro",
+      "to": "src/components/handoff/DirectionHeader.astro"
+    },
+    {
+      "from": "src/components/handoff/DirectionLayout.astro",
+      "to": "src/components/handoff/DirectionFooter.astro"
+    },
+    {
+      "from": "src/components/handoff/DirectionLayout.astro",
+      "to": "src/styles/handoff.css"
+    },
+    {
+      "from": "src/components/handoff/DirectionLayout.astro",
+      "to": "src/styles/handoff-shell.css"
+    },
+    {
+      "from": "src/components/handoff/DirectionLayout.astro",
+      "to": "src/styles/handoff-themes.css"
+    },
+    {
+      "from": "src/components/handoff/DirectionLayout.astro",
+      "to": "src/styles/handoff-announcements.css"
+    },
+    {
+      "from": "src/components/handoff/DirectionLayout.astro",
+      "to": "src/styles/handoff-footer-polish.css"
+    },
+    {
+      "from": "src/components/handoff/DirectionLayout.astro",
+      "to": "src/styles/handoff-polish.css"
+    },
+    {
+      "from": "src/components/handoff/DirectionLayout.astro",
+      "to": "src/styles/handoff-reference-palette.css"
+    },
+    {
+      "from": "src/components/handoff/DirectionLayout.astro",
+      "to": "src/scripts/handoff-shell.ts"
+    },
+    {
+      "from": "src/components/handoff/SystemFlow.astro",
+      "to": "src/styles/handoff-system.css"
+    },
+    {
+      "from": "src/components/handoff/RearPanel.astro",
+      "to": "src/styles/handoff-rear.css"
+    },
+    {
+      "from": "src/components/handoff/RearPanel.astro",
+      "to": "src/scripts/handoff-rear.ts"
+    },
+    {
+      "from": "src/components/handoff/SystemPlanner.astro",
+      "to": "src/styles/handoff-tools.css"
+    },
+    {
+      "from": "src/components/handoff/SystemPlanner.astro",
+      "to": "src/scripts/handoff-tools.ts"
+    },
+    {
+      "from": "src/components/handoff/ModelSupport.astro",
+      "to": "src/styles/handoff-tools.css"
+    },
+    {
+      "from": "src/components/handoff/ModelSupport.astro",
+      "to": "src/scripts/handoff-tools.ts"
+    },
+    {
+      "from": "src/components/handoff/AppListeningStory.astro",
+      "to": "src/components/handoff/ListeningRail.astro"
+    },
+    {
+      "from": "src/components/handoff/AppListeningStory.astro",
+      "to": "src/data/handoff-navigation.ts"
+    },
+    {
+      "from": "src/components/handoff/FeaturedNews.astro",
+      "to": "src/data/handoff-news.ts"
+    },
+    {
+      "from": "src/components/handoff/DirectionHeader.astro",
+      "to": "src/data/handoff-catalog.ts"
+    },
+    {
+      "from": "src/components/handoff/DirectionHeader.astro",
+      "to": "src/data/handoff-navigation.ts"
+    },
+    {
+      "from": "src/components/handoff/DirectionHeader.astro",
+      "to": "src/components/handoff/SearchDialog.astro"
+    },
+    {
+      "from": "src/components/handoff/DirectionHeader.astro",
+      "to": "src/components/handoff/AnnouncementStrip.astro"
+    },
+    {
+      "from": "src/components/handoff/DirectionHeader.astro",
+      "to": "src/styles/handoff-discovery.css"
+    },
+    {
+      "from": "src/components/handoff/DirectionHeader.astro",
+      "to": "src/styles/handoff-navigation.css"
+    },
+    {
+      "from": "src/components/handoff/DirectionFooter.astro",
+      "to": "src/data/handoff-navigation.ts"
+    },
+    {
+      "from": "src/scripts/handoff-tools.ts",
+      "to": "src/data/product-corpus.ts"
+    },
+    {
+      "from": "src/scripts/handoff-tools.ts",
+      "to": "src/data/handoff-catalog.ts"
+    },
+    {
+      "from": "src/components/handoff/SearchDialog.astro",
+      "to": "src/scripts/handoff-discovery.ts"
+    },
+    {
+      "from": "src/scripts/handoff-discovery.ts",
+      "to": "src/data/handoff-catalog.ts"
+    }
+  ],
+  "generatedFiles": [
+    {
+      "path": "src/pages/404.astro",
+      "sha256": "81562f3a948f3677db60dc91dea6b4bdbb5b81b9b54e01d137a47e03c955748f"
+    },
+    {
+      "path": "astro.config.mjs",
+      "sha256": "17aa87f06e7c93c6441078763e5da7be8f37540220fe44303b014f48cc604831"
+    },
+    {
+      "path": "package.json",
+      "sha256": "49fe361649805e258ca7fd33e687f0ea1030082614ebdf114e1bb46a4927be4b"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "94809a296535b24bdfe437e0d2f106309317818345235436f8bd8baed0f89493"
+    },
+    {
+      "path": "README.md",
+      "sha256": "0189dc7fd439994d072967c8bf0af69371756d6ac58f370a5cf4aff0d1328107"
+    }
+  ],
+  "changes": [
+    "Rebased six visitor routes to standalone root paths.",
+    "Excluded review page, guide dialog, comparison control, handlers and styles.",
+    "Replaced archive footer with portfolio context and public return links.",
+    "Removed CSS provenance comments and catalog meeting references.",
+    "Limited planner source data to its four used public product URLs.",
+    "Preserved selected warm theme and copper backdrop; removed query comparison hook.",
+    "Added public 404 recovery page and isolated build caches.",
+    "Copied original exact dependency lock; changed only package identity."
+  ]
+}

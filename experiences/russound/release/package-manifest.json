@@ -1,0 +1,1943 @@
+{
+  "preparedAtUtc": "2026-11-03T15:53:09.017363+00:00",
+  "purpose": "Clean Russound portfolio edition",
+  "status": "Local release candidate; no deployment performed",
+  "routes": [
+    "404.html",
+    "audio-systems/index.html",
+    "catalog/index.html",
+    "connectivity-control/index.html",
+    "index.html",
+    "news/index.html",
+    "products/smz8/index.html"
+  ],
+  "protectedClientFiles": 86,
+  "sourceProvenance": "../asset-provenance.json",
+  "files": [
+    {
+      "path": "404.html",
+      "bytes": 1533,
+      "sha256": "752e64bbb557908269023c7cb3423d4f2280d204be25198348579d091c405529"
+    },
+    {
+      "path": "_astro/DirectionLayout.DTuyA4rY.css",
+      "bytes": 81246,
+      "sha256": "e2b3ba220a6e64394420d73877863a56e313ab733dde524ef8c5eb6c286a61c2"
+    },
+    {
+      "path": "_astro/DirectionLayout.astro_astro_type_script_index_0_lang.B7guvA9-.js",
+      "bytes": 8184,
+      "sha256": "4b96430b29182fe5fa300fcfcfe21aa66c15663bccf6f10da837a0366e9762bb"
+    },
+    {
+      "path": "_astro/HeritageStory.astro_astro_type_script_index_0_lang.Bk5KPsiT.js",
+      "bytes": 1729,
+      "sha256": "20785157ba96260f4b095dace3eefc40c407033beed17e3b421875675630e423"
+    },
+    {
+      "path": "_astro/ModelSupport.astro_astro_type_script_index_0_lang.B6i3dEnU.js",
+      "bytes": 36,
+      "sha256": "43b27a61aaf9c4793620958ff1e5d737e5054c71d171912597f4d2d0fb3862c9"
+    },
+    {
+      "path": "_astro/RearPanel.CoKlVmBB.css",
+      "bytes": 6842,
+      "sha256": "eb5716b80dd33d4535a68b6e238927b38562272523eef66928a50f727d28f62b"
+    },
+    {
+      "path": "_astro/RearPanel.astro_astro_type_script_index_0_lang.wwIl7kYN.js",
+      "bytes": 3645,
+      "sha256": "893945a2c46618e025fe91ca01351dc266b807df9652b4060eff3080948783d1"
+    },
+    {
+      "path": "_astro/ScrollTrigger.C7HwZxAz.js",
+      "bytes": 42717,
+      "sha256": "dbab07169d7cafa60bc8624ab849c90a87cbd03bff0c8111a28653c97cffd58b"
+    },
+    {
+      "path": "_astro/SearchDialog.astro_astro_type_script_index_0_lang.BmMMUwc1.js",
+      "bytes": 4576,
+      "sha256": "58700594d85a0d5838a389c0a8789252988988bed60a7b9e8cb471d4e48275b5"
+    },
+    {
+      "path": "_astro/SystemPlanner.astro_astro_type_script_index_0_lang.B6i3dEnU.js",
+      "bytes": 36,
+      "sha256": "43b27a61aaf9c4793620958ff1e5d737e5054c71d171912597f4d2d0fb3862c9"
+    },
+    {
+      "path": "_astro/gsap.CvDoa17S.js",
+      "bytes": 69582,
+      "sha256": "8c868d74e0b9cec15b3b79ccf1f438bfab0f08356039c6724d45808c21f99287"
+    },
+    {
+      "path": "_astro/handoff-catalog.BsjVZIR4.js",
+      "bytes": 9004,
+      "sha256": "5dead82f7611a480ed93018f70c6a70e7d0232d991010c3b30aa803edbc4cef6"
+    },
+    {
+      "path": "_astro/handoff-journey.BfLJoImN.css",
+      "bytes": 15368,
+      "sha256": "c38ec00e589a4bb73e5c7ec45087496d54f204d859715fe349a5bbcf1b528f3e"
+    },
+    {
+      "path": "_astro/handoff-tools.D85l9vBG.js",
+      "bytes": 11248,
+      "sha256": "e53ca9493f419a64751cb992e87e77ae9e3bc61f13e9b67f930989508ff60cc6"
+    },
+    {
+      "path": "_astro/index.BCUvzLNk.css",
+      "bytes": 9020,
+      "sha256": "d241e0d7e6079afaa2bbadd52c401332f19835b3f2c7a266b1c3b001cc0bb013"
+    },
+    {
+      "path": "_astro/index.CJaYYzFL.css",
+      "bytes": 4225,
+      "sha256": "e4cd3d7627c5ed9147960b4c7ea6b17fd4908183e294775329bce58d38f21114"
+    },
+    {
+      "path": "_astro/index.CM9WVV0K.css",
+      "bytes": 48759,
+      "sha256": "b937ade000b81107dda4db66384760ea256d612d0fb5cc925be7852b5da7f9c7"
+    },
+    {
+      "path": "_astro/index.astro_astro_type_script_index_0_lang.CL9JzVot.js",
+      "bytes": 5251,
+      "sha256": "706b16cec272029bc0ecdaca454bca0f57a73f4037cf41414bd0d84f87e67fec"
+    },
+    {
+      "path": "_astro/manrope-cyrillic-wght-normal.Dvxsihut.woff2",
+      "bytes": 14500,
+      "sha256": "c268b459a9329e59fecf39a17618efd44c71735532048d60b12aab76a8c14914"
+    },
+    {
+      "path": "_astro/manrope-greek-wght-normal.DL7QRZyv.woff2",
+      "bytes": 9444,
+      "sha256": "2fb2e8cbfd52ae46179a8b6024eb162f1f9c6de3d22d6e3a30d8f395de7220be"
+    },
+    {
+      "path": "_astro/manrope-latin-ext-wght-normal.Ch3YOpNY.woff2",
+      "bytes": 15120,
+      "sha256": "3911b66d9f2e005a4b989223405d0e5032619c668597ba467cc76a23c8fffcfb"
+    },
+    {
+      "path": "_astro/manrope-latin-wght-normal.DHIcAJRg.woff2",
+      "bytes": 24836,
+      "sha256": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972"
+    },
+    {
+      "path": "_astro/manrope-vietnamese-wght-normal.usUDDRr7.woff2",
+      "bytes": 8520,
+      "sha256": "6bbb044ab420e07edb0a3042d2eb314b85e83a0182e945a15ab3b9092668dfd5"
+    },
+    {
+      "path": "_astro/manrope.3kz-p_VZ.css",
+      "bytes": 5142,
+      "sha256": "237b1aec805ebc1efe735033d55470041239c7a9db39f223e2ae4c647396fa27"
+    },
+    {
+      "path": "_headers",
+      "bytes": 212,
+      "sha256": "ed1000369381bb22038eb2b0f5250d6e06f7062b6b52193350a7951e0956a538"
+    },
+    {
+      "path": "audio-systems/index.html",
+      "bytes": 36687,
+      "sha256": "bbae2cfe8e01146599d7f98da02a8b78ae83f8af286613549d1d1c11a0589069"
+    },
+    {
+      "path": "catalog/index.html",
+      "bytes": 43990,
+      "sha256": "be8af1cfe27601d0f067d5f8dc372169181785c48bc2b3b8b709b3fca887f788"
+    },
+    {
+      "path": "connectivity-control/index.html",
+      "bytes": 35154,
+      "sha256": "9de9bec1c27b80204566c64c2d31dc9d7e8ab729f2a9c8a440c588a0a233b197"
+    },
+    {
+      "path": "index.html",
+      "bytes": 101853,
+      "sha256": "1d265061ee1604b1ee40381d816dda2af6a553bbc9f3c45dfbe0ada897881c3d"
+    },
+    {
+      "path": "media/grille.webp",
+      "bytes": 214554,
+      "sha256": "2b6dca1a49dd8c23cc6ec18edbdfe3cdece170d6d3f1669a80f96ed5a008b889"
+    },
+    {
+      "path": "media/home-728.webp",
+      "bytes": 51006,
+      "sha256": "db70992054129e87e243687e62a1562b35e5ec28658e349a2fb5ad66c61ff58f"
+    },
+    {
+      "path": "media/ic620.webp",
+      "bytes": 79278,
+      "sha256": "f97735f835a756f186bea9847f8bce2946abc45f2d313d2ecc6e229ed67566f8"
+    },
+    {
+      "path": "media/kitchen-1600.avif",
+      "bytes": 23808,
+      "sha256": "7c954dbc2f13a30ca2bae615021b1ead905679b670bd608ad07960848adaf6d2"
+    },
+    {
+      "path": "media/kitchen-1600.webp",
+      "bytes": 37938,
+      "sha256": "55b3aed57ab4755639fc22d17d794bdb50ef6af06acf14db1003f57487b891fa"
+    },
+    {
+      "path": "media/kitchen-960.webp",
+      "bytes": 19328,
+      "sha256": "619191db1373cca7218024d1822b583741f289fa5535ee19220a766622f3c15c"
+    },
+    {
+      "path": "media/listening-room-1355.avif",
+      "bytes": 44593,
+      "sha256": "675da702d58f62f6c31c5a0dc4982ca1381557426207647c12a993070c0b66e8"
+    },
+    {
+      "path": "media/listening-room-1355.webp",
+      "bytes": 72118,
+      "sha256": "2cf2bb219b25a97143f7eeb44732411f07dc06473127ff499901d67108b06a62"
+    },
+    {
+      "path": "media/listening-room-960.webp",
+      "bytes": 47636,
+      "sha256": "f0daf8a037c1423c3d5783ac571d85d5aac0944f94ec1e7c2cf6617348f882bc"
+    },
+    {
+      "path": "media/logo-dark.webp",
+      "bytes": 7092,
+      "sha256": "5405a3da6b64320d3c641d8934f650702e5d10aa15015131c8c458440d275774"
+    },
+    {
+      "path": "media/logo-white.webp",
+      "bytes": 8936,
+      "sha256": "6160dce88bddbf4286f740fef3401790f469aa825c32368b173643502dde8fd6"
+    },
+    {
+      "path": "media/mbx-amp.webp",
+      "bytes": 22956,
+      "sha256": "f1dbfc398c0779905ae37238e09c6c20a19253e3b126799877b2097d9d6637a4"
+    },
+    {
+      "path": "media/smz8-rear.webp",
+      "bytes": 40420,
+      "sha256": "c0758b49457e9ce3a39d5dab06177ac2c4c6337be4edd2c2c4b9de5bc251bad5"
+    },
+    {
+      "path": "media/whole-home-1600.avif",
+      "bytes": 47633,
+      "sha256": "5e538b739543fecff7075cf036de7b2527a6ada4dfa5aed583a10d2f240dde1f"
+    },
+    {
+      "path": "media/whole-home-1600.webp",
+      "bytes": 70048,
+      "sha256": "31764236bba9185ce35a6aaeff7595d3c1449009b5ff8284062096f66d48ebf7"
+    },
+    {
+      "path": "media/whole-home-960.webp",
+      "bytes": 37276,
+      "sha256": "5353983aaeabd475d90d5c306b24d7de056c14afa65ac4ba113801006f9e5f19"
+    },
+    {
+      "path": "media/xts7.webp",
+      "bytes": 35420,
+      "sha256": "1ab6d8281539a33d9dafc62d1742f64cbde002851542e6181828c87c8e3d9f28"
+    },
+    {
+      "path": "navigation31/smz8-on-table.webp",
+      "bytes": 26516,
+      "sha256": "02a4e605ddbe29e75bf8873f8c4a0fbe200d19f0f0cfc71dd0e3e9b6dde76b33"
+    },
+    {
+      "path": "news/index.html",
+      "bytes": 36305,
+      "sha256": "5d95be919eff3563b3281a22acbc8db56a26abdd7cad51361fa8a9b1a38a6fe4"
+    },
+    {
+      "path": "oct27/amplifier.webp",
+      "bytes": 30000,
+      "sha256": "228a07fac667ecd64b840aa69e41f215bc8a3d0772b58775154fc73048976ace"
+    },
+    {
+      "path": "oct27/hero.jpg",
+      "bytes": 366832,
+      "sha256": "49c35b76a0236e2a645ab40aa31e65c0a6d92e4597bd8239b604b26df44b062a"
+    },
+    {
+      "path": "oct27/hero.mp4",
+      "bytes": 2246154,
+      "sha256": "e87fbc3f06f164cc74eb10d5523ad6af36aa2ee422539430c0775f566d6a83bf"
+    },
+    {
+      "path": "oct27/mca66.webp",
+      "bytes": 32114,
+      "sha256": "851d1535d7b37ca7668a6c1c8173d68077f7a179ff3cd14d93247a36ace8c5b1"
+    },
+    {
+      "path": "oct27/outdoor.webp",
+      "bytes": 197376,
+      "sha256": "4e0ecf3af8325d9ef8a510f65842fcc28403c11ce24e74acabe22b74e5f5b99e"
+    },
+    {
+      "path": "oct27/smz16.webp",
+      "bytes": 80614,
+      "sha256": "1f29bf6364854f7e5b06e9d22ea776a504a1dd024e8804a97feea6a561cf7003"
+    },
+    {
+      "path": "oct27/smz8.webp",
+      "bytes": 75964,
+      "sha256": "e57ee5cf6e9c86b6b57d66d8e4cf07c5a35aba7f9e7bcee0944a9dbbef4c5884"
+    },
+    {
+      "path": "oct28/cedia-member.png",
+      "bytes": 3230,
+      "sha256": "760e7e06e4288fc4474e68a5e36614756747e53c15bab5e672655d0a8b6211a1"
+    },
+    {
+      "path": "oct28/cepro-q4q-2025.png",
+      "bytes": 119208,
+      "sha256": "04d0e353b05639d6da78d576d141a49e0833fd0f54b0c0236110047a972a4cfe"
+    },
+    {
+      "path": "oct28/russound-team.webp",
+      "bytes": 71830,
+      "sha256": "01496c7d29e65596dc82497dc2f3cd7375b0fdcb641fbcaea054b49cd23b3040"
+    },
+    {
+      "path": "products/smz8/index.html",
+      "bytes": 46648,
+      "sha256": "a4a505aacad0e6840a997f138bff38d194cf4d29be2b463623084c708819e6a0"
+    },
+    {
+      "path": "refinement29/guide-p03-residential-architecture.webp",
+      "bytes": 214854,
+      "sha256": "02e660012998b950d339117b1a3460cafd194562b2722af60bb2dcdb6a13ebf8"
+    },
+    {
+      "path": "refinement29/guide-p17-p-series-in-room.webp",
+      "bytes": 101946,
+      "sha256": "44ff51e223e7f422b477167b4598abb3430c82f1eda620a17d76f4720046ba71"
+    },
+    {
+      "path": "refinement29/guide-p18-voiceplay-wall-control.webp",
+      "bytes": 29218,
+      "sha256": "2e3a3d0bfb1cdb82a91beb54686d32ccc8608b224b44d833dcdf85db115f1dc4"
+    },
+    {
+      "path": "refinement29/guide-p21-cinema-bar-installed.webp",
+      "bytes": 37926,
+      "sha256": "eda9afa50262ad85ab600d4557de30f1f1daf8d91a396e4852bf78cbafeee104"
+    },
+    {
+      "path": "refinement29/installer-smz16.webp",
+      "bytes": 244666,
+      "sha256": "7df250cb30649a89034d91e879adbe21a5b986442e64479af026665051209f89"
+    },
+    {
+      "path": "refinement29/maureen-lobby.webp",
+      "bytes": 206240,
+      "sha256": "8767a07293ec511dbe374cbd0314235d0044d389270644975eb115a5f4805928"
+    },
+    {
+      "path": "refinement29/maureen-restaurant.webp",
+      "bytes": 156118,
+      "sha256": "18aa97f747deb06d78bed40db682805f53a8985a63de5911f9c661c9206fa483"
+    },
+    {
+      "path": "refinement29/outdoor-group-rock.webp",
+      "bytes": 435202,
+      "sha256": "030499cc9de60ba998996b99e0e79467112a499c4c952bb4e7959643f4a82842"
+    },
+    {
+      "path": "revision28/cinema-bar.webp",
+      "bytes": 26394,
+      "sha256": "a14c30fac8fb258d3300f89ec13510a9e90274cb4ab4ed56521811c4d8dc4e1a"
+    },
+    {
+      "path": "revision28/d890.webp",
+      "bytes": 10914,
+      "sha256": "7b09fc44cb6eb7f014752639e34e437c083c31f41010dcac5c16ceac88888e51"
+    },
+    {
+      "path": "revision28/ipk1.webp",
+      "bytes": 8056,
+      "sha256": "84fd58c02889a07ff94b71192683d0f7c34da65c471080f1bbff3abdf1e2dc60"
+    },
+    {
+      "path": "revision28/rock-5r82mk2-s.webp",
+      "bytes": 160914,
+      "sha256": "5ba5974ec09029b0b85cf2e57930f61d2385a324f7a3caf901270afd88ca627c"
+    },
+    {
+      "path": "robots.txt",
+      "bytes": 26,
+      "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+    },
+    {
+      "path": "streaming01/airplay-supplied.svg",
+      "bytes": 102533,
+      "sha256": "6b4240625096e538de35deb7a8cd73bbe42673b6cfec50782923ad3544f29260"
+    },
+    {
+      "path": "streaming01/deezer-white.svg",
+      "bytes": 3165,
+      "sha256": "8de28c1ecacb3b095a6191e378bf7be3c126eded270425f53d30ac798ebec40b"
+    },
+    {
+      "path": "streaming01/google-cast-inverse.png",
+      "bytes": 38565,
+      "sha256": "81f24c245fcbe91d19dba2b6f588ffb4ee3aa73baaaf89ab450e5b0e80ab0d93"
+    },
+    {
+      "path": "streaming01/russound-rooms-original.jpg",
+      "bytes": 433073,
+      "sha256": "bd9e063bbadea5e3f73b3ce73bbdbaa721b65e7b75c601c7fca56c64364754f8"
+    },
+    {
+      "path": "streaming01/siriusxm-white.png",
+      "bytes": 23419,
+      "sha256": "6b764c9261ea19a066f7f11ea87a25dfaa30e3ccf5c98c9971c0c85b07c90058"
+    },
+    {
+      "path": "streaming01/soul-evening-a.webp",
+      "bytes": 474150,
+      "sha256": "6c0b44ef9af43246e13b38d870c571a787bb5945b0b70c668d59671b156ce0ab"
+    },
+    {
+      "path": "streaming01/spotify-white.png",
+      "bytes": 50953,
+      "sha256": "14a6a4faf018cf8b2f46a35a272db84b3d6b61a094707f225eb0106ea90ef979"
+    },
+    {
+      "path": "streaming01/tidal-white.png",
+      "bytes": 4992,
+      "sha256": "29c9baec49f5677d319c895a5ad1cfeca6a3764a1af83cfa6a0fc1c692164d26"
+    },
+    {
+      "path": "streaming01/tunein-white.svg",
+      "bytes": 5264,
+      "sha256": "eaf949b7c60fdf85e4e077aa472c45296a0c0bbd71ad72a7c48e82a01e1491ec"
+    }
+  ],
+  "referenceEdges": [
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/",
+      "to": "index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/#how-it-works",
+      "to": "index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/#installer",
+      "to": "index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/#model-support",
+      "to": "index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/#planner",
+      "to": "index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/#story",
+      "to": "index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/#support",
+      "to": "index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/_astro/DirectionLayout.DTuyA4rY.css",
+      "to": "_astro/DirectionLayout.DTuyA4rY.css"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/_astro/DirectionLayout.astro_astro_type_script_index_0_lang.B7guvA9-.js",
+      "to": "_astro/DirectionLayout.astro_astro_type_script_index_0_lang.B7guvA9-.js"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/_astro/RearPanel.CoKlVmBB.css",
+      "to": "_astro/RearPanel.CoKlVmBB.css"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/_astro/RearPanel.astro_astro_type_script_index_0_lang.wwIl7kYN.js",
+      "to": "_astro/RearPanel.astro_astro_type_script_index_0_lang.wwIl7kYN.js"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/_astro/SearchDialog.astro_astro_type_script_index_0_lang.BmMMUwc1.js",
+      "to": "_astro/SearchDialog.astro_astro_type_script_index_0_lang.BmMMUwc1.js"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/_astro/handoff-journey.BfLJoImN.css",
+      "to": "_astro/handoff-journey.BfLJoImN.css"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/_astro/manrope.3kz-p_VZ.css",
+      "to": "_astro/manrope.3kz-p_VZ.css"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/audio-systems/",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/audio-systems/#multiroom",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/audio-systems/#streaming",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/catalog/",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/catalog/?family=amplifiers",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/catalog/?family=amplifiers&group=multichannel",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/catalog/?family=speakers",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/catalog/?family=speakers&group=soundbars",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/catalog/?family=speakers&use=outdoors",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/connectivity-control/",
+      "to": "connectivity-control/index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/media/ic620.webp",
+      "to": "media/ic620.webp"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/media/kitchen-1600.avif",
+      "to": "media/kitchen-1600.avif"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/media/kitchen-1600.webp",
+      "to": "media/kitchen-1600.webp"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/media/logo-dark.webp",
+      "to": "media/logo-dark.webp"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/media/logo-white.webp",
+      "to": "media/logo-white.webp"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/media/smz8-rear.webp",
+      "to": "media/smz8-rear.webp"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/media/xts7.webp",
+      "to": "media/xts7.webp"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/navigation31/smz8-on-table.webp",
+      "to": "navigation31/smz8-on-table.webp"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/news/",
+      "to": "news/index.html"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/oct27/amplifier.webp",
+      "to": "oct27/amplifier.webp"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/oct27/smz8.webp",
+      "to": "oct27/smz8.webp"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/oct28/cedia-member.png",
+      "to": "oct28/cedia-member.png"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/oct28/cepro-q4q-2025.png",
+      "to": "oct28/cepro-q4q-2025.png"
+    },
+    {
+      "from": "products/smz8/index.html",
+      "reference": "/products/smz8/",
+      "to": "products/smz8/index.html"
+    },
+    {
+      "from": "_astro/manrope.3kz-p_VZ.css",
+      "reference": "/_astro/manrope-cyrillic-wght-normal.Dvxsihut.woff2",
+      "to": "_astro/manrope-cyrillic-wght-normal.Dvxsihut.woff2"
+    },
+    {
+      "from": "_astro/manrope.3kz-p_VZ.css",
+      "reference": "/_astro/manrope-greek-wght-normal.DL7QRZyv.woff2",
+      "to": "_astro/manrope-greek-wght-normal.DL7QRZyv.woff2"
+    },
+    {
+      "from": "_astro/manrope.3kz-p_VZ.css",
+      "reference": "/_astro/manrope-latin-ext-wght-normal.Ch3YOpNY.woff2",
+      "to": "_astro/manrope-latin-ext-wght-normal.Ch3YOpNY.woff2"
+    },
+    {
+      "from": "_astro/manrope.3kz-p_VZ.css",
+      "reference": "/_astro/manrope-latin-wght-normal.DHIcAJRg.woff2",
+      "to": "_astro/manrope-latin-wght-normal.DHIcAJRg.woff2"
+    },
+    {
+      "from": "_astro/manrope.3kz-p_VZ.css",
+      "reference": "/_astro/manrope-vietnamese-wght-normal.usUDDRr7.woff2",
+      "to": "_astro/manrope-vietnamese-wght-normal.usUDDRr7.woff2"
+    },
+    {
+      "from": "_astro/SearchDialog.astro_astro_type_script_index_0_lang.BmMMUwc1.js",
+      "reference": "./handoff-catalog.BsjVZIR4.js",
+      "to": "_astro/handoff-catalog.BsjVZIR4.js"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/audio-systems/",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/audio-systems/#multiroom",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/audio-systems/#streaming",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/catalog/?family=amplifiers",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/catalog/?family=amplifiers&group=multichannel",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/catalog/?family=audio",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/catalog/?family=control",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/catalog/?family=speakers",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/catalog/?family=speakers&group=soundbars",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/catalog/?family=speakers&use=outdoors",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/connectivity-control/",
+      "to": "connectivity-control/index.html"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/media/grille.webp",
+      "to": "media/grille.webp"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/media/ic620.webp",
+      "to": "media/ic620.webp"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/media/mbx-amp.webp",
+      "to": "media/mbx-amp.webp"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/media/xts7.webp",
+      "to": "media/xts7.webp"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/oct27/amplifier.webp",
+      "to": "oct27/amplifier.webp"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/oct27/outdoor.webp",
+      "to": "oct27/outdoor.webp"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/oct27/smz16.webp",
+      "to": "oct27/smz16.webp"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/oct27/smz8.webp",
+      "to": "oct27/smz8.webp"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/products/smz8/",
+      "to": "products/smz8/index.html"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/revision28/cinema-bar.webp",
+      "to": "revision28/cinema-bar.webp"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/revision28/ipk1.webp",
+      "to": "revision28/ipk1.webp"
+    },
+    {
+      "from": "_astro/handoff-catalog.BsjVZIR4.js",
+      "reference": "/revision28/rock-5r82mk2-s.webp",
+      "to": "revision28/rock-5r82mk2-s.webp"
+    },
+    {
+      "from": "_astro/RearPanel.astro_astro_type_script_index_0_lang.wwIl7kYN.js",
+      "reference": "./gsap.CvDoa17S.js",
+      "to": "_astro/gsap.CvDoa17S.js"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/",
+      "to": "index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/#how-it-works",
+      "to": "index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/#installer",
+      "to": "index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/#model-support",
+      "to": "index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/#planner",
+      "to": "index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/#products",
+      "to": "index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/#story",
+      "to": "index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/#support",
+      "to": "index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/_astro/DirectionLayout.DTuyA4rY.css",
+      "to": "_astro/DirectionLayout.DTuyA4rY.css"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/_astro/DirectionLayout.astro_astro_type_script_index_0_lang.B7guvA9-.js",
+      "to": "_astro/DirectionLayout.astro_astro_type_script_index_0_lang.B7guvA9-.js"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/_astro/SearchDialog.astro_astro_type_script_index_0_lang.BmMMUwc1.js",
+      "to": "_astro/SearchDialog.astro_astro_type_script_index_0_lang.BmMMUwc1.js"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/_astro/index.BCUvzLNk.css",
+      "to": "_astro/index.BCUvzLNk.css"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/_astro/manrope.3kz-p_VZ.css",
+      "to": "_astro/manrope.3kz-p_VZ.css"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/audio-systems/",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/audio-systems/#multiroom",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/audio-systems/#streaming",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/catalog/",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/catalog/?family=amplifiers",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/catalog/?family=amplifiers&group=multichannel",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/catalog/?family=speakers",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/catalog/?family=speakers&group=soundbars",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/catalog/?family=speakers&use=outdoors",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/connectivity-control/",
+      "to": "connectivity-control/index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/media/ic620.webp",
+      "to": "media/ic620.webp"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/media/logo-dark.webp",
+      "to": "media/logo-dark.webp"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/media/logo-white.webp",
+      "to": "media/logo-white.webp"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/media/xts7.webp",
+      "to": "media/xts7.webp"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/navigation31/smz8-on-table.webp",
+      "to": "navigation31/smz8-on-table.webp"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/news/",
+      "to": "news/index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/oct27/amplifier.webp",
+      "to": "oct27/amplifier.webp"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/oct27/smz16.webp",
+      "to": "oct27/smz16.webp"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/oct28/cedia-member.png",
+      "to": "oct28/cedia-member.png"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/oct28/cepro-q4q-2025.png",
+      "to": "oct28/cepro-q4q-2025.png"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/products/smz8/",
+      "to": "products/smz8/index.html"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/refinement29/guide-p17-p-series-in-room.webp",
+      "to": "refinement29/guide-p17-p-series-in-room.webp"
+    },
+    {
+      "from": "news/index.html",
+      "reference": "/revision28/d890.webp",
+      "to": "revision28/d890.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/",
+      "to": "index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/#how-it-works",
+      "to": "index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/#installer",
+      "to": "index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/#model-support",
+      "to": "index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/#planner",
+      "to": "index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/#story",
+      "to": "index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/#support",
+      "to": "index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/_astro/DirectionLayout.DTuyA4rY.css",
+      "to": "_astro/DirectionLayout.DTuyA4rY.css"
+    },
+    {
+      "from": "index.html",
+      "reference": "/_astro/DirectionLayout.astro_astro_type_script_index_0_lang.B7guvA9-.js",
+      "to": "_astro/DirectionLayout.astro_astro_type_script_index_0_lang.B7guvA9-.js"
+    },
+    {
+      "from": "index.html",
+      "reference": "/_astro/HeritageStory.astro_astro_type_script_index_0_lang.Bk5KPsiT.js",
+      "to": "_astro/HeritageStory.astro_astro_type_script_index_0_lang.Bk5KPsiT.js"
+    },
+    {
+      "from": "index.html",
+      "reference": "/_astro/ModelSupport.astro_astro_type_script_index_0_lang.B6i3dEnU.js",
+      "to": "_astro/ModelSupport.astro_astro_type_script_index_0_lang.B6i3dEnU.js"
+    },
+    {
+      "from": "index.html",
+      "reference": "/_astro/RearPanel.CoKlVmBB.css",
+      "to": "_astro/RearPanel.CoKlVmBB.css"
+    },
+    {
+      "from": "index.html",
+      "reference": "/_astro/RearPanel.astro_astro_type_script_index_0_lang.wwIl7kYN.js",
+      "to": "_astro/RearPanel.astro_astro_type_script_index_0_lang.wwIl7kYN.js"
+    },
+    {
+      "from": "index.html",
+      "reference": "/_astro/SearchDialog.astro_astro_type_script_index_0_lang.BmMMUwc1.js",
+      "to": "_astro/SearchDialog.astro_astro_type_script_index_0_lang.BmMMUwc1.js"
+    },
+    {
+      "from": "index.html",
+      "reference": "/_astro/SystemPlanner.astro_astro_type_script_index_0_lang.B6i3dEnU.js",
+      "to": "_astro/SystemPlanner.astro_astro_type_script_index_0_lang.B6i3dEnU.js"
+    },
+    {
+      "from": "index.html",
+      "reference": "/_astro/index.CM9WVV0K.css",
+      "to": "_astro/index.CM9WVV0K.css"
+    },
+    {
+      "from": "index.html",
+      "reference": "/_astro/index.astro_astro_type_script_index_0_lang.CL9JzVot.js",
+      "to": "_astro/index.astro_astro_type_script_index_0_lang.CL9JzVot.js"
+    },
+    {
+      "from": "index.html",
+      "reference": "/_astro/manrope.3kz-p_VZ.css",
+      "to": "_astro/manrope.3kz-p_VZ.css"
+    },
+    {
+      "from": "index.html",
+      "reference": "/audio-systems/",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/audio-systems/#multiroom",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/audio-systems/#streaming",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/catalog/",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/catalog/?family=amplifiers",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/catalog/?family=amplifiers&group=multichannel",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/catalog/?family=audio",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/catalog/?family=control&group=interfaces",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/catalog/?family=speakers",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/catalog/?family=speakers&group=architectural",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/catalog/?family=speakers&group=soundbars",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/catalog/?family=speakers&use=outdoors",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/connectivity-control/",
+      "to": "connectivity-control/index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/media/grille.webp",
+      "to": "media/grille.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/media/home-728.webp",
+      "to": "media/home-728.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/media/ic620.webp",
+      "to": "media/ic620.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/media/kitchen-960.webp",
+      "to": "media/kitchen-960.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/media/listening-room-960.webp",
+      "to": "media/listening-room-960.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/media/logo-dark.webp",
+      "to": "media/logo-dark.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/media/logo-white.webp",
+      "to": "media/logo-white.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/media/mbx-amp.webp",
+      "to": "media/mbx-amp.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/media/smz8-rear.webp",
+      "to": "media/smz8-rear.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/media/whole-home-960.webp",
+      "to": "media/whole-home-960.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/media/xts7.webp",
+      "to": "media/xts7.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/navigation31/smz8-on-table.webp",
+      "to": "navigation31/smz8-on-table.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/news/",
+      "to": "news/index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/oct27/amplifier.webp",
+      "to": "oct27/amplifier.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/oct27/hero.jpg",
+      "to": "oct27/hero.jpg"
+    },
+    {
+      "from": "index.html",
+      "reference": "/oct27/outdoor.webp",
+      "to": "oct27/outdoor.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/oct27/smz8.webp",
+      "to": "oct27/smz8.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/oct28/cedia-member.png",
+      "to": "oct28/cedia-member.png"
+    },
+    {
+      "from": "index.html",
+      "reference": "/oct28/cepro-q4q-2025.png",
+      "to": "oct28/cepro-q4q-2025.png"
+    },
+    {
+      "from": "index.html",
+      "reference": "/oct28/russound-team.webp",
+      "to": "oct28/russound-team.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/products/smz8/",
+      "to": "products/smz8/index.html"
+    },
+    {
+      "from": "index.html",
+      "reference": "/refinement29/guide-p03-residential-architecture.webp",
+      "to": "refinement29/guide-p03-residential-architecture.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/refinement29/guide-p17-p-series-in-room.webp",
+      "to": "refinement29/guide-p17-p-series-in-room.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/refinement29/guide-p18-voiceplay-wall-control.webp",
+      "to": "refinement29/guide-p18-voiceplay-wall-control.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/refinement29/guide-p21-cinema-bar-installed.webp",
+      "to": "refinement29/guide-p21-cinema-bar-installed.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/refinement29/installer-smz16.webp",
+      "to": "refinement29/installer-smz16.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/refinement29/maureen-lobby.webp",
+      "to": "refinement29/maureen-lobby.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/refinement29/maureen-restaurant.webp",
+      "to": "refinement29/maureen-restaurant.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/refinement29/outdoor-group-rock.webp",
+      "to": "refinement29/outdoor-group-rock.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/streaming01/airplay-supplied.svg",
+      "to": "streaming01/airplay-supplied.svg"
+    },
+    {
+      "from": "index.html",
+      "reference": "/streaming01/deezer-white.svg",
+      "to": "streaming01/deezer-white.svg"
+    },
+    {
+      "from": "index.html",
+      "reference": "/streaming01/google-cast-inverse.png",
+      "to": "streaming01/google-cast-inverse.png"
+    },
+    {
+      "from": "index.html",
+      "reference": "/streaming01/russound-rooms-original.jpg",
+      "to": "streaming01/russound-rooms-original.jpg"
+    },
+    {
+      "from": "index.html",
+      "reference": "/streaming01/siriusxm-white.png",
+      "to": "streaming01/siriusxm-white.png"
+    },
+    {
+      "from": "index.html",
+      "reference": "/streaming01/soul-evening-a.webp",
+      "to": "streaming01/soul-evening-a.webp"
+    },
+    {
+      "from": "index.html",
+      "reference": "/streaming01/spotify-white.png",
+      "to": "streaming01/spotify-white.png"
+    },
+    {
+      "from": "index.html",
+      "reference": "/streaming01/tidal-white.png",
+      "to": "streaming01/tidal-white.png"
+    },
+    {
+      "from": "index.html",
+      "reference": "/streaming01/tunein-white.svg",
+      "to": "streaming01/tunein-white.svg"
+    },
+    {
+      "from": "_astro/index.astro_astro_type_script_index_0_lang.CL9JzVot.js",
+      "reference": "./ScrollTrigger.C7HwZxAz.js",
+      "to": "_astro/ScrollTrigger.C7HwZxAz.js"
+    },
+    {
+      "from": "_astro/index.astro_astro_type_script_index_0_lang.CL9JzVot.js",
+      "reference": "./gsap.CvDoa17S.js",
+      "to": "_astro/gsap.CvDoa17S.js"
+    },
+    {
+      "from": "_astro/index.astro_astro_type_script_index_0_lang.CL9JzVot.js",
+      "reference": "/oct27/hero.mp4#t=0,6.25",
+      "to": "oct27/hero.mp4"
+    },
+    {
+      "from": "_astro/SystemPlanner.astro_astro_type_script_index_0_lang.B6i3dEnU.js",
+      "reference": "./handoff-tools.D85l9vBG.js",
+      "to": "_astro/handoff-tools.D85l9vBG.js"
+    },
+    {
+      "from": "_astro/handoff-tools.D85l9vBG.js",
+      "reference": "./handoff-catalog.BsjVZIR4.js",
+      "to": "_astro/handoff-catalog.BsjVZIR4.js"
+    },
+    {
+      "from": "_astro/handoff-tools.D85l9vBG.js",
+      "reference": "/media/ic620.webp",
+      "to": "media/ic620.webp"
+    },
+    {
+      "from": "_astro/handoff-tools.D85l9vBG.js",
+      "reference": "/media/mbx-amp.webp",
+      "to": "media/mbx-amp.webp"
+    },
+    {
+      "from": "_astro/handoff-tools.D85l9vBG.js",
+      "reference": "/media/xts7.webp",
+      "to": "media/xts7.webp"
+    },
+    {
+      "from": "_astro/handoff-tools.D85l9vBG.js",
+      "reference": "/oct27/amplifier.webp",
+      "to": "oct27/amplifier.webp"
+    },
+    {
+      "from": "_astro/handoff-tools.D85l9vBG.js",
+      "reference": "/oct27/outdoor.webp",
+      "to": "oct27/outdoor.webp"
+    },
+    {
+      "from": "_astro/handoff-tools.D85l9vBG.js",
+      "reference": "/oct27/smz16.webp",
+      "to": "oct27/smz16.webp"
+    },
+    {
+      "from": "_astro/handoff-tools.D85l9vBG.js",
+      "reference": "/oct27/smz8.webp",
+      "to": "oct27/smz8.webp"
+    },
+    {
+      "from": "_astro/handoff-tools.D85l9vBG.js",
+      "reference": "/products/smz8/",
+      "to": "products/smz8/index.html"
+    },
+    {
+      "from": "_astro/handoff-tools.D85l9vBG.js",
+      "reference": "/revision28/ipk1.webp",
+      "to": "revision28/ipk1.webp"
+    },
+    {
+      "from": "_astro/ModelSupport.astro_astro_type_script_index_0_lang.B6i3dEnU.js",
+      "reference": "./handoff-tools.D85l9vBG.js",
+      "to": "_astro/handoff-tools.D85l9vBG.js"
+    },
+    {
+      "from": "_astro/HeritageStory.astro_astro_type_script_index_0_lang.Bk5KPsiT.js",
+      "reference": "./ScrollTrigger.C7HwZxAz.js",
+      "to": "_astro/ScrollTrigger.C7HwZxAz.js"
+    },
+    {
+      "from": "_astro/HeritageStory.astro_astro_type_script_index_0_lang.Bk5KPsiT.js",
+      "reference": "./gsap.CvDoa17S.js",
+      "to": "_astro/gsap.CvDoa17S.js"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/",
+      "to": "index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/#how-it-works",
+      "to": "index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/#installer",
+      "to": "index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/#model-support",
+      "to": "index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/#planner",
+      "to": "index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/#story",
+      "to": "index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/#support",
+      "to": "index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/_astro/DirectionLayout.DTuyA4rY.css",
+      "to": "_astro/DirectionLayout.DTuyA4rY.css"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/_astro/DirectionLayout.astro_astro_type_script_index_0_lang.B7guvA9-.js",
+      "to": "_astro/DirectionLayout.astro_astro_type_script_index_0_lang.B7guvA9-.js"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/_astro/SearchDialog.astro_astro_type_script_index_0_lang.BmMMUwc1.js",
+      "to": "_astro/SearchDialog.astro_astro_type_script_index_0_lang.BmMMUwc1.js"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/_astro/index.CJaYYzFL.css",
+      "to": "_astro/index.CJaYYzFL.css"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/_astro/manrope.3kz-p_VZ.css",
+      "to": "_astro/manrope.3kz-p_VZ.css"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/audio-systems/",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/audio-systems/#multiroom",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/audio-systems/#streaming",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/catalog/",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/catalog/?family=amplifiers",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/catalog/?family=amplifiers&group=multichannel",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/catalog/?family=speakers",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/catalog/?family=speakers&group=soundbars",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/catalog/?family=speakers&use=outdoors",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/connectivity-control/",
+      "to": "connectivity-control/index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/media/ic620.webp",
+      "to": "media/ic620.webp"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/media/kitchen-1600.webp",
+      "to": "media/kitchen-1600.webp"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/media/logo-dark.webp",
+      "to": "media/logo-dark.webp"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/media/logo-white.webp",
+      "to": "media/logo-white.webp"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/media/xts7.webp",
+      "to": "media/xts7.webp"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/navigation31/smz8-on-table.webp",
+      "to": "navigation31/smz8-on-table.webp"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/news/",
+      "to": "news/index.html"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/oct27/amplifier.webp",
+      "to": "oct27/amplifier.webp"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/oct28/cedia-member.png",
+      "to": "oct28/cedia-member.png"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/oct28/cepro-q4q-2025.png",
+      "to": "oct28/cepro-q4q-2025.png"
+    },
+    {
+      "from": "connectivity-control/index.html",
+      "reference": "/products/smz8/",
+      "to": "products/smz8/index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/",
+      "to": "index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/#how-it-works",
+      "to": "index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/#installer",
+      "to": "index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/#model-support",
+      "to": "index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/#planner",
+      "to": "index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/#story",
+      "to": "index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/#support",
+      "to": "index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/_astro/DirectionLayout.DTuyA4rY.css",
+      "to": "_astro/DirectionLayout.DTuyA4rY.css"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/_astro/DirectionLayout.astro_astro_type_script_index_0_lang.B7guvA9-.js",
+      "to": "_astro/DirectionLayout.astro_astro_type_script_index_0_lang.B7guvA9-.js"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/_astro/SearchDialog.astro_astro_type_script_index_0_lang.BmMMUwc1.js",
+      "to": "_astro/SearchDialog.astro_astro_type_script_index_0_lang.BmMMUwc1.js"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/_astro/manrope.3kz-p_VZ.css",
+      "to": "_astro/manrope.3kz-p_VZ.css"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/audio-systems/",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/audio-systems/#multiroom",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/audio-systems/#streaming",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/catalog/",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/catalog/?family=amplifiers",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/catalog/?family=amplifiers&group=multichannel",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/catalog/?family=speakers",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/catalog/?family=speakers&group=soundbars",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/catalog/?family=speakers&use=outdoors",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/connectivity-control/",
+      "to": "connectivity-control/index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/media/ic620.webp",
+      "to": "media/ic620.webp"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/media/logo-dark.webp",
+      "to": "media/logo-dark.webp"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/media/logo-white.webp",
+      "to": "media/logo-white.webp"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/media/mbx-amp.webp",
+      "to": "media/mbx-amp.webp"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/media/xts7.webp",
+      "to": "media/xts7.webp"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/navigation31/smz8-on-table.webp",
+      "to": "navigation31/smz8-on-table.webp"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/news/",
+      "to": "news/index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/oct27/amplifier.webp",
+      "to": "oct27/amplifier.webp"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/oct27/outdoor.webp",
+      "to": "oct27/outdoor.webp"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/oct27/smz16.webp",
+      "to": "oct27/smz16.webp"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/oct27/smz8.webp",
+      "to": "oct27/smz8.webp"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/oct28/cedia-member.png",
+      "to": "oct28/cedia-member.png"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/oct28/cepro-q4q-2025.png",
+      "to": "oct28/cepro-q4q-2025.png"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/products/smz8/",
+      "to": "products/smz8/index.html"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/revision28/cinema-bar.webp",
+      "to": "revision28/cinema-bar.webp"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/revision28/ipk1.webp",
+      "to": "revision28/ipk1.webp"
+    },
+    {
+      "from": "catalog/index.html",
+      "reference": "/revision28/rock-5r82mk2-s.webp",
+      "to": "revision28/rock-5r82mk2-s.webp"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/",
+      "to": "index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/#how-it-works",
+      "to": "index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/#installer",
+      "to": "index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/#model-support",
+      "to": "index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/#planner",
+      "to": "index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/#story",
+      "to": "index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/#support",
+      "to": "index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/_astro/DirectionLayout.DTuyA4rY.css",
+      "to": "_astro/DirectionLayout.DTuyA4rY.css"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/_astro/DirectionLayout.astro_astro_type_script_index_0_lang.B7guvA9-.js",
+      "to": "_astro/DirectionLayout.astro_astro_type_script_index_0_lang.B7guvA9-.js"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/_astro/SearchDialog.astro_astro_type_script_index_0_lang.BmMMUwc1.js",
+      "to": "_astro/SearchDialog.astro_astro_type_script_index_0_lang.BmMMUwc1.js"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/_astro/handoff-journey.BfLJoImN.css",
+      "to": "_astro/handoff-journey.BfLJoImN.css"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/_astro/manrope.3kz-p_VZ.css",
+      "to": "_astro/manrope.3kz-p_VZ.css"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/audio-systems/",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/audio-systems/#multiroom",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/audio-systems/#streaming",
+      "to": "audio-systems/index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/catalog/",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/catalog/?family=amplifiers",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/catalog/?family=amplifiers&group=multichannel",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/catalog/?family=audio",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/catalog/?family=speakers",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/catalog/?family=speakers&group=soundbars",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/catalog/?family=speakers&use=outdoors",
+      "to": "catalog/index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/connectivity-control/",
+      "to": "connectivity-control/index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/media/ic620.webp",
+      "to": "media/ic620.webp"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/media/listening-room-1355.avif",
+      "to": "media/listening-room-1355.avif"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/media/listening-room-1355.webp",
+      "to": "media/listening-room-1355.webp"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/media/logo-dark.webp",
+      "to": "media/logo-dark.webp"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/media/logo-white.webp",
+      "to": "media/logo-white.webp"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/media/whole-home-1600.avif",
+      "to": "media/whole-home-1600.avif"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/media/whole-home-1600.webp",
+      "to": "media/whole-home-1600.webp"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/media/xts7.webp",
+      "to": "media/xts7.webp"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/navigation31/smz8-on-table.webp",
+      "to": "navigation31/smz8-on-table.webp"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/news/",
+      "to": "news/index.html"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/oct27/amplifier.webp",
+      "to": "oct27/amplifier.webp"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/oct27/mca66.webp",
+      "to": "oct27/mca66.webp"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/oct27/smz16.webp",
+      "to": "oct27/smz16.webp"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/oct27/smz8.webp",
+      "to": "oct27/smz8.webp"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/oct28/cedia-member.png",
+      "to": "oct28/cedia-member.png"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/oct28/cepro-q4q-2025.png",
+      "to": "oct28/cepro-q4q-2025.png"
+    },
+    {
+      "from": "audio-systems/index.html",
+      "reference": "/products/smz8/",
+      "to": "products/smz8/index.html"
+    },
+    {
+      "from": "404.html",
+      "reference": "/",
+      "to": "index.html"
+    },
+    {
+      "from": "404.html",
+      "reference": "/_astro/manrope.3kz-p_VZ.css",
+      "to": "_astro/manrope.3kz-p_VZ.css"
+    }
+  ],
+  "anchorsChecked": 165,
+  "zipSha256": "1603108f7caa8add3ea060218ba115f77bc2c821eeaad3600ce217b8c0e73fae",
+  "privacyPolicy": "No review routes, review PDFs, internal feedback, source maps, private paths or earlier review-site links. Public company history and visitor planner notes retained."
+}

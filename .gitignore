@@ -14,6 +14,7 @@
 /coverage
 /.playwright-cli/
 /output/playwright/
+/.impeccable/review/
 
 # next.js
 /.next/
@@ -54,3 +55,19 @@ next-env.d.ts
 
 # documentation (personal notes, keep local only)
 /docs/
+
+# Native before/after capture masters stay local; track their guides and manifests.
+/content/portfolio-refresh-2026-11-03/**/*.png
+/content/portfolio-refresh-2026-11-03/**/*.webm
+/content/portfolio-refresh-2026-11-03/**/*.mp4
+
+# Standalone Russound runtime, media staging and generated release artifacts.
+/experiences/russound/node_modules/
+/experiences/russound/.astro/
+/experiences/russound/.cache/
+/experiences/russound/dist/
+/experiences/russound/public/
+/experiences/russound/release/upload/
+/experiences/russound/release/*.zip
+/experiences/russound/evidence/
+/experiences/russound/**/__pycache__/

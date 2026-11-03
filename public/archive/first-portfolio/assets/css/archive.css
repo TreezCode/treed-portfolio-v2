@@ -1,0 +1,6 @@
+/* Restoration additions only. Original visual rules remain in style.css. */
+.archive-note{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;padding:14px 24px;background:#e9e3f2;color:#211b2b;font:14px/1.5 Arial,sans-serif}
+.archive-note a{color:#39205b;text-decoration:underline;font-weight:700}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #f5c46c!important;outline-offset:4px}
+@media(max-width:600px){.archive-note{padding:12px 16px;font-size:12px}.contact-content h5{font-size:1rem}}
+@media(prefers-reduced-motion:reduce){html,body{scroll-behavior:auto}.btn:before,.carousel-item,.collapse{transition:none!important}}

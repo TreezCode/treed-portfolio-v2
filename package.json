@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test:portal-keeper": "node --experimental-strip-types --test tests/portal-keeper-puzzle.test.mjs && playwright test --config tests/portal-keeper.config.ts",
+    "test:playground": "playwright test --config tests/playground-routes.config.ts",
     "perf:lighthouse:baseline": "node perf/scripts/lighthouse.mjs baseline",
     "perf:lighthouse:minimal-ui": "node perf/scripts/lighthouse.mjs minimal-ui",
     "perf:lighthouse:reduced-motion": "node perf/scripts/lighthouse.mjs reduced-motion",

@@ -1,0 +1,41 @@
+.playground-story {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+  gap: 55px;
+  align-items: center;
+  padding-block: 35px;
+  border-block: 1px solid var(--line);
+}
+.playground-story-image {
+  display: block;
+  background: #14241e;
+}
+.playground-story-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.playground-story h2 {
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+}
+.playground-story p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 570px;
+  margin-block: 22px;
+}
+.playground-story .folio-text-link {
+  font-size: 14px;
+}
+@media (max-width: 760px) {
+  .playground-story {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding-block: 28px;
+  }
+  .playground-story p {
+    font-size: 15px;
+    margin-block: 18px;
+  }
+}

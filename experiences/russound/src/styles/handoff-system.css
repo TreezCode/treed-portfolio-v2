@@ -1,0 +1,61 @@
+.ts-system{background:#e9ece6}
+.ts-eyebrow{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+.ts-system .d-heading>p{max-width:40ch}
+.ts-system h2{font-size:clamp(36px,4vw,62px)}
+.ts-flow{display:grid;grid-template-columns:.78fr 1.12fr 1fr 1.1fr;gap:34px;margin-top:60px;align-items:start}
+.ts-stage{position:relative;min-width:0}
+.ts-stage:not(:last-child)::after{content:'→';position:absolute;right:-26px;top:205px;color:#557474;font-size:22px;font-weight:300}
+.ts-step{font-size:11px;font-weight:650;letter-spacing:.06em;border-bottom:1px solid #bfc9bf;padding-bottom:16px;margin-bottom:20px}
+.ts-step>span{color:#577275;margin-right:12px;font-weight:400}
+.ts-source-list{display:grid;gap:10px}
+.ts-source-list>span{border:1px solid #bdc9bf;padding:16px;font-size:13px;min-height:54px;display:flex;align-items:center}
+.ts-note{font-size:12px;line-height:1.8;color:var(--muted);margin-top:20px}
+.ts-family{display:grid;grid-template-columns:90px 1fr;align-items:center;gap:15px;background:#fbfcf8;padding:22px 17px;min-height:159px;color:var(--ink);text-decoration:none;border:1px solid #d8dfd5;transition:border-color .2s,background .2s}
+.ts-family+.ts-family{margin-top:15px}
+.ts-family:hover{background:white;border-color:#8d9f91}
+.ts-family:focus-visible{outline:2px solid var(--brand-blue);outline-offset:4px}
+.ts-family>img{width:100%;height:84px;object-fit:contain;mix-blend-mode:multiply}
+.ts-family .ts-speaker{max-width:78px;margin:auto}
+.ts-family h3{font-size:15px;line-height:1.4;letter-spacing:-.02em;margin:0 0 8px}
+.ts-family h3 span{font-size:12px;font-weight:400;white-space:nowrap}
+.ts-family p{font-size:12px;line-height:1.7;color:var(--muted)}
+.ts-power{grid-template-columns:1fr;padding:27px 23px;min-height:240px}
+.ts-power>img{height:82px}
+.ts-control-branch{margin:0;position:relative}
+.ts-control-connector{height:48px;position:relative;color:var(--muted)}
+.ts-control-connector::before{content:'';position:absolute;left:28px;top:0;bottom:0;width:1px;background:#8c9c93}
+.ts-control-connector::after{content:'';position:absolute;left:25px;top:2px;width:7px;height:7px;border-left:1px solid #8c9c93;border-top:1px solid #8c9c93;transform:rotate(45deg)}
+.ts-control-connector>span{position:absolute;left:43px;top:50%;transform:translateY(-50%);font-size:10px;letter-spacing:.025em;line-height:1.4}
+.ts-connectivity{margin:0;min-height:159px}
+.ts-system-note{display:flex;justify-content:space-between;align-items:center;gap:25px;border-top:1px solid var(--rule);padding-top:23px;margin-top:32px}
+.ts-system-note p{font-size:12px;color:var(--muted);line-height:1.8}
+.ts-system-note .d-link{font-size:12px;flex-shrink:0}
+@media(max-width:1250px){
+ .ts-flow{gap:25px;grid-template-columns:.85fr 1.1fr 1fr 1.1fr}
+ .ts-family{grid-template-columns:1fr;gap:10px;padding:18px}
+ .ts-family>img{height:75px}.ts-family .ts-speaker{height:75px}
+ .ts-stage:not(:last-child)::after{right:-20px;font-size:18px;top:220px}
+ .ts-family h3{font-size:14px}
+}
+@media(max-width:900px){
+ .ts-flow{grid-template-columns:1fr 1fr;gap:35px 28px}
+ .ts-stage::after{display:none}
+ .ts-family{grid-template-columns:85px 1fr;min-height:145px}
+ .ts-power{grid-template-columns:1fr;min-height:240px}
+ .ts-system .d-heading{flex-direction:column;align-items:flex-start;gap:24px}
+ .ts-system .d-heading>p{max-width:52ch}
+}
+@media(max-width:600px){
+ .ts-flow{grid-template-columns:1fr;gap:30px;margin-top:38px}
+ .ts-source-list{grid-template-columns:1fr}
+ .ts-stage:not(:last-child){padding-bottom:28px;border-bottom:1px solid #c4cdc0}
+ .ts-step{border:0;margin-bottom:14px;padding:0;font-size:12px}
+ .ts-source-list>span{padding:13px 16px;min-height:47px}
+ .ts-family{grid-template-columns:90px 1fr;min-height:126px;padding:20px}
+ .ts-power{grid-template-columns:90px 1fr;min-height:140px}
+ .ts-family h3{font-size:16px}
+ .ts-control-connector{height:43px}
+ .ts-system .d-heading h2 br{display:none}
+ .ts-system-note{display:block;margin-top:27px}.ts-system-note .d-link{margin-top:12px}
+}
+@media(prefers-reduced-motion:reduce){.ts-family{transition:none}}

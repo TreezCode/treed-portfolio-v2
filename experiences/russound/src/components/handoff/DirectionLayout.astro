@@ -1,0 +1,57 @@
+---
+import DirectionHeader from './DirectionHeader.astro';
+import DirectionFooter from './DirectionFooter.astro';
+import '@fontsource-variable/manrope';
+import '../../styles/handoff.css';
+import '../../styles/handoff-shell.css';
+import '../../styles/handoff-themes.css';
+import '../../styles/handoff-announcements.css';
+import '../../styles/handoff-footer-polish.css';
+import '../../styles/handoff-polish.css';
+import '../../styles/handoff-reference-palette.css';
+interface Props { title: string; description?: string; active?: string; }
+const { title, description = 'Explore a Russound website direction, from the listening experience to the products that make it possible.', active = '' } = Astro.props;
+---
+<!doctype html>
+<html lang="en" data-team-theme="warm" data-smz-backdrop="brown">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#f6f4ef" />
+
+    <link rel="icon" href="data:," />
+    <title>{title}</title>
+    <script is:inline>
+      // Incoming section links settle after fonts and the existing scroll scenes initialize.
+      if (location.hash.length > 1) {
+        const sectionHash = location.hash;
+        const pendingAlignment = new AbortController();
+        const cancelAlignment = () => pendingAlignment.abort();
+        ['wheel', 'touchstart', 'pointerdown'].forEach(type => window.addEventListener(type, cancelAlignment, {passive:true, signal:pendingAlignment.signal}));
+        window.addEventListener('keydown', event => {
+          if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(event.key)) cancelAlignment();
+        }, {signal:pendingAlignment.signal});
+        window.addEventListener('load', () => {
+          void document.fonts.ready.then(() => requestAnimationFrame(() => requestAnimationFrame(() => {
+            if (!pendingAlignment.signal.aborted && location.hash === sectionHash) {
+              // IDs may be URL-encoded and are not necessarily valid CSS selectors.
+              let targetId;
+              try { targetId = decodeURIComponent(sectionHash.slice(1)); } catch { targetId = null; }
+              if (targetId) document.getElementById(targetId)?.scrollIntoView({behavior:'instant',block:'start'});
+            }
+            pendingAlignment.abort();
+          })));
+        }, {once:true});
+      }
+    </script>
+  </head>
+  <body>
+    <a class="ds-skip" href="#main">Skip to content</a>
+    <DirectionHeader active={active} />
+    <main id="main"><slot /></main>
+    <DirectionFooter home={active === 'home'} />
+    <script>import '../../scripts/handoff-shell';</script>
+  </body>
+</html>
