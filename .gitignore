@@ -55,3 +55,8 @@ next-env.d.ts
 
 # documentation (personal notes, keep local only)
 /docs/
+
+# Native before/after capture masters stay local; track their guides and manifests.
+/content/portfolio-refresh-2026-11-03/**/*.png
+/content/portfolio-refresh-2026-11-03/**/*.webm
+/content/portfolio-refresh-2026-11-03/**/*.mp4

@@ -35,6 +35,58 @@
   overflow-wrap: break-word;
   scrollbar-color: var(--muted) var(--paper);
 }
+/* The viewport scrolls on html, outside the themed portfolio wrapper. */
+html:has(.folio-archive),
+.folio-archive {
+  --folio-scrollbar-track: #191c1b;
+  --folio-scrollbar-thumb: #87916e;
+  --folio-scrollbar-hover: #b4c48c;
+  scrollbar-color: var(--folio-scrollbar-thumb) var(--folio-scrollbar-track);
+  scrollbar-width: auto;
+}
+html:has(.folio-archive)::-webkit-scrollbar,
+.folio-archive ::-webkit-scrollbar {
+  width: auto;
+  height: auto;
+}
+html:has(.folio-archive)::-webkit-scrollbar-track,
+html:has(.folio-archive)::-webkit-scrollbar-corner,
+.folio-archive ::-webkit-scrollbar-track,
+.folio-archive ::-webkit-scrollbar-corner {
+  background: var(--folio-scrollbar-track);
+}
+html:has(.folio-archive)::-webkit-scrollbar-thumb,
+.folio-archive ::-webkit-scrollbar-thumb {
+  background: var(--folio-scrollbar-thumb);
+}
+html:has(.folio-archive)::-webkit-scrollbar-thumb:hover,
+.folio-archive ::-webkit-scrollbar-thumb:hover {
+  background: var(--folio-scrollbar-hover);
+}
+html:has(.folio-archive) #skip-to-content {
+  background: #d5ed9b;
+  color: #191c1b;
+}
+html:has(.folio-archive) #skip-to-content:focus-visible {
+  outline: 2px solid #d5ed9b;
+  outline-offset: 4px;
+}
+@media (forced-colors: active) {
+  html:has(.folio-archive),
+  .folio-archive {
+    --folio-scrollbar-track: Canvas;
+    --folio-scrollbar-thumb: CanvasText;
+    --folio-scrollbar-hover: Highlight;
+    scrollbar-color: auto;
+  }
+  html:has(.folio-archive) #skip-to-content {
+    background: Canvas;
+    color: LinkText;
+  }
+  html:has(.folio-archive) #skip-to-content:focus-visible {
+    outline-color: Highlight;
+  }
+}
 .folio *,
 .folio *::before,
 .folio *::after {

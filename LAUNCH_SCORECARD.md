@@ -2,6 +2,18 @@
 
 Date: November 3, 2026. Status: Living Archive, the 12-project selection, corrected framing and multi-page delivery approved. Geometry Bench and Portal Keeper are implemented; Joey's initial game playthrough found no issues at first glance. The authorized Playground hub and game case study are locally verified. No production deployment.
 
+## Predeployment capture and finish pass, November 3, 2026
+
+- [x] Preserved the actual older live portfolio before deployment: eight desktop/mobile PNG originals, two primary dark-theme recordings and two labeled supplemental light-theme recordings. The production title, URLs, UTC times, browser, theme, response details and hashes are recorded; no production source commit was inferred.
+- [x] Captured the reviewed candidate in fourteen PNGs, with matching 1440 × 1000 and 390 × 844 CSS viewports at DPR 2. Work and Contact are explicitly labeled as old sections versus new dedicated pages. Four additional normal-motion recordings cover the homepage on desktop/mobile, Geometry Bench and Portal Keeper. Native WebM sources and six MP4 compatibility copies are retained. No publication or social posting occurred.
+- [x] The local comparison gallery switches desktop/mobile pairs, preserves full image edges, offers original downloads and native video controls. Original media remains local outside Git; `content/portfolio-refresh-2026-11-03/media-manifest.json` records dimensions, probes and hashes. The guide includes a six-beat carousel outline and later clip/article reuse.
+- [x] Fixed residual purple viewport scrollbar and keyboard skip-link styling in the existing portfolio stylesheet. Root-document scope now follows Living Archive, with native scrollbar sizing, a dark-green track, an olive thumb and forced-color equivalents. Thumb/track contrast is 5.15:1.
+- [x] Production build `KMMPvmE6ex9jiqxQXIma9` passes with 56 generated pages. Built-CSS checks confirm desktop/mobile colors, keyboard skip-link focus and destination, forced colors, Fieldnotes preservation, zero horizontal overflow and no page errors. Evidence: `output/playwright/scrollbar-final-result.{json,md}`.
+- [x] Independent motion review on the immediately preceding build exercised desktop pointer travel, forward/reverse wall and typography progress, pause/resume, live reduced motion and touch composition. Planned motion is present; no new reveal system is needed. This CSS-only finish does not change that runtime. Details and limits: `content/portfolio-refresh-2026-11-03/MOTION_REVIEW.md`.
+- [x] All fourteen final after stills passed an independent capture review. Video samples were visually inspected and MP4 files fully decoded. These are editable source recordings, not completed social edits, continuous device-performance measurements or fresh-player sessions.
+
+A reachable playtest preview is the next deployment step; player sessions are the gate for expanding the game, not a prerequisite for making a test link reachable. The existing named-public-media permissions and hosted delivery checks below remain public-release considerations. No deployment was performed in this pass.
+
 ## Playground hub and case study delivery, November 3, 2026
 
 `/playground` now gives Geometry Bench and The Portal Keeper equivalent original previews and direct actions. The instrument lives at `/playground/geometry-bench`; existing recipe and explanatory bookmarks forward with their query and hash intact. `/work/portal-keeper` adds an editorial story, actual scene captures and an independent three-state light-path example driven by the game's puzzle model. Home, Work and the game connect these pages while retaining the approved 12-project collection.

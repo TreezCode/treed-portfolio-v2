@@ -50,6 +50,8 @@ Touch: native page scrolling, composed static collage and two mounted prints in 
 
 Image framing: preserve the complete source composition inside every tile, feature and project card with centered contain sizing. Small insets protect image edges from rounded frame clipping. Images do not zoom on hover, and opaque corner icons do not cover the artwork; adjacent title and text links retain the navigation cues. The decorative perspective wall can still extend beyond the hero viewport as part of the approved Atrium composition.
 
+Predeployment finish: the document scrollbar now uses the Living Archive dark-green track and muted-olive thumb at native width, and the keyboard skip link uses chartreuse and ink. These rules follow the current `.folio-archive` surface, including after navigation, and respect forced-color system palettes. Fieldnotes retains its own styling. The November 3 motion review confirmed the approved signature sequences; immediate copy and editorial case-study pacing remain intentional. No additional text-reveal layer, loading curtain or motion dependency was added. The review and reusable before/after source captures are catalogued in `content/portfolio-refresh-2026-11-03/`.
+
 ## Assets, production and boundaries
 
 Use original local project exports, actual website captures and clearly described architecture illustrations. No generated stock filler or third-party reference art. Preserve source masters; WebP derivatives and two small native media previews live under public/portfolio/2026. Project-specific provenance is retained in the local reconciliation manifests. No new paid tools, CMS, animation runtime or hosted service was added.
