@@ -2,6 +2,11 @@ import { test, expect, type Page } from '@playwright/test'
 
 const route = '/play/portal-keeper'
 const saveKey = 'portal-keeper:observatory:v1'
+// Consent UI has its own suite. Keep this journey focused on the puzzle's
+// native keyboard scrolling instead of placing the first-visit notice over it.
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('treez-analytics-consent:v1', 'declined'))
+})
 async function routeLight(page: Page) {
   for (let i = 0; i < 4; i++)
     await page.getByRole('button', { name: 'Turn Mirror A right', exact: true }).click()
