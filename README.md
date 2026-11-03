@@ -1,14 +1,25 @@
 # Build With Treez
 
-The professional portfolio of Joey Kubalak, a product-minded software engineer focused on secure web applications, production client work, and dimensional front-end craft.
+The portfolio of Joey Kubalak, a software engineer and creative maker. The November 2026 local redesign brings software, original motion, digital products and creative worlds into one complete collection.
 
 **Live site:** [buildwithtreez.com](https://buildwithtreez.com/)
 
+## November 2026 local review
+
+- `/`: Living Archive, the approved direction with 12 proposed selected projects.
+- `/work/little-portal-studio`: One studio project with eight released products inside it.
+- `/directions/fieldnotes`: Retained, unlinked editorial direction study.
+- `/work/[slug]`: Current project stories. Original detail URLs remain recoverable; unselected records are noindex and excluded from the sitemap.
+
+Run `npm run build`, then `npm run start -- --hostname 127.0.0.1 --port 4318` to review the production-built selection. No publication is part of this revision.
+
+Current project content lives in `src/data/portfolio-{development,creative,russound}.ts`, joined by `src/data/portfolio.ts`. Source reconciliation and asset manifests are retained locally in `docs/portfolio-refresh/`, which this repository intentionally excludes from Git. Read `DESIGN.md` for reference decisions and `LAUNCH_SCORECARD.md` for actual verification and launch boundaries.
+
 ## What this repository demonstrates
 
-- Employer-first case studies with explicit role, constraints, decisions, verification, and project-status boundaries
-- Server-rendered portfolio content with focused client-side islands for interaction
-- A restrained sacred-geometry WebGL identity built with Three.js and React Three Fiber
+- An employer-first introduction and complete browsable collection with roles and accurate project stages
+- Server-rendered project content with client-side category filters, search and optional motion
+- Original sacred geometry, a CSS perspective image wall and an alternate editorial contact sheet
 - Responsive, keyboard-accessible interfaces with intentional reduced-motion behavior
 - A hardened contact route with server-side validation, output encoding, a honeypot, Netlify edge rate limiting, defense-in-depth throttling, and Resend delivery
 - Canonical metadata, Open Graph imagery, sitemap and robots generation, and production security headers

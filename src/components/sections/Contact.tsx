@@ -3,10 +3,8 @@
 import { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import type { z } from 'zod'
 import { contactSchema, type ContactFormData } from '@/lib/validations/contact'
-import { MotionSequence } from '@/components/animations/MotionSystem'
 
 const CONTACT_EMAIL = 'jkubalak.dev@gmail.com'
 type ContactFormInput = z.input<typeof contactSchema>
@@ -31,7 +29,6 @@ function ArrowIcon() {
 
 export function Contact() {
   const honeypotRef = useRef<HTMLInputElement>(null)
-  const shouldReduceMotion = useReducedMotion()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
@@ -77,7 +74,7 @@ export function Contact() {
       aria-labelledby="contact-title"
     >
       <div className="portfolio-container">
-        <MotionSequence className="contact-layout" staggerDelay={0.1} viewportAmount={0.08}>
+        <div className="contact-layout">
           <div className="contact-intro" data-motion-item>
             <span className="section-index" aria-hidden="true">
               04
@@ -130,10 +127,17 @@ export function Contact() {
           <div className="contact-form-shell" data-motion-item>
             <div className="contact-form-heading">
               <p className="text-label">Direct inquiry</p>
-              <p>I reply personally. No mailing list, sales sequence, or automated follow-up.</p>
+              <p>Tell me a little about what you’re working on. I reply personally.</p>
             </div>
 
+            <noscript>
+              <p>
+                <a href={`mailto:${CONTACT_EMAIL}`}>Send me an email</a> to start a conversation.
+              </p>
+              <style>{'.contact-form-shell form.folio-contact-form { display: none; }'}</style>
+            </noscript>
             <form
+              className="folio-contact-form"
               onSubmit={handleSubmit(onSubmit)}
               action={`mailto:${CONTACT_EMAIL}`}
               method="post"
@@ -218,45 +222,21 @@ export function Contact() {
               </button>
 
               <div className="contact-status" aria-live="polite" aria-atomic="true">
-                <AnimatePresence initial={false} mode="wait">
-                  {submitStatus === 'success' && (
-                    <motion.p
-                      key="success"
-                      className="contact-status--success"
-                      role="status"
-                      initial={shouldReduceMotion ? false : { opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={shouldReduceMotion ? undefined : { opacity: 0, y: -4 }}
-                      transition={{
-                        duration: shouldReduceMotion ? 0 : 0.22,
-                        ease: [0.16, 1, 0.3, 1],
-                      }}
-                    >
-                      Your message was sent. I&apos;ll reply as soon as I can.
-                    </motion.p>
-                  )}
-                  {submitStatus === 'error' && (
-                    <motion.p
-                      key="error"
-                      className="contact-status--error"
-                      role="alert"
-                      initial={shouldReduceMotion ? false : { opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={shouldReduceMotion ? undefined : { opacity: 0, y: -4 }}
-                      transition={{
-                        duration: shouldReduceMotion ? 0 : 0.22,
-                        ease: [0.16, 1, 0.3, 1],
-                      }}
-                    >
-                      The form could not send. Please{' '}
-                      <a href={`mailto:${CONTACT_EMAIL}`}>email me directly</a> instead.
-                    </motion.p>
-                  )}
-                </AnimatePresence>
+                {submitStatus === 'success' && (
+                  <p key="success" className="contact-status--success" role="status">
+                    Your message was sent. I&apos;ll reply as soon as I can.
+                  </p>
+                )}
+                {submitStatus === 'error' && (
+                  <p key="error" className="contact-status--error" role="alert">
+                    The form could not send. Please{' '}
+                    <a href={`mailto:${CONTACT_EMAIL}`}>email me directly</a> instead.
+                  </p>
+                )}
               </div>
             </form>
           </div>
-        </MotionSequence>
+        </div>
       </div>
     </section>
   )

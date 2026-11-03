@@ -2,8 +2,6 @@ import type { Metadata } from 'next'
 import { Archivo, Geist_Mono } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
-import { Header } from '@/components/layout/Header'
-import { Footer } from '@/components/layout/Footer'
 import { ThemeProvider } from '@/contexts/ThemeContext'
 import dynamic from 'next/dynamic'
 
@@ -37,6 +35,7 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
   display: 'optional',
+  preload: false,
 })
 
 const themeInitializationScript = `
@@ -71,11 +70,11 @@ const motionInitializationScript = `
 export const metadata: Metadata = {
   metadataBase: new URL('https://buildwithtreez.com'),
   title: {
-    default: 'Joey Kubalak | Product-Minded Software Engineer',
+    default: 'Joey Kubalak | Software Engineer & Creative Maker',
     template: '%s | Joey Kubalak',
   },
   description:
-    'Product-minded software engineer building secure web applications with TypeScript, React, Next.js, PostgreSQL, and thoughtful user experience.',
+    'Software, imaginative digital worlds, and the curiosity behind them. Explore websites, apps, motion design, and creative projects by Joey Kubalak.',
   alternates: {
     canonical: '/',
   },
@@ -99,17 +98,17 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://buildwithtreez.com',
-    title: 'Joey Kubalak | Product-Minded Software Engineer',
+    title: 'Joey Kubalak | Software Engineer & Creative Maker',
     description:
-      'Secure web products, production client launches, and thoughtful user experience built with TypeScript, React, and Next.js.',
+      'Thoughtful software and imaginative digital worlds. Explore the complete project collection by Joey Kubalak.',
     siteName: 'Joey Kubalak Portfolio',
     // Images automatically generated from opengraph-image.tsx
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Joey Kubalak | Product-Minded Software Engineer',
+    title: 'Joey Kubalak | Software Engineer & Creative Maker',
     description:
-      'Secure web products, production client launches, and thoughtful user experience built with TypeScript, React, and Next.js.',
+      'Thoughtful software and imaginative digital worlds. Explore the complete project collection by Joey Kubalak.',
     // Images automatically generated from opengraph-image.tsx
   },
   robots: {
@@ -179,11 +178,9 @@ export default function RootLayout({
         </a>
         <ThemeProvider>
           <PerfProvider>
-            <Header />
             <main id="main-content" className="flex-1">
               {children}
             </main>
-            <Footer />
             {isPerfEnabled && <PerfOverlayRoot />}
           </PerfProvider>
         </ThemeProvider>
