@@ -28,7 +28,10 @@ function projectLinkKind(href: string) {
 }
 
 export function generateStaticParams() {
-  return allPortfolioProjects.map((project) => ({ slug: project.id }))
+  // Portal Keeper owns a dedicated, interactive case-study route.
+  return allPortfolioProjects
+    .filter((project) => project.id !== 'portal-keeper')
+    .map((project) => ({ slug: project.id }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -14,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       'playground',
       'playground/geometry-bench',
       'play/portal-keeper',
-      'work/portal-keeper',
       'about',
       'contact',
       'privacy',

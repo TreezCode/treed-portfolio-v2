@@ -11,7 +11,7 @@ import { DirectionSwitch, GeometryMark, PortfolioFooter, PortfolioHeader } from 
 import './portfolio.css'
 
 const wallImages = [
-  ['cosmic-zen', 'presentsphere', 'russound-digital-experience', 'renamerly'],
+  ['cosmic-zen', 'presentsphere', 'portal-keeper', 'renamerly'],
   ['ascension-roofing', 'codorus-web', 'little-portal-studio', 'presentsphere'],
   ['honeyden', 'rift-riders', 'russound-learning-course', 'cosmic-zen'],
 ]
@@ -269,7 +269,7 @@ export default function PortfolioPage({
   const root = useRef<HTMLDivElement>(null)
   const [paused, setPaused] = useState(false)
   useChoreography(root, paused)
-  const featured = ['presentsphere', 'russound-digital-experience', 'ascension-roofing']
+  const featured = ['presentsphere', 'codorus-web', 'ascension-roofing']
     .map((id) => portfolioProjects.find((project) => project.id === id))
     .filter((project): project is PortfolioProject => Boolean(project))
   return (
