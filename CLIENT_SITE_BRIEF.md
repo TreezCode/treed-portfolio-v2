@@ -34,6 +34,8 @@ After approving the corrected framing, Joey authorized the multi-page build and 
 
 ## Content authority and proof
 
+November 4 temporary hold: Joey requested removing the Russound client website from the portfolio until its launch, preserving the content and deploying the change. The website and related motion study are withheld from public routes and imagery. Sound, Made Clear remains public by his explicit clarification. Codorus Web is the delegated homepage feature replacement. Portal Keeper fills the collection vacancy, keeping 12 selected projects and reusing its approved case-study copy and imagery. Restoration and preserved asset hashes are recorded in `content/held-projects/russound/README.md`. Research not needed: approved descriptions and existing audience evidence are reused without new claims.
+
 `PRODUCT.md` owns the audience and product boundaries. Current original project records, source repositories and deployed pages own factual claims; `DESIGN.md` owns visual expression. Historical copy and knowledge-base summaries are discovery pointers.
 
 The catalog is reconciled through `docs/portfolio-refresh/development-inventory.md`, `creative-inventory.md` and `reference-and-russound-inventory.md`. Asset manifests preserve provenance. Material corrections include the current PresentSphere family app and separate website; Ascension's current Next.js site and earlier WordPress lineage; Codorus Web's broader studio offer; and AIEOS's current local Engineering Toolkit, whose public link is labeled as earlier source.

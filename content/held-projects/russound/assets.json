@@ -1,0 +1,22 @@
+[
+  {
+    "publicPath": "/portfolio/2026/russound-digital.webp",
+    "archivePath": "public/portfolio/2026/russound-digital.webp",
+    "sha256": "2cb24ad15411eaad7127c2a085ecb7fea592af443a4af78994c5f876b79e7333"
+  },
+  {
+    "publicPath": "/portfolio/2026/russound-motion.webp",
+    "archivePath": "public/portfolio/2026/russound-motion.webp",
+    "sha256": "c89b28fa93b743161d8bb10bcc081949f0c3147fb6e6c561b4e1bf715e8fdb86"
+  },
+  {
+    "publicPath": "/portfolio/cases/russound-listening-planner.webp",
+    "archivePath": "public/portfolio/cases/russound-listening-planner.webp",
+    "sha256": "ddb492bf448f4b9a87030c7b7b22dd5eccd0366ff579f3033a8f3fe6690083c9"
+  },
+  {
+    "publicPath": "/portfolio/cases/russound-app-experience.webp",
+    "archivePath": "public/portfolio/cases/russound-app-experience.webp",
+    "sha256": "239eb4ef27ec6f8c39af308512f737a11fe8f5d06b89153d513858b696efae6e"
+  }
+]

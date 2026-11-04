@@ -1,20 +1,25 @@
 import { creativeProjects } from './portfolio-creative'
 import { developmentProjects } from './portfolio-development'
-import { russoundProjects } from './portfolio-russound'
+import { soundMadeClearProject } from './portfolio-sound-made-clear'
+import { portalKeeperProject } from './portfolio-playground'
 import type { PortfolioProject } from './portfolio-types'
 
-// Retain original records and detail URLs while the owner reviews the curated selection.
+// Russound's client website and motion work are withheld until the website launches.
+// Its records remain in portfolio-russound.ts; restoration is documented in
+// content/held-projects/russound/README.md. Keep it out of this public catalog
+// so listings, detail routes, related work, analytics IDs and social cards agree.
 export const allPortfolioProjects = [
   ...developmentProjects,
-  ...russoundProjects,
+  soundMadeClearProject,
+  portalKeeperProject,
   ...creativeProjects,
 ]
 
 const selectedProjectIds = [
   'presentsphere',
-  'russound-digital-experience',
-  'ascension-roofing',
+  'portal-keeper',
   'codorus-web',
+  'ascension-roofing',
   'honeyden',
   'renamerly',
   'russound-learning-course',
