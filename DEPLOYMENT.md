@@ -2,18 +2,30 @@
 
 Released November 3, 2026, after owner approval of the launch pass and clean Russound portfolio edition.
 
-Latest authorized follow-up: the Living Archive favicon and Portal Keeper audio recovery fix were published November 3 after [PR #3](https://github.com/TreezCode/treed-portfolio-v2/pull/3) merged at 20:39:12 UTC (3:39:12 PM New York). Netlify's published-site readback confirms the current portfolio deployment below.
+Latest authorized follow-up: the temporary Russound portfolio hold and Portal Keeper collection replacement were published November 4 after [PR #4](https://github.com/TreezCode/treed-portfolio-v2/pull/4) merged at 07:18:33 UTC (2:18:33 AM New York). Netlify published the production deployment at 07:19:15 UTC. The prior Living Archive favicon and Portal Keeper audio recovery release was PR #3 on November 3.
 
 ## Published origins
 
 | Surface | URL | Release |
 | --- | --- | --- |
-| Portfolio | https://buildwithtreez.com | Git commit `852c6ee0bc00c5e1f052324568ac5fdff7fa02fd`; Netlify deploy `6aea467256f49ff62da3930d` |
+| Portfolio | https://buildwithtreez.com | Git commit `a103d3bfc63d9d24aeecfba0ef08a08919e73bb6`; Netlify deploy `6aeadc4c073b792af5b68f6b` |
 | Clean Russound experience | https://treez-russound-experience.netlify.app | Netlify deploy `6aea1fb01491af4b74be38d7`; immutable 81-file `experiences/russound/release/upload` artifact |
 
 The initial portfolio [PR #2](https://github.com/TreezCode/treed-portfolio-v2/pull/2) was merged at 18:01:46 UTC, publishing commit `6173ee9356ac1c947e75871cdbdac69656d19811` as deploy `6aea218d53f77b439f44e0f5`. The follow-up above supersedes that deployment. Local `main` was fast-forwarded to the merged release. Later documentation-only commits do not change these deployed application bytes.
 
 The live release includes Home, Work, About, Contact, Privacy, deeper case studies, the Playground hub, Geometry Bench and Portal Keeper. The bench's face-on alignment and reset/export correction are included. The standalone game remains one room pending fresh-player feedback.
+
+## November 4 temporary Russound hold
+
+- Russound Digital Experience and Music in the Room are withheld from the public catalog, direct case-study routes, share images and related work. Their source records and case-study text remain preserved. Four unchanged images were moved outside `public`, with hashes and restoration instructions in `content/held-projects/russound/README.md`.
+- Sound, Made Clear remains public by Joey's explicit clarification, including its original copy, three images, course link and hero placement.
+- Portal Keeper fills the selected-work vacancy, keeping 12 projects and linking to the existing interactive case study. Its observatory image replaces the withdrawn hero image. Codorus Web replaces the homepage featured website slot.
+- Production build, scoped lint, independent source review and asset-preservation checks passed. Local browser views passed at 1440, 390 and 320 pixels. Netlify preview `6aeadbd696b79c74e35c51b6` passed before merge.
+- Production readback confirms the merged commit and ready deploy above. Sixteen targeted HTTP checks passed: eight withheld URLs return 404 and eight retained/new project, preview and image URLs return 200. The sitemap has 28 unique URLs with Portal Keeper present once. Eleven delivered homepage/Work JavaScript chunks contain neither withheld record.
+- Live Chromium checks at 1440 and 390 pixels confirm 12 cards, retained course, Portal Keeper search and navigation, no horizontal overflow, no broken loaded images, no withheld links and no uncaught page errors. Analytics was declined and collection requests blocked. These are browser-emulation checks, not physical-device tests.
+- The separately hosted clean Russound demo and original client-review version remain unchanged by this portfolio-only withdrawal.
+
+Evidence: `output/playwright/russound-hold-production-http.json`, `russound-hold-preview-http.json`, `russound-hold-live-review.js`, and the `russound-hold-production-*` screenshots.
 
 ## Favicon and audio follow-up verification
 
