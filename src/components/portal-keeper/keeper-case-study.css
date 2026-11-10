@@ -95,7 +95,6 @@
 .keeper-case-mechanism {
   border-top: 1px solid var(--line);
   padding-block: 65px 90px;
-  scroll-margin-top: 115px;
 }
 .keeper-case-section-heading {
   display: grid;
@@ -331,7 +330,6 @@
   }
   .keeper-case-mechanism {
     padding-block: 45px 60px;
-    scroll-margin-top: 140px;
   }
   .keeper-case-section-heading {
     margin-bottom: 28px;

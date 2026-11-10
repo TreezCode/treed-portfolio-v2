@@ -12,6 +12,11 @@
   --hero-travel: 0px;
   --wall-turn: -18deg;
   --band-travel: 0px;
+  --folio-upper-height: 56px;
+  --folio-primary-height: 46px;
+  --folio-retreat: 0px;
+  --folio-header-visible-height: calc(var(--folio-upper-height) + var(--folio-primary-height) - var(--folio-retreat));
+  --folio-header-transition: 280ms cubic-bezier(.22, 1, .36, 1);
   --text-primary: var(--ink);
   --text-secondary: var(--muted);
   --text-tertiary: var(--muted);
@@ -145,20 +150,54 @@ html:has(.folio-archive) #skip-to-content:focus-visible {
   margin-inline: auto;
 }
 .folio section[id] {
-  scroll-margin-top: 110px;
+  scroll-margin-top: calc(var(--folio-upper-height) + var(--folio-primary-height) + 12px);
+}
+.folio:has(> .folio-header[data-compact]) {
+  --folio-retreat: var(--folio-upper-height);
+}
+.folio:has(> .folio-header :focus-visible) {
+  --folio-header-transition: 0s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio {
+    --folio-header-transition: 0s;
+  }
 }
 .folio-header {
-  height: 92px;
-  padding: 0 56px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  border-bottom: 1px solid var(--line);
   background: var(--paper);
   position: sticky;
   top: 0;
   z-index: 50;
+  padding-inline: 56px;
+  transform: translateY(calc(0px - var(--folio-retreat)));
+  transition: transform var(--folio-header-transition);
+  box-shadow: inset 0 -1px var(--line);
+}
+.folio-header__identity,
+.folio-header__primary,
+.folio-header__identity nav {
+  display: flex;
+  align-items: center;
+}
+.folio-header__identity {
+  min-height: 56px;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.folio-header__identity nav {
+  gap: clamp(12px, 2.2vw, 32px);
+}
+.folio-header__primary {
+  min-height: 46px;
+  gap: clamp(24px, 3vw, 46px);
+}
+.folio-header__identity .folio-brand {
+  min-height: 44px;
+}
+.folio-header__identity .folio-brand svg {
+  width: 32px;
+  height: 32px;
 }
 .folio-brand {
   display: inline-flex;
@@ -178,36 +217,32 @@ html:has(.folio-archive) #skip-to-content:focus-visible {
 .folio-brand-dot {
   color: var(--accent);
 }
-.folio-header nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 38px;
-  align-items: center;
-  margin-left: auto;
-}
-.folio-header nav a,
-.folio-resume {
+.folio-header nav a {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
   text-decoration: none;
   font-size: 14px;
 }
-.folio-header nav a {
+.folio-header__identity nav a {
   color: var(--muted);
+  gap: 5px;
 }
 .folio-header nav a:hover {
-  color: var(--ink);
+  color: var(--accent);
 }
-.folio-resume {
-  gap: 14px;
-  padding-inline: 22px;
-  border: 1px solid var(--line);
-  margin-left: 26px;
-  border-radius: 4px;
+.folio-header__primary a {
+  font-weight: 550;
 }
-.folio-resume:hover {
-  border-color: var(--accent);
+.folio-header__contact {
+  margin-inline-start: auto;
+  gap: 8px;
+}
+.folio-header__contact svg {
+  color: var(--accent);
+}
+.folio-header a:focus-visible {
+  outline-offset: -2px;
 }
 .direction-switch {
   display: flex;
@@ -1208,20 +1243,6 @@ html:has(.folio-archive) #skip-to-content:focus-visible {
   }
 }
 @media (max-width: 760px) {
-  .folio-header {
-    height: auto;
-    min-height: 80px;
-    flex-wrap: wrap;
-    gap: 8px 20px;
-    padding-block: 13px;
-  }
-  .folio-header nav {
-    gap: 24px;
-  }
-  .folio-resume {
-    margin-left: 0;
-    padding-inline: 14px;
-  }
   .folio-brand {
     font-size: 18px;
   }
@@ -1427,25 +1448,31 @@ html:has(.folio-archive) #skip-to-content:focus-visible {
   }
   .folio-header {
     padding-inline: 20px;
-    gap: 4px 15px;
   }
-  .folio-header .folio-brand {
-    flex: 1;
+  .folio {
+    --folio-upper-height: 48px;
+    --folio-primary-height: 44px;
+  }
+  .folio-header__identity {
+    min-height: 48px;
+  }
+  .folio-header__identity .folio-brand {
     font-size: 17px;
+    gap: 7px;
   }
-  .folio-header .folio-resume {
+  .folio-header__identity .folio-brand svg {
+    width: 25px;
+    height: 25px;
+  }
+  .folio-header__identity nav a {
     font-size: 12px;
+  }
+  .folio-header__primary {
     min-height: 44px;
+    gap: 28px;
   }
-  .folio-header nav {
-    order: 3;
-    width: 100%;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  .folio-header nav a {
+  .folio-header__primary a {
     font-size: 13px;
-    min-height: 44px;
   }
   .direction-switch {
     padding: 8px 20px;
@@ -1591,9 +1618,6 @@ html:has(.folio-archive) #skip-to-content:focus-visible {
   }
   .folio-fieldnotes .folio-hero {
     padding-bottom: 84px;
-  }
-  .folio section[id] {
-    scroll-margin-top: 145px;
   }
   .folio-fieldnotes .folio-hero h1 {
     font-size: clamp(2.8rem, 11.5vw, 4.2rem);

@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { ArrowDown, ArrowUpRight } from 'lucide-react'
+import { ArrowDown, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { AnalyticsPreferencesButton } from '@/components/analytics/PortfolioAnalytics'
+import { TieredHeader } from './TieredHeader'
 
 export function GeometryMark({ className = '' }: { className?: string }) {
   return (
@@ -38,14 +39,24 @@ export function PortfolioHeader({
 }) {
   const home = direction === 'archive' ? '/' : '/directions/fieldnotes'
   return (
-    <header className="folio-header">
-      <Link className="folio-brand" href={home} aria-label="buildwithtreez. home">
-        <GeometryMark />
-        <span>
-          buildwithtreez<span className="folio-brand-dot">.</span>
-        </span>
-      </Link>
-      <nav aria-label="Main navigation">
+    <TieredHeader>
+      <div className="folio-header__identity">
+        <Link className="folio-brand" href={home} aria-label="buildwithtreez. home">
+          <GeometryMark />
+          <span>
+            buildwithtreez<span className="folio-brand-dot">.</span>
+          </span>
+        </Link>
+        <nav aria-label="About and resume">
+          <Link href="/about" aria-current={active === 'about' ? 'page' : undefined}>
+            About
+          </Link>
+          <a className="folio-resume" href="/joey-kubalak-resume.pdf" download>
+            Resume <ArrowDown size={14} aria-hidden="true" />
+          </a>
+        </nav>
+      </div>
+      <nav className="folio-header__primary" aria-label="Main navigation">
         <Link href="/work" aria-current={active === 'work' && !detail ? 'page' : undefined}>
           Work
         </Link>
@@ -56,17 +67,15 @@ export function PortfolioHeader({
         >
           Playground
         </Link>
-        <Link href="/about" aria-current={active === 'about' ? 'page' : undefined}>
-          About
-        </Link>
-        <Link href="/contact" aria-current={active === 'contact' ? 'page' : undefined}>
-          Contact
+        <Link
+          className="folio-header__contact"
+          href="/contact"
+          aria-current={active === 'contact' ? 'page' : undefined}
+        >
+          Contact <ArrowRight size={16} aria-hidden="true" />
         </Link>
       </nav>
-      <a className="folio-resume" href="/joey-kubalak-resume.pdf" download>
-        Resume <ArrowDown size={16} />
-      </a>
-    </header>
+    </TieredHeader>
   )
 }
 

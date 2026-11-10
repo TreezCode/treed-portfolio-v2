@@ -448,7 +448,6 @@
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 80px;
-  scroll-margin-top: 140px;
 }
 .bench-making h2 {
   font-size: clamp(2.5rem, 3.7vw, 3.8rem);
@@ -689,7 +688,8 @@
   }
   .bench-stage-column {
     position: sticky;
-    top: var(--bench-header-height, 118px);
+    top: var(--folio-header-visible-height);
+    transition: top var(--folio-header-transition);
     z-index: 3;
     background: var(--paper);
     padding-block: 8px 12px;
@@ -709,6 +709,6 @@
   .bench-controls input,
   .bench-controls select,
   .bench-controls button {
-    scroll-margin-top: calc(var(--bench-header-height, 118px) + 380px);
+    scroll-margin-top: calc(var(--folio-header-visible-height) + 380px);
   }
 }
