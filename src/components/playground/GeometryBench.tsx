@@ -102,7 +102,6 @@ export default function GeometryBench() {
   const [shareUrl, setShareUrl] = useState('')
   const [copied, setCopied] = useState(false)
   const stageRef = useRef<HTMLDivElement>(null)
-  const benchRef = useRef<HTMLDivElement>(null)
   const drag = useRef<{ x: number; yaw: number } | null>(null)
   const captureRef = useRef<(() => string | null) | null>(null)
   const interactionReported = useRef(false)
@@ -154,20 +153,6 @@ export default function GeometryBench() {
       rootMargin: '50px',
     })
     observer.observe(element)
-    return () => observer.disconnect()
-  }, [])
-
-  useEffect(() => {
-    const header = document.querySelector('.folio-header')
-    if (!header) return
-    const measure = () =>
-      benchRef.current?.style.setProperty(
-        '--bench-header-height',
-        `${header.getBoundingClientRect().height}px`
-      )
-    measure()
-    const observer = new ResizeObserver(measure)
-    observer.observe(header)
     return () => observer.disconnect()
   }, [])
 
@@ -232,7 +217,6 @@ export default function GeometryBench() {
   return (
     <div
       className="geometry-bench"
-      ref={benchRef}
       style={
         {
           '--bench-color': palette.line,

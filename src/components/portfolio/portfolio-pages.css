@@ -308,7 +308,8 @@
 .folio-case-nav {
   align-self: start;
   position: sticky;
-  top: 125px;
+  top: calc(var(--folio-header-visible-height) + 24px);
+  transition: top var(--folio-header-transition);
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -330,9 +331,6 @@
 }
 .folio-case-main {
   min-width: 0;
-}
-.folio-case-main section[id] {
-  scroll-margin-top: 125px;
 }
 .folio-case-main section {
   margin-bottom: 90px;
@@ -773,9 +771,6 @@
   }
   .folio-case-main section {
     margin-bottom: 60px;
-  }
-  .folio-case-main section[id] {
-    scroll-margin-top: 140px;
   }
   .folio-case-main p {
     font-size: 17px;

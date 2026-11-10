@@ -169,12 +169,7 @@ export default function PortalKeeper() {
     if (!stage) return
     const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting))
     observer.observe(stage)
-    const header = document.querySelector('.folio-header')
     const measure = () => {
-      sectionRef.current?.style.setProperty(
-        '--keeper-header-height',
-        `${header?.getBoundingClientRect().height ?? 92}px`
-      )
       sectionRef.current?.style.setProperty(
         '--keeper-stage-height',
         `${stage.getBoundingClientRect().height}px`
@@ -182,7 +177,6 @@ export default function PortalKeeper() {
     }
     measure()
     const resize = new ResizeObserver(measure)
-    if (header) resize.observe(header)
     resize.observe(stage)
     return () => {
       observer.disconnect()
