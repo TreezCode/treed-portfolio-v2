@@ -66,7 +66,12 @@ export function TieredHeader({ children }: { children: ReactNode }) {
       if (!frame) frame = requestAnimationFrame(update)
     }
     const focus = (event: FocusEvent) => {
-      if (upper.contains(event.target as Node)) header.removeAttribute('data-compact')
+      if (upper.contains(event.target as Node) && header.hasAttribute('data-compact')) {
+        header.removeAttribute('data-compact')
+        // Focusing an offscreen link can start a native smooth scroll. The
+        // sticky row is now visible, so keep the reading position it had before focus.
+        window.scrollTo({ top: lastY, behavior: 'instant' })
+      }
       resetTravel()
     }
     const hold = () => {
