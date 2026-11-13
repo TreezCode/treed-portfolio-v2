@@ -6,12 +6,21 @@ const game = '/play/portal-keeper'
 const story = '/work/portal-keeper'
 const afterHours = '#bench=v1.orbit.7.4.72.37.36.271828.cosmic'
 
-test('hub offers both experiences; dedicated bench keeps its canonical and explanatory anchor', async ({
+test('hub offers all three experiences; dedicated bench keeps its canonical and explanatory anchor', async ({
   page,
 }) => {
   await page.goto(hub, { waitUntil: 'networkidle' })
   await expect(page.locator(`a[href="${bench}"]`).first()).toBeVisible()
   await expect(page.locator(`a[href="${game}"]`).first()).toBeVisible()
+  const atlas = page
+    .locator('article')
+    .filter({ has: page.getByRole('heading', { name: 'Still Atlas.' }) })
+  for (const name of ['Open Still Atlas', 'Explore the gallery']) {
+    await expect(atlas.getByRole('link', { name, exact: true })).toHaveAttribute(
+      'href',
+      'https://still-atlas-playground.pages.dev/'
+    )
+  }
   await expect(page.locator('canvas')).toHaveCount(0)
 
   await page.locator(`a[href="${bench}"]`).first().click()
