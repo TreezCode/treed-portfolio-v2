@@ -2,6 +2,8 @@
 
 Released November 3, 2026, after owner approval of the launch pass and clean Russound portfolio edition.
 
+On November 13, 2026, Still Atlas joined Geometry Bench and The Portal Keeper on the Playground. The card artwork and its “Explore the gallery” button open the standalone gallery in the same tab. [Live Playground](https://buildwithtreez.com/playground) · [Still Atlas](https://still-atlas-playground.pages.dev/) · [PR #6](https://github.com/TreezCode/treed-portfolio-v2/pull/6) · [Fixed production deployment](https://6af76af1871b029c7241e67b--buildwithtreez.netlify.app/playground)
+
 The two-row portfolio navigation went live on November 10, 2026 at 12:19 a.m. New York time. Work, Playground, and Contact stay pinned. Scrolling up brings back the wordmark, About, and Resume. [PR #5](https://github.com/TreezCode/treed-portfolio-v2/pull/5) · [Fixed production deployment](https://6af2a93e922a089cee7f969e--buildwithtreez.netlify.app/)
 
 All 24 browser checks passed on `https://buildwithtreez.com`. Desktop wheel input at 1440 × 900 and touch emulation at 390 × 844 kept all three primary links visible and clickable throughout the sampled transitions. Deliberate upward scroll restored both the wordmark and About while the visitor was still partway down the page. Tabbing into the hidden row in either direction retained the 700 px reading position. Additional coverage included 320 px reflow, reduced motion, JavaScript disabled and alignment with both Playground stages. Recordings and JSON results are in the local `output/playwright/tiered-nav-production/` folder. Mobile checks used Chromium touch emulation.
@@ -12,12 +14,12 @@ The previous portfolio release was the November 4 temporary Russound hold and Po
 
 | Surface | URL | Release |
 | --- | --- | --- |
-| Portfolio | https://buildwithtreez.com | Git commit `20741fc7a376cddfbed27a49e4d9c8451b0cccf3`; Netlify deploy `6af2a93e922a089cee7f969e` |
+| Portfolio | https://buildwithtreez.com | Git commit `762f4ccf23f23491cf10049ae9eafa3001c81356`; Netlify deploy `6af76af1871b029c7241e67b` |
 | Clean Russound experience | https://treez-russound-experience.netlify.app | Netlify deploy `6aea1fb01491af4b74be38d7`; immutable 81-file `experiences/russound/release/upload` artifact |
 
 The initial portfolio [PR #2](https://github.com/TreezCode/treed-portfolio-v2/pull/2) was merged at 18:01:46 UTC, publishing commit `6173ee9356ac1c947e75871cdbdac69656d19811` as deploy `6aea218d53f77b439f44e0f5`. The follow-up above supersedes that deployment. Local `main` was fast-forwarded to the merged release. Later documentation-only commits do not change these deployed application bytes.
 
-The live release includes Home, Work, About, Contact, Privacy, deeper case studies, the Playground hub, Geometry Bench and Portal Keeper. The bench's face-on alignment and reset/export correction are included. The standalone game remains one room pending fresh-player feedback.
+The live release includes Home, Work, About, Contact, Privacy, deeper case studies, the Playground hub, Geometry Bench, Portal Keeper and the Still Atlas gallery card. The bench's face-on alignment and reset/export correction are included. The standalone game remains one room pending fresh-player feedback.
 
 ## November 4 temporary Russound hold
 

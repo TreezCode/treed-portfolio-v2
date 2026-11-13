@@ -2,6 +2,10 @@
 
 Date: November 3, 2026. Status: the approved Living Archive portfolio, curated work, Geometry Bench and Portal Keeper are published at `https://buildwithtreez.com`. Current release commit `852c6ee0bc00c5e1f052324568ac5fdff7fa02fd`, Netlify deploy `6aea467256f49ff62da3930d`, includes the favicon and audio follow-up. `DEPLOYMENT.md` owns the current hosted verification and follow-up; older candidate evidence below retains its original scope and chronology.
 
+## Still Atlas Playground card, November 13, 2026
+
+Desktop Chrome at 1440 × 900 and touch-emulated WebKit at 390 × 844 followed both the card artwork and “Explore the gallery” from the live Playground. All twelve stills loaded. In each browser, Iris No. 04 opened and closed back to its focused tile, and browser Back returned to the Playground. Both layouts fit their viewports. Mobile verification used emulation. Local evidence is in `output/playwright/still-atlas-playground-production/`. [Production release](DEPLOYMENT.md)
+
 ## Authorized production release, November 3, 2026
 
 ### Audio recovery follow-up
