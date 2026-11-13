@@ -7,10 +7,14 @@ import LegacyBenchRecipe from '@/components/playground/LegacyBenchRecipe'
 import KeeperStoryPreview from '@/components/playground/KeeperStoryPreview'
 import '@/components/playground/playground-hub.css'
 
+const stillAtlasUrl = 'https://still-atlas-playground.pages.dev/'
+const previewSizes =
+  '(max-width: 760px) calc(100vw - 40px), (max-width: 1000px) 46vw, (max-width: 1552px) 30vw, 454px'
+
 export const metadata = createPageMetadata({
   title: 'Playground | Geometry, games and curious worlds',
   description:
-    'Make a geometric print or wake a sleeping world. Explore the Geometry Bench and The Portal Keeper, two interactive experiences by Joey Kubalak.',
+    'Make a print in Geometry Bench, wake a sleeping world in The Portal Keeper, or turn a sphere of twelve projects in Still Atlas. Explore Joey Kubalak’s Playground.',
   path: '/playground',
   image: { url: '/share/playground', alt: 'The Playground, with the Portal Keeper observatory' },
 })
@@ -26,8 +30,8 @@ export default function PlaygroundPage() {
           <span>curiosity.</span>
         </h1>
         <p>
-          A shape to make your own. A small world to wake up. This is where I turn interesting ideas
-          into things you can play with.
+          A shape to make your own. A small world to wake up. Twelve projects to spin through. This
+          is where I turn interesting ideas into things you can play with.
         </p>
       </header>
       <section className="playground-experiences folio-container" aria-label="Choose an experience">
@@ -76,7 +80,7 @@ export default function PlaygroundPage() {
               alt="The Portal Keeper's brass mirrors and sleeping doorway on a green miniature observatory"
               width={960}
               height={641}
-              sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1552px) 46vw, 700px"
+              sizes={previewSizes}
               loading="eager"
             />
           </Link>
@@ -92,6 +96,27 @@ export default function PlaygroundPage() {
             <Link className="folio-text-link" href="/work/portal-keeper">
               Behind the game <ArrowUpRight size={16} />
             </Link>
+          </div>
+        </article>
+        <article className="playground-experience playground-experience-atlas">
+          <a className="playground-preview" href={stillAtlasUrl} aria-label="Open Still Atlas">
+            <Image
+              src="/portfolio/still-atlas.webp"
+              alt="Project photographs and illustrations arranged in a sphere"
+              width={1200}
+              height={800}
+              sizes={previewSizes}
+            />
+          </a>
+          <h2>Still Atlas.</h2>
+          <p>
+            Turn a sphere of twelve project stills, or spread them into a grid. Open one for a
+            closer look, then pick up where you left off.
+          </p>
+          <div className="playground-experience-actions">
+            <a className="folio-button" href={stillAtlasUrl}>
+              Explore the gallery <ArrowUpRight size={18} />
+            </a>
           </div>
         </article>
       </section>

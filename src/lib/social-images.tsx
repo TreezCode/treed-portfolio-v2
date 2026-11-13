@@ -36,7 +36,7 @@ const pages: Record<string, SocialCard> = {
   },
   playground: {
     title: 'Follow your curiosity.',
-    subtitle: 'Make a geometric print. Wake a sleeping world.',
+    subtitle: 'Make a print. Wake a world. Spin a gallery.',
     label: 'The Playground',
     image: '/portfolio/portal-keeper/observatory.png',
     path: 'buildwithtreez.com/playground',
