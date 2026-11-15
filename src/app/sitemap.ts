@@ -23,6 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: path === 'work' ? 0.9 : 0.6,
     })),
+    {
+      url: 'https://buildwithtreez.com/playground/still-atlas',
+      lastModified: new Date('2026-11-14'),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
     ...indexablePortfolioProjects.map((project) => ({
       url: `https://buildwithtreez.com/work/${project.id}`,
       lastModified: new Date('2026-11-03'),

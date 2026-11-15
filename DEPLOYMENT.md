@@ -2,6 +2,8 @@
 
 Released November 3, 2026, after owner approval of the launch pass and clean Russound portfolio edition.
 
+The public Still Atlas gallery lives at [buildwithtreez.com/playground/still-atlas](https://buildwithtreez.com/playground/still-atlas). Netlify serves the gallery through a static Next.js route. The Playground card and sitemap point to that page. To update it, stage the approved gallery for the portfolio mount, place its HTML in `experiences/still-atlas/index.html`, and copy its public assets into `public/playground/still-atlas/`. The gallery supplies its own branded sharing image, CSS, fonts, and JavaScript.
+
 On November 13, 2026, Still Atlas joined Geometry Bench and The Portal Keeper on the Playground. The card artwork and its “Explore the gallery” button open the standalone gallery in the same tab. [Live Playground](https://buildwithtreez.com/playground) · [Still Atlas](https://still-atlas-playground.pages.dev/) · [PR #6](https://github.com/TreezCode/treed-portfolio-v2/pull/6) · [Fixed production deployment](https://6af76af1871b029c7241e67b--buildwithtreez.netlify.app/playground)
 
 The two-row portfolio navigation went live on November 10, 2026 at 12:19 a.m. New York time. Work, Playground, and Contact stay pinned. Scrolling up brings back the wordmark, About, and Resume. [PR #5](https://github.com/TreezCode/treed-portfolio-v2/pull/5) · [Fixed production deployment](https://6af2a93e922a089cee7f969e--buildwithtreez.netlify.app/)

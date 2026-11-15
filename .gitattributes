@@ -1,2 +1,6 @@
 # Historical vendor files retain exact bytes for their integrity hashes.
 public/archive/first-portfolio/vendor/** -text
+
+# Preserve the bytes exported by the tagged Still Atlas gallery.
+experiences/still-atlas/index.html -text
+public/playground/still-atlas/** -text
