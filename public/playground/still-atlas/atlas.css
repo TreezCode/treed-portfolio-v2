@@ -6,8 +6,8 @@
 .brand{display:inline-flex;align-items:center;font-size:clamp(18px,2vw,23px);font-weight:650;letter-spacing:-.065em}.brand svg{margin-right:9px;width:30px;height:30px;stroke-width:2.5;color:var(--moss)}.brand i,.accent{color:var(--moss);font-style:normal}.back-link{font-size:13px;font-weight:550}.back-link span{color:var(--moss);margin-left:5px}
 .intro{margin:0 var(--pad);padding:clamp(16px,3vh,34px) 0 10px;display:flex;align-items:end;justify-content:space-between;gap:12px}.intro h1,.detail-copy h2,.detail-brand{margin:0;font-weight:480;letter-spacing:-.085em;line-height:.99}.intro h1{font-size:clamp(54px,6.4vw,106px)}.intro em,.detail-brand em{font-family:"Atlas Italic",Georgia,serif;font-weight:400;letter-spacing:-.055em}.intro p{color:var(--muted);font-size:14px;margin:8px 0 0;letter-spacing:-.01em}
 .switch{display:flex;padding:4px;gap:3px;border:1px solid var(--rule);border-radius:30px;background:#1b211d}.switch button{display:flex;align-items:center;gap:8px;border-radius:24px;padding:9px 15px;min-height:40px;font-size:13px;color:var(--muted)}.switch [aria-pressed=true]{background:var(--moss);color:#182012}.sphere-icon{border:1px solid currentColor;border-radius:50%;width:15px;height:15px;position:relative}.sphere-icon:before{content:"";position:absolute;inset:0 3px;border-inline:1px solid currentColor;border-radius:50%}.sphere-icon:after{content:"";position:absolute;inset:6px 0 auto;border-top:1px solid currentColor}.grid-icon{width:13px;height:13px;background:linear-gradient(to right,transparent 42%,#1b211d 42% 58%,transparent 58%),linear-gradient(to bottom,transparent 42%,#1b211d 42% 58%,transparent 58%),currentColor}.switch [aria-pressed=true] .grid-icon{background:linear-gradient(to right,transparent 42%,var(--moss) 42% 58%,transparent 58%),linear-gradient(to bottom,transparent 42%,var(--moss) 42% 58%,transparent 58%),currentColor}
-.enhanced,#detail[hidden],#flight[hidden]{display:none}body.ready .switch,body.ready .foot{display:flex}body.ready #stage{display:block}body.ready #static-list{display:none}
-body.ready{height:100svh;min-height:330px;display:flex;flex-direction:column;overflow:hidden}.ready .mast{flex:none}.ready #gallery{min-height:0;flex:1;display:flex;flex-direction:column}
+.enhanced,#detail[hidden],#flight[hidden]{display:none}:is(body.ready, [data-atlas-boot=pending] body) .switch,:is(body.ready, [data-atlas-boot=pending] body) .foot{display:flex}:is(body.ready, [data-atlas-boot=pending] body) #stage{display:block}:is(body.ready, [data-atlas-boot=pending] body) #static-list{display:none}
+:is(body.ready, [data-atlas-boot=pending] body){height:100svh;min-height:330px;display:flex;flex-direction:column;overflow:hidden}:is(body.ready, [data-atlas-boot=pending] body) .mast{flex:none}:is(body.ready, [data-atlas-boot=pending] body) #gallery{min-height:0;flex:1;display:flex;flex-direction:column}
 #stage{position:relative;flex:1;min-height:0;isolation:isolate;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;background:radial-gradient(ellipse at 50% 52%,#242b24 0%,#1d231e 33%,var(--paper) 68%)}#stage.dragging{cursor:grabbing}
 #meridians,#tiles,.register{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .register:before,.register:after{content:"";width:9px;height:9px;position:absolute;top:50%;background:linear-gradient(to right,transparent 4px,#687366 4px 5px,transparent 5px),linear-gradient(to bottom,transparent 4px,#687366 4px 5px,transparent 5px)}.register:before{left:var(--pad)}.register:after{right:var(--pad)}
@@ -28,6 +28,54 @@ body.ready{height:100svh;min-height:330px;display:flex;flex-direction:column;ove
   .art-holder{height:min(calc((100vw - 2 * var(--pad)) * .75), calc(100svh - 265px));min-height:54px}
 }
 
+/* The first HTML frame and the interactive projection use the same responsive stage. */
+[data-atlas-boot=pending] #stage {container-type:size;cursor:default}
+[data-atlas-reader=pending] #stage {visibility:hidden}
+[data-atlas-boot=pending] :is(.switch,.foot,#stage) button {cursor:default}
+.opening-meridians {display:none}
+[data-atlas-boot=pending] #tiles {
+  --radius:min(32cqw,39.5cqh);
+  --size:min(14.5cqw,24.4cqh,194px);
+  --pitch-x:max(min(31cqw,65cqh),calc((100cqw + 44px)/3.24));
+  --pitch-y:max(min(calc(var(--pitch-x)*.71),47cqh),calc((100cqh + 44px)/2.205));
+}
+[data-atlas-boot=pending] .opening-meridians {
+  display:block;position:absolute;top:50%;left:50%;
+  width:calc(2.5 * var(--radius));height:calc(2.5 * var(--radius));transform:translate(-50%,-50%);
+}
+.opening-meridians polyline {stroke:rgb(180 200 160 / .14);stroke-width:.7;vector-effect:non-scaling-stroke}
+[data-atlas-boot=pending] .project-tile {
+  --grid-x:var(--wide-x);--grid-y:var(--wide-y);
+  --opening-width:min(calc(var(--pitch-x)*.76),calc(var(--pitch-y)*1.06));
+  left:calc(50% + var(--pitch-x)*var(--grid-x));top:calc(50% + var(--pitch-y)*var(--grid-y));
+  width:var(--opening-width);height:calc(var(--opening-width)*.75);transform-origin:center;
+  transform:translate(-50%,-50%);opacity:.5;z-index:var(--layer);
+}
+/* Scale the border and shadow with the image, just as the live button does. */
+@supports (transform:scale(calc(1px / 1px))) {
+  [data-atlas-boot=pending] .project-tile {
+    width:var(--size);height:calc(var(--size)*.75);
+    transform:translate(-50%,-50%) scale(calc(var(--opening-width)/var(--size)));
+  }
+}
+@container (width < 700px) {
+  [data-atlas-boot=pending] #tiles {
+    --radius:min(36.5cqw,39.5cqh);--size:min(24.2cqw,24.4cqh,194px);
+    --pitch-x:max(51cqw,calc((100cqw + 44px)/2.24));
+    --pitch-y:max(min(calc(var(--pitch-x)*.71),47cqh),calc((100cqh + 44px)/3.205));
+  }
+  [data-atlas-boot=pending] .project-tile {--grid-x:var(--narrow-x);--grid-y:var(--narrow-y)}
+}
+@media (prefers-reduced-motion:reduce) {
+  [data-atlas-boot=pending] .opening-meridians {display:none}
+  [data-atlas-boot=pending] .project-tile {opacity:1;z-index:100}
+  [data-atlas-boot=pending] .project-tile[data-id="01"] {z-index:101}
+}
+#tiles .project-tile img {
+  background-image:var(--preview-sheet);background-size:400% 300%;
+  background-position:var(--thumb-x) var(--thumb-y);color:transparent;font-size:0;
+}
+
 /* Reserve the same motion control in both layouts. */
 .browse-tools {display:flex;align-items:center;gap:14px}
 .foot .browse-tools #hint {position:static;transform:none}
@@ -43,11 +91,11 @@ body.ready{height:100svh;min-height:330px;display:flex;flex-direction:column;ove
 #orbit-toggle[aria-pressed=false] .pause-symbol {display:none}
 #orbit-toggle:is(:hover,:focus-visible) {border-color:var(--moss);color:var(--ink)}
 @media(prefers-reduced-motion:no-preference) {
-  .ready #orbit-toggle {display:inline-flex}
+  :is(body.ready, [data-atlas-boot=pending] body) #orbit-toggle {display:inline-flex}
   .ready:not([data-state=browse]) #orbit-toggle {visibility:hidden}
 }
 @media(min-width:701px) {
-  body.ready .foot {display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
+  :is(body.ready, [data-atlas-boot=pending] body) .foot {display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
   .foot .browse-tools #hint {min-inline-size:16em}
   .foot .caption {max-width:none}
   .pager {justify-self:end}
