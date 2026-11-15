@@ -2,6 +2,8 @@
 
 Released November 3, 2026, after owner approval of the launch pass and clean Russound portfolio edition.
 
+On November 15, 2026, Still Atlas began painting the twelve photos in their original rows before the interactive sphere starts. The branded gallery and fixed Netlify edition each passed 22 public file hash checks and 19 private-path checks. The Playground links, sitemap and legacy redirect all lead to the branded gallery. [Portfolio PR #8](https://github.com/TreezCode/treed-portfolio-v2/pull/8) · [Fixed production gallery](https://6af9e65534e5f94d687a273e--buildwithtreez.netlify.app/playground/still-atlas)
+
 Published November 14, 2026, on [portfolio PR #7](https://github.com/TreezCode/treed-portfolio-v2/pull/7). The release passed 41 hosted file and private-path checks. Desktop Chrome and phone-emulated WebKit opened both Playground card links, showed the sphere and alternating row motion, and restored the selected project after reloading its bookmark.
 
 The public Still Atlas gallery lives at [buildwithtreez.com/playground/still-atlas](https://buildwithtreez.com/playground/still-atlas). Netlify serves the gallery through a static Next.js route. The Playground card and sitemap point to that page. To update it, stage the approved gallery for the portfolio mount, place its HTML in `experiences/still-atlas/index.html`, and copy its public assets into `public/playground/still-atlas/`. The gallery supplies its own branded sharing image, CSS, fonts, and JavaScript.
@@ -18,7 +20,7 @@ The previous portfolio release was the November 4 temporary Russound hold and Po
 
 | Surface | URL | Release |
 | --- | --- | --- |
-| Portfolio | https://buildwithtreez.com | Git commit `e89f0f3f7bb38faf48409fa2bc9bdddeb3870cb6`; Netlify deploy `6af93b60aba90e35f423e23a` |
+| Portfolio | https://buildwithtreez.com | Git commit `ce732b27a20e78ee3e15220623a6a88caaedaeef`, Netlify deploy `6af9e65534e5f94d687a273e` |
 | Clean Russound experience | https://treez-russound-experience.netlify.app | Netlify deploy `6aea1fb01491af4b74be38d7`; immutable 81-file `experiences/russound/release/upload` artifact |
 
 The initial portfolio [PR #2](https://github.com/TreezCode/treed-portfolio-v2/pull/2) was merged at 18:01:46 UTC, publishing commit `6173ee9356ac1c947e75871cdbdac69656d19811` as deploy `6aea218d53f77b439f44e0f5`. The follow-up above supersedes that deployment. Local `main` was fast-forwarded to the merged release. Later documentation-only commits do not change these deployed application bytes.
