@@ -18,7 +18,7 @@ test('hub offers all three experiences; dedicated bench keeps its canonical and 
   for (const name of ['Open Still Atlas', 'Explore the gallery']) {
     await expect(atlas.getByRole('link', { name, exact: true })).toHaveAttribute(
       'href',
-      'https://still-atlas-playground.pages.dev/'
+      '/playground/still-atlas'
     )
   }
   await expect(page.locator('canvas')).toHaveCount(0)
@@ -38,6 +38,29 @@ test('hub offers all three experiences; dedicated bench keeps its canonical and 
   await page.reload({ waitUntil: 'networkidle' })
   await expect(page).toHaveURL((url) => url.pathname === hub && url.hash === '')
   await expect(page.locator('canvas')).toHaveCount(0)
+})
+
+test('the gallery card opens a first-party document and the project bookmark survives a reload', async ({
+  page,
+}) => {
+  const gallery = '/playground/still-atlas'
+  await page.goto(hub)
+  await page.getByRole('link', { name: 'Explore the gallery', exact: true }).click()
+  await expect(page).toHaveURL((url) => url.pathname === gallery && url.hash === '')
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    'href',
+    'https://buildwithtreez.com/playground/still-atlas'
+  )
+  await page.getByRole('button', { name: 'Grid', exact: true }).click()
+  const tile = page.getByRole('button', { name: 'Open Fieldpost Press', exact: true })
+  await tile.focus()
+  await tile.press('Enter')
+  await expect(page).toHaveURL((url) => url.pathname === gallery && url.hash === '#project/fieldpost-press')
+  await page.reload()
+  await expect(page.getByRole('heading', { name: 'Fieldpost Press', exact: true })).toBeVisible()
+  await page.getByRole('button', { name: 'Close project', exact: true }).click()
+  await expect(page).toHaveURL((url) => url.pathname === gallery && url.hash === '')
+  await expect(tile).toBeFocused()
 })
 
 test('legacy recipe preserves query and settings, then copies the new route', async ({

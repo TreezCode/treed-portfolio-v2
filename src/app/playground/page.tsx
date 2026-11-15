@@ -7,7 +7,7 @@ import LegacyBenchRecipe from '@/components/playground/LegacyBenchRecipe'
 import KeeperStoryPreview from '@/components/playground/KeeperStoryPreview'
 import '@/components/playground/playground-hub.css'
 
-const stillAtlasUrl = 'https://still-atlas-playground.pages.dev/'
+const stillAtlasUrl = '/playground/still-atlas'
 const previewSizes =
   '(max-width: 760px) calc(100vw - 40px), (max-width: 1000px) 46vw, (max-width: 1552px) 30vw, 454px'
 
